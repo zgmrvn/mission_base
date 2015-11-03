@@ -1,0 +1,45 @@
+author 			= "[CORP] zgmrvn";
+onLoadName		= "Mission framework";
+loadScreen		= "data\images\loadScreen.paa";
+onLoadMission	= "Texte de l'écran de chargement";
+overviewText	= "Lobby description";
+
+enableDebugConsole = 1;
+
+respawn			= "BASE";
+respawndelay	= 10;
+briefing		= 1;
+debriefing		= 1;
+saving			= 0;
+disabledAI		= 1;
+
+showCompass	= 1;
+showMap		= 1;
+showGPS		= 0;
+showWatch	= 1;
+showPad		= 0;
+showRadio	= 0;
+
+corpseLimit 			= 30;
+corpseRemovalMinTime	= 120;
+corpseRemovalMaxTime	= 180;
+wreckLimit				= 20;
+wreckRemovalMinTime		= 120;
+wreckRemovalMaxTime		= 180;
+enableItemsDropping		= 1;
+forceRotorLibSimulation	= 2;
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 12;
+};
+
+class CfgFunctions {
+	#include "functions\cfgFunctions.hpp"
+};
+
+class Params {
+	#include "mission\intro\params.hpp"
+};

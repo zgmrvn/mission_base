@@ -1,0 +1,1 @@
+[player] joinSilent grpNull;

@@ -1,0 +1,1 @@
+CRP_fnc_yourCustomFunction = compileFinal preprocessFileLineNumbers "functions\Action\fn_yourCustomFunction.sqf";
