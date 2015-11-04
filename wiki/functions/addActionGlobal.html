@@ -5,21 +5,48 @@
 <head>
 	<meta charset="utf-8">
 	<title>addActionGlobal</title>
+	<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
 	<h1>addActionGlobal</h1>
+
+	<hr>
+
 	<p>
-		Cette fonction permet de de gérer des actions de manière globale.
+		Description : Cette fonction permet d'ajouter une action chez tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créer. La problématique de JIP est prise en compte.
 	</p>
+
+	<hr>
+
+	<p>
+		Syntaxe : <span class="code">[objet, titre, script, label, supprObjet, supprAction] call CRP_fnc_addActionGlobal</span>
+	</p>
+
+	<p>Paramètres :</p>
 	<ul>
-		<li>Object - l'oject sur lequel ajouter l'action</li>
-		<li>String - le titre de l'action</li>
-		<li>String - le script à éxecuter (global). objNull si pas de script</li>
-		<li>String - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone"</li>
-		<li>Bool - faut-il supprimer l'objet</li>
-		<li>Bool - faut-il supprimer l'action</li>
+		<li>objet : <span class="code">object</span> - l'object sur lequel ajouter l'action</li>
+		<li>titre : <span class="code">string</span> - le titre de l'action</li>
+		<li>script : <span class="code">string</span> - le script à éxecuter (global). passer objNull si pas de script</li>
+		<li>label : <span class="code">string</span> - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone"</li>
+		<li>supprObjet : <span class="code">bool</span> - faut-il supprimer l'objet</li>
+		<li>supprAction : <span class="code">bool</span> - faut-il supprimer l'action</li>
 	</ul>
+
+	<hr>
+
+	<p>exemple :</p>
+	<p class="code">
+		[<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;_ordinateur,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;"<t color='#FF0000'>Pirater ordinateur</t>",<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;"autoDestruction.sqf",<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;"piratage",<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;false,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;true<br>
+		] call CRP_fnc_addActionGlobal;
+	</p>
+
 </body>
 
 </html>
