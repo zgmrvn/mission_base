@@ -12,7 +12,6 @@ class Mission
 	{
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
-		"A3_Weapons_F_Ammoboxes",
 		"map_vr"
 	};
 	randomSeed=14569173;
@@ -44,7 +43,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7523.0664,5,7452.4604};
+					position[]={7519.9521,5,7452.4604};
 					id=0;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
@@ -62,7 +61,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7520.0435,5,7452.4434};
+					position[]={7519.9019,5,7449.04};
 					id=1;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
@@ -71,46 +70,6 @@ class Mission
 					skill=0.60000002;
 				};
 			};
-		};
-	};
-	class Vehicles
-	{
-		items=4;
-		class Item0
-		{
-			position[]={7519.0986,5,7459.2041};
-			id=2;
-			side="EMPTY";
-			vehicle="B_supplyCrate_F";
-			skill=0.60000002;
-			init="[this, ""<t color='#FF0000'>custom from editor alone</t>"", objNull, ""test4"", false, false] call CRP_fnc_addActionGlobal;";
-		};
-		class Item1
-		{
-			position[]={7524.1582,5,7459.1509};
-			id=3;
-			side="EMPTY";
-			vehicle="B_supplyCrate_F";
-			skill=0.60000002;
-			text="scriptingAmmoBox";
-		};
-		class Item2
-		{
-			position[]={7514.04,5,7459.2397};
-			id=4;
-			side="EMPTY";
-			vehicle="B_supplyCrate_F";
-			skill=0.60000002;
-			init="this addAction [""<t color='#FF0000'>champs d'init. via éditeur</t>"", {hint ""Action par défaut, ajoutée depuis l'éditeur dans le champs d'initialisation de la caisse sans aucun filtre de localité.""}];";
-		};
-		class Item3
-		{
-			position[]={7528.8545,5,7459.0835};
-			id=5;
-			side="EMPTY";
-			vehicle="B_supplyCrate_F";
-			skill=0.60000002;
-			text="scriptingAmmoBox2";
 		};
 	};
 };

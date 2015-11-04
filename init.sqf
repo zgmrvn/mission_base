@@ -8,39 +8,36 @@
 
 // from here both client and server are ready
 // write whatever you whant
-[
-	scriptingAmmoBox,
-	"<t color='#FF0000'>custom from scripting 1</t>",
-	"mission\addActionScript.sqf",
-	"test1",
-	false,
-	true
-] call CRP_fnc_addActionGlobal;
-
-[
-	scriptingAmmoBox,
-	"<t color='#FF0000'>2e action</t>",
-	"mission\addActionScript.sqf",
-	"test5",
-	false,
-	true
-] call CRP_fnc_addActionGlobal;
-
-[
-	scriptingAmmoBox2,
-	"<t color='#FF0000'>custom from scripting 2</t>",
-	"mission\create.sqf",
-	"test2",
-	true,
-	true
-] call CRP_fnc_addActionGlobal;
-
-if (!isNil {scriptingAmmoBox3}) then {
+/*
+if (!isDedicated) then {
+	_clientBox = createVehicle ["B_supplyCrate_F", [7515,7456,0], [], 0, "NONE"];
 	[
-		scriptingAmmoBox3,
-		"<t color='#FF0000'>removed object</t>",
-		objNull,
-		"destroyed",
+		_clientBox,
+		"<t color='#FF0000'>client</t>",
+		"mission\addActionScript.sqf",
+		"client",
+		false,
+		true
+	] call CRP_fnc_addActionGlobal;
+};
+*/
+if (isServer) then {
+	_serverBox = createVehicle ["B_supplyCrate_F", [7520,7456,0], [], 0, "NONE"];
+
+	[
+		_serverBox,
+		"<t color='#FF0000'>Première action ajoutée depuis le serveur</t>",
+		"mission\addActionScript.sqf",
+		"serverSideAction1",
+		false,
+		true
+	] call CRP_fnc_addActionGlobal;
+
+	[
+		_serverBox,
+		"<t color='#FF0000'>Deuxième action ajoutée depuis le serveur</t>",
+		"mission\addActionScript.sqf",
+		"serverSideAction2",
 		true,
 		true
 	] call CRP_fnc_addActionGlobal;
