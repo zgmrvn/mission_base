@@ -1,25 +1,23 @@
 # Framework de mission #
-Ce framework vise à offrir des solutions de scripts afin de corriger certains problèmes récurrence rencontrés en mission.
+Ce framework vise à offrir des solutions de scripts afin de corriger certains problèmes récurrents.
 
 ## fonctions ##
 
 ### addActionGlobal ###
-Cette fonction permet d'ajouter une action chez tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créer. La problématique de JIP est prise en compte.
-
+Cette fonction permet d'ajouter une action dans le menu d'action pour tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé et permet d'éviter les problèmes de JIP.
 ```
 #!sqf
-
 [
 	_ammoBox,							// l'objet sur lequel ajouter l'action
 	"<t color='#FF0000'>My action</t>",	// titre de l'action
 	"addActionScript.sqf",				// un script qui sera exécuté côté client et serveur
 	"actionLabel",						// un label, pour différencier les actions lorsqu'il y en a plusieurs sur le même objet
 	false,								// faut-il supprimer l’objet lorsque l'action est déclenchée
-	true								// faut-il supprimer l'action lorsqu'elle est déclenchée (pas d'importance si l'objet est supprimé)
+	true								// faut-il supprimer l'action lorsqu'elle est déclenchée (global)
 ] call CRP_fnc_addActionGlobal;
 ```
 
 ## autres fonctionnalités ##
 
 ### Gestion de l'intro ###
-Merci d'utiliser le fichier déjà présent dans la mission pour votre intro. Il est possible de jouer l'intro ou non depuis les paramètres de mission. L'intro ne sera pas rejouée en cas de reconnexion.
+Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier "mission\intro\intro.sqf". Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être joué. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission.
