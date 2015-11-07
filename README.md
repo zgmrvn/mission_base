@@ -21,3 +21,6 @@ Cette fonction permet d'ajouter une action dans le menu d'action pour tous les c
 
 ### Gestion de l'intro ###
 Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier "mission\intro\intro.sqf". Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être joué. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission.
+
+### Dégroupage auto ###
+Le framework embarque déjà la fonctionnalité de dégroupage au démarrage de la mission, ce qui vous permet de grouper vos unités depuis l'éditeur sans risquer d'avoir des communications et autres ordres automatiques.
