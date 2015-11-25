@@ -28,9 +28,11 @@
 */
 
 /*
-	remplacer la référence par une random string
+	remplacer la référence par une random string, s'assurer que ça ne pose pas de problème pour la vérification avant ajout dans le cas d'une exécution coté client et serveur à la fois
 	remplacer les remoteExec de BIS_fnc_spawn par un bloc dans la fonction et un paramètre facultatif afin réduire la charge réseau
 	rendre le paramère suppression action facultatif
+	ajouter un paramètre de distance pour l'action
+	séparer script serveur, script client
 */
 
 #define ACTIONS_ARRAY "CRP_var_actionsArray"

@@ -40,6 +40,19 @@ class CfgFunctions {
 	#include "functions\cfgFunctions.hpp"
 };
 
+// paramètres et classes de base des dialogs
+#include "core\defines.hpp"
+#include "core\ui.hpp"
+
+// module de de gestion de l'intro
+#include "modules\intro\config.hpp"
+
+// module de téléportation vers un joueur
+#include "modules\teleportToLeader\config.hpp"
+#include "modules\teleportToLeader\ui.hpp"
+
+// paramètres de missions
+// disponibles depuis le lobby
 class Params {
-	#include "mission\intro\params.hpp"
+	#include "modules\intro\params.hpp"
 };

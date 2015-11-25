@@ -12,7 +12,7 @@ _camera camCommitPrepared 1;
 waitUntil {camCommitted _camera};
 
 0 cutText ["", "BLACK OUT",0];
-sleep 2;
+sleep 1;
 0 cutText ["", "BLACK IN",1];
 
 player cameraEffect ["terminate","back"];
