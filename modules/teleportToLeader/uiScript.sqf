@@ -16,7 +16,7 @@
 	} forEach allPlayers;
 
 	_close ctrlAddEventHandler ["MouseButtonDown", {
-		systemChat str _this;
+		closeDialog TELEPORT_DIALOG_IDD;
 	}];
 
 	_teleport ctrlAddEventHandler ["MouseButtonDown", {
