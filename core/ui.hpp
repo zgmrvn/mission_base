@@ -28,3 +28,17 @@ class BaseBackgroundBox: RscText {
 
 	colorBackground[] = BACKGROUND_COLOR_BASE;
 };
+
+class CancelButton: RscButton {
+	idc = -1;
+
+	text = "Annuler";
+	colorBackground[] = {0.1, 0.1, 0.1, 1};
+};
+
+class ValideButton: RscButton {
+	idc = -1;
+
+	text = "Valider";
+	colorBackground[] = {0.1, 0.1, 0.1, 1};
+};

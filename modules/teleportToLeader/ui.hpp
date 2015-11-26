@@ -23,21 +23,20 @@ class TeleportToLeaderDialog {
 			h = safeZoneH * 0.52;
 
 			colorBackground[] = {0.1, 0.1, 0.1, 1};
+			rowHeight = safeZoneH * 0.05;
+
 		};
 
-		class CloseButton: RscButton {
+		class CloseButton: CancelButton {
 			idc = TELEPORT_CLOSE_IDC;
 
 			x = safeZoneX + safeZoneW * 0.4;
 			y = safeZoneY + safeZoneH * 0.74;
 			w = safeZoneW * 0.0975;
 			h = safeZoneH * 0.05;
-
-			text = "Annuler";
-			colorBackground[] = {0.1, 0.1, 0.1, 1};
 		};
 
-		class TeleportButton: RscButton {
+		class TeleportButton: ValideButton {
 			idc = TELEPORT_TELEPORT_IDC;
 
 			x = safeZoneX + safeZoneW * 0.5025;
@@ -46,7 +45,6 @@ class TeleportToLeaderDialog {
 			h = safeZoneH * 0.05;
 
 			text = "Téléportation";
-			colorBackground[] = {0.1, 0.1, 0.1, 1};
 		};
 	};
 };
