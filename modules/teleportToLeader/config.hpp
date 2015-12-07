@@ -1,10 +1,13 @@
 class TeleportToLeader {
 	// activer ou désactiver le module
-	enable = 1;
+	enabled = 1;
 
-	// liste des coordonnées ATL où créer les drapeaux
+	// liste des nom des drapeaux créés par le module "ActionsFlags" sur lesquels il faut ajouter l'action
 	flags[] = {
-		{7521, 7456, 0},
-		{7523, 7456, 0}
+		/*
+		"base",
+		"respawn"
+		*/
+		"base"
 	};
 };
