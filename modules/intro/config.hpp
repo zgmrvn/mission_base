@@ -1,4 +1,4 @@
 class Intro {
 	// activer ou désactiver le module
-	enable = 1;
+	enabled = 0;
 };
