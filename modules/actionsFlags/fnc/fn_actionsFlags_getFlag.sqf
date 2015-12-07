@@ -1,0 +1,1 @@
+[CRP_var_actionsFlags_flags, _this] call BIS_fnc_getFromPairs
