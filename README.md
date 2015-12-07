@@ -23,7 +23,7 @@ Cette fonction permet d'ajouter une action dans le menu d'action pour tous les c
 Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier "mission\intro\intro.sqf". Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être joué. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission. Vous pouvez désactiver l'intro depuis le fichier de configuration du module ``` modules/intro/config.hpp ```.
 
 ### Module de création de drapeaux ###
-permet de crééer simplement des drapeaux qui pourront être utilisés par les différents modules et scripts. Configurez simplement les noms et positions des drapeaux depuis le fichier de configuration ``` modules/actionsFlags/config.hpp ``` et ils seront automatiquement créés.
+permet de créer simplement des drapeaux qui pourront être utilisés par les différents modules et scripts. Configurez simplement les noms et positions des drapeaux depuis le fichier de configuration ``` modules/actionsFlags/config.hpp ``` et ils seront automatiquement créés.
 
 pour récupérer un drapeau dans l'un de vos scripts vous pouvez utiliser la fonction ``` CRP_fnc_actionsFlags_getFlag ``` qui prend en paramètre le nom d'un des drapeaux, exemple :
 ```
