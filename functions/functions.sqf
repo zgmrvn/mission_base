@@ -1,1 +1,1 @@
-CRP_fnc_yourCustomFunction = compile preprocessFileLineNumbers "functions\Actions\fn_yourCustomFunction.sqf";
+CRP_fnc_actionsFlags_getFlag = compile preprocessFileLineNumbers "modules\actionsFlags\fnc\fn_actionsFlags_getFlag.sqf";
