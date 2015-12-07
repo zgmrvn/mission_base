@@ -1,7 +1,7 @@
 // module de gestion de l'intro
 // déclaration du tableau de comptabilisation des joueurs
-X_alreadyConnected = [];
+CRP_var_intro_alreadyConnected = [];
 
-// module de téléportation sur le chef d'équipe, partie serveur
-// script de création des drapeaux de téléportation
-#include "..\modules\teleportToLeader\scriptServer.sqf"
+// module de création de drapeaux utilisables
+// par les différents scripts et modules pour l'ajout d'actions
+#include "..\modules\actionsFlags\script.sqf"

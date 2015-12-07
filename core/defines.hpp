@@ -92,15 +92,6 @@
 #define MB_BUTTON_CANCEL  2
 #define MB_BUTTON_USER    4
 
-// Fonts
-#define GUI_FONT_NORMAL			PuristaMedium
-#define GUI_FONT_BOLD			PuristaSemibold
-#define GUI_FONT_THIN			PuristaLight
-#define GUI_FONT_MONO			EtelkaMonospacePro
-#define GUI_FONT_NARROW			EtelkaNarrowMediumPro
-#define GUI_FONT_CODE			LucidaConsoleB
-#define GUI_FONT_SYSTEM			TahomaB
-
 
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
@@ -185,6 +176,7 @@ class RscStructuredText
 	{
 		font = "PuristaMedium";
 		color = "#ffffff";
+		colorLink = "#D09B43";
 		align = "left";
 		shadow = 1;
 	};
@@ -265,7 +257,7 @@ class RscEdit
 		0,
 		0,
 		0,
-		1
+		0
 	};
 	colorText[] =
 	{
@@ -352,6 +344,13 @@ class RscCombo
 		0,
 		1
 	};
+	colorDisabled[] =
+	{
+		1,
+		1,
+		1,
+		0.25
+	};
 	colorPicture[] =
 	{
 		1,
@@ -366,12 +365,54 @@ class RscCombo
 		1,
 		1
 	};
-	colorPictudeDisabled[] =
+	colorPictureDisabled[] =
 	{
 		1,
 		1,
 		1,
 		0.25
+	};
+	colorPictureRight[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorPictureRightSelected[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorPictureRightDisabled[] =
+	{
+		1,
+		1,
+		1,
+		0.25
+	};
+	colorTextRight[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorSelectRight[] =
+	{
+		0,
+		0,
+		0,
+		1
+	};
+	colorSelect2Right[] =
+	{
+		0,
+		0,
+		0,
+		1
 	};
 	tooltipColorText[] =
 	{
@@ -448,20 +489,6 @@ class RscCombo
 		0,
 		1
 	};
-	colorDisabled[] =
-	{
-		1,
-		1,
-		1,
-		0.25
-	};
-	colorPictureDisabled[] =
-	{
-		1,
-		1,
-		1,
-		1
-	};
 };
 class RscListBox
 {
@@ -469,8 +496,6 @@ class RscListBox
 	fade = 0;
 	access = 0;
 	type = 5;
-	w = 0.4;
-	h = 0.4;
 	rowHeight = 0;
 	colorText[] =
 	{
@@ -553,12 +578,54 @@ class RscListBox
 		1,
 		1
 	};
-	colorPictudeDisabled[] =
+	colorPictureDisabled[] =
 	{
 		1,
 		1,
 		1,
 		0.25
+	};
+	colorPictureRight[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorPictureRightSelected[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorPictureRightDisabled[] =
+	{
+		1,
+		1,
+		1,
+		0.25
+	};
+	colorTextRight[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorSelectRight[] =
+	{
+		0,
+		0,
+		0,
+		1
+	};
+	colorSelect2Right[] =
+	{
+		0,
+		0,
+		0,
+		1
 	};
 	tooltipColorText[] =
 	{
@@ -592,6 +659,10 @@ class RscListBox
 		};
 		autoScrollEnabled = 1;
 	};
+	x = 0;
+	y = 0;
+	w = 0.3;
+	h = 0.3;
 	style = 16;
 	font = "PuristaMedium";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
@@ -605,13 +676,6 @@ class RscListBox
 	};
 	period = 1.2;
 	maxHistoryDelay = 1;
-	colorPictureDisabled[] =
-	{
-		1,
-		1,
-		1,
-		1
-	};
 };
 class RscButton
 {
@@ -832,6 +896,37 @@ class RscShortcutButton
 	shadow = 1;
 	w = 0.183825;
 	h = "((((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+	textSecondary = "";
+	colorSecondary[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorFocusedSecondary[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	color2Secondary[] =
+	{
+		0.95,
+		0.95,
+		0.95,
+		1
+	};
+	colorDisabledSecondary[] =
+	{
+		1,
+		1,
+		1,
+		0.25
+	};
+	sizeExSecondary = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	fontSecondary = "PuristaMedium";
 	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
@@ -944,6 +1039,10 @@ class RscFrame
 	font = "PuristaMedium";
 	sizeEx = 0.02;
 	text = "";
+	x = 0;
+	y = 0;
+	w = 0.3;
+	h = 0.3;
 };
 class RscSlider
 {
@@ -952,7 +1051,6 @@ class RscSlider
 	access = 0;
 	type = 3;
 	style = 1024;
-	w = 0.3;
 	color[] =
 	{
 		1,
@@ -968,6 +1066,9 @@ class RscSlider
 		1
 	};
 	shadow = 0;
+	x = 0;
+	y = 0;
+	w = 0.3;
 	h = 0.025;
 };
 class IGUIBack
@@ -1078,16 +1179,16 @@ class RscCheckBox
 		0,
 		0
 	};
-	textureChecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	textureFocusedChecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureFocusedUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	textureHoverChecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureHoverUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	texturePressedChecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	texturePressedUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	textureDisabledChecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureDisabledUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+	textureChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+	textureUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+	textureFocusedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+	textureFocusedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+	textureHoverChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+	textureHoverUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+	texturePressedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+	texturePressedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+	textureDisabledChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+	textureDisabledUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
 	tooltipColorText[] =
 	{
 		1,
@@ -1161,8 +1262,8 @@ class RscTextCheckBox
 	{
 		0,
 		0,
-		1,
-		1
+		0,
+		0
 	};
 	colorTextSelect[] =
 	{
@@ -1306,6 +1407,37 @@ class RscButtonMenu
 		1,
 		0.25
 	};
+	textSecondary = "";
+	colorSecondary[] =
+	{
+		1,
+		1,
+		1,
+		1
+	};
+	colorFocusedSecondary[] =
+	{
+		0,
+		0,
+		0,
+		1
+	};
+	color2Secondary[] =
+	{
+		0,
+		0,
+		0,
+		1
+	};
+	colorDisabledSecondary[] =
+	{
+		1,
+		1,
+		1,
+		0.25
+	};
+	sizeExSecondary = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	fontSecondary = "PuristaLight";
 	period = 1.2;
 	periodFocus = 1.2;
 	periodOver = 1.2;
@@ -1348,10 +1480,10 @@ class RscButtonMenu
 	};
 	class ShortcutPos
 	{
-		left = "(6.25 * (((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
-		top = 0.005;
-		w = 0.0225;
-		h = 0.03;
+		left = "5.25 * (((safezoneW / safezoneH) min 1.2) / 40)";
+		top = 0;
+		w = "1 * (((safezoneW / safezoneH) min 1.2) / 40)";
+		h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	};
 	soundEnter[] =
 	{
