@@ -47,9 +47,18 @@ class CfgFunctions {
 // module de de gestion de l'intro
 #include "modules\intro\config.hpp"
 
+// module de création de drapeaux
+// utilisable par les modules et scripts mission
+// pour ajouter des actions
+#include "modules\actionsFlags\config.hpp"
+
 // module de téléportation vers un joueur
 #include "modules\teleportToLeader\config.hpp"
 #include "modules\teleportToLeader\ui.hpp"
+
+// module de caméra spectateur
+#include "modules\spectatorCamera\config.hpp"
+#include "modules\spectatorCamera\ui.hpp"
 
 // paramètres de missions
 // disponibles depuis le lobby

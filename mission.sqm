@@ -6,12 +6,14 @@ class Mission
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
 		"A3_Weapons_F_Ammoboxes",
-		"map_vr"
+		"map_vr",
+		"A3_Characters_F_OPFOR"
 	};
 	addOnsAuto[]=
 	{
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
+		"A3_Characters_F_OPFOR",
 		"map_vr"
 	};
 	randomSeed=14569173;
@@ -34,7 +36,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=1;
+		items=3;
 		class Item0
 		{
 			side="WEST";
@@ -43,7 +45,7 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={7519.5483,5,7444.3511};
+					position[]={7521.1265,5,7448.5146};
 					id=0;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
@@ -53,7 +55,7 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={7523.4126,5,7449.5688};
+					position[]={7517.1924,5,7448.6685};
 					id=1;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
@@ -61,6 +63,114 @@ class Mission
 					leader=1;
 					rank="SERGEANT";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item1
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={7476.0347,3.991333,7492.2388};
+					id=2;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+				};
+				class Item1
+				{
+					position[]={7471.6372,5,7487.4209};
+					id=3;
+					side="WEST";
+					vehicle="B_Soldier_GL_F";
+					rank="SERGEANT";
+					skill=0.60000002;
+				};
+			};
+			class Waypoints
+			{
+				items=3;
+				class Item0
+				{
+					position[]={7475.5415,4.114624,7560.0981};
+					combatMode="BLUE";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item1
+				{
+					position[]={7568.1074,4.1125488,7560.3428};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item2
+				{
+					position[]={7475.834,4.3858643,7466.6226};
+					type="CYCLE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+			};
+		};
+		class Item2
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={7597.0234,5,7570.3906};
+					id=4;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					skill=0.60000002;
+				};
+				class Item1
+				{
+					position[]={7590.4063,5,7577.2524};
+					id=5;
+					side="EAST";
+					vehicle="O_Soldier_TL_F";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+				};
+			};
+			class Waypoints
+			{
+				items=2;
+				class Item0
+				{
+					position[]={7590.8965,5,7478.7363};
+					combatMode="BLUE";
+					speed="LIMITED";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item1
+				{
+					position[]={7523.9937,5,7577.498};
+					type="CYCLE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
 				};
 			};
 		};
