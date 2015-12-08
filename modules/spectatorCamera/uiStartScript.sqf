@@ -7,7 +7,8 @@ CRP_var_spectatorCamera_cameraKeys	= [];
 CRP_var_spectatorCamera_MainClick	= false;
 CRP_var_spectatorCamera_mouseDelta	= [];
 CRP_var_spectatorCamera_cameraData	= [0, 0];
-CRP_var_spectatorCamera_loop 		= false;
+CRP_var_spectatorCamera_keysLoop	= false;
+CRP_var_spectatorCamera_tracesLoop	= false;
 
 [] spawn {
 	waitUntil {!(isNull (findDisplay SPECTATOR_DIALOG_IDD))};
@@ -124,7 +125,9 @@ Z_var_segments = 75;
 
 
 [] spawn {
-	while {true} do {
+	CRP_var_spectatorCamera_tracesLoop = true;
+
+	while {CRP_var_spectatorCamera_tracesLoop} do {
 		{
 			_index = _x getVariable "CRP_var_index";
 

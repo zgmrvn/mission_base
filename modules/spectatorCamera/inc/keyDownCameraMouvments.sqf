@@ -12,11 +12,11 @@ if ((_this select 1) == 1) exitWith {false};
 
 // boucle pour éviter les "lags" de touche sur les mouvements de caméra
 // si une boucle n'est pas déjà en cours
-if (!CRP_var_spectatorCamera_loop) then {
-	CRP_var_spectatorCamera_loop = true;
+if (!CRP_var_spectatorCamera_keysLoop) then {
+	CRP_var_spectatorCamera_keysLoop = true;
 
 	[] spawn {
-		while {CRP_var_spectatorCamera_loop} do {
+		while {CRP_var_spectatorCamera_keysLoop} do {
 			_newPos = [];
 
 			{

@@ -11,4 +11,5 @@ CRP_var_spectatorCamera_cameraKeys	= nil;
 CRP_var_spectatorCamera_MainClick	= nil;
 CRP_var_spectatorCamera_mouseDelta	= nil;
 CRP_var_spectatorCamera_cameraData	= nil;
-CRP_var_spectatorCamera_loop 		= nil;
+CRP_var_spectatorCamera_keysLoop	= nil;
+CRP_var_spectatorCamera_tracesLoop	= nil;
