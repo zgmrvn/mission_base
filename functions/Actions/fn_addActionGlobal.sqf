@@ -97,7 +97,7 @@ if (!isDedicated) then {
 			// if a script has been given, run it
 			if ((typeName _script) == "STRING") then {
 				// if object has not been removed, pass it to the script
-				_data = if (_removeObject) then {[]} else {[_object]};
+				_data = if (_removeObject) then {[_this select 1]} else {[_this select 1, _object]};
 
 				// run script for everyone
 				[_data, _script] remoteExec ["BIS_fnc_execVM", 0];
