@@ -4,7 +4,7 @@ Ce framework vise à offrir des solutions de scripts afin de corriger certains p
 ## fonctions ##
 
 ### addActionGlobal ###
-Cette fonction permet d'ajouter une action dans le menu d'action pour tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé et permet d'éviter les problèmes de JIP. un tableau contenant le joueur ayant déclenché l'action est passé au script. S'il n'a pas été supprimé, ce tableau contiendra en plus l'objet sur lequel a été ajouté l'action.
+Cette fonction permet d'ajouter une action dans le menu d'action pour tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé et permet d'éviter les problèmes de JIP. Un tableau contenant le joueur ayant déclenché l'action est passé au script. S'il n'a pas été supprimé, ce tableau contiendra en plus l'objet sur lequel a été ajouté l'action.
 ```
 #!sqf
 [
