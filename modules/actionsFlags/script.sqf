@@ -7,7 +7,7 @@ CRP_var_actionsFlags_flags = [];
 	_name	= _x select 0;
 	_pos	= _x select 1;
 
-	_flag = createVehicle ["FlagPole_F", _pos, [], 0, "NONE"];
+	_flag = createVehicle ["FlagPole_F", _pos, [], 0, "CAN_COLLIDE"];
 
 	[CRP_var_actionsFlags_flags, _name, _flag] call BIS_fnc_setToPairs;
 
