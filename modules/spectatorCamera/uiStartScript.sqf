@@ -2,7 +2,7 @@
 
 // déclaration des variables du module
 CRP_var_spectatorCamera_camera		= objNull;
-CRP_var_spectatorCamera_actions		= ["MoveForward", "MoveBack", "TurnLeft", "TurnRight", "LeanLeft", "Prone"];
+CRP_var_spectatorCamera_actions		= ["MoveForward", "MoveBack", "TurnLeft", "TurnRight", "LeanLeft", "MoveDown"];
 CRP_var_spectatorCamera_cameraKeys	= [];
 CRP_var_spectatorCamera_MainClick	= false;
 CRP_var_spectatorCamera_mouseDelta	= [];
@@ -11,7 +11,7 @@ CRP_var_spectatorCamera_keysLoop	= false;
 CRP_var_spectatorCamera_tracesLoop	= false;
 
 [] spawn {
-	waitUntil {!(isNull (findDisplay SPECTATOR_DIALOG_IDD))};
+	waitUntil {!isNull (findDisplay SPECTATOR_DIALOG_IDD)};
 
 	disableSerialization;
 

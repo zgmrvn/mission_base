@@ -4,7 +4,7 @@ class SpectatorCameraDialog {
 	idd = SPECTATOR_DIALOG_IDD;
 
 	onLoad		= "['onLoad', _this, 'SpectatorCameraDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\spectatorCamera\uiStartScript.sqf';";
-	onUnload	= "['onUnload',_this,'SpectatorCameraDialog','GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\spectatorCamera\uiStopScript.sqf';";
+	onUnload	= "['onUnload', _this, 'SpectatorCameraDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\spectatorCamera\uiStopScript.sqf';";
 
 	class controlsBackground {
 		class EventCtrl: RscListBox {
