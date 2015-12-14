@@ -36,13 +36,13 @@ class Mission
 	};
 	class Groups
 	{
-		items=3;
+		items=4;
 		class Item0
 		{
 			side="WEST";
 			class Vehicles
 			{
-				items=2;
+				items=3;
 				class Item0
 				{
 					position[]={7521.1265,5,7448.5146};
@@ -64,6 +64,15 @@ class Mission
 					rank="SERGEANT";
 					skill=0.60000002;
 				};
+				class Item2
+				{
+					position[]={7521.1992,5,7444.5625};
+					id=2;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
 			};
 		};
 		class Item1
@@ -75,7 +84,7 @@ class Mission
 				class Item0
 				{
 					position[]={7476.0347,3.991333,7492.2388};
-					id=2;
+					id=3;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
 					leader=1;
@@ -85,7 +94,7 @@ class Mission
 				class Item1
 				{
 					position[]={7471.6372,5,7487.4209};
-					id=3;
+					id=4;
 					side="WEST";
 					vehicle="B_Soldier_GL_F";
 					rank="SERGEANT";
@@ -133,7 +142,7 @@ class Mission
 				class Item0
 				{
 					position[]={7597.0234,5,7570.3906};
-					id=4;
+					id=5;
 					side="EAST";
 					vehicle="O_Soldier_F";
 					skill=0.60000002;
@@ -141,7 +150,7 @@ class Mission
 				class Item1
 				{
 					position[]={7590.4063,5,7577.2524};
-					id=5;
+					id=6;
 					side="EAST";
 					vehicle="O_Soldier_TL_F";
 					leader=1;
@@ -171,6 +180,23 @@ class Mission
 					{
 					};
 					showWP="NEVER";
+				};
+			};
+		};
+		class Item3
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7521.0522,5,7452.0073};
+					id=7;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					leader=1;
+					skill=0.60000002;
 				};
 			};
 		};

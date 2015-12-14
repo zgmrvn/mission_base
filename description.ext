@@ -56,6 +56,10 @@ class CfgFunctions {
 #include "modules\teleportToLeader\config.hpp"
 #include "modules\teleportToLeader\ui.hpp"
 
+// module de saut en parachute classique
+#include "modules\paraJumpClassic\config.hpp"
+#include "modules\paraJumpClassic\ui.hpp"
+
 // module de caméra spectateur
 #include "modules\spectatorCamera\config.hpp"
 #include "modules\spectatorCamera\ui.hpp"

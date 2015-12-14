@@ -4,7 +4,7 @@
 class BaseTitle: RscText {
 	idc = -1;
 	type = CT_STATIC;
-	style = ST_CENTER
+	style = ST_CENTER;
 
 	x = safeZoneX;
 	y = safeZoneY + safeZoneH * 0.1;
@@ -43,6 +43,13 @@ class ValideButton: RscButton {
 	colorBackground[] = {0.1, 0.1, 0.1, 1};
 };
 
+class BaseEdit: RscEdit {
+	idc = -1;
+	type = CT_EDIT;
+
+	colorBackground[] = {0.1, 0.1, 0.1, 1};
+};
+
 class BaseTreeView {
 	idc = -1;
 	type = CT_TREE;
@@ -64,7 +71,7 @@ class BaseTreeView {
 	colorSelectText[] = {1,1,1,1}; // Selected text color (when multiselectEnabled is 0)
 	colorMarkedText[] = {1,1,1,1}; // Selected text color (when multiselectEnabled is 1)
 
-	tooltip = "CT_TREE"; // Tooltip text
+	tooltip = "";
 	tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
 	tooltipColorText[] = {1,1,1,1}; // Tooltip text color
 	tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
@@ -90,4 +97,174 @@ class BaseTreeView {
 
 	colorDisabled[] = {0,0,0,0};
 	colorArrow[] = {0,0,0,0};
+};
+
+class BaseMap {
+	access = 0; // Control access (0 - ReadAndWrite, 1 - ReadAndCreate, 2 - ReadOnly, 3 - ReadOnlyVerified)
+	idc = -1; // Control identification (without it, the control won't be displayed)
+	type = CT_MAP_MAIN; // Type
+	style = ST_PICTURE; // Style
+	default = 0; // Control selected by default (only one within a display can be used)
+	blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
+
+	sizeEx = TEXT_RATIO; // Text size
+	font = "PuristaMedium"; // Font from CfgFontFamilies
+	colorText[] = {0,0,0,1}; // Text color
+
+	tooltip = "";
+	tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
+	tooltipColorText[] = {1,1,1,1}; // Tooltip text color
+	tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
+
+	moveOnEdges = 1; // Move map when cursor is near its edge. Discontinued.
+
+	// Rendering density coefficients
+	ptsPerSquareSea =	5;	// seas
+	ptsPerSquareTxt =	20;	// textures
+	ptsPerSquareCLn =	10;	// count-lines
+	ptsPerSquareExp =	10;	// exposure
+	ptsPerSquareCost =	10;	// cost
+
+	// Rendering thresholds
+	ptsPerSquareFor =	9;	// forests
+	ptsPerSquareForEdge =	9;	// forest edges
+	ptsPerSquareRoad =	6;	// roads
+	ptsPerSquareObj =	9;	// other objects
+
+	scaleMin = 0.001; // Min map scale (i.e., max zoom)
+	scaleMax = 1.0; // Max map scale (i.e., min zoom)
+	scaleDefault = 0.16; // Default scale
+
+	alphaFadeStartScale = 0.1; // Scale at which satellite map starts appearing
+	alphaFadeEndScale = 0.01; // Scale at which satellite map is fully rendered
+	maxSatelliteAlpha = 0.85; // Maximum alpha of satellite map
+
+	text = "#(argb,8,8,3)color(1,1,1,1)"; // Fill texture
+	colorBackground[] = {1,1,1,1}; // Fill color
+
+	colorOutside[] = {0,0,0,1}; // Color outside of the terrain area (not sued when procedural terrain is enabled)
+	colorSea[] = {0.4,0.6,0.8,0.5}; // Sea color
+	colorForest[] = {0.6,0.8,0.4,0.5}; // Forest color
+	colorForestBorder[] = {0.6,0.8,0.4,1}; // Forest border color
+	colorRocks[] = {0,0,0,0.3}; // Rocks color
+	colorRocksBorder[] = {0,0,0,1}; // Rocks border color
+	colorLevels[] = {0.3,0.2,0.1,0.5}; // Elevation number color
+	colorMainCountlines[] = {0.6,0.4,0.2,0.5}; // Main countline color (every 5th)
+	colorCountlines[] = {0.6,0.4,0.2,0.3}; // Countline color
+	colorMainCountlinesWater[] = {0.5,0.6,0.7,0.6}; // Main water countline color (every 5th)
+	colorCountlinesWater[] = {0.5,0.6,0.7,0.3}; // Water countline color
+	colorPowerLines[] = {0.1,0.1,0.1,1}; // Power lines color
+	colorRailWay[] = {0.8,0.2,0,1}; // Railway color
+	colorNames[] = {1.1,0.1,1.1,0.9}; // Unknown?
+	colorInactive[] = {1,1,0,0.5}; // Unknown?
+	colorTracks[] = {0.8,0.8,0.7,0.2}; // Small road border color
+	colorTracksFill[] = {0.8,0.7,0.7,1}; // Small road color
+	colorRoads[] = {0.7,0.7,0.7,1}; // Medium road border color
+	colorRoadsFill[] = {1,1,1,1}; // Medium road color
+	colorMainRoads[] = {0.9,0.5,0.3,1}; // Large road border color
+	colorMainRoadsFill[] = {1,0.6,0.4,1}; // Large road color
+	colorGrid[] = {0.1,0.1,0.1,0.6}; // Grid coordinate color
+	colorGridMap[] = {0.1,0.1,0.1,0.6}; // Grid line color
+
+	fontLabel = GUI_FONT_NORMAL; // Tooltip font from CfgFontFamilies
+	sizeExLabel = GUI_GRID_CENTER_H * 0.5; // Tooltip font size
+
+	fontGrid = GUI_FONT_SYSTEM; // Grid coordinate font from CfgFontFamilies
+	sizeExGrid = GUI_GRID_CENTER_H * 0.5; // Grid coordinate font size
+
+	fontUnits = GUI_FONT_SYSTEM; // Selected group member font from CfgFontFamilies
+	sizeExUnits = GUI_GRID_CENTER_H * 0.5; // Selected group member font size
+
+	fontNames = GUI_FONT_NARROW; // Marker font from CfgFontFamilies
+	sizeExNames = GUI_GRID_CENTER_H * 0.5; // Marker font size
+
+	fontInfo = GUI_FONT_NORMAL; // Unknown?
+	sizeExInfo = GUI_GRID_CENTER_H * 0.5; // Unknown?
+
+	fontLevel = GUI_FONT_SYSTEM; // Elevation number font
+	sizeExLevel = GUI_GRID_CENTER_H * 0.5; // Elevation number font size
+
+	showCountourInterval = 1; // Show Legend
+
+	class Task {
+		icon = "#(argb,8,8,3)color(1,1,1,1)";
+		color[] = {1,1,0,1};
+
+		iconCreated = "#(argb,8,8,3)color(1,1,1,1)";
+		colorCreated[] = {0,0,0,1};
+
+		iconCanceled = "#(argb,8,8,3)color(1,1,1,1)";
+		colorCanceled[] = {0,0,0,0.5};
+
+		iconDone = "#(argb,8,8,3)color(1,1,1,1)";
+		colorDone[] = {0,1,0,1};
+
+		iconFailed = "#(argb,8,8,3)color(1,1,1,1)";
+		colorFailed[] = {1,0,0,1};
+
+		size = 8;
+		importance = 1; // Required, but not used
+		coefMin = 1; // Required, but not used
+		coefMax = 1; // Required, but not used
+	};
+
+	class ActiveMarker {
+		color[] = {0,0,0,1}; // Icon color
+		size = 2; // Size in pixels
+	};
+
+	class Waypoint {
+		coefMax = 1; // Minimum size coefficient
+		coefMin = 4; // Maximum size coefficient
+		color[] = {0,0,0,1}; // Icon color
+		icon = "#(argb,8,8,3)color(0,0,0,1)"; // Icon texture
+		importance = 1; // Drawing importance (when multiple icons are close together, the one with larger importance is prioritized)
+		size = 2; // Size in pixels
+	};
+
+	class WaypointCompleted: Waypoint {};
+	class CustomMark: Waypoint {};
+	class Command: Waypoint {};
+	class Bush: Waypoint {};
+	class Rock: Waypoint {};
+	class SmallTree: Waypoint {};
+	class Tree: Waypoint {};
+	class BusStop: Waypoint {};
+	class FuelStation: Waypoint {};
+	class Hospital: Waypoint {};
+	class Church: Waypoint {};
+	class Lighthouse: Waypoint {};
+	class Power: Waypoint {};
+	class PowerSolar: Waypoint {};
+	class PowerWave: Waypoint {};
+	class PowerWind: Waypoint {};
+	class Quay: Waypoint {};
+	class Transmitter: Waypoint {};
+	class Watertower: Waypoint {};
+	class Cross: Waypoint {};
+	class Chapel: Waypoint {};
+	class Shipwreck: Waypoint {};
+	class Bunker: Waypoint {};
+	class Fortress: Waypoint {};
+	class Fountain: Waypoint {};
+	class Ruin: Waypoint {};
+	class Stack: Waypoint {};
+	class Tourism: Waypoint {};
+	class ViewTower: Waypoint {};
+
+	/*onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
+	onDestroy = "systemChat str ['onDestroy',_this]; false";
+	onSetFocus = "systemChat str ['onSetFocus',_this]; false";
+	onKillFocus = "systemChat str ['onKillFocus',_this]; false";
+	onKeyDown = "systemChat str ['onKeyDown',_this]; false";
+	onKeyUp = "systemChat str ['onKeyUp',_this]; false";
+	onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
+	onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
+	onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
+	onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
+	onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
+	onMouseMoving = "";
+	onMouseHolding = "";*/
+
+	onDraw = "";
 };

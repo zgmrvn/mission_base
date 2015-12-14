@@ -17,7 +17,9 @@ Cette fonction permet d'ajouter une action dans le menu d'action pour tous les c
 ] call CRP_fnc_addActionGlobal;
 ```
 
-## autres fonctionnalités ##
+## Modules ##
+
+Ce framework est découpé sous forme de modules, facilement configurables. La majorité des modules ont un fichier de configuration ``` config.hpp ``` depuis lequel ils peuvent être désactivés.
 
 ### Gestion de l'intro ###
 Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier "mission\intro\intro.sqf". Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être joué. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission. Vous pouvez désactiver l'intro depuis le fichier de configuration du module ``` modules/intro/config.hpp ```.
@@ -37,6 +39,11 @@ Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter 
 
 ### Module de caméra spectateur ###
 Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter les actions depuis le fichier de configuration ``` modules/SpectatorCamera/config.hpp ```. Ce module a une dépendance au module de création de drapeaux.
+
+### Module de saut de groupe ###
+Saut de groupe façon GID Academy. Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter les actions depuis le fichier de configuration ``` modules/paraJumpClassic/config.hpp ```. Ce module a une dépendance au module de création de drapeaux.
+
+## autres fonctionnalités ##
 
 ### Dégroupage auto ###
 Le framework embarque déjà la fonctionnalité de dégroupage au démarrage de la mission, ce qui vous permet de grouper vos unités depuis l'éditeur sans risquer d'avoir des communications et autres ordres automatiques.
