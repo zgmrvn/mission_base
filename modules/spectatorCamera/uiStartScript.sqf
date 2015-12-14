@@ -8,6 +8,7 @@ CRP_var_spectatorCamera_MainClick	= false;
 CRP_var_spectatorCamera_mouseDelta	= [];
 CRP_var_spectatorCamera_cameraData	= [0, 0];
 CRP_var_spectatorCamera_keysLoop	= false;
+CRP_var_spectatorCamera_specialKeys	= [false, false, false];
 CRP_var_spectatorCamera_tracesLoop	= false;
 
 [] spawn {

@@ -1,7 +1,12 @@
-#define CAMERA_STEP 0.15
+#define CAMERA_STEP 0.08
 
 // ne pas écraser le comportement de la touche échappe
 if ((_this select 1) == 1) exitWith {false};
+
+// mise à jour de l'état des touches spéciales
+CRP_var_spectatorCamera_specialKeys set [0, _this select 2];
+CRP_var_spectatorCamera_specialKeys set [1, _this select 3];
+CRP_var_spectatorCamera_specialKeys set [2, _this select 4];
 
 // mise à jour de l'état des touches de caméra
 {
@@ -18,6 +23,15 @@ if (!CRP_var_spectatorCamera_keysLoop) then {
 	[] spawn {
 		while {CRP_var_spectatorCamera_keysLoop} do {
 			_newPos = [];
+			_multiplier = 1;
+
+			// calcul du multiplicateur de vitesse
+			if (CRP_var_spectatorCamera_specialKeys select 0) then {_multiplier = 3};
+			if (CRP_var_spectatorCamera_specialKeys select 1) then {_multiplier = 0.5};
+			if (CRP_var_spectatorCamera_specialKeys select 2) then {_multiplier = 10};
+
+			// calcul du multiplicateur final
+			_multiplier = CAMERA_STEP * _multiplier;
 
 			{
 				_action			= _x select 0;
@@ -35,9 +49,9 @@ if (!CRP_var_spectatorCamera_keysLoop) then {
 
 					_dir = (direction CRP_var_spectatorCamera_camera) + _dX * 90;
 					_newPos = [
-						(_newPos select 0) + ((sin _dir) * CAMERA_STEP * _dY),
-						(_newPos select 1) + ((cos _dir) * CAMERA_STEP * _dY),
-						(_newPos select 2) + _dZ * CAMERA_STEP
+						(_newPos select 0) + ((sin _dir) * _multiplier * _dY),
+						(_newPos select 1) + ((cos _dir) * _multiplier * _dY),
+						(_newPos select 2) + _dZ * _multiplier
 					];
 				};
 			} forEach [
