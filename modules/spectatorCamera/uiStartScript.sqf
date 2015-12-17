@@ -41,6 +41,7 @@ CRP_var_spectatorCamera_tracesLoop	= false;
 	CRP_var_spectatorCamera_camera = "camera" camCreate ((getPos player) vectorAdd [0, 0, 5]);
 	CRP_var_spectatorCamera_camera cameraEffect ["internal", "BACK"];
 	CRP_var_spectatorCamera_camera camCommit 0;
+	CRP_var_spectatorCamera_camera setDir (getDir player);
 	showCinemaBorder false;
 	cameraEffectEnableHUD true;
 	showHUD true;
