@@ -1,4 +1,7 @@
 #define CAMERA_STEP 0.08
+#define CAMERA_SLOW_MULTIPLIER 0.4
+#define CAMERA_FAST_MULTIPLIER 6
+#define CAMERA_ULTRA_MULTIPLIER 25
 
 // ne pas écraser le comportement de la touche échappe
 if ((_this select 1) == 1) exitWith {false};
@@ -26,9 +29,9 @@ if (!CRP_var_spectatorCamera_keysLoop) then {
 			_multiplier = 1;
 
 			// calcul du multiplicateur de vitesse
-			if (CRP_var_spectatorCamera_specialKeys select 0) then {_multiplier = 3};
-			if (CRP_var_spectatorCamera_specialKeys select 1) then {_multiplier = 0.5};
-			if (CRP_var_spectatorCamera_specialKeys select 2) then {_multiplier = 10};
+			if (CRP_var_spectatorCamera_specialKeys select 0) then {_multiplier = CAMERA_FAST_MULTIPLIER};
+			if (CRP_var_spectatorCamera_specialKeys select 1) then {_multiplier = CAMERA_SLOW_MULTIPLIER};
+			if (CRP_var_spectatorCamera_specialKeys select 2) then {_multiplier = CAMERA_ULTRA_MULTIPLIER};
 
 			// calcul du multiplicateur final
 			_multiplier = CAMERA_STEP * _multiplier;
