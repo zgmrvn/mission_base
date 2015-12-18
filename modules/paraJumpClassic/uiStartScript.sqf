@@ -38,9 +38,7 @@ CRP_var_paraJumpClassic_marker		= "";
 			CRP_var_paraJumpClassic_skyDivers = CRP_var_paraJumpClassic_skyDivers - [objNull];
 
 			// on vide la liste
-			for [{_i = lbSize PARAJUMP_CLASSIC_LIST_IDC}, {_i >= 0}, {_i = _i - 1}] do {
-				lbDelete [PARAJUMP_CLASSIC_LIST_IDC, _i];
-			};
+			lbClear _list;
 
 			// puis on la remplit de nouveau
 			{
@@ -52,6 +50,8 @@ CRP_var_paraJumpClassic_marker		= "";
 		};
 	};
 
+	// gestion du changement d'altitude du saut
+	// en utilisant la molette de la souris
 	_altitude ctrlAddEventHandler ["MouseZChanged", {
 		_mouseWheel	= if ((_this select 1) > 0) then {1} else {-1};
 		_definition	= parseNumber (ctrlText PARAJUMP_CLASSIC_ALTITUDE_IDC);
@@ -60,6 +60,7 @@ CRP_var_paraJumpClassic_marker		= "";
 		ctrlSetText [PARAJUMP_CLASSIC_ALTITUDE_IDC, str _definition];
 	}];
 
+	// gestion du positionnement du marqueur de saut
 	_map ctrlAddEventHandler ["mouseButtonDblClick", {
 		if (CRP_var_paraJumpClassic_marker != "") then {
 			deleteMarkerLocal CRP_var_paraJumpClassic_marker;
@@ -71,10 +72,12 @@ CRP_var_paraJumpClassic_marker		= "";
 		CRP_var_paraJumpClassic_marker setMarkerTypeLocal "respawn_para";
 	}];
 
+	// annulation du saut
 	_close ctrlAddEventHandler ["MouseButtonDown", {
 		closeDialog PARAJUMP_CLASSIC_DIALOG_IDD;
 	}];
 
+	// gestion du saut
 	_jump ctrlAddEventHandler ["MouseButtonDown", {
 		if ((count CRP_var_paraJumpClassic_coordinates) > 0) then {
 			CRP_var_paraJumpClassic_coordinates set [2, parseNumber (ctrlText PARAJUMP_CLASSIC_ALTITUDE_IDC)];
