@@ -14,7 +14,7 @@ class BaseTitle: RscText {
 	text = "Titre";
 	SizeEx = TEXT_RATIO * 3;
 	shadow = 0;
-	font = "PuristaLight";
+	font = GUI_FONT_THIN;
 };
 
 class BaseBackgroundBox: RscText {
@@ -108,7 +108,7 @@ class BaseMap {
 	blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
 
 	sizeEx = TEXT_RATIO; // Text size
-	font = "PuristaMedium"; // Font from CfgFontFamilies
+	font = GUI_FONT_NORMAL; // Font from CfgFontFamilies
 	colorText[] = {0,0,0,1}; // Text color
 
 	tooltip = "";
@@ -184,7 +184,7 @@ class BaseMap {
 	fontLevel = GUI_FONT_SYSTEM; // Elevation number font
 	sizeExLevel = GUI_GRID_CENTER_H * 0.5; // Elevation number font size
 
-	showCountourInterval = 1; // Show Legend
+	showCountourInterval = 1;
 
 	class Task {
 		icon = "#(argb,8,8,3)color(1,1,1,1)";
@@ -203,23 +203,23 @@ class BaseMap {
 		colorFailed[] = {1,0,0,1};
 
 		size = 8;
-		importance = 1; // Required, but not used
-		coefMin = 1; // Required, but not used
-		coefMax = 1; // Required, but not used
+		importance = 1;
+		coefMin = 1;
+		coefMax = 1;
 	};
 
 	class ActiveMarker {
-		color[] = {0,0,0,1}; // Icon color
-		size = 2; // Size in pixels
+		color[] = {0,0,0,1};
+		size = 2;
 	};
 
 	class Waypoint {
-		coefMax = 1; // Minimum size coefficient
-		coefMin = 4; // Maximum size coefficient
-		color[] = {0,0,0,1}; // Icon color
-		icon = "#(argb,8,8,3)color(0,0,0,1)"; // Icon texture
-		importance = 1; // Drawing importance (when multiple icons are close together, the one with larger importance is prioritized)
-		size = 2; // Size in pixels
+		coefMax = 1;
+		coefMin = 4;
+		color[] = {0,0,0,1};
+		icon = "#(argb,8,8,3)color(0,0,0,1)";
+		importance = 1;
+		size = 2;
 	};
 
 	class WaypointCompleted: Waypoint {};
@@ -251,20 +251,4 @@ class BaseMap {
 	class Stack: Waypoint {};
 	class Tourism: Waypoint {};
 	class ViewTower: Waypoint {};
-
-	/*onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
-	onDestroy = "systemChat str ['onDestroy',_this]; false";
-	onSetFocus = "systemChat str ['onSetFocus',_this]; false";
-	onKillFocus = "systemChat str ['onKillFocus',_this]; false";
-	onKeyDown = "systemChat str ['onKeyDown',_this]; false";
-	onKeyUp = "systemChat str ['onKeyUp',_this]; false";
-	onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
-	onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
-	onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
-	onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
-	onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
-	onMouseMoving = "";
-	onMouseHolding = "";*/
-
-	onDraw = "";
 };
