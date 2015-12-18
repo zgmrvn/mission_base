@@ -11,5 +11,5 @@ CRP_var_spectatorCamera_specialKeys set [2, _this select 4];
 } forEach CRP_var_spectatorCamera_actions;
 
 if (({[CRP_var_spectatorCamera_cameraKeys, _x] call BIS_fnc_getFromPairs} count CRP_var_spectatorCamera_actions) == 0) then {
-	CRP_var_spectatorCamera_loop = false;
+	CRP_var_spectatorCamera_keysLoop = false;
 };

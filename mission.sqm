@@ -46,7 +46,7 @@ class Mission
 			side="WEST";
 			class Vehicles
 			{
-				items=1;
+				items=3;
 				class Item0
 				{
 					position[]={7521.6924,5,7452.4106};
@@ -56,6 +56,25 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="SERGEANT";
+					skill=0.60000002;
+				};
+				class Item1
+				{
+					position[]={7521.6846,5,7446.6934};
+					id=1;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="(group this) setBehaviour ""CARELESS""";
+				};
+				class Item2
+				{
+					position[]={7526.8354,5,7446.6196};
+					id=2;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
 					skill=0.60000002;
 				};
 			};
@@ -69,7 +88,7 @@ class Mission
 				class Item0
 				{
 					position[]={7476.0347,3.991333,7492.2388};
-					id=1;
+					id=3;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
 					leader=1;
@@ -79,7 +98,7 @@ class Mission
 				class Item1
 				{
 					position[]={7471.6372,5,7487.4209};
-					id=2;
+					id=4;
 					side="WEST";
 					vehicle="B_Soldier_GL_F";
 					rank="SERGEANT";
@@ -127,7 +146,7 @@ class Mission
 				class Item0
 				{
 					position[]={7597.0234,5,7570.3906};
-					id=3;
+					id=5;
 					side="EAST";
 					vehicle="O_Soldier_F";
 					skill=0.60000002;
@@ -135,7 +154,7 @@ class Mission
 				class Item1
 				{
 					position[]={7590.4063,5,7577.2524};
-					id=4;
+					id=6;
 					side="EAST";
 					vehicle="O_Soldier_TL_F";
 					leader=1;
@@ -177,7 +196,7 @@ class Mission
 				class Item0
 				{
 					position[]={7469.7988,5,7565.124};
-					id=5;
+					id=7;
 					side="GUER";
 					vehicle="I_soldier_F";
 					leader=1;
@@ -226,7 +245,7 @@ class Mission
 				class Item0
 				{
 					position[]={7461.9536,5,7576.4741};
-					id=6;
+					id=8;
 					side="CIV";
 					vehicle="C_man_1";
 					leader=1;

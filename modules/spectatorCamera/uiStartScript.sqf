@@ -10,6 +10,8 @@ CRP_var_spectatorCamera_cameraData	= [0, 0];
 CRP_var_spectatorCamera_keysLoop	= false;
 CRP_var_spectatorCamera_specialKeys	= [false, false, false];
 
+// événements de l'interface
+// et gestion de l'alimentation de la liste des joueurs
 [] spawn {
 	waitUntil {!isNull (findDisplay SPECTATOR_DIALOG_IDD)};
 
@@ -17,44 +19,34 @@ CRP_var_spectatorCamera_specialKeys	= [false, false, false];
 
 	_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
 	_event	= _dialog displayCtrl SPECTATOR_EVENT_IDC;
-	_tree	= _dialog displayCtrl SPECTATOR_TREE_IDC;
+	_list	= _dialog displayCtrl SPECTATOR_LIST_IDC;
 
 	// alimentation et actualisation de l'arbre
 	[] spawn {
 		disableSerialization;
 
 		_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
-		_tree	= _dialog displayCtrl SPECTATOR_TREE_IDC;
-
-		_tree tvAdd [[], "BLUFOR"];
-		_tree tvAdd [[], "OPFOR"];
-		_tree tvAdd [[], "INDE"];
-		_tree tvAdd [[], "CIVIL"];
+		_list	= _dialog displayCtrl SPECTATOR_LIST_IDC;
 
 		while {!isNull (findDisplay SPECTATOR_DIALOG_IDD)} do {
+			// on récupère l'élément séléctionné
+			_index = lbCurSel _list;
+
+			// on vide la liste
+			for [{_i = lbSize SPECTATOR_LIST_IDC}, {_i >= 0}, {_i = _i - 1}] do {
+				lbDelete [SPECTATOR_LIST_IDC, _i];
+			};
+
+			// puis on la remplit de nouveau
 			{
-				for [{_i = ((_tree tvCount [_x]) - 1)}, {_i >= 0}, {_i = _i - 1}] do {
-					_tree tvDelete [_x, _i];
-				};
-			} forEach [0, 1, 2, 3];
+				lbAdd [SPECTATOR_LIST_IDC, name _x];
+				lbSetData [SPECTATOR_LIST_IDC, _forEachIndex, str (getPosASL _x)];
+			} forEach allPlayers;
 
-			{
-				_units = _x;
+			// on reséléctionnne l'élément
+			_list lbSetCurSel _index;
 
-				{
-					_index = switch ((typeOf _x) select [0, 1]) do {
-						case "B": {0};
-						case "O": {1};
-						case "I": {2};
-						case "C": {3};
-					};
-
-					_tree tvAdd [[_index], name _x];
-					_tree tvSetData [[_index, (_tree tvCount [_index]) - 1], str (getPosASL _x)];
-				} forEach _units;
-			} forEach [allUnits, allDead];
-
-			sleep 10;
+			sleep 1;
 		};
 	};
 
@@ -117,18 +109,32 @@ CRP_var_spectatorCamera_specialKeys	= [false, false, false];
 		true
 	}];
 
-	// gestion du click sur un élément de l'arbre
+	// gestion du click sur un élément de la liste
 	// téléportation de la caméra sur l'élément
-	_tree ctrlAddEventHandler ["TreeLButtonDown", {
+	_list ctrlAddEventHandler ["MouseButtonDown", {
 		_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
-		_tree	= _dialog displayCtrl SPECTATOR_TREE_IDC;
+		_event	= _dialog displayCtrl SPECTATOR_EVENT_IDC;
+		_list	= _dialog displayCtrl SPECTATOR_LIST_IDC;
 
-		_pos = call compile (_tree tvData (_this select 1));
-		CRP_var_spectatorCamera_camera setPosASL (_pos vectorAdd [0, 0, 5]);
+		_pos = call compile (_list lbData (_this select 1));
+		_camPos = [_pos, 20, [_pos, CRP_var_spectatorCamera_camera] call BIS_fnc_dirTo] call BIS_fnc_relPos;
+		CRP_var_spectatorCamera_camera setPosASL (_camPos vectorAdd [0, 0, 10]);
+		CRP_var_spectatorCamera_camera setDir ([CRP_var_spectatorCamera_camera, _pos] call BIS_fnc_dirTo);
+		_diff = _pos vectorDiff (getPosASL CRP_var_spectatorCamera_camera);
+		_pitch = -(((sqrt (((_diff select 0) ^ 2) + ((_diff select 1) ^ 2))) atan2 (_diff select 2)) - 90);
+		[CRP_var_spectatorCamera_camera, _pitch, 0] call bis_fnc_setpitchbank;
+
+		//systemChat str _pitch;
+
+		ctrlSetFocus _event;
 
 		true
 	}];
 };
 
+// gestion des unités devant être représentés
 #include "inc\listUnits.sqf"
+
+// gestion des chemins et icônes
+// drawLine3D & drawIcon3D
 #include "inc\drawPaths.sqf"

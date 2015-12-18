@@ -11,9 +11,9 @@ class SpectatorCameraDialog {
 			idc = SPECTATOR_EVENT_IDC;
 			type = CT_LISTBOX;
 
-			x = safeZoneX + safeZoneW * 0.14;
+			x = safeZoneX + safeZoneW * 0.1;
 			y = safeZoneY;
-			w = safeZoneW * 0.86;
+			w = safeZoneW * 0.9;
 			h = safeZoneH;
 
 			colorBackground[] = {0, 0, 0, 0};
@@ -21,15 +21,17 @@ class SpectatorCameraDialog {
 	};
 
 	class Controls {
-		class PlayersTree: BaseTreeView {
-			idc = SPECTATOR_TREE_IDC;
+		class PlayersList: RscListBox {
+			idc = SPECTATOR_LIST_IDC;
 
 			x = safeZoneX;
 			y = safeZoneY;
-			w = safeZoneW * 0.14;
+			w = safeZoneW * 0.1;
 			h = safeZoneH;
 
-			colorBackground[] = {0, 0, 0, 0.1};
+			colorBackground[] = {0, 0, 0, 0};
+			rowHeight = safeZoneH * 0.02;
+			canDrag = 0;
 		};
 	};
 };
