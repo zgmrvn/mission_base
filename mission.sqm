@@ -7,13 +7,17 @@ class Mission
 		"a3_characters_f",
 		"A3_Weapons_F_Ammoboxes",
 		"map_vr",
-		"A3_Characters_F_OPFOR"
+		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"A3_Characters_F_Civil"
 	};
 	addOnsAuto[]=
 	{
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
 		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"A3_Characters_F_Civil",
 		"map_vr"
 	};
 	randomSeed=14569173;
@@ -36,41 +40,22 @@ class Mission
 	};
 	class Groups
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			side="WEST";
 			class Vehicles
 			{
-				items=3;
+				items=1;
 				class Item0
 				{
-					position[]={7521.1265,5,7448.5146};
+					position[]={7521.6924,5,7452.4106};
 					id=0;
-					side="WEST";
-					vehicle="B_Soldier_TL_F";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.60000002;
-				};
-				class Item1
-				{
-					position[]={7517.1924,5,7448.6685};
-					id=1;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.60000002;
-				};
-				class Item2
-				{
-					position[]={7521.1992,5,7444.5625};
-					id=2;
-					side="WEST";
-					vehicle="B_Soldier_TL_F";
-					player="PLAY CDG";
 					skill=0.60000002;
 				};
 			};
@@ -84,7 +69,7 @@ class Mission
 				class Item0
 				{
 					position[]={7476.0347,3.991333,7492.2388};
-					id=3;
+					id=1;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
 					leader=1;
@@ -94,7 +79,7 @@ class Mission
 				class Item1
 				{
 					position[]={7471.6372,5,7487.4209};
-					id=4;
+					id=2;
 					side="WEST";
 					vehicle="B_Soldier_GL_F";
 					rank="SERGEANT";
@@ -106,7 +91,7 @@ class Mission
 				items=3;
 				class Item0
 				{
-					position[]={7475.5415,4.114624,7560.0981};
+					position[]={7475.8755,4.0311279,7559.9316};
 					combatMode="BLUE";
 					combat="CARELESS";
 					class Effects
@@ -116,7 +101,7 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={7568.1074,4.1125488,7560.3428};
+					position[]={7568.4414,4.1125488,7560.0088};
 					class Effects
 					{
 					};
@@ -142,7 +127,7 @@ class Mission
 				class Item0
 				{
 					position[]={7597.0234,5,7570.3906};
-					id=5;
+					id=3;
 					side="EAST";
 					vehicle="O_Soldier_F";
 					skill=0.60000002;
@@ -150,7 +135,7 @@ class Mission
 				class Item1
 				{
 					position[]={7590.4063,5,7577.2524};
-					id=6;
+					id=4;
 					side="EAST";
 					vehicle="O_Soldier_TL_F";
 					leader=1;
@@ -185,20 +170,111 @@ class Mission
 		};
 		class Item3
 		{
-			side="WEST";
+			side="GUER";
 			class Vehicles
 			{
 				items=1;
 				class Item0
 				{
-					position[]={7521.0522,5,7452.0073};
-					id=7;
-					side="WEST";
-					vehicle="B_Soldier_F";
+					position[]={7469.7988,5,7565.124};
+					id=5;
+					side="GUER";
+					vehicle="I_soldier_F";
 					leader=1;
 					skill=0.60000002;
 				};
 			};
+			class Waypoints
+			{
+				items=3;
+				class Item0
+				{
+					position[]={7573.958,5,7565.124};
+					combatMode="BLUE";
+					speed="FULL";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item1
+				{
+					position[]={7573.7896,5,7462.8013};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item2
+				{
+					position[]={7469.9648,5,7463.1353};
+					type="CYCLE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+			};
+		};
+		class Item4
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7461.9536,5,7576.4741};
+					id=6;
+					side="CIV";
+					vehicle="C_man_1";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+			class Waypoints
+			{
+				items=3;
+				class Item0
+				{
+					position[]={7603.502,5,7527.7334};
+					combatMode="BLUE";
+					speed="NORMAL";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item1
+				{
+					position[]={7458.9492,5,7476.3218};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+				class Item2
+				{
+					position[]={7553.9272,5,7591.6646};
+					type="CYCLE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+				};
+			};
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={7523.0342,5,7440.021};
+			name="respawn_west";
+			type="Empty";
 		};
 	};
 };

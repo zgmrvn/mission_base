@@ -9,7 +9,6 @@ CRP_var_spectatorCamera_mouseDelta	= [];
 CRP_var_spectatorCamera_cameraData	= [0, 0];
 CRP_var_spectatorCamera_keysLoop	= false;
 CRP_var_spectatorCamera_specialKeys	= [false, false, false];
-CRP_var_spectatorCamera_tracesLoop	= false;
 
 [] spawn {
 	waitUntil {!isNull (findDisplay SPECTATOR_DIALOG_IDD)};
@@ -20,16 +19,44 @@ CRP_var_spectatorCamera_tracesLoop	= false;
 	_event	= _dialog displayCtrl SPECTATOR_EVENT_IDC;
 	_tree	= _dialog displayCtrl SPECTATOR_TREE_IDC;
 
-	// alimentation de l'arbre
-	_tree tvAdd [[], "CORP"];
+	// alimentation et actualisation de l'arbre
+	[] spawn {
+		disableSerialization;
 
-	{
-		_tree tvAdd [[0], name _x];
-		_tree tvSetData [[0, _forEachIndex], str (getPosASL _x)];
-	} forEach allUnits;
+		_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
+		_tree	= _dialog displayCtrl SPECTATOR_TREE_IDC;
 
+		_tree tvAdd [[], "BLUFOR"];
+		_tree tvAdd [[], "OPFOR"];
+		_tree tvAdd [[], "INDE"];
+		_tree tvAdd [[], "CIVIL"];
 
+		while {!isNull (findDisplay SPECTATOR_DIALOG_IDD)} do {
+			{
+				for [{_i = ((_tree tvCount [_x]) - 1)}, {_i >= 0}, {_i = _i - 1}] do {
+					_tree tvDelete [_x, _i];
+				};
+			} forEach [0, 1, 2, 3];
 
+			{
+				_units = _x;
+
+				{
+					_index = switch ((typeOf _x) select [0, 1]) do {
+						case "B": {0};
+						case "O": {1};
+						case "I": {2};
+						case "C": {3};
+					};
+
+					_tree tvAdd [[_index], name _x];
+					_tree tvSetData [[_index, (_tree tvCount [_index]) - 1], str (getPosASL _x)];
+				} forEach _units;
+			} forEach [allUnits, allDead];
+
+			sleep 10;
+		};
+	};
 
 	// définition de l'état par défaut des touches
 	// de contrôle de la caméra
@@ -103,113 +130,5 @@ CRP_var_spectatorCamera_tracesLoop	= false;
 	}];
 };
 
-
-
-
-
-
-
-
-
-
-
-Z_var_paths = [];
-Z_var_interval = 2;
-Z_var_segments = 75;
-
-
-
-{
-	_x setVariable ["CRP_var_index", _forEachIndex];
-	Z_var_paths set [_forEachIndex, []];
-} forEach allunits;
-
-
-
-[] spawn {
-	CRP_var_spectatorCamera_tracesLoop = true;
-
-	while {CRP_var_spectatorCamera_tracesLoop} do {
-		{
-			_index = _x getVariable "CRP_var_index";
-
-			_array = Z_var_paths select _index;
-			_c = count _array;
-
-			if (_c > Z_var_segments) then {
-				_array deleteAt 0;
-			};
-
-			_e = ASLToAGL (eyepos _x);
-
-			switch _c do {
-				case 0: {
-					_array pushBack _e;
-				};
-
-				default {
-					if (((_array select (_c - 1)) vectorDistance _e) > Z_var_interval) then {
-						_array pushBack _e;
-					};
-				};
-			};
-		} forEach allunits;
-
-		sleep 0.5;
-	};
-};
-
-
-
-
-
-
-
-["spetatorCameraUnitsTraces", "onEachFrame", {
-	{
-		_r = 0.008;
-		_g = 0.29;
-		_b = 0.612;
-
-		if (side _x == east) then {
-			_r = 0.501;
-			_g = 0;
-			_b = 0;
-		};
-
-		// icon
-		if (isPlayer _x) then {
-			drawIcon3D [
-				getText (configfile >> "CfgVehicles" >> typeOf _x >> "icon"),
-				[_r, _g, _b, 1],
-				(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
-				0.75,
-				0.75,
-				([_x, CRP_var_spectatorCamera_camera] call BIS_fnc_relativeDirTo) + 180,
-				name _x
-			];
-		} else {
-			drawIcon3D [
-				getText (configfile >> "CfgVehicles" >> typeOf _x >> "icon"),
-				[_r, _g, _b, 1],
-				(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
-				0.75,
-				0.75,
-				([_x, CRP_var_spectatorCamera_camera] call BIS_fnc_relativeDirTo) + 180
-			];
-		};
-
-		//path
-		_p = Z_var_paths select (_x getVariable "CRP_var_index");
-
-		for [{_i = 0; _c = (count _p) - 1;}, {_i < _c}, {_i = _i + 1}] do {
-			drawLine3D [_p select _i, _p select (_i + 1), [_r, _g, _b, (1 / _c) * _i]];
-		};
-
-		_c = count _p;
-
-		if (_c > 0) then {
-			drawLine3D [(_p select (_c - 1)), ASLToAGL (eyePos _x), [_r, _g, _b, 1]];
-		};
-	} forEach allunits;
-}] call BIS_fnc_addStackedEventHandler;
+#include "inc\listUnits.sqf"
+#include "inc\drawPaths.sqf"

@@ -1,4 +1,4 @@
-["spetatorCameraUnitsTraces", "onEachFrame"] call BIS_fnc_removeStackedEventHandler;
+["spetatorCameraUnitsPaths", "onEachFrame"] call BIS_fnc_removeStackedEventHandler;
 
 CRP_var_spectatorCamera_camera cameraEffect ["terminate", "back"];
 camDestroy CRP_var_spectatorCamera_camera;
@@ -13,4 +13,11 @@ CRP_var_spectatorCamera_mouseDelta	= nil;
 CRP_var_spectatorCamera_cameraData	= nil;
 CRP_var_spectatorCamera_keysLoop	= nil;
 CRP_var_spectatorCamera_specialKeys = nil;
-CRP_var_spectatorCamera_tracesLoop	= nil;
+
+Z_var_spectatorCamera_unitsPaths	= nil;
+
+{
+	{
+		_x setVariable ["Z_var_spectatorCamera_unitIndex", nil];
+	} forEach _x;
+} forEach [allDead, allUnits];

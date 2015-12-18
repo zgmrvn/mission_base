@@ -11,9 +11,9 @@ class SpectatorCameraDialog {
 			idc = SPECTATOR_EVENT_IDC;
 			type = CT_LISTBOX;
 
-			x = safeZoneX + safeZoneW * 0.15;
+			x = safeZoneX + safeZoneW * 0.14;
 			y = safeZoneY;
-			w = safeZoneW * 0.85;
+			w = safeZoneW * 0.86;
 			h = safeZoneH;
 
 			colorBackground[] = {0, 0, 0, 0};
@@ -26,10 +26,10 @@ class SpectatorCameraDialog {
 
 			x = safeZoneX;
 			y = safeZoneY;
-			w = safeZoneW * 0.15;
+			w = safeZoneW * 0.14;
 			h = safeZoneH;
 
-			colorBackground[] = {0, 0, 0, 0};
+			colorBackground[] = {0, 0, 0, 0.1};
 		};
 	};
 };
