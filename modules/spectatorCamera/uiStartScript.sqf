@@ -35,14 +35,12 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 			_index = lbCurSel _list;
 
 			// on vide la liste
-			for [{_i = lbSize SPECTATOR_LIST_IDC}, {_i >= 0}, {_i = _i - 1}] do {
-				lbDelete [SPECTATOR_LIST_IDC, _i];
-			};
+			lbClear _list;
 
 			// puis on la remplit de nouveau
 			{
-				lbAdd [SPECTATOR_LIST_IDC, name _x];
-				lbSetData [SPECTATOR_LIST_IDC, _forEachIndex, str (getPosASL _x)];
+				_list lbAdd (name _x);
+				_list lbSetData [_forEachIndex, str (getPosASL _x)];
 			} forEach allPlayers;
 
 			// on reséléctionnne l'élément
@@ -113,7 +111,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 
 	// gestion du click sur un élément de la liste
 	// téléportation de la caméra sur l'élément
-	_list ctrlAddEventHandler ["MouseButtonDown", {
+	_list ctrlAddEventHandler ["LBDblClick", {
 		_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
 		_event	= _dialog displayCtrl SPECTATOR_EVENT_IDC;
 		_list	= _dialog displayCtrl SPECTATOR_LIST_IDC;
@@ -126,8 +124,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 		_pitch = -(((sqrt (((_diff select 0) ^ 2) + ((_diff select 1) ^ 2))) atan2 (_diff select 2)) - 90);
 		[CRP_var_spectatorCamera_camera, _pitch, 0] call bis_fnc_setpitchbank;
 
-		//systemChat str _pitch;
-
+		// redéfinition du focus pour conserver le contrôle de la caméra
 		ctrlSetFocus _event;
 
 		true
