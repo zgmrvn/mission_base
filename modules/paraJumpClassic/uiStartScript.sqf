@@ -21,10 +21,10 @@ CRP_var_paraJumpClassic_marker		= "";
 	[] spawn {
 		disableSerialization;
 
-		while {!isNull (findDisplay PARAJUMP_CLASSIC_DIALOG_IDD)} do {
-			_dialog	= findDisplay PARAJUMP_CLASSIC_DIALOG_IDD;
-			_list	= _dialog displayCtrl PARAJUMP_CLASSIC_LIST_IDC;
+		_dialog	= findDisplay PARAJUMP_CLASSIC_DIALOG_IDD;
+		_list	= _dialog displayCtrl PARAJUMP_CLASSIC_LIST_IDC;
 
+		while {!isNull (findDisplay PARAJUMP_CLASSIC_DIALOG_IDD)} do {
 			// récupération des unités à proximité
 			CRP_var_paraJumpClassic_skyDivers = nearestObjects [CRP_var_paraJumpClassic_flag, ["Man"], 25];
 
