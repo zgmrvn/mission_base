@@ -1,15 +1,19 @@
+// quitter le script si le module est désactivé
 if ((getNumber (missionConfigFile >> "Intro" >> "enabled")) == 0) exitWith {};
+
+// quitter le script s'il a été choisi dans les paramètres de mission de ne pas jouer l'intro
 if (("PlayIntro" call BIS_fnc_getParamValue) == 0) exitWith {};
 
+// on attent que le serveur ait initialisé les drapeau dont on a besoin
 waitUntil {!isNil {CRP_var_intro_alreadyConnected}};
 
 _name = name _player;
 
-// if player name isn't already referenced
+// si le nom du joueur n'est pas déjà référencé
 if !(_name in CRP_var_intro_alreadyConnected) exitWith {
-	// reference it
+	// on le référence
 	CRP_var_intro_alreadyConnected pushBack _name;
 
-	// then tell the player to play the intro
+	// puis on dit au joueur de jouer l'intro
 	[[], "modules\intro\intro.sqf"] remoteExec ["BIS_fnc_execVM", _player];
 };

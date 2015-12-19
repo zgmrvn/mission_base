@@ -1,16 +1,17 @@
-// post init functions declaration
-// these functions can't be used in editor
+// déclaration des fonctions post-init
+// ces fonctions ne peuvent pas être utilisées depuis l'éditeur
 #include "functions\functions.sqf"
 
-// localities definition
-// and initialization awaiting
+// définitions des localités
+// et attente de l'initialisation
 #include "core\localities.sqf"
 
-// from here both client and server are ready
-// write whatever you whant
+// à partir d'ici, le client et le serveur sont prêts
+// écrivez ce que vous voulez
 
 if (X_server) then {
-	// default server settings and actions
+	// paramètres et actions du serveur par défaut
+	// utilisé par les modules
 	#include "core\defaultServer.sqf"
 
 	/*************************************************
@@ -21,12 +22,13 @@ if (X_server) then {
 	/*************************************************
 	*************************************************/
 
-	// write whatever you whant
+	// écrivez ce que vous voulez
 };
 
 if (X_client) then {
-	// default client settings and actions
+	// paramètres et actions du client par défaut
+	// utilisé par les modules
 	#include "core\defaultClient.sqf"
 
-	// write whatever you whant
+	// écrivez ce que vous voulez
 };

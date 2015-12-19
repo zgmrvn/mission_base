@@ -1,7 +1,7 @@
 // quitter le script si le module est désactivé
 if ((getNumber (missionConfigFile >> "ParaJumpClassic" >> "enabled")) == 0) exitWith {};
 
-// quitter si le module de drapeaux n'est pas activé
+// quitter le script si le module de drapeaux n'est pas activé
 if ((getNumber (missionConfigFile >> "ActionsFlags" >> "enabled")) == 0) exitWith {hint "le module ""ParaJumpClassic"" a besoin du module ""ActionsFlags"""};
 
 [] spawn {
