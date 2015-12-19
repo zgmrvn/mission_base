@@ -8,7 +8,6 @@ class ParaJumpClassic {
 		"base",
 		"respawn"
 		*/
-		"base",
-		"respawn"
+		"para"
 	};
 };

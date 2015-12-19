@@ -8,7 +8,6 @@ class SpectatorCamera {
 		"base",
 		"respawn"
 		*/
-		"base",
-		"respawn"
+		"base"
 	};
 };
