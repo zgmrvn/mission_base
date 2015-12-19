@@ -154,13 +154,13 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 				((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) pushBack (ASLToAGL (eyePos _x));
 
 				// supression des anciennes positions
-				if (count ((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) > 60) then {
+				if (count ((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) > 30) then {
 					((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) deleteAt 0;
 				};
 			};
 		} forEach allUnits;
 
-		sleep 1;
+		sleep 2;
 	};
 };
 
