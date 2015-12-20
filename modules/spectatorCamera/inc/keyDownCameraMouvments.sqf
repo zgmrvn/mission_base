@@ -1,3 +1,5 @@
+#include "..\ctrl.hpp"
+
 #define CAMERA_STEP 0.16
 #define CAMERA_SLOW_MULTIPLIER 0.7
 #define CAMERA_FAST_MULTIPLIER 12
@@ -82,6 +84,41 @@ if (_isCamKey) then {
 						CRP_var_spectatorCamera_camera setPosASL _newPos;
 					};
 				};
+			};
+		};
+	};
+};
+
+// si c'est la touche H
+// pour masque l'ATH
+if (keyName (_this select 1) == """H""") then {
+	[] spawn {
+		disableSerialization;
+
+		_display	= findDisplay SPECTATOR_DIALOG_IDD;
+		_list		= _display displayCtrl SPECTATOR_LIST_IDC;
+
+		// on bascule l'état de l'interface
+		CRP_var_spectatorCamera_uiVisible = !CRP_var_spectatorCamera_uiVisible;
+
+		// on fade la liste de joueur
+		_fade = if (CRP_var_spectatorCamera_uiVisible) then {0} else {1};
+		_list ctrlSetFade _fade;
+		_list ctrlCommit 0.25;
+
+		// on masque progressivement les chemins et icônes en modifiant un multiplicateur
+		// utilisé dans le calcul de l'alpha des lines 3D et icônes
+		if (CRP_var_spectatorCamera_uiVisible) then {
+			while {(CRP_var_spectatorCamera_uiFadeValue < 1) && CRP_var_spectatorCamera_uiVisible} do {
+				CRP_var_spectatorCamera_uiFadeValue = CRP_var_spectatorCamera_uiFadeValue + 0.1;
+
+				sleep 0.025;
+			};
+		} else {
+			while {(CRP_var_spectatorCamera_uiFadeValue > 0) && !CRP_var_spectatorCamera_uiVisible} do {
+				CRP_var_spectatorCamera_uiFadeValue = CRP_var_spectatorCamera_uiFadeValue - 0.1;
+
+				sleep 0.025;
 			};
 		};
 	};

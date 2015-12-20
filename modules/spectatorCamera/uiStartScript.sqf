@@ -11,6 +11,8 @@ CRP_var_spectatorCamera_cameraData		= [0, 0];
 CRP_var_spectatorCamera_keysLoop		= false;
 CRP_var_spectatorCamera_iterationLeft	= 1;
 CRP_var_spectatorCamera_specialKeys		= [false, false, false];
+CRP_var_spectatorCamera_uiVisible		= true;
+CRP_var_spectatorCamera_uiFadeValue		= 1;
 
 // contient le chemin de toutes les unités
 CRP_var_spectatorCamera_unitsPaths	= [];
@@ -171,82 +173,84 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 // gestion des chemins et icônes
 // drawLine3D & drawIcon3D
 ["spetatorCameraUnitsPaths", "onEachFrame", {
-	// icônes pour les morts
-	{
-		// définition de la couleur
-		_r = 0.008; _g = 0.29; _b = 0.612;
+	if (CRP_var_spectatorCamera_uiFadeValue != 0) then {
+		// icônes pour les morts
+		{
+			// définition de la couleur
+			_r = 0.008; _g = 0.29; _b = 0.612;
 
-		switch ((typeOf _x) select [0, 1]) do {
-			case "O": {_r = 0.498; _g = 0; _b = 0;};
-			case "I": {_r = 0; _g = 0.498; _b = 0;};
-			case "C": {_r = 0.4; _g = 0; _b = 0.498;};
-		};
+			switch ((typeOf _x) select [0, 1]) do {
+				case "O": {_r = 0.498; _g = 0; _b = 0;};
+				case "I": {_r = 0; _g = 0.498; _b = 0;};
+				case "C": {_r = 0.4; _g = 0; _b = 0.498;};
+			};
 
-		// affichage du nom si c'était un joueur
-		_name = if (isPlayer _x) then {name _x} else {""};
+			// affichage du nom si c'était un joueur
+			_name = if (isPlayer _x) then {name _x} else {""};
 
-		// dessin de l'icône
-		drawIcon3D [
-			getText (configfile >> "CfgMarkers" >> "KIA" >> "icon"),
-			[_r, _g, _b, 0.5],
-			(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
-			0.75,
-			0.75,
-			0,
-			_name
-		];
-	} forEach allDead;
+			// dessin de l'icône
+			drawIcon3D [
+				getText (configfile >> "CfgMarkers" >> "KIA" >> "icon"),
+				[_r, _g, _b, 0.5 * CRP_var_spectatorCamera_uiFadeValue],
+				(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
+				0.75,
+				0.75,
+				0,
+				_name
+			];
+		} forEach allDead;
 
-	// icônes pour les vivants
-	{
-		// définition de la couleur
-		_r = 0.008; _g = 0.29; _b = 0.612;
+		// icônes pour les vivants
+		{
+			// définition de la couleur
+			_r = 0.008; _g = 0.29; _b = 0.612;
 
-		switch ((typeOf _x) select [0, 1]) do {
-			case "O": {_r = 0.498; _g = 0; _b = 0;};
-			case "I": {_r = 0; _g = 0.498; _b = 0;};
-			case "C": {_r = 0.4; _g = 0; _b = 0.498;};
-		};
+			switch ((typeOf _x) select [0, 1]) do {
+				case "O": {_r = 0.498; _g = 0; _b = 0;};
+				case "I": {_r = 0; _g = 0.498; _b = 0;};
+				case "C": {_r = 0.4; _g = 0; _b = 0.498;};
+			};
 
-		// affichage du nom si c'était un joueur
-		_name = if (isPlayer _x) then {name _x} else {""};
+			// affichage du nom si c'était un joueur
+			_name = if (isPlayer _x) then {name _x} else {""};
 
-		drawIcon3D [
-			getText (configfile >> "CfgVehicles" >> typeOf _x >> "icon"),
-			[_r, _g, _b, 1],
-			(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
-			0.75,
-			0.75,
-			([_x, CRP_var_spectatorCamera_camera] call BIS_fnc_relativeDirTo) + 180,
-			_name
-		];
-	} forEach allUnits;
+			drawIcon3D [
+				getText (configfile >> "CfgVehicles" >> typeOf _x >> "icon"),
+				[_r, _g, _b, 1 * CRP_var_spectatorCamera_uiFadeValue],
+				(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
+				0.75,
+				0.75,
+				([_x, CRP_var_spectatorCamera_camera] call BIS_fnc_relativeDirTo) + 180,
+				_name
+			];
+		} forEach allUnits;
 
-	// chemins pour les morts et vivants
-	{
-		_unit = _x select 0;
-		_path = _x select 1;
+		// chemins pour les morts et vivants
+		{
+			_unit = _x select 0;
+			_path = _x select 1;
 
-		// définition de la couleur
-		_r = 0.008; _g = 0.29; _b = 0.612;
+			// définition de la couleur
+			_r = 0.008; _g = 0.29; _b = 0.612;
 
-		switch ((typeOf _unit) select [0, 1]) do {
-			case "O": {_r = 0.498; _g = 0; _b = 0;};
-			case "I": {_r = 0; _g = 0.498; _b = 0;};
-			case "C": {_r = 0.4; _g = 0; _b = 0.498;};
-		};
+			switch ((typeOf _unit) select [0, 1]) do {
+				case "O": {_r = 0.498; _g = 0; _b = 0;};
+				case "I": {_r = 0; _g = 0.498; _b = 0;};
+				case "C": {_r = 0.4; _g = 0; _b = 0.498;};
+			};
 
-		// chemin
-		for [{_i = 0; _c = (count _path) - 1;}, {_i < _c}, {_i = _i + 1}] do {
-			drawLine3D [_path select _i, _path select (_i + 1), [_r, _g, _b, (1 / _c) * _i]];
-		};
+			// chemin
+			for [{_i = 0; _c = (count _path) - 1;}, {_i < _c}, {_i = _i + 1}] do {
+				drawLine3D [_path select _i, _path select (_i + 1), [_r, _g, _b, (1 / _c) * _i * CRP_var_spectatorCamera_uiFadeValue]];
+			};
 
-		_c = count _path;
+			_c = count _path;
 
-		if (_c > 0) then {
-			drawLine3D [(_path select (_c - 1)), ASLToAGL (eyePos _unit), [_r, _g, _b, 1]];
-		};
-	} forEach CRP_var_spectatorCamera_unitsPaths;
+			if (_c > 0) then {
+				drawLine3D [(_path select (_c - 1)), ASLToAGL (eyePos _unit), [_r, _g, _b, 1 * CRP_var_spectatorCamera_uiFadeValue]];
+			};
+		} forEach CRP_var_spectatorCamera_unitsPaths;
+	};
 }] call BIS_fnc_addStackedEventHandler;
 
 // gestion des boucle de mouvement de la caméra
