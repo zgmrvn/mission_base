@@ -1,15 +1,18 @@
 #include "ctrl.hpp"
 
 // déclaration des variables du module
-CRP_var_spectatorCamera_camera		= objNull;
-CRP_var_spectatorCamera_actions		= ["MoveForward", "MoveBack", "TurnLeft", "TurnRight", "LeanLeft", "MoveDown"];
-CRP_var_spectatorCamera_cameraKeys	= [];
-CRP_var_spectatorCamera_MainClick	= false;
-CRP_var_spectatorCamera_mouseDelta	= [];
-CRP_var_spectatorCamera_cameraData	= [0, 0];
-CRP_var_spectatorCamera_keysLoop	= false;
-CRP_var_spectatorCamera_specialKeys	= [false, false, false];
+CRP_var_spectatorCamera_camera			= objNull;
+CRP_var_spectatorCamera_actions			= ["MoveForward", "MoveBack", "TurnLeft", "TurnRight", "LeanLeft", "MoveDown"];
+CRP_var_spectatorCamera_actionsKeys		= [actionKeys "MoveForward", actionKeys "MoveBack", actionKeys "TurnLeft", actionKeys "TurnRight", actionKeys "LeanLeft", actionKeys "MoveDown"];
+CRP_var_spectatorCamera_cameraKeys		= [];
+CRP_var_spectatorCamera_MainClick		= false;
+CRP_var_spectatorCamera_mouseDelta		= [];
+CRP_var_spectatorCamera_cameraData		= [0, 0];
+CRP_var_spectatorCamera_keysLoop		= false;
+CRP_var_spectatorCamera_iterationLeft	= 1;
+CRP_var_spectatorCamera_specialKeys		= [false, false, false];
 
+// contient le chemin de toutes les unités
 CRP_var_spectatorCamera_unitsPaths	= [];
 
 // événements de l'interface
@@ -61,6 +64,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 	CRP_var_spectatorCamera_camera cameraEffect ["internal", "BACK"];
 	CRP_var_spectatorCamera_camera camCommit 0;
 	CRP_var_spectatorCamera_camera setDir (getDir player);
+	CRP_var_spectatorCamera_cameraData set [0, getDir player];
 	showCinemaBorder false;
 	cameraEffectEnableHUD true;
 	showHUD true;
@@ -243,4 +247,10 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 			drawLine3D [(_path select (_c - 1)), ASLToAGL (eyePos _unit), [_r, _g, _b, 1]];
 		};
 	} forEach CRP_var_spectatorCamera_unitsPaths;
+}] call BIS_fnc_addStackedEventHandler;
+
+// gestion des boucle de mouvement de la caméra
+// limiter à une seule itération par frame
+["spetatorCameraIterationLeft", "onEachFrame", {
+	CRP_var_spectatorCamera_iterationLeft = 1;
 }] call BIS_fnc_addStackedEventHandler;
