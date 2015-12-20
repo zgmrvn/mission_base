@@ -97,14 +97,18 @@ if (keyName (_this select 1) == """H""") then {
 
 		_display	= findDisplay SPECTATOR_DIALOG_IDD;
 		_list		= _display displayCtrl SPECTATOR_LIST_IDC;
+		_help		= _display displayCtrl SPECTATOR_HELP_IDC;
 
 		// on bascule l'état de l'interface
 		CRP_var_spectatorCamera_uiVisible = !CRP_var_spectatorCamera_uiVisible;
 
 		// on fade la liste de joueur
 		_fade = if (CRP_var_spectatorCamera_uiVisible) then {0} else {1};
-		_list ctrlSetFade _fade;
-		_list ctrlCommit 0.25;
+
+		{
+			_x ctrlSetFade _fade;
+			_x ctrlCommit 0.25;
+		} forEach [_list, _help];
 
 		// on masque progressivement les chemins et icônes en modifiant un multiplicateur
 		// utilisé dans le calcul de l'alpha des lines 3D et icônes
