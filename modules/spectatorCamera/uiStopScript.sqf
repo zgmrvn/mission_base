@@ -22,6 +22,8 @@ CRP_var_spectatorCamera_iterationLeft	= nil;
 CRP_var_spectatorCamera_specialKeys 	= nil;
 CRP_var_spectatorCamera_uiVisible		= nil;
 CRP_var_spectatorCamera_uiFadeValue		= nil;
+CRP_var_spectatorCamera_map				= nil;
+CRP_var_spectatorCamera_cameraIcon		= nil;
 
 CRP_var_spectatorCamera_unitsPaths		= nil;
 

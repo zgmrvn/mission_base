@@ -13,6 +13,8 @@ CRP_var_spectatorCamera_iterationLeft	= 1;
 CRP_var_spectatorCamera_specialKeys		= [false, false, false];
 CRP_var_spectatorCamera_uiVisible		= true;
 CRP_var_spectatorCamera_uiFadeValue		= 1;
+CRP_var_spectatorCamera_map				= false;
+CRP_var_spectatorCamera_cameraIcon		= gettext (configfile >> "RscDisplayCamera" >> "iconCamera");
 
 // contient le chemin de toutes les unités
 CRP_var_spectatorCamera_unitsPaths	= [];
@@ -27,6 +29,14 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 	_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
 	_event	= _dialog displayCtrl SPECTATOR_EVENT_IDC;
 	_list	= _dialog displayCtrl SPECTATOR_LIST_IDC;
+
+	// pour ne pas avoir la carte pendant un court instant à la création du display
+	// on créé la carte dynamiquement
+	_map = _dialog ctrlCreate ["RscMapControl", SPECTATOR_MAP_IDC];
+	_map ctrlShow false;
+	_map ctrlSetPosition [safeZoneX, safeZoneY, safeZoneW, safeZoneH];
+	_map ctrlCommit 0;
+	_map ctrlSetTooltip "Double-cliquez pour déplacer la caméra";
 
 	// alimentation et actualisation de l'arbre
 	[] spawn {
@@ -51,7 +61,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 			// on reséléctionnne l'élément
 			_list lbSetCurSel _index;
 
-			sleep 1;
+			sleep 5;
 		};
 	};
 
@@ -72,9 +82,10 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 	showHUD true;
 
 	// gestion des pressions sur les touches clavier
-	// pour le mouvement de la caméra
+	// pour le ctrl d'événements en focus
 	_event ctrlAddEventHandler ["KeyDown", {
 		#include "inc\keyDownCameraMouvments.sqf"
+		#include "inc\keyDownInterface.sqf"
 
 		true
 	}];
@@ -132,6 +143,53 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 
 		// redéfinition du focus pour conserver le contrôle de la caméra
 		ctrlSetFocus _event;
+
+		true
+	}];
+
+	// gestion des pression sur la map
+	// fermeture de la carte
+	_map ctrlAddEventHandler ["KeyDown", {
+		// ne pas écraser le comportement de la touche échappe
+		if ((_this select 1) == 1) exitWith {false};
+
+		// si c'est la touche pour ouvrir la carte
+		// on masque la carte
+		if ((_this select 1) in (actionKeys "ShowMap")) then {
+			CRP_var_spectatorCamera_map = !CRP_var_spectatorCamera_map;
+
+			_dialog	= findDisplay SPECTATOR_DIALOG_IDD;
+			_event	= _dialog displayCtrl SPECTATOR_EVENT_IDC;
+
+			(_this select 0) ctrlShow CRP_var_spectatorCamera_map;
+			ctrlSetFocus _event;
+		};
+
+		true
+	}];
+
+	// gestion du double click sur la map
+	_map ctrlAddEventHandler ["MouseButtonDblClick", {
+		_newPos = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];
+		_currentPos	= getPosATL CRP_var_spectatorCamera_camera;
+		_newPos set [2, _currentPos select 2];
+
+		CRP_var_spectatorCamera_camera setPosATL _newPos;
+
+		true
+	}];
+
+	// icône de la caméra sur carte
+	_map ctrlAddEventHandler ["Draw", {
+		(_this select 0) drawIcon [
+			CRP_var_spectatorCamera_cameraIcon,
+			[0, 1, 1, 1],
+			getPosASL CRP_var_spectatorCamera_camera,
+			32,32,
+			getDir CRP_var_spectatorCamera_camera,
+			"",
+			1
+		];
 
 		true
 	}];
@@ -253,7 +311,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 	};
 }] call BIS_fnc_addStackedEventHandler;
 
-// gestion des boucle de mouvement de la caméra
+// gestion de la boucle de mouvement de la caméra
 // limiter à une seule itération par frame
 ["spetatorCameraIterationLeft", "onEachFrame", {
 	CRP_var_spectatorCamera_iterationLeft = 1;
