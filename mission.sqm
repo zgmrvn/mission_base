@@ -52,7 +52,7 @@ class Mission
 					position[]={7522.4604,5,7452.6465};
 					id=0;
 					side="WEST";
-					vehicle="B_Soldier_TL_F";
+					vehicle="B_Soldier_F";
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="SERGEANT";

@@ -15,6 +15,8 @@ CRP_var_spectatorCamera_uiVisible		= true;
 CRP_var_spectatorCamera_uiFadeValue		= 1;
 CRP_var_spectatorCamera_map				= false;
 CRP_var_spectatorCamera_cameraIcon		= gettext (configfile >> "RscDisplayCamera" >> "iconCamera");
+CRP_var_spectatorCamera_unitIconDead	= getText (configfile >> "CfgMarkers" >> "KIA" >> "icon");
+CRP_var_spectatorCamera_unitIconAlive	= getText (configfile >> "CfgVehicles" >> "B_Soldier_F" >> "icon");
 
 // contient le chemin de toutes les unités
 CRP_var_spectatorCamera_unitsPaths	= [];
@@ -248,7 +250,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 
 			// dessin de l'icône
 			drawIcon3D [
-				getText (configfile >> "CfgMarkers" >> "KIA" >> "icon"),
+				CRP_var_spectatorCamera_unitIconDead,
 				[_r, _g, _b, 0.5 * CRP_var_spectatorCamera_uiFadeValue],
 				(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
 				0.75,
@@ -273,7 +275,7 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 			_name = if (isPlayer _x) then {name _x} else {""};
 
 			drawIcon3D [
-				getText (configfile >> "CfgVehicles" >> typeOf _x >> "icon"),
+				CRP_var_spectatorCamera_unitIconAlive,
 				[_r, _g, _b, 1 * CRP_var_spectatorCamera_uiFadeValue],
 				(ASLToAGL (getPosASLVisual _x)) vectorAdd [0, 0, 3],
 				0.75,
