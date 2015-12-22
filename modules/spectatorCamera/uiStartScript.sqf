@@ -17,6 +17,7 @@ CRP_var_spectatorCamera_map				= false;
 CRP_var_spectatorCamera_cameraIcon		= gettext (configfile >> "RscDisplayCamera" >> "iconCamera");
 CRP_var_spectatorCamera_unitIconDead	= getText (configfile >> "CfgMarkers" >> "KIA" >> "icon");
 CRP_var_spectatorCamera_unitIconAlive	= getText (configfile >> "CfgVehicles" >> "B_Soldier_F" >> "icon");
+CRP_var_spectatorCamera_cameraNVG		= false;
 
 // contient le chemin de toutes les unités
 CRP_var_spectatorCamera_unitsPaths	= [];

@@ -48,3 +48,10 @@ if ((_this select 1) in (actionKeys "ShowMap")) then {
 	_map ctrlShow CRP_var_spectatorCamera_map;
 	ctrlSetFocus _map;
 };
+
+// si c'est la touche pour activer/desactiver la vision nocture
+if ((_this select 1) in (actionKeys "NightVision")) then {
+	CRP_var_spectatorCamera_cameraNVG = !CRP_var_spectatorCamera_cameraNVG;
+
+	camUseNVG CRP_var_spectatorCamera_cameraNVG;
+};

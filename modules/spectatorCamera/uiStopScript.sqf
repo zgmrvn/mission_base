@@ -26,6 +26,7 @@ CRP_var_spectatorCamera_map				= nil;
 CRP_var_spectatorCamera_cameraIcon		= nil;
 CRP_var_spectatorCamera_unitIconDead	= nil;
 CRP_var_spectatorCamera_unitIconAlive	= nil;
+CRP_var_spectatorCamera_cameraNVG		= nil;
 
 CRP_var_spectatorCamera_unitsPaths		= nil;
 
