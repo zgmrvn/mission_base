@@ -198,9 +198,15 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 	}];
 };
 
+// gestion de la boucle de mouvement de la caméra
+// limiter à une seule itération par frame
+["spetatorCameraIterationLeft", "onEachFrame", {
+	CRP_var_spectatorCamera_iterationLeft = 1;
+}] call BIS_fnc_addStackedEventHandler;
+
 // gestion des unités devant être représentés
 [] spawn {
-	// boucle infinie, vérification des unité toutes les secondes
+	// boucle infinie, vérification des unité à interval régulier
 	while {!isNull (findDisplay SPECTATOR_DIALOG_IDD)} do {
 		// on efface progressivement le chemin des morts
 		{
@@ -221,13 +227,13 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 				((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) pushBack (ASLToAGL (eyePos _x));
 
 				// supression des anciennes positions
-				if (count ((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) > 30) then {
+				if (count ((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) > 20) then {
 					((CRP_var_spectatorCamera_unitsPaths select (_x getVariable "Z_var_spectatorCamera_unitIndex")) select 1) deleteAt 0;
 				};
 			};
 		} forEach allUnits;
 
-		sleep 2;
+		sleep 3;
 	};
 };
 
@@ -312,10 +318,4 @@ CRP_var_spectatorCamera_unitsPaths	= [];
 			};
 		} forEach CRP_var_spectatorCamera_unitsPaths;
 	};
-}] call BIS_fnc_addStackedEventHandler;
-
-// gestion de la boucle de mouvement de la caméra
-// limiter à une seule itération par frame
-["spetatorCameraIterationLeft", "onEachFrame", {
-	CRP_var_spectatorCamera_iterationLeft = 1;
 }] call BIS_fnc_addStackedEventHandler;

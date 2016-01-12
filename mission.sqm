@@ -5,7 +5,6 @@ class Mission
 	{
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
-		"A3_Weapons_F_Ammoboxes",
 		"map_vr",
 		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_INDEP",
