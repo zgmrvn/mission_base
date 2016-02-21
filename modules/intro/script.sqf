@@ -4,7 +4,9 @@ if ((getNumber (missionConfigFile >> "Intro" >> "enabled")) == 0) exitWith {};
 // quitter le script s'il a été choisi dans les paramètres de mission de ne pas jouer l'intro
 if (("PlayIntro" call BIS_fnc_getParamValue) == 0) exitWith {};
 
-// on attent que le serveur ait initialisé les drapeau dont on a besoin
+// on attend que le serveur ait initialisé la variable dont on a besoin
+// le thread dans lequel on se trouve a été initialisé par initPlayerServer.sqf
+// mais la variable est créée dans un thread initié par init.sqf
 waitUntil {!isNil {CRP_var_intro_alreadyConnected}};
 
 _name = name _player;
