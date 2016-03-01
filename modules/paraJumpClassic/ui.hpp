@@ -3,8 +3,8 @@
 class ParaJumpClassicDialog {
 	idd = PARAJUMP_CLASSIC_DIALOG_IDD;
 
-	onLoad		= "['onLoad', _this, 'ParaJumpClassicDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpClassic\uiStartScript.sqf';";
-	onUnload	= "['onUnload', _this, 'ParaJumpClassicDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpClassic\uiStopScript.sqf';";
+	onLoad		= "['onLoad', _this, 'ParaJumpClassicDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpClassic\uiScriptStart.sqf';";
+	onUnload	= "['onUnload', _this, 'ParaJumpClassicDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpClassic\uiScriptStop.sqf';";
 
 	class ControlsBackground {
 		class Title: BaseTitle {

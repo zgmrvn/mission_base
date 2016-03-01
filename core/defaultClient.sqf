@@ -4,16 +4,16 @@
 
 // module de téléportation sur le chef d'équipe
 // script de création des actions de téléportation sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\teleportToLeader\script.sqf"
+#include "..\modules\teleportToLeader\initScriptClient.sqf"
 
 // module de saut en parachute classique
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\paraJumpClassic\script.sqf"
+#include "..\modules\paraJumpClassic\initScriptClient.sqf"
 
 // module de saut en parachute avancé
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\paraJumpAdvanced\script.sqf"
+#include "..\modules\paraJumpAdvanced\initScriptClient.sqf"
 
 // module de caméra sepctateur
 // script de création des actions de caméra spectateur sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\spectatorCamera\script.sqf"
+#include "..\modules\spectatorCamera\initScriptClient.sqf"
