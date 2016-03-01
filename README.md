@@ -43,6 +43,9 @@ Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter 
 ### Module de saut de groupe ###
 Saut de groupe façon GID Academy. Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter les actions depuis le fichier de configuration ``` modules/paraJumpClassic/config.hpp ```. Ce module a une dépendance au module de création de drapeaux.
 
+### Module de saut de groupe avec C130J ###
+Saut de groupe depuis C130. Configurez les sauts depuis le fichier de configuration ``` modules/paraJumpAdvanced/config.hpp ```. Ce module a une dépendance au module de création de drapeaux et une dépendance au mod CUP.
+
 ## autres fonctionnalités ##
 
 ### Dégroupage auto ###

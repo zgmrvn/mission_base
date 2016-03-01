@@ -33,7 +33,7 @@ class Header
 {
 	gameType = Coop;
 	minPlayers = 1;
-	maxPlayers = 12;
+	maxPlayers = 16;
 };
 
 class CfgFunctions {
@@ -60,6 +60,10 @@ class CfgFunctions {
 #include "modules\paraJumpClassic\config.hpp"
 #include "modules\paraJumpClassic\ui.hpp"
 
+// module de saut en parachute avancé
+#include "modules\paraJumpAdvanced\config.hpp"
+#include "modules\paraJumpAdvanced\ui.hpp"
+
 // module de caméra spectateur
 #include "modules\spectatorCamera\config.hpp"
 #include "modules\spectatorCamera\ui.hpp"
@@ -68,4 +72,8 @@ class CfgFunctions {
 // disponibles depuis le lobby
 class Params {
 	#include "modules\intro\params.hpp"
+};
+
+class CfgSounds {
+	#include "modules\paraJumpAdvanced\sounds.hpp"
 };
