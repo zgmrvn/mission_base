@@ -119,13 +119,25 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 			_divers			= _this select 1;
 			_coordinates	= _drop select 1;
 			_bearing		= _drop select 2;
+			_elevation		= _coordinates select 2;
+			_coordinates	= [_coordinates, 500, _bearing + 180] call bis_fnc_relPos;
+			_coordinates set [2, _elevation];
 
 			[[_coordinates, _bearing], "modules\paraJumpAdvanced\scriptServer.sqf"] remoteExec ["execVM", 2];
 
-			sleep 4;
+			// on attend que le C130 soit créé
+			waitUntil {(count (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25])) > 0};
+
+			_c130j = (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25]) select 0;
+
+			// on attend que le C130J soit sur le bon azimut
+			// ça prend un peu de temps à passer sur le réseau
+			waitUntil {(abs ((getDirVisual _c130j) - _bearing)) <= 2};
+
+			sleep 1;
 
 			{
-				[[4 * _forEachIndex, _coordinates, _bearing], "modules\paraJumpAdvanced\scriptClient.sqf"] remoteExec ["execVM", _x];
+				[[_c130j, 4 * _forEachIndex, _coordinates, _bearing], "modules\paraJumpAdvanced\scriptClient.sqf"] remoteExec ["execVM", _x];
 			} forEach _divers;
 		};
 

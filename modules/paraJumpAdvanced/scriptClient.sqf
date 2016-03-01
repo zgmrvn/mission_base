@@ -1,6 +1,7 @@
-_delay			= _this select 0;
-_coordinates	= _this select 1;
-_bearing		= _this select 2;
+_c130j			= _this select 0;
+_delay			= _this select 1;
+_coordinates	= _this select 2;
+_bearing		= _this select 3;
 
 sleep _delay;
 
@@ -16,7 +17,7 @@ detach player;
 deleteVehicle _helper;
 
 // détection du C130J
-_c130j = (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25]) select 0; // problème de type de position ?
+//_c130j = (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25]) select 0; // problème de type de position ?
 
 _c130j spawn {
 	while {(player distance _this) < 1000} do {
@@ -37,10 +38,10 @@ _c130j spawn {
 		sleep (_x select 0);
 		player setVelocity [((sin _bearing) * (_x select 1)), ((cos _bearing) * (_x select 1)), (velocity player) select 2];
 	} forEach [
-		[0.5, 7],
-		[0.5, 11],
-		[0.5, 15],
-		[0.5, 25],
+		[0.5, 8],
+		[0.5, 12],
+		[0.5, 20],
+		[0.5, 30],
 		[0.5, 40],
 		[0.5, 50],
 		[0.5, 70],
