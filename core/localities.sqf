@@ -1,6 +1,7 @@
-X_server = false;
-X_client = false;
-X_init = false;
+X_server	= false;
+X_client	= false;
+X_init		= false;
+X_editor	= false;
 
 // cible pour les commandes type remoteExec
 X_remote_server = if (isDedicated) then {2} else {0};
@@ -11,6 +12,10 @@ if (isServer) then {
 
 	if (!isDedicated) then {
 		X_client = true;
+	};
+
+	if (isServer && !isDedicated) then {
+		X_editor = true;
 	};
 
 	X_init = true;
