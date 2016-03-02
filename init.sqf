@@ -1,10 +1,10 @@
-// déclaration des fonctions post-init
-// ces fonctions ne peuvent pas être utilisées depuis l'éditeur
-#include "functions\functions.sqf"
-
 // définitions des localités
 // et attente de l'initialisation
 #include "core\localities.sqf"
+
+// déclaration des fonctions post-init
+// ces fonctions ne peuvent pas être utilisées depuis l'éditeur
+#include "functions\functions.sqf"
 
 // à partir d'ici, le client et le serveur sont prêts
 // écrivez ce que vous voulez

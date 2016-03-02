@@ -68,6 +68,9 @@ class CfgFunctions {
 #include "modules\spectatorCamera\config.hpp"
 #include "modules\spectatorCamera\ui.hpp"
 
+// module d'occupation des bâtiments
+#include "modules\buildingsOccupation\config.hpp"
+
 // paramètres de missions
 // disponibles depuis le lobby
 class Params {

@@ -46,6 +46,9 @@ Saut de groupe façon GID Academy. Configurez simplement les noms des drapeaux s
 ### Module de saut de groupe avec C130J ###
 Saut de groupe depuis C130. Configurez les sauts depuis le fichier de configuration ``` modules/paraJumpAdvanced/config.hpp ```. Ce module a une dépendance au module de création de drapeaux et une dépendance au mod CUP.
 
+### Module d'occupation des bâtiments ###
+Ce module permet de peupler les bâtiments d'une zone avec un nombre d'IA donné. Configurez les zones et le type d'unités depuis le fichier de configuration ``` modules/buildingsOccupation/config.hpp ```.
+
 ## autres fonctionnalités ##
 
 ### Dégroupage auto ###
