@@ -3,6 +3,7 @@ class BuildingsOccupation {
 	enabled = 1;
 
 	// informations sur les zones d'occupation
+	// centre de la zone, rayon, nombre d'unités
 	occupations[] = {
 		{{7460.1, 7509.3, 0}, 25, 2}, // maison Ouest
 		{{7585.2, 7509.5, 0}, 25, 2}, // maison Est
