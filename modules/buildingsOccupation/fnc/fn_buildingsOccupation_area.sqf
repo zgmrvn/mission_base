@@ -16,8 +16,6 @@ _buildings	= nearestObjects [_center, ["Building"], _radius];
 
 		{
 			_positions pushBack [_building, _x select 0, _x select 1];
-
-			diag_log str [_building, _x select 0, _x select 1];
 		} forEach _buildingsPositions;
 	};
 } forEach _buildings;
@@ -35,14 +33,14 @@ for [{_i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do
 	_dir		= _position select 2;
 
 	_group = createGroup east;
+	_wp = _group addWaypoint [_pos, 0];
+	deleteWaypoint [_group, (count (waypoints _group)) - 1];
 	_unit = _group createUnit [_unitsClasses call BIS_fnc_selectRandom, _building modelToWorld _pos, [], 0, "CAN_COLLIDE"];
+	_unit setPos (_building modelToWorld _pos);
+	_unit setDir ((getDir _building) + _dir);
 	_group setCombatMode "RED";
 	_group setBehaviour "SAFE";
 	_group setSpeedMode "LIMITED";
-	_unit setPos (_building modelToWorld _pos);
-	_unit setDir ((getDir _building) + _dir);
-	_wp = _group addWaypoint [_pos, 0];
-	deleteWaypoint [_group, (count (waypoints _group)) - 1];
 	_wp setWaypointType "MOVE";
 	_wp setWaypointBehaviour "SAFE";
 	_wp setWaypointSpeed "LIMITED";
