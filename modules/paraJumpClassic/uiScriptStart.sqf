@@ -5,6 +5,7 @@
 CRP_var_paraJumpClassic_skyDivers	= [];
 CRP_var_paraJumpClassic_coordinates = [];
 CRP_var_paraJumpClassic_marker		= "";
+CRP_var_paraJumpClassic_elevation	= "5000";
 
 [] spawn {
 	waitUntil {!isNull (findDisplay PARAJUMP_CLASSIC_DIALOG_IDD)};
@@ -57,7 +58,39 @@ CRP_var_paraJumpClassic_marker		= "";
 		_definition	= parseNumber (ctrlText PARAJUMP_CLASSIC_ALTITUDE_IDC);
 		_definition	= _definition + _mouseWheel * 100;
 
+		CRP_var_paraJumpClassic_elevation = str _definition;
 		ctrlSetText [PARAJUMP_CLASSIC_ALTITUDE_IDC, str _definition];
+	}];
+
+	// gérer l'ajout de lettres
+	_altitude ctrlAddEventHandler ["KeyDown", {
+		_elevation = ctrlText PARAJUMP_CLASSIC_ALTITUDE_IDC;
+		_elevation = toArray _elevation;
+		_filter = toArray "0123456789";
+		_iterate = true;
+
+		// on boucle sur la chaîne du champs convertie en tableau
+		// tant que l'on a pas trouvé de caractère interdit
+		for [{_i = 0; _c = count _elevation;}, {_i < _c && _iterate}, {_i = _i + 1}] do {
+			// si le caractère ajouté n'est pas un chiffre
+			if !((_elevation select _i) in _filter) then {
+				// on affecte la dernière valeur d'altiture connue
+				// et on arrête la boucle
+				_elevation = CRP_var_paraJumpClassic_elevation;
+				_iterate = false;
+			};
+		};
+
+		// si la boucle est arrivée à son terme
+		// on a toujours un tableau qu'il vaut repasser en chaîne
+		if (_iterate) then {
+			_elevation = toString _elevation;
+		};
+
+		// on sauvegarde la nouvelle valeur du champ
+		// et on le remplis
+		CRP_var_paraJumpClassic_altitude = _elevation;
+		ctrlSetText [PARAJUMP_CLASSIC_ALTITUDE_IDC, _elevation];
 	}];
 
 	// gestion du positionnement du marqueur de saut
