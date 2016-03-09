@@ -15,7 +15,7 @@ class ParaJumpAdvancedDialog {
 	};
 
 	class Controls {
-		class PlayersList: RscListBox {
+		class PlayersList: BaseListBox {
 			idc = PARAJUMP_ADVANCED_DIVERLIST_IDC;
 
 			x = safeZoneX + safeZoneW * 0.2;
@@ -24,11 +24,9 @@ class ParaJumpAdvancedDialog {
 			h = safeZoneH * 0.52;
 
 			colorBackground[] = {0.1, 0.1, 0.1, 1};
-			rowHeight = safeZoneH * 0.02;
-			canDrag = 0;
 		};
 
-		class DropList: RscListBox {
+		class DropList: BaseListBox {
 			idc = PARAJUMP_ADVANCED_DROPLIST_IDC;
 
 			x = safeZoneX + safeZoneW * 0.305;
@@ -37,8 +35,6 @@ class ParaJumpAdvancedDialog {
 			h = safeZoneH * 0.52;
 
 			colorBackground[] = {0.1, 0.1, 0.1, 1};
-			rowHeight = safeZoneH * 0.02;
-			canDrag = 0;
 		};
 
 		class Map: BaseMap {

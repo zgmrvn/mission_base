@@ -14,7 +14,7 @@ class TeleportToLeaderDialog {
 	};
 
 	class Controls {
-		class PlayersList: RscListBox {
+		class PlayersList: BaseListBox {
 			idc = TELEPORT_LIST_IDC;
 
 			x = safeZoneX + safeZoneW * 0.4;
@@ -23,8 +23,6 @@ class TeleportToLeaderDialog {
 			h = safeZoneH * 0.52;
 
 			colorBackground[] = {0.1, 0.1, 0.1, 1};
-			rowHeight = safeZoneH * 0.05;
-
 		};
 
 		class CloseButton: CancelButton {

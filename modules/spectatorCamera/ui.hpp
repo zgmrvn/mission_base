@@ -19,10 +19,8 @@ class SpectatorCameraDialog {
 	onUnload	= "['onUnload', _this, 'SpectatorCameraDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\spectatorCamera\uiScriptStop.sqf';";
 
 	class controlsBackground {
-		class Help: RscText {
+		class Help: BaseText {
 			idc = SPECTATOR_HELP_IDC;
-			type = CT_STATIC;
-			style = ST_LEFT;
 
 			x = safeZoneX;
 			y = safeZoneY + safeZoneH * 0.9;
@@ -46,7 +44,7 @@ class SpectatorCameraDialog {
 	};
 
 	class Controls {
-		class PlayersList: RscListBox {
+		class PlayersList: BaseListBox {
 			idc = SPECTATOR_LIST_IDC;
 
 			x = safeZoneX;
@@ -55,8 +53,6 @@ class SpectatorCameraDialog {
 			h = safeZoneH * 0.9;
 
 			colorBackground[] = {0, 0, 0, 0};
-			rowHeight = safeZoneH * 0.02;
-			canDrag = 0;
 		};
 	};
 };

@@ -15,7 +15,7 @@ class ParaJumpClassicDialog {
 	};
 
 	class Controls {
-		class PlayersList: RscListBox {
+		class PlayersList: BaseListBox {
 			idc = PARAJUMP_CLASSIC_LIST_IDC;
 
 			x = safeZoneX + safeZoneW * 0.2;
@@ -24,8 +24,6 @@ class ParaJumpClassicDialog {
 			h = safeZoneH * 0.52;
 
 			colorBackground[] = {0.1, 0.1, 0.1, 1};
-			rowHeight = safeZoneH * 0.02;
-			canDrag = 0;
 		};
 
 		class Altitude: BaseEdit {

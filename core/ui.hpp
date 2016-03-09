@@ -47,7 +47,23 @@ class BaseEdit: RscEdit {
 	idc = -1;
 	type = CT_EDIT;
 
+	font = GUI_FONT_ROBOTO;
 	colorBackground[] = {0.1, 0.1, 0.1, 1};
+};
+
+class BaseText: RscText {
+	idc = -1;
+	type = CT_STATIC;
+	style = ST_LEFT;
+
+	font = GUI_FONT_ROBOTO;
+};
+
+class BaseListBox: RscListBox {
+	idc = -1;
+	font = GUI_FONT_ROBOTO;
+	rowHeight = safeZoneH * 0.02;
+	canDrag = 0;
 };
 
 class BaseTreeView {

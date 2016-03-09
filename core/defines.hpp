@@ -93,13 +93,14 @@
 #define MB_BUTTON_USER    4
 
 // Fonts
-#define GUI_FONT_NORMAL		PuristaMedium
-#define GUI_FONT_BOLD		PuristaSemibold
-#define GUI_FONT_THIN		PuristaLight
-#define GUI_FONT_MONO		EtelkaMonospacePro
-#define GUI_FONT_NARROW		EtelkaNarrowMediumPro
-#define GUI_FONT_CODE		LucidaConsoleB
-#define GUI_FONT_SYSTEM		TahomaB
+#define GUI_FONT_NORMAL	PuristaMedium
+#define GUI_FONT_BOLD	PuristaSemibold
+#define GUI_FONT_THIN	PuristaLight
+#define GUI_FONT_MONO	EtelkaMonospacePro
+#define GUI_FONT_NARROW	EtelkaNarrowMediumPro
+#define GUI_FONT_CODE	LucidaConsoleB
+#define GUI_FONT_SYSTEM	TahomaB
+#define GUI_FONT_ROBOTO	RobotoCondensed
 
 // Grids
 #define GUI_GRID_CENTER_WAbs	((safezoneW / safezoneH) min 1.2)
