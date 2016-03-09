@@ -34,3 +34,4 @@ if (isServer) then {
 };
 
 waitUntil {X_init};
+waitUntil {time > 0};
