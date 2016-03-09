@@ -17,7 +17,7 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 	_close 		= _dialog displayCtrl PARAJUMP_ADVANCED_CLOSE_IDC;
 	_jump		= _dialog displayCtrl PARAJUMP_ADVANCED_JUMP_IDC;
 
-	// alimentation et actualisation de la liste
+	// alimentation et actualisation de la liste des parachutistes
 	[] spawn {
 		disableSerialization;
 
@@ -56,7 +56,6 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 
 		_dialog		= findDisplay PARAJUMP_ADVANCED_DIALOG_IDD;
 		_map		= _dialog displayCtrl PARAJUMP_ADVANCED_MAP_IDC;
-		_dropList	= _dialog displayCtrl PARAJUMP_ADVANCED_DROPLIST_IDC;
 
 		_drops = (missionConfigFile >> "ParaJumpAdvanced" >> "Drops") call BIS_fnc_getCfgSubClasses;
 
@@ -77,7 +76,7 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 				ctrlMapAnimCommit _map;
 			};
 
-			lbAdd [PARAJUMP_ADVANCED_DROPLIST_IDC, _drop select 0];
+			lbAdd [PARAJUMP_ADVANCED_DROPLIST_IDC, format ["%1 (%2m)", _drop select 0, (_drop select 1) select 2]];
 			lbSetData [PARAJUMP_ADVANCED_DROPLIST_IDC, _forEachIndex, _x];
 		} forEach _drops;
 
