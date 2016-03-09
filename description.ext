@@ -71,10 +71,17 @@ class CfgFunctions {
 // module d'occupation des bâtiments
 #include "modules\buildingsOccupation\config.hpp"
 
+// module de choix de l'heure de départ
+#include "modules\startTime\config.hpp"
+
 // paramètres de missions
 // disponibles depuis le lobby
 class Params {
+	// paramètres du module d'intro
 	#include "modules\intro\params.hpp"
+
+	// paramètres du module de choix de l'heure de départ
+	#include "modules\startTime\params.hpp"
 };
 
 class CfgSounds {

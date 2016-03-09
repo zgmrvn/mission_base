@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7560.8174,80.073311,7360.9214};
-		dir[]={-0.36690447,-0.48642296,0.79310912};
-		up[]={-0.2042665,0.87369168,0.4415397};
-		aside[]={0.90767342,-1.4869147e-006,0.41990989};
+		pos[]={7525.8833,29.522057,7403.0957};
+		dir[]={-0.060477782,-0.46762142,0.88199472};
+		up[]={-0.031999599,0.88389182,0.46660587};
+		aside[]={0.99774611,-1.2948876e-006,0.068423316};
 	};
 };
 binarizationWanted=0;
@@ -34,6 +34,10 @@ addons[]=
 	"A3_Structures_F_Households_Stone_Big"
 };
 randomSeed=1510754;
+class ScenarioData
+{
+	author="[CORP] zgmrvn";
+};
 class Mission
 {
 	class Intel
