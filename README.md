@@ -59,6 +59,9 @@ _handle = [_area, _units] spawn CRP_fnc_buildingsOccupation_area;
 waitUntil {scriptDone _handle};
 ```
 
+### Module de choix de l'heure de départ ###
+Permet de choisir l'heure de départ de la mission depuis les paramètres de mission. Par défaut, la mission débutera à l'heure configurée depuis l'éditeur. Activez/désactivez le module depuis le fichier de configuration ``` modules/startTime/config.hpp ```.
+
 ## autres fonctionnalités ##
 
 ### Dégroupage auto ###
