@@ -49,7 +49,7 @@ Saut de groupe depuis C130. Configurez les sauts depuis le fichier de configurat
 ### Module d'occupation des bâtiments ###
 Ce module permet de peupler les bâtiments d'une zone avec un nombre d'IA donné. Configurez les zones et le type d'unités depuis le fichier de configuration ``` modules/buildingsOccupation/config.hpp ```.
 
-Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez peupler une zone dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utilier la fonction ``` CRP_fnc_buildingsOccupation_area ```.
+Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez peupler une zone dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction ``` CRP_fnc_buildingsOccupation_area ```.
 ```
 #!sqf
 _area = [[7460.1, 7509.3, 0], 25, 2]; // centre de la zone, rayon, nombre d'unités
