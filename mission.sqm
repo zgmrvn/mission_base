@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=61;
+		nextID=62;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7525.8833,29.522057,7403.0957};
-		dir[]={-0.060477782,-0.46762142,0.88199472};
-		up[]={-0.031999599,0.88389182,0.46660587};
-		aside[]={0.99774611,-1.2948876e-006,0.068423316};
+		pos[]={7524.8467,29.522057,7403.1094};
+		dir[]={-1.4433769e-005,-0.4854694,0.87439173};
+		up[]={-1.2749904e-005,0.87421483,0.48554718};
+		aside[]={1.0000844,-1.4763439e-006,2.5122605e-005};
 	};
 };
 binarizationWanted=0;
@@ -36,12 +36,123 @@ addons[]=
 randomSeed=1510754;
 class ScenarioData
 {
-	author="[CORP] zgmrvn";
+	author="CORP";
+	overviewText="Texte de l'écran de choix de mission";
+	onLoadMission="Texte de l'écran de chargement";
+	loadScreen="data\images\loadScreen.paa";
+	showGPS=0;
+	saving=0;
+	respawnDialog=0;
+	disabledAI=1;
+	respawn=3;
+	class Header
+	{
+		gameType="Coop";
+		minPlayers=1;
+		maxPlayers=16;
+	};
+	wreckManagerMode="AddAll";
+	wreckLimit=20;
+	wreckRemovalMinTime=120.00001;
+	wreckRemovalMaxTime=180;
+	corpseManagerMode="AddAll";
+	corpseLimit=30;
+	corpseRemovalMinTime=120.00001;
+	corpseRemovalMaxTime=180;
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Counter";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=2;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
 	class Intel
 	{
+		briefingName="Framework de mission";
+		overviewText="Texte sur l'écran de lobby";
 		timeOfChanges=1800.0002;
 		startWeather=0;
 		startWind=0.1;
@@ -52,8 +163,8 @@ class Mission
 		forecastLightnings=0.1;
 		year=2035;
 		day=28;
-		hour=13;
-		minute=37;
+		hour=14;
+		minute=-22;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
 	};
