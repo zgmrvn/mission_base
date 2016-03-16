@@ -6,45 +6,76 @@
 	<meta charset="utf-8">
 	<title>addActionGlobal</title>
 	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
 </head>
 
 <body>
+	<a class="path" href="../index.html">index</a>
+
 	<h1>addActionGlobal</h1>
-
-	<hr>
-
-	<p>
-		Description : Cette fonction permet d'ajouter une action chez tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé. La problématique de JIP est prise en compte.
+	<p class="para">
+		Cette fonction permet d'ajouter une action chez tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé comme chez un client. La problématique de JIP est prise en compte.
 	</p>
 
 	<hr>
 
-	<p>
-		Syntaxe : <span class="code">[objet, titre, script, label, supprObjet, supprAction] call CRP_fnc_addActionGlobal</span>
+	<h2>Syntaxe</h2>
+
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[spec][[/spec][com]objet:object[/com], [com]texte:string[/com], [com]script:string[/com], [com]label:string[/com], [com]supprObjet:bool[/com], [com]supprAction:bool[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
+			));
+		</script>
 	</p>
 
-	<p>Paramètres :</p>
 	<ul>
-		<li>objet : <span class="code">object</span> - l'object sur lequel ajouter l'action</li>
-		<li>titre : <span class="code">string</span> - le titre de l'action</li>
-		<li>script : <span class="code">string</span> - le script à éxecuter (global). passer objNull si pas de script</li>
-		<li>label : <span class="code">string</span> - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone"</li>
-		<li>supprObjet : <span class="code">bool</span> - faut-il supprimer l'objet</li>
-		<li>supprAction : <span class="code">bool</span> - faut-il supprimer l'action</li>
+		<li>objet - l'object sur lequel ajouter l'action</li>
+		<li>texte - le texte de l'action qui apparaîtra dans le menu</li>
+		<li>script - chemin vers le script à éxecuter (global). passer objNull si pas de script</li>
+		<li>label - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone". utilisé par la fonction pour éviter d'ajouter 2 fois la même action</li>
+		<li>supprObjet  - faut-il supprimer l'objet</li>
+		<li>supprAction - faut-il supprimer l'action</li>
 	</ul>
 
 	<hr>
 
-	<p>exemple :</p>
-	<p class="code">
-		[<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;_ordinateur,<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;"<t color='#FF0000'>Pirater ordinateur</t>",<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;"autoDestruction.sqf",<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;"piratage",<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;false,<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;true<br>
-		] call CRP_fnc_addActionGlobal;
+	<h2>Exemples</h2>
+
+	<p class="file">mission/monScript.sqf</p>
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[spec][[/spec][br]' +
+				'[tab][var]_ordinateur[/var], [com]\/\/ l\'objet sur lequel ajouter l\'action[/com][br]' +
+				'[tab][str]"Pirater ordinateur"[/str], [com]\/\/ titre de l\'action[/com][br]' +
+				'[tab][str]"autoDestruction.sqf"[/str], [com]\/\/ un script qui sera exécuté côté client et serveur[/com][br]' +
+				'[tab][str]"piratage"[/str], [com]\/\/ un label, pour différencier les actions lorsqu\'il y en a plusieurs sur le même objet[/com][br]' +
+				'[tab][bool]false[/bool], [com]\/\/ faut-il supprimer l\'objet lorsque l\'action est déclenchée[/com][br]' +
+				'[tab][bool]true[/bool] [com]\/\/ faut-il supprimer l\'action lorsqu\'elle est déclenchée (global)[/com][br]' +
+				'[spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
+			));
+		</script>
+	</p>
+
+	<p class="file">mission/monScript.sqf</p>
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[key]if[/key] [spec]([/spec][gvar]X_server[/gvar][spec])[/spec] [key]then[/key] [spec]{[/spec][br]' +
+				'[tab][var]_lumiere[/var] = [cmd]createVehicle[/cmd] [spec][[/spec][str]"Land_LampShabby_F"[/str], [spec][[/spec][num]1503[/num], [num]2456[/num], [num]0[/num][spec]][/spec], [spec][][/spec], [num]0[/num], [str]"CAN_COLLIDE"[/str][spec]][/spec];[br]' +
+				'[br]' +
+				'[tab][spec][[/spec][br]' +
+				'[tab][tab][var]_lumiere[/var],[br]' +
+				'[tab][tab][str]"Couper lumière"[/str],[br]' +
+				'[tab][tab][str]"couperLumiere.sqf"[/str],[br]' +
+				'[tab][tab][str]"lumiere"[/str],[br]' +
+				'[tab][tab][bool]false[/bool],[br]' +
+				'[tab][tab][bool]true[/bool][br]' +
+				'[tab][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];[br]' +
+				'[spec]}[/spec];'
+			));
+		</script>
 	</p>
 </body>
 

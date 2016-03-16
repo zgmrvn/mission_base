@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>buildingsOccupation</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<a class="path" href="../index.html">index</a>
+
+	<h1>buildingsOccupation</h1>
+	<p class="para">
+		Ce module permet de peupler les bâtiments d'une zone avec un nombre d'IA donné. Configurez les zones et le type d'unités depuis le fichier de configuration <span class="inline-code">modules/buildingsOccupation/config.hpp</span>.
+	</p>
+
+	<hr>
+
+	<h2>Configuration</h2>
+
+	<p class="file">modules/buildingsOccupation/config.hpp</p>
+	<p class="code config">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[ckey]class[/ckey] BuildingsOccupation {[br]' +
+				'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
+				'[tab]enabled = [num]1[/num];[br]' +
+				'[br]' +
+				'[tab][com]\/\/ informations sur les zones d\'occupation[/com][br]' +
+				'[tab][com]\/\/ centre de la zone, rayon, nombre d\'unités[/com][br]' +
+				'[tab]occupations[] = {[br]' +
+				'[tab][tab]{{[num]7460.1[/num], [num]7509.3[/num], [num]0[/num]}, [num]25[/num], [num]2[/num]}, [com]\/\/ maison Ouest[/com][br]' +
+				'[tab][tab]{{[num]7585.2[/num], [num]7509.5[/num], [num]0[/num]}, [num]25[/num], [num]2[/num]}, [com]\/\/ maison Est[/com][br]' +
+				'[tab][tab]{{[num]8143.5[/num], [num]7505.8[/num], [num]0[/num]}, [num]25[/num], [num]3[/num]} [com]\/\/ maison éloignée Est[/com][br]' +
+				'[tab]};[br]' +
+				'[br]' +
+				'[tab][com]\/\/ unités à utiliser pour peupler les zones d\'occupation[/com][br]' +
+				'[tab]units[] = {[br]' +
+				'[tab][tab][str]"O_G_Soldier_TL_F"[/str],[br]' +
+				'[tab][tab][str]"O_G_Soldier_SL_F"[/str],[br]' +
+				'[tab][tab][str]"O_G_Soldier_exp_F"[/str],[br]' +
+				'[tab][tab][str]"O_G_Soldier_F"[/str][br]' +
+				'[tab]};[br]' +
+				'[tab][br]' +
+				'[tab][com]\/\/ bâtiments et positions d\'occupation[/com][br]' +
+				'[tab][ckey]class[/ckey] Buildings {[br]' +
+				'[tab][tab][com]\/\/ bâtiments Arma 3, vanilla[/com][br]' +
+				'[tab][tab]#[cinc]include[/cinc] [str]"inc\vanilla.hpp"[/str][br]' +
+				'[tab][tab][br]' +
+				'[tab][tab][com]\/\/ bâtiments portés d\'arma 2[/com][br]' +
+				'[tab][tab]#[cinc]include[/cinc] [str]"inc\arma2.hpp"[/str][br]' +
+				'[tab]};[br]' +
+				'};'
+			));
+		</script>
+	</p>
+
+	<hr>
+
+	<h2>Fonctions</h2>
+
+	<h3>Peupler une zone dynamiquement</h3>
+
+	<p class="para">
+		Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez peupler une zone dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction <span class="inline-code">CRP_fnc_buildingsOccupation_area</span>.
+	</p>
+
+	<p class="file">mission/monScript.sqf</p>
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[var]_area[/var] = [spec][[[/spec][num]7460.1[/num], [num]7509.3[/num], [num]0[/num][spec]][/spec], [num]25[/num], [num]2[/num][spec]][/spec]; [com]\/\/ centre de la zone, rayon, nombre d\'unités[/com][br]' +
+				'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec]; [com]\/\/ classnames des unités à utiliser pour peupler la zone[/com][br]' +
+				'[br]' +
+				'[var]_handle[/var] = [spec][[/spec][var]_area[/var], [var]_units[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_buildingsOccupation_area[/fnc];[br]' +
+				'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]'
+			));
+		</script>
+	</p>
+
+	<h3>Ajouter un nouveau bâtiment</h3>
+
+	<p class="para">
+		Documentation non complète. Si vous observez que des bâtiments ne sont jamais peuplés, cela peut vouloir dire qu'il ne sont pas dans la librairie du module buildingsOccupation. Il faudra donc les ajouter manuellement en utlisant les fonctions <span class="inline-code">CRP_fnc_buildingsOccupation_getRelPos</span> et <span class="inline-code">CRP_fnc_buildingsOccupation_getRelPos</span>. <span class="important">Attention, ces fonctions sont disponible uniquement dans l'éditeur</span>.
+	</p>
+</body>
+
+</html>

@@ -6,15 +6,58 @@
 	<meta charset="utf-8">
 	<title>actionsFlags</title>
 	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
 </head>
 
 <body>
+	<a class="path" href="../index.html">index</a>
+
 	<h1>actionsFlags</h1>
+	<p class="para">
+		Permet de créer simplement des drapeaux qui pourront être utilisés par les différents modules et scripts, principalement pour des actions. Configurez simplement les noms et positions des drapeaux depuis le fichier de configuration <span class="inline-code">modules/actionsFlags/config.hpp</span> et ils seront automatiquement créés.
+	</p>
 
 	<hr>
 
-	<p>
-		Description : permet de créer simplement des drapeaux qui pourront être utilisés par les différents modules et scripts. Configurez simplement les noms et positions des drapeaux depuis le fichier de configuration <span class="code">modules/actionsFlags/config.hpp</span> et ils seront automatiquement créés.
+	<h2>Configuration</h2>
+
+	<p class="file">modules/actionsFlags/config.hpp</p>
+	<p class="code config">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[ckey]class[/ckey] ActionsFlags {[br]' +
+				'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
+				'[tab]enabled = [num]1[/num];[br]' +
+				'[br]' +
+				'[tab][com]\/\/ liste des noms et des coordonnées ATL des drapeaux[/com][br]' +
+				'[tab][com]\/\/ les noms permettront d\'utiliser les drapeau dans d\'autres modules ou dans des scripts mission[/com][br]' +
+				'[tab]flags[] = {[br]' +
+				'[tab][tab]{[str]"base"[/str], {[num]7521[/num], [num]7456[/num], [num]0[/num]}},[br]' +
+				'[tab][tab]{[str]"respawn"[/str], {[num]5482[/num], [num]2456[/num], [num]0[/num]}}[br]' +
+				'[tab]};[br]' +
+				'};'
+			));
+		</script>
+	</p>
+
+	<hr>
+
+	<h2>Fonctions</h2>
+
+	<h3>Récupérer un drapeau par son nom</h3>
+
+	<p class="para">
+		Pour récupérer un drapeau dans l'un de vos scripts vous pouvez utiliser la fonction <span class="inline-code">CRP_fnc_actionsFlags_getFlag</span> qui prend en paramètre le nom que vous avez donné au drapeau dans le fichier de configuration. Exemple, pour la config précédente vous pourrez récupérer les drapeaux de cette manière :
+	</p>
+
+	<p class="file">mission/monScript.sqf</p>
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[var]_drapeauBase[/var] = [str]"base"[/str] [cmd]call[/cmd] [fnc]CRP_fnc_actionsFlags_getFlag[/fnc];[br]' +
+				'[var]_drapeauRespawn[/var] = [str]"respawn"[/str] [cmd]call[/cmd] [fnc]CRP_fnc_actionsFlags_getFlag[/fnc];'
+			));
+		</script>
 	</p>
 </body>
 
