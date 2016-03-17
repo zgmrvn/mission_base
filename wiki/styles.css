@@ -20,17 +20,26 @@ h1 {
 
 h2 {
     text-align: center;
+    margin-top: 5%;
     margin-bottom: 2%;
+    font-size: 180%;
 }
 
 
 h3 {
     text-align: center;
+    margin-top: 5%;
     margin-bottom: 2%;
 }
 
 ul {
-    padding-left:5%;
+    list-style-type: none;
+    font-size: 95%;
+}
+
+li {
+    line-height: 150%;
+    margin-bottom: 2%;
 }
 
 hr {
@@ -44,6 +53,7 @@ hr {
     margin: 0 auto 2% auto;
     text-align: justify;
     line-height: 180%;
+    font-size: 95%;
 }
 
 .inline-code {
@@ -85,4 +95,22 @@ hr {
 }
 
 .config {
+}
+
+.wrapper {
+    width: 1000px;
+    overflow: auto;
+}
+
+.cols3 {
+    width: 320px;
+    margin-right: 20px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-left:last-child {
+margin-right: 0;
 }

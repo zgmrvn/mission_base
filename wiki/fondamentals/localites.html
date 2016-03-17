@@ -34,13 +34,10 @@
 				'[gvar]X_remote_server[/gvar] [com]\/\/ à destination du serveur[/com][br]' +
 				'[gvar]X_remote_client[/gvar] [com]\/\/ à destination de tous les clients[/com][br]' +
 				'[br]' +
-				'[spec][[/spec][gvar]taskOne[/gvar], [str]"Succeeded"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"setTaskState"[/str], [gvar]X_target_client[/gvar], [bool]true[/bool][spec]][/spec];[br]' +
-				'[spec][[][/spec], [str]"mission/deleteVehicles.sqf"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"execVM"[/str], [gvar]X_target_server[/gvar][spec]][/spec];'
+				'[spec][[/spec][gvar]taskOne[/gvar], [str]"Succeeded"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"setTaskState"[/str], [gvar]X_remote_client[/gvar], [bool]true[/bool][spec]][/spec];[br]' +
+				'[spec][[][/spec], [str]"mission/deleteVehicles.sqf"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"execVM"[/str], [gvar]X_remote_server[/gvar][spec]][/spec];'
 			));
 		</script>
-	</p>
-	<p class="para">
-		.
 	</p>
 </body>
 
