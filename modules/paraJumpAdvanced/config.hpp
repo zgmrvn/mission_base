@@ -13,6 +13,7 @@ class ParaJumpAdvanced {
 
 	// zones de saut possibles
 	// chaque classe représente un saut
+	// le nom de la classe n'a pas d'importance
 	// le tableau data contient les informations du saut
 	// format du tableau data :
 	// {titre du saut, coordonnées et altitude, azimut}

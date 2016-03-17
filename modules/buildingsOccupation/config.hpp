@@ -23,7 +23,7 @@ class BuildingsOccupation {
 		// bâtiments Arma 3, vanilla
 		#include "inc\vanilla.hpp"
 
-		// bâtiments portés d'arma 2
+		// bâtiments portés d'Arma 2
 		#include "inc\arma2.hpp"
 	};
 };

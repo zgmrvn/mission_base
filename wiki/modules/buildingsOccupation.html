@@ -10,8 +10,6 @@
 </head>
 
 <body>
-	<a class="path" href="../index.html">index</a>
-
 	<h1>buildingsOccupation</h1>
 	<p class="para">
 		Ce module permet de peupler les bâtiments d'une zone avec un nombre d'IA donné. Configurez les zones et le type d'unités depuis le fichier de configuration <span class="inline-code">modules/buildingsOccupation/config.hpp</span>.
@@ -48,10 +46,10 @@
 				'[tab][com]\/\/ bâtiments et positions d\'occupation[/com][br]' +
 				'[tab][ckey]class[/ckey] Buildings {[br]' +
 				'[tab][tab][com]\/\/ bâtiments Arma 3, vanilla[/com][br]' +
-				'[tab][tab]#[cinc]include[/cinc] [str]"inc\vanilla.hpp"[/str][br]' +
+				'[tab][tab]#[cinc]include[/cinc] [str]"inc\\vanilla.hpp"[/str][br]' +
 				'[tab][tab][br]' +
-				'[tab][tab][com]\/\/ bâtiments portés d\'arma 2[/com][br]' +
-				'[tab][tab]#[cinc]include[/cinc] [str]"inc\arma2.hpp"[/str][br]' +
+				'[tab][tab][com]\/\/ bâtiments portés d\'Arma 2[/com][br]' +
+				'[tab][tab]#[cinc]include[/cinc] [str]"inc\\arma2.hpp"[/str][br]' +
 				'[tab]};[br]' +
 				'};'
 			));
@@ -84,7 +82,7 @@
 	<h3>Ajouter un nouveau bâtiment</h3>
 
 	<p class="para">
-		Documentation non complète. Si vous observez que des bâtiments ne sont jamais peuplés, cela peut vouloir dire qu'il ne sont pas dans la librairie du module buildingsOccupation. Il faudra donc les ajouter manuellement en utlisant les fonctions <span class="inline-code">CRP_fnc_buildingsOccupation_getRelPos</span> et <span class="inline-code">CRP_fnc_buildingsOccupation_getRelPos</span>. <span class="important">Attention, ces fonctions sont disponible uniquement dans l'éditeur</span>.
+		Documentation non complète. Si vous observez que des bâtiments ne sont jamais peuplés, cela peut vouloir dire qu'il ne sont pas dans la librairie du module buildingsOccupation. Il faudra donc les ajouter manuellement en utlisant les fonctions <span class="inline-code">CRP_fnc_buildingsOccupation_getBuildingInfos</span> et <span class="inline-code">CRP_fnc_buildingsOccupation_getRelPos</span>. <span class="important">Attention, ces fonctions sont disponible uniquement dans l'éditeur</span>.
 	</p>
 </body>
 

@@ -6,14 +6,16 @@
 body {
     width: 1000px;
     margin: 0 auto;
-    padding: 20px 0 60px 0;
+    padding: 100px 0;
     font-family: Verdana;
-    font-size: 85%;
+    font-size: 100%;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 2%;
+    font-size: 400%;
+    line-height: 150%;
 }
 
 h2 {
@@ -34,11 +36,6 @@ ul {
 hr {
     margin: 5% 0;
     border: none;
-}
-
-.path {
-    display: block;
-    margin-bottom: 60px;
 }
 
 .para {
@@ -64,12 +61,11 @@ hr {
 
 .file {
     display.block;
-    width: 960px;
-    height: 30px;
     line-height: 30px;
-    padding: 0 20px;
+    padding: 1% 2%;
     background-color: #ccc;
     font-family: Courier;
+    font-size: 90%;
     color: #333;
 }
 
@@ -79,8 +75,9 @@ hr {
     margin-bottom: 2%;
     background-color: #252525;
     color: #fff;
-    font-size: 90%;
+    font-size: 80%;
     font-family: Courier;
+    line-height: 140%;
 }
 
 .sqf {
