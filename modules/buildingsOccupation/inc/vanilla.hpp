@@ -1,4 +1,5 @@
-// maisons méditerranéennes
+// petit bungalow en béton
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_House_Small_03_V1_F.jpg
 class Land_i_House_Small_03_V1_F {
 	positions[] = {
 		{{0.177734,3.85059,0.0352173},286},
@@ -13,7 +14,8 @@ class Land_i_House_Small_03_V1_F {
 	};
 };
 
-// grande maison méditerranéenne à deux étages avec porche
+// grande maison méditerranéenne à deux étages avec porche sur facade alpha
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_House_Big_01_V1_F.jpg
 class Land_i_House_Big_01_V1_F {
 	positions[] = {
 		// rdc
@@ -28,55 +30,118 @@ class Land_i_House_Big_01_V1_F {
 		{{3.77393,5.53613,0.855064},90}
 	};
 };
+class Land_i_House_Big_01_V2_F: Land_i_House_Big_01_V1_F {};
+class Land_i_House_Big_01_V3_F: Land_i_House_Big_01_V1_F {};
 
+// petite maison à 2 étages et 2 balcons
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_House_Big_02_V1_F.jpg
 class Land_i_House_Big_02_V1_F {
 	positions[] = {
-		{{0.205078,-3.18359,-2.62328},180},
-		{{3.13672,3.91406,-2.62328},0},
-		{{-2.92383,3.8457,-2.62328},0},
-		{{0.167969,-2.97852,0.784058},180},
-		{{-0.998047,-5,0.784058},180},
-		{{-3.50391,-5.06055,0.784058},226},
-		{{3.17188,4.13672,0.784058},0},
-		{{0.0957031,4.06445,0.784058},0},
-		{{-1.59766,5.94824,0.72406},0}
+		// rdc
+		{{0.175781,-3.14063,-2.62327},180},
+		{{-2.9165,4.29297,-2.62327},0},
+		{{3.19067,4.62695,-2.62328},0},
+		{{3.88159,2.83301,-2.62327},90},
+		// étage
+		{{0.154297,-3.53027,0.784065},180},
+		{{0.0917969,4.63281,0.784058},0},
+		{{3.17651,4.51367,0.784058},0},
+		{{3.87939,2.81152,0.784058},90},
+		// balcons
+		{{-3.16772,6.25488,0.72406},315},
+		{{3.38647,6.12598,0.724056},45},
+		{{0.970215,-5.12891,0.784061},130},
+		{{-3.58862,-5.11719,0.784065},225}
 	};
 };
+class Land_i_House_Big_02_V2_F: Land_i_House_Big_02_V1_F {};
+class Land_i_House_Big_02_V3_F: Land_i_House_Big_02_V1_F {};
 
-// maisons de pierre
-class Land_i_Stone_HouseBig_V3_F {
+// maisons de pierre avec étage
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Stone_HouseBig_V3_F.jpg
+class Land_i_Stone_HouseBig_V1_F {
 	positions[] = {
 		// rez-de-chaussée
-		{{3.00098,-0.206543,-1.64301},179},
-		{{-1.30225,3.58545,-1.65424},265},
+		{{3.00098,-0.206543,-1.64301},180},
+		{{-1.30225,3.58545,-1.65424},270},
 		// étage
-		{{4.17236,3.50586,1.21892},88},
-		{{2.94775,-0.611328,1.21892},178},
+		{{4.17236,3.50586,1.21892},90},
+		{{2.94775,-0.611328,1.21892},180},
 		// balcon
 		{{5.96436,3.31201,1.18892},45},
-		{{5.8501,1.31885,1.18892},127}
+		{{5.8501,1.31885,1.18892},125}
+	};
+};
+class Land_i_Stone_HouseBig_V2_F: Land_i_Stone_HouseBig_V1_F {};
+class Land_i_Stone_HouseBig_V3_F: Land_i_Stone_HouseBig_V1_F {};
+
+// petite dépendance abandonnée
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_u_Addon_02_V1_F.jpg
+class Land_u_Addon_02_V1_F {
+	positions[] = {
+		{{-1.44629,0.503418,0.0981369},180},
+		{{2.3623,0.657715,0.0981369},180}
 	};
 };
 
+// petite dépendance en état (même qu'au dessus)
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Addon_02_V1_F.jpg
+class Land_i_Addon_02_V1_F {
+	positions[] = {
+		{{-1.44629,0.503418,0.0981369},180}
+	};
+};
 
+// petite maison en pierre de plein-pied
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Stone_Shed_V1_F.jpg
 class Land_i_Stone_Shed_V1_F {
 	positions[] = {
-		{{2.30859,1.83545,-0.100506},87},
-		{{-1.91748,3.60229,-0.100506},359},
+		{{2.30859,1.83545,-0.100506},90},
+		{{-1.91748,3.60229,-0.100506},0},
 		{{-1.875,0.192139,-0.100506},180}
 	};
 };
+class Land_i_Stone_Shed_V2_F: Land_i_Stone_Shed_V1_F {};
+class Land_i_Stone_Shed_V3_F: Land_i_Stone_Shed_V1_F {};
 
-class Land_LampStreet_small_F {
+// maison boutique à étage avec balcon
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Shop_01_V1_F.jpg
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Shop_01_V2_F.jpg
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Shop_01_V3_F.jpg
+class Land_i_Shop_01_V1_F {
 	positions[] = {
-		{{-3.46631,0.403076,-0.700241},128},
-		{{0.40918,-3.33496,-0.902985},180},
-		{{-3.85889,-0.567871,-0.904945},269},
-		{{-3.52734,3.73364,-0.904945},357}
+		// rdc
+		{{1.33594,-0.831055,-2.76158},180},
+		{{-0.739258,-1.40527,-2.76158},180},
+		{{-2.79883,-1.43066,-2.76157},180},
+		// étage
+		{{0.0507813,5.9043,1.10955},0},
+		{{-2.57617,6.19141,1.10984},0},
+		{{1.3584,-1.39941,1.11001},180},
+		{{-2.59277,-1.3584,1.10999},180},
+		// balcon
+		{{-3.09863,-3.1377,1.0803},225},
+		{{2.36133,-3.26855,1.0803},135}
+	};
+};
+class Land_i_Shop_01_V2_F: Land_i_Shop_01_V1_F {};
+class Land_i_Shop_01_V3_F: Land_i_Shop_01_V1_F {};
+
+// grande terrasse couverte
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_i_Addon_03_V1_F.jpg
+class Land_i_Addon_03_V1_F {
+	positions[] = {
+		{{-3.61816,-0.497803,-0.0501022},270},
+		{{-3.95605,2.56079,-0.0501022},270},
+		{{-2.81836,-1.22656,-0.0501022},180},
+		{{3.25195,-1.27368,-0.0501022},180},
+		{{3.76563,2.50024,-0.0501022},90},
+		{{3.7666,-0.358398,-0.0501022},90}
 	};
 };
 
-// bâtiments en construction
+// bâtiments en construction inachevé
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Unfinished_Building_01_F.jpg
 class Land_Unfinished_Building_01_F {
 	positions[] = {
 		{{-3.36523,-1.80273,1.37755},180},
@@ -87,7 +152,8 @@ class Land_Unfinished_Building_01_F {
 	};
 };
 
-// chateau
+// tour de château
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Castle_01_tower_F.jpg
 class Land_Castle_01_tower_F {
 	positions[] = {
 		// entrée
@@ -105,6 +171,8 @@ class Land_Castle_01_tower_F {
 	};
 };
 
+// tour de câteau en ruine
+//https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Castle_01_tower_ruins_F.jpg
 class Land_Castle_01_tower_ruins_F {
 	positions[] = {
 		// entrée
@@ -117,7 +185,8 @@ class Land_Castle_01_tower_ruins_F {
 	};
 };
 
-// cabanons
+// abris métalique
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Metal_Shed_F.jpg
 class Land_Metal_Shed_F {
 	positions[] = {
 		{{4.00635,-1.81299,-1.40652},89},
@@ -126,6 +195,8 @@ class Land_Metal_Shed_F {
 	};
 };
 
+// grande cabane
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Slum_House03_F.jpg
 class Land_Slum_House03_F {
 	positions[] = {
 		{{-1.02979,0.0883789,-1.01504},180},
@@ -133,7 +204,8 @@ class Land_Slum_House03_F {
 	};
 };
 
-// bunkers
+// petite casemate en sacs de sables
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_BagBunker_Small_F.jpg
 class Land_BagBunker_Small_F {
 	positions[] = {
 		{{0.103027,-0.645264,-0.963562},180},
@@ -142,10 +214,16 @@ class Land_BagBunker_Small_F {
 	};
 };
 
-// antennes
-class Land_radar_EP1 {
+// kiosks
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Kiosk_blueking_F.jpg
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Kiosk_gyros_F.jpg
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Kiosk_papers_F.jpg
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Kiosk_redburger_F.jpg
+class Land_Kiosk_blueking_F {
 	positions[] = {
-		{{0.266113,2.29639,8.39023},44},
-		{{-0.706055,2.46436,8.39023},304}
+		{{0,-0.737305,-1.97606},180}
 	};
 };
+class Land_Kiosk_gyros_F: Land_Kiosk_blueking_F {};
+class Land_Kiosk_papers_F: Land_Kiosk_blueking_F {};
+class Land_Kiosk_redburger_F: Land_Kiosk_blueking_F {};
