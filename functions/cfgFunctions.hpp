@@ -6,4 +6,10 @@ class CRP {
 	class Array {
 		class realShuffle {};
 	};
+
+	class Tasks {
+		class createTaskGlobal {};
+		class setTaskStateGlobal {};
+		class taskProceed {};
+	};
 };
