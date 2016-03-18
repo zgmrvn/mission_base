@@ -20,7 +20,7 @@ _buildings	= nearestObjects [_center, ["Building"], _radius];
 	};
 } forEach _buildings;
 
-_positions = _positions call BIS_fnc_arrayShuffle;
+_positions = _positions call CRP_fnc_realShuffle;
 _positionsCount = count _positions;
 
 // on place les unités dans les bâtiments
