@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CORP - createTaskGlobal</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<h1>createTaskGlobal</h1>
+	<p class="para">
+		Cette fonction permet de créer une tâche chez tous les joueurs, peu importe qu'elle soit exécutée côté serveur ou côté client. Le JIP est pris en charge.
+	</p>
+
+	<hr>
+
+	<h2>Syntaxe</h2>
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[spec][[/spec][com]label:string[/com], [com]titre:string[/com], [com]description:string ([/com], [com]notification:bool)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];'
+			));
+		</script>
+	</p>
+
+	<ul>
+		<li>label - c'est ce label qu'il faudra passer pour modifier l'action</li>
+		<li>titre - le titre de la tâche qui apparaîtra dans la liste des tâches</li>
+		<li>description - description de la tâche lorsqu'elle est séléctionnée</li>
+		<li>notification - (facultatif) faut-il notifier les joueurs (valeur par défaut : false)</li>
+	</ul>
+
+	<hr>
+
+	<h2>Exemples</h2>
+	<p class="file">mission/monScript.sqf</p>
+	<p class="code sqf">
+		<script type="text/javascript">
+			document.write(bbcodeParser.bbcodeToHtml(
+				'[com]\/\/ cette ligne créé une tâche chez tous les joueurs connectés ou qui se connecterons et les notifie[/com][br]' +
+				'[spec][[/spec][str]"killConnor"[/str], [str]"Tuer Connor"[/str], [str]"Tuez John Connor, chef de la Résistance"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];'
+			));
+		</script>
+	</p>
+</body>
+
+</html>

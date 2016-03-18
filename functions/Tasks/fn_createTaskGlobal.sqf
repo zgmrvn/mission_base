@@ -1,5 +1,5 @@
 /*
-	["test", "titre tâche", "description tâche", true] call CRP_fnc_addTask;
+	["test", "titre tâche", "description tâche", true] call CRP_fnc_createTaskGlobal;
 */
 
 params [

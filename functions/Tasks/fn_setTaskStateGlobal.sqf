@@ -1,6 +1,6 @@
 /*
-	["test", "Succeeded", "vous avez réussi", true] call CRP_fnc_setTaskState;
-	["test", "Failed", "mauvais...", true] call CRP_fnc_setTaskState;
+	["test", "Succeeded", "vous avez réussi", true] call CRP_fnc_setTaskStateGlobal;
+	["test", "Failed", "mauvais...", true] call CRP_fnc_setTaskStateGlobal;
 */
 
 params [
