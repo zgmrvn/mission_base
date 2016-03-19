@@ -1,6 +1,6 @@
 /*
 	cette fonction ne devrait jamais être utilisée directement
-	utilisez CRP_fnc_addTask et CRP_fnc_setTaskState
+	utilisez CRP_fnc_createTaskGlobal et CRP_fnc_setTaskStateGlobal
 */
 
 params [
@@ -20,13 +20,24 @@ switch (_mode) do
 
 		// si je suis le serveur, on demande aux joueurs d'exécuter cette fonction, même pour les JIP
 		if (isDedicated) then {
-			// todo, gérer les demandes de créations de taches déjà existantes avec un tableau côté serveur
-			["ADD", [_ref, _title, _desc, _notif]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+			// si le tableau des tâches n'existe pas, on le créé
+			if (isNil {CRP_var_tasks}) then {
+				CRP_var_tasks = [];
+			};
+
+			// si la tâche n'exite pas déjà
+			if !(_ref in CRP_var_tasks) then {
+				// on brodcast
+				["ADD", [_ref, _title, _desc, _notif]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+
+				// puis on enregistre la référence de la tâche créée
+				CRP_var_tasks pushBack _ref;
+			};
 		};
 
 		// si je suis un joueur
 		if (!isDedicated) then {
-			// si le tableau des tâches n'existe pas, je le créé
+			// si le tableau des tâches n'existe pas, on le créé
 			if (isNil {CRP_var_tasks}) then {
 				CRP_var_tasks = [];
 			};
@@ -58,8 +69,11 @@ switch (_mode) do
 
 		// si je suis le serveur, je demande aux joueurs d'exécuter cette fonction, même pour les JIP
 		if (isDedicated) then {
-			// todo gérer les demande sur tes tâches qui n'existent pas avec un tableau côté serveur
-			["SET", [_ref, _state, _notif, _text]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+			// si cette tâche existe
+			if (_ref in CRP_var_tasks) then {
+				// on brodcast
+				["SET", [_ref, _state, _notif, _text]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+			};
 		};
 
 		// sinon, si je suis un joueur
