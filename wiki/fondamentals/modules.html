@@ -10,42 +10,47 @@
 </head>
 
 <body>
-	<h1>Modules</h1>
-	<p class="para">
-		Les fonctionnalités du framework sont découpées en modules. L'idée de ces modules est de fournir à l'éditeur des fonctionnalités complexes d'un point de vue scripting qu'il peut configurer très simplement depuis un fichier de configuration. Ainsi, chaque module a à sa racine un fichier nommé <span class="inline-code">config.hpp</span> qui permet au minimum de déactiver totalement le module. Exemple du fichier de configuration du module actionsFlags qui permet de créer des drapeaux utilisables par les autres modules pour l'ajout d'actions par exemple :
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">Modules</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Les fonctionnalités du framework sont découpées en modules. L'idée de ces modules est de fournir à l'éditeur des fonctionnalités complexes d'un point de vue scripting qu'il peut configurer très simplement depuis un fichier de configuration. Ainsi, chaque module a à sa racine un fichier nommé <span class="Code-inline">config.hpp</span> qui permet au minimum de déactiver totalement le module. Exemple du fichier de configuration du module actionsFlags qui permet de créer des drapeaux utilisables par les autres modules pour l'ajout d'actions par exemple&nbsp;:
 	</p>
-	<p class="file">modules/actionsFlags/config.hpp</p>
-	<p class="code config">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[ckey]class[/ckey] ActionsFlags {[br]' +
-				'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
-				'[tab]enabled = [num]1[/num];[br]' +
-				'[br]' +
-				'[tab][com]\/\/ liste des noms et des coordonnées ATL des drapeaux[/com][br]' +
-				'[tab][com]\/\/ les noms permettront d\'utiliser les drapeau dans d\'autres modules ou dans des scripts mission[/com][br]' +
-				'[tab]flags[] = {[br]' +
-				'[tab][tab]{[str]"base"[/str], {[num]7521[/num], [num]7456[/num], [num]0[/num]}},[br]' +
-				'[tab][tab]{[str]"respawn"[/str], {[num]5482[/num], [num]2456[/num], [num]0[/num]}}[br]' +
-				'[tab]};[br]' +
-				'};'
-			));
-		</script>
-	</p>
-	<h2>Nommage des fichiers</h2>
-	<p class="para">
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">modules/actionsFlags/config.hpp</p>
+		<p class="Code-inner Code-inner--config">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[ckey]class[/ckey] ActionsFlags {[br]' +
+					'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
+					'[tab]enabled = [num]1[/num];[br]' +
+					'[br]' +
+					'[tab][com]\/\/ liste des noms et des coordonnées ATL des drapeaux[/com][br]' +
+					'[tab][com]\/\/ les noms permettront d\'utiliser les drapeau dans d\'autres modules ou dans des scripts mission[/com][br]' +
+					'[tab]flags[] = {[br]' +
+					'[tab][tab]{[str]"base"[/str], {[num]7521[/num], [num]7456[/num], [num]0[/num]}},[br]' +
+					'[tab][tab]{[str]"respawn"[/str], {[num]5482[/num], [num]2456[/num], [num]0[/num]}}[br]' +
+					'[tab]};[br]' +
+					'};'
+				));
+			</script>
+		</p>
+	</div>
+
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Nommage des fichiers</h2>
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
 		Si vous souhaitez créer votre module, merci d'observer quelques règles de nommage afin de conserver l'homogénéité et la logique des modules. Ces règles devraient pouvoir être respectée dans la majorité des cas.
 	</p>
-	<p class="para">
-		Les scripts déclenchés automatiquement, au démarrage de la mission se nomment <span class="inline-code">initScript.sqf</span>. Si un script est spécifique au serveur ou au client on le sufixe : <span class="inline-code">initScriptClient.sqf</span>, <span class="inline-code">initScriptServer.sqf</span>. Les scripts d'initialisation sont inclus dans <span class="inline-code">core/defaultClient.sqf</span> et <span class="inline-code">core/defaultServer.sqf</span>.
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Les scripts déclenchés automatiquement, au démarrage de la mission se nomment <span class="Code-inline">initScript.sqf</span>. Si un script est spécifique au serveur ou au client on le sufixe : <span class="Code-inline">initScriptClient.sqf</span>, <span class="Code-inline">initScriptServer.sqf</span>. Les scripts d'initialisation sont inclus dans <span class="Code-inline">core/defaultClient.sqf</span> et <span class="Code-inline">core/defaultServer.sqf</span>.
 	</p>
-	<p class="para">
-		Les scripts d'interface sont nommés <span class="inline-code">uiScript.sqf</span>, on trouve généralement un script <span class="inline-code">uiScriptStart.sqf</span> qui initialise toute la logique de l'interface lorsque celle-ci est ouverte et un script <span class="inline-code">uiScriptStop.sqf</span> dans lequel on détruit les variables utilisées par la logique d'interface et où l'on supprime tout ce qui n'est plus nécessaire. La config de l'interface se trouve dans un fichier nommé <span class="inline-code">ui.hpp</span> et est incluse directement dans le <span class="inline-code">description.ext</span>. les IDD et IDC se trouvent dans un fichier nommé <span class="inline-code">ctrl.hpp</span>.
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Les scripts d'interface sont nommés <span class="Code-inline">uiScript.sqf</span>, on trouve généralement un script <span class="Code-inline">uiScriptStart.sqf</span> qui initialise toute la logique de l'interface lorsque celle-ci est ouverte et un script <span class="Code-inline">uiScriptStop.sqf</span> dans lequel on détruit les variables utilisées par la logique d'interface et où l'on supprime tout ce qui n'est plus nécessaire. La config de l'interface se trouve dans un fichier nommé <span class="Code-inline">ui.hpp</span> et est incluse directement dans le <span class="Code-inline">description.ext</span>. les IDD et IDC se trouvent dans un fichier nommé <span class="Code-inline">ctrl.hpp</span>.
 	</p>
-	<p class="para">
-		Les scripts déclanchés par une action du joueur comme la validation d'un saut en parachute depuis l'interface du module paraJumpAdvanced par exemple, se nomment <span class="inline-code">script.sqf</span>, <span class="inline-code">scriptClient.sqf</span> et <span class="inline-code">scriptServer.sqf</span>.
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Les scripts déclanchés par une action du joueur comme la validation d'un saut en parachute depuis l'interface du module paraJumpAdvanced par exemple, se nomment <span class="Code-inline">script.sqf</span>, <span class="Code-inline">scriptClient.sqf</span> et <span class="Code-inline">scriptServer.sqf</span>.
 	</p>
-	<p class="para">
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
 		Le module paraJumpAdvanced est un bon exemple de ces différentes règles de nommage.
 	</p>
 </body>

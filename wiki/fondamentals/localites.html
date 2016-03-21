@@ -10,35 +10,39 @@
 </head>
 
 <body>
-	<h1>Localités</h1>
-	<p class="para">
-		Pour simplifier la gestion des localités, le framework déclare plusieurs variables globales dont certaines sont utilisées depuis un certain temps par la majorité des éditeurs. Plus d'infos dans le fichier des localités&nbsp;: <span class="inline-code">core/localities.sqf</span>.
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">Localités</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Pour simplifier la gestion des localités, le framework déclare plusieurs variables globales dont certaines sont utilisées depuis un certain temps par la majorité des éditeurs. Plus d'infos dans le fichier des localités&nbsp;: <span class="Code-inline">core/localities.sqf</span>.
 	</p>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[com]\/\/ représente le serveur, vaut vrai en édition et sur le serveur dédié[/com][br]' +
-				'[gvar]X_server[/gvar][br]' +
-				'[br]' +
-				'[com]\/\/ représente le client, vaut vrai en édition et chez le joueur lors d\'une partie dédiée[/com][br]' +
-				'[gvar]X_client[/gvar][br]' +
-				'[br]' +
-				'[com]\/\/ vaut vrai seulement en édition[/com][br]' +
-				'[gvar]X_editor[/gvar][br]' +
-				'[br]' +
-				'[com]\/\/ permet de s\'assurer que le joueur ou le serveur est bien prêt[/com][br]' +
-				'[gvar]X_init[/gvar][br]' +
-				'[br]' +
-				'[com]\/\/ représentent le serveur et les clients pour les commandes de type remoteExec[/com][br]' +
-				'[com]\/\/ et permettent d\'éviter les différences de comportement en local et dédié[/com][br]' +
-				'[gvar]X_remote_server[/gvar] [com]\/\/ à destination du serveur[/com][br]' +
-				'[gvar]X_remote_client[/gvar] [com]\/\/ à destination de tous les clients[/com][br]' +
-				'[br]' +
-				'[spec][[/spec][gvar]taskOne[/gvar], [str]"Succeeded"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"setTaskState"[/str], [gvar]X_remote_client[/gvar], [bool]true[/bool][spec]][/spec];[br]' +
-				'[spec][[][/spec], [str]"mission/deleteVehicles.sqf"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"execVM"[/str], [gvar]X_remote_server[/gvar][spec]][/spec];'
-			));
-		</script>
-	</p>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ représente le serveur, vaut vrai en édition et sur le serveur dédié[/com][br]' +
+					'[gvar]X_server[/gvar][br]' +
+					'[br]' +
+					'[com]\/\/ représente le client, vaut vrai en édition et chez le joueur lors d\'une partie dédiée[/com][br]' +
+					'[gvar]X_client[/gvar][br]' +
+					'[br]' +
+					'[com]\/\/ vaut vrai seulement en édition[/com][br]' +
+					'[gvar]X_editor[/gvar][br]' +
+					'[br]' +
+					'[com]\/\/ permet de s\'assurer que le joueur ou le serveur est bien prêt[/com][br]' +
+					'[gvar]X_init[/gvar][br]' +
+					'[br]' +
+					'[com]\/\/ représentent le serveur et les clients pour les commandes de type remoteExec[/com][br]' +
+					'[com]\/\/ et permettent d\'éviter les différences de comportement en local et dédié[/com][br]' +
+					'[gvar]X_remote_server[/gvar] [com]\/\/ à destination du serveur[/com][br]' +
+					'[gvar]X_remote_client[/gvar] [com]\/\/ à destination de tous les clients[/com][br]' +
+					'[br]' +
+					'[spec][[/spec][gvar]taskOne[/gvar], [str]"Succeeded"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"setTaskState"[/str], [gvar]X_remote_client[/gvar], [bool]true[/bool][spec]][/spec];[br]' +
+					'[spec][[][/spec], [str]"mission/deleteVehicles.sqf"[/str][spec]][/spec] [cmd]remoteExec[/cmd] [spec][[/spec][str]"execVM"[/str], [gvar]X_remote_server[/gvar][spec]][/spec];'
+				));
+			</script>
+		</p>
+	</div>
 </body>
 
 </html>

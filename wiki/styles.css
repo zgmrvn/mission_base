@@ -1,116 +1,178 @@
-* {
+/*
+    http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
-}
-
-body {
-    width: 1000px;
-    margin: 0 auto;
-    padding: 100px 0;
-    font-family: Verdana;
+    border: 0;
     font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
-
-h1 {
-    text-align: center;
-    margin-bottom: 2%;
-    font-size: 400%;
-    line-height: 150%;
-}
-
-h2 {
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    font-size: 180%;
-}
-
-
-h3 {
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 2%;
-}
-
-ul {
-    list-style-type: none;
-    font-size: 95%;
-}
-
-li {
-    line-height: 150%;
-    margin-bottom: 2%;
-}
-
-hr {
-    margin: 5% 0;
-    border: none;
-}
-
-.para {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
     display: block;
-    width: 600px;
-    margin: 0 auto 2% auto;
-    text-align: justify;
-    line-height: 180%;
-    font-size: 95%;
+}
+body {
+    line-height: 1;
+    font-family: Verdana;
+    padding: 80px 0;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.inline-code {
-    /*display: inline;*/
-    background-color: #ccc;
-    color: #555;
-    font-family: Courier;
-    padding: 3px 8px;
-}
 
-.important {
-    color: #ce2020;
-    font-weight: bold;
-}
+/*--------*\
+    cols
+\*--------*/
 
-.file {
-    display.block;
-    line-height: 30px;
-    padding: 1% 2%;
-    background-color: #ccc;
-    font-family: Courier;
+.w-3 { width: 226px; }
+.w-4 { width: 312px; }
+.w-6 { width: 484px; }
+.w-8 { width: 656px; }
+.w-12 { width: 1000px; }
+
+
+/*------------*\
+    abstract
+\*------------*/
+
+.DefaultBlock {
+    width: 100%;
+}
+.DefaultInner {
+    margin-right: auto;
+    margin-left: auto;
+}
+.DefaultText {
+    color: #4d4d4d;
     font-size: 90%;
-    color: #333;
+    line-height: 240%;
+    margin-bottom: 40px;
 }
-
-.code {
-    display: block;
-    padding: 2%;
-    margin-bottom: 2%;
-    background-color: #252525;
-    color: #fff;
-    font-size: 80%;
-    font-family: Courier;
-    line-height: 140%;
-}
-
-.sqf {
-    font-weight: bold;
-}
-
-.config {
-}
-
-.wrapper {
-    width: 1000px;
-    overflow: auto;
-}
-
-.cols3 {
-    width: 320px;
-    margin-right: 20px;
-}
-
-.float-left {
+    .DefaultText--justify {
+        text-align: justify;
+    }
+    .DefaultText--ul {
+        line-height: 140%;
+        list-style-type: none;
+        margin-bottom: 15px;
+    }
+    .DefaultText--li {
+        margin-bottom: 15px;
+    }
+    .DefaultText-topTitle {
+        font-weight: normal;
+        font-size: 300%;
+        color: #333;
+        text-align: center;
+    }
+    .DefaultText-title {
+        font-size: 200%;
+        color: #1a1a1a;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+        .DefaultText-title--noTopMargin {
+            margin-top: 0;
+        }
+    .DefaultText-subTitle {
+        text-align: center;
+        font-size: 130%;
+        color: #404040;
+        margin-bottom: 10px;
+    }
+.floatLeft {
     float: left;
+    margin-right: 32px;
+}
+.floatLeft--noMargin {
+    margin-right: 0;
+}
+.clearBoth {
+    clear: both;
 }
 
-.float-left:last-child {
-margin-right: 0;
+
+/*--------*\
+    code
+\*--------*/
+
+.Code {
+    margin-bottom: 40px;
 }
+    .Code-inner {
+        color: #fff;
+        font-size: 80%;
+        font-family: Courier;
+        line-height: 140%;
+        padding: 20px;
+        background-color: #252525;
+    }
+        .Code-inner--file {
+            background-color: #ccc;
+            color: #333;
+        }
+        .Code-inner--sqf {
+            font-weight: bold;
+        }
+        .Code-inner--config {
+        }
+    .Code-inline {
+        background-color: #252525;
+        color: #8c8c8c;
+        font-family: Courier;
+        padding: 3px 8px;
+    }
+
+
+/*----------------*\
+    dependencies
+\*----------------*/
+
+.Dependencie {
+    line-height: 16px;
+    font-size: 70%;
+    background-repeat: no-repeat;
+    padding-left: 17px;
+    margin-top: -40px;
+    margin-bottom: 40px;
+}
+    .Dependencie--module {
+        background-image: url("files/img/cfg.png");
+    }
+    .Dependencie--addon {
+        background-image: url("files/img/mod.png");
+    }
+    .Dependencie--function {
+        background-image: url("files/img/fnc.png");
+    }

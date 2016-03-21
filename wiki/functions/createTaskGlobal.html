@@ -10,41 +10,45 @@
 </head>
 
 <body>
-	<h1>createTaskGlobal</h1>
-	<p class="para">
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">createTaskGlobal</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
 		Cette fonction permet de créer une tâche chez tous les joueurs, peu importe qu'elle soit exécutée côté serveur ou côté client. Le JIP est pris en charge.
 	</p>
 
-	<hr>
+	<!-- syntaxe -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Syntaxe</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[spec][[/spec][com]label:string[/com], [com]titre:string[/com], [com]description:string ([/com], [com]notification:bool)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
 
-	<h2>Syntaxe</h2>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[spec][[/spec][com]label:string[/com], [com]titre:string[/com], [com]description:string ([/com], [com]notification:bool)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];'
-			));
-		</script>
-	</p>
-
-	<ul>
-		<li>label - c'est ce label qu'il faudra passer pour modifier l'action</li>
-		<li>titre - le titre de la tâche qui apparaîtra dans la liste des tâches</li>
-		<li>description - description de la tâche lorsqu'elle est séléctionnée</li>
-		<li>notification - (facultatif) faut-il notifier les joueurs (valeur par défaut : false)</li>
+	<!-- paramètres -->
+	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
+		<li class="DefaultText--li">label - c'est ce label qu'il faudra passer pour modifier l'action</li>
+		<li class="DefaultText--li">titre - le titre de la tâche qui apparaîtra dans la liste des tâches</li>
+		<li class="DefaultText--li">description - description de la tâche lorsqu'elle est séléctionnée</li>
+		<li class="DefaultText--li">notification - (facultatif) faut-il notifier les joueurs (valeur par défaut : false)</li>
 	</ul>
 
-	<hr>
-
-	<h2>Exemples</h2>
-	<p class="file">mission/monScript.sqf</p>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[com]\/\/ cette ligne créé une tâche chez tous les joueurs connectés ou qui se connecterons et les notifie[/com][br]' +
-				'[spec][[/spec][str]"killConnor"[/str], [str]"Tuer Connor"[/str], [str]"Tuez John Connor, chef de la Résistance"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];'
-			));
-		</script>
-	</p>
+	<!-- exemples -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Exemples</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ cette ligne créé une tâche chez tous les joueurs connectés ou qui se connecterons et les notifie[/com][br]' +
+					'[spec][[/spec][str]"killConnor"[/str], [str]"Tuer Connor"[/str], [str]"Tuez John Connor, chef de la Résistance"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
 </body>
 
 </html>

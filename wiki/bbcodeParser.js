@@ -171,9 +171,11 @@ var bbcodeParser = {};
 // sqf
 bbcodeParser.addBBCode('[var]{TEXT}[/var]', '<span style="color: #99ff99; font-weight: normal; font-style: italic;">{TEXT}</span>');
 bbcodeParser.addBBCode('[gvar]{TEXT}[/gvar]', '<span style="color: #ffff; font-weight: normal;">{TEXT}</span>');
+bbcodeParser.addBBCode('[con]{TEXT}[/con]', '<span style="color: #99ff00;">{TEXT}</span>');
 bbcodeParser.addBBCode('[str]{TEXT}[/str]', '<span style="color: #ffee99; font-weight: normal;">{TEXT}</span>');
 bbcodeParser.addBBCode('[bool]{TEXT}[/bool]', '<span style="color: #66d9ef; font-weight: normal;">{TEXT}</span>');
 bbcodeParser.addBBCode('[spec]{TEXT}[/spec]', '<span style="color: #a00010;">{TEXT}</span>');
+bbcodeParser.addBBCode('[specw]{TEXT}[/specw]', '<span style="color: #fff; font-weight: normal;">{TEXT}</span>');
 bbcodeParser.addBBCode('[cmd]{TEXT}[/cmd]', '<span style="color: #66d9ef; font-weight: normal;">{TEXT}</span>');
 bbcodeParser.addBBCode('[fnc]{TEXT}[/fnc]', '<span style="color: #9999ff;">{TEXT}</span>');
 bbcodeParser.addBBCode('[key]{TEXT}[/key]', '<span style="color: #ff0000;">{TEXT}</span>');

@@ -10,51 +10,55 @@
 </head>
 
 <body>
-	<h1>setTaskStateGlobal</h1>
-	<p class="para">
-		Cette fonction permet de changer l'état des tâches créées avec la fonction <span class="inline-code">CRP_fnc_createTaskGlobal</span>, peu importe qu'elle soit exécutée côté serveur ou côté client. Le JIP est pris en charge.
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">setTaskStateGlobal</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Cette fonction permet de changer l'état des tâches créées avec la fonction <span class="Code-inline">CRP_fnc_createTaskGlobal</span>, peu importe qu'elle soit exécutée côté serveur ou côté client. Le JIP est pris en charge.
 	</p>
 
-	<hr>
+	<!-- syntaxe -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Syntaxe</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[spec][[/spec][com]label:string[/com], [com]état:string ([/com], [com]notification:bool[/com], [com]message:string)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
 
-	<h2>Syntaxe</h2>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[spec][[/spec][com]label:string[/com], [com]état:string ([/com], [com]notification:bool[/com], [com]message:string)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];'
-			));
-		</script>
-	</p>
-
-	<ul>
-		<li>label - label de la tâche renseignée lors de la création de la tâche</li>
-		<li>état - état de la tâche, voir documentation officielle : <a href="https://community.bistudio.com/wiki/setTaskState">setTaskState</a>
-		<li>notification - (facultatif) faut-il notifier les joueurs (valeur par défaut : false)</li>
-		<li>message - (facultatif) message de la notification (valeur par défaut : titre de la tâche saisi à la création)</li>
+	<!-- paramètres -->
+	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
+		<li class="DefaultText--li">label - label de la tâche renseignée lors de la création de la tâche</li>
+		<li class="DefaultText--li">état - état de la tâche, voir documentation officielle : <a href="https://community.bistudio.com/wiki/setTaskState">setTaskState</a>
+		<li class="DefaultText--li">notification - (facultatif) faut-il notifier les joueurs (valeur par défaut : false)</li>
+		<li class="DefaultText--li">message - (facultatif) message de la notification (valeur par défaut : titre de la tâche saisi à la création)</li>
 	</ul>
 
-	<hr>
-
-	<h2>Exemples</h2>
-	<p class="file">mission/monScript.sqf</p>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[com]\/\/ change l\'état de la tâche avec message personnalisée[/com][br]' +
-				'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str], [bool]true[/bool], [str]"vous avez échoué"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
-				'[br]' +
-				'[com]\/\/ change l\'état de la tâche avec message par défaut (titre de la tâche)[/com][br]' +
-				'[spec][[/spec][str]"test"[/str], [str]"Succeeded"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
-				'[br]' +
-				'[com]\/\/ change l\'état de la tâche sans notification[/com][br]' +
-				'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
-				'[br]' +
-				'[com]\/\/ créer une tâche sans notifier les joueurs puis changer l\'état et notifier les joueurs[/com][br]' +
-				'[spec][[/spec][str]"otages"[/str], [str]"Libérer les otages"[/str], [str]""[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];[br]' +
-				'[spec][[/spec][str]"otages"[/str], [str]"Succeeded"[/str], [str]"Vous passiez par là et avez libéré des otages"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];'
-			));
-		</script>
-	</p>
+	<!-- exemples -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Exemples</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ change l\'état de la tâche avec message personnalisée[/com][br]' +
+					'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str], [bool]true[/bool], [str]"vous avez échoué"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
+					'[br]' +
+					'[com]\/\/ change l\'état de la tâche avec message par défaut (titre de la tâche)[/com][br]' +
+					'[spec][[/spec][str]"test"[/str], [str]"Succeeded"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
+					'[br]' +
+					'[com]\/\/ change l\'état de la tâche sans notification[/com][br]' +
+					'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
+					'[br]' +
+					'[com]\/\/ créer une tâche sans notifier les joueurs puis changer l\'état et notifier les joueurs[/com][br]' +
+					'[spec][[/spec][str]"otages"[/str], [str]"Libérer les otages"[/str], [str]""[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];[br]' +
+					'[spec][[/spec][str]"otages"[/str], [str]"Succeeded"[/str], [str]"Vous passiez par là et avez libéré des otages"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
 </body>
 
 </html>

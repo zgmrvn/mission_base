@@ -4,38 +4,40 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>intro</title>
+	<title>CORP - intro</title>
 	<link rel="stylesheet" href="../styles.css">
 	<script type="text/javascript" src="../bbcodeParser.js"></script>
 </head>
 
 <body>
-	<h1>intro</h1>
-	<p class="para">
-		Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier <span class="inline-code">mission/intro/intro.sqf</span>. Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être jouée. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission ou encore de ne pas jouer l'intro lorsque vous êtes en édition. Vous pouvez désactiver l'intro depuis le fichier de configuration du module <span class="inline-code">modules/intro/config.hpp</span>.
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">intro</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier <span class="Code-inline">mission/intro/intro.sqf</span>. Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être jouée. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission ou encore de ne pas jouer l'intro lorsque vous êtes en édition. Vous pouvez désactiver l'intro depuis le fichier de configuration du module <span class="Code-inline">modules/intro/config.hpp</span>.
 	</p>
 
-	<hr>
+	<!-- configuration -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Configuration</h2>
 
-	<h2>Configuration</h2>
-
-	<p class="file">modules/intro/config.hpp</p>
-	<p class="code config">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[key]class[/key] Intro {[br]' +
-				'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
-				'[tab][com]\/\/ sur 0, l\'intro ne sera pas jouée, ni en édition, ni en dédié[/com][br]' +
-				'[tab]enabled = [num]1[/num];[br]' +
-				'[tab][br]' +
-				'[tab][com]\/\/ activer ou désactiver l\'intro en édition[/com][br]' +
-				'[tab][com]\/\/ à 0, l\'intro n\'est pas jouée en édition mais jouée en dédié[/com][br]' +
-				'[tab][com]\/\/ à 1, elle est jouée en édition et en dédié[/com][br]' +
-				'[tab]enabledInEditor = [num]0[/num];[br]' +
-				'};'
-			));
-		</script>
-	</p>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">modules/intro/config.hpp</p>
+		<p class="Code-inner Code-inner--config">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[key]class[/key] Intro {[br]' +
+					'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
+					'[tab][com]\/\/ sur 0, l\'intro ne sera pas jouée, ni en édition, ni en dédié[/com][br]' +
+					'[tab]enabled = [num]1[/num];[br]' +
+					'[tab][br]' +
+					'[tab][com]\/\/ activer ou désactiver l\'intro en édition[/com][br]' +
+					'[tab][com]\/\/ à 0, l\'intro n\'est pas jouée en édition mais jouée en dédié[/com][br]' +
+					'[tab][com]\/\/ à 1, elle est jouée en édition et en dédié[/com][br]' +
+					'[tab]enabledInEditor = [num]0[/num];[br]' +
+					'};'
+				));
+			</script>
+		</p>
+	</div>
 </body>
 
 </html>

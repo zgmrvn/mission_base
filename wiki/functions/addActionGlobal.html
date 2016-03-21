@@ -4,74 +4,103 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>addActionGlobal</title>
+	<title>CORP - addActionGlobal</title>
 	<link rel="stylesheet" href="../styles.css">
 	<script type="text/javascript" src="../bbcodeParser.js"></script>
 </head>
 
 <body>
-	<h1>addActionGlobal</h1>
-	<p class="para">
-		Cette fonction permet d'ajouter une action chez tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé ou bien chez un client. La problématique de JIP est prise en charge.
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">addActionGlobal</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Cette fonction permet d'ajouter une action chez tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé ou bien chez un client. La problématique du JIP est prise en charge.
 	</p>
 
-	<hr>
+	<!-- syntaxe -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Syntaxe</h2>
 
-	<h2>Syntaxe</h2>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[spec][[/spec][com]objet:object[/com], [com]texte:string[/com], [com]script:string[/com], [com]label:string[/com], [com]supprObjet:bool[/com], [com]supprAction:bool[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
-			));
-		</script>
-	</p>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[spec][[/spec][com]objet:object[/com], [com]texte:string[/com], [com]script:string[/com], [com]label:string[/com], [com]suppObjet:bool[/com], [com]suppAction:bool[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
 
-	<ul>
-		<li>objet - l'objet sur lequel ajouter l'action</li>
-		<li>texte - le texte de l'action qui apparaîtra dans le menu</li>
-		<li>script - chemin vers le script à éxecuter (global). passer objNull si pas de script</li>
-		<li>label - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone". utilisé par la fonction pour éviter d'ajouter 2 fois la même action à un utilisateur (JIP)</li>
-		<li>supprObjet  - faut-il supprimer l'objet</li>
-		<li>supprAction - faut-il supprimer l'action</li>
+	<!-- paramètres -->
+	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
+		<li class="DefaultText--li">objet - l'objet sur lequel ajouter l'action</li>
+		<li class="DefaultText--li">texte - le texte de l'action qui apparaîtra dans le menu</li>
+		<li class="DefaultText--li">script - chemin vers le script à éxecuter (global). passer objNull si pas de script. Vous aurez accès au tableau <span class="Code-inline">_this</span> qui contient 2 données : le joueur qui a déclenché l'action et l'objet sur lequel est attachée l'action, dans le cas ou il n'a pas été demander de le supprimer.</li>
+		<li class="DefaultText--li">label - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone". utilisé par la fonction pour éviter d'ajouter 2 fois la même action à un utilisateur (JIP)</li>
+		<li class="DefaultText--li">suppObjet  - faut-il supprimer l'objet</li>
+		<li class="DefaultText--li">suppAction - faut-il supprimer l'action</li>
 	</ul>
 
-	<hr>
+	<!-- exemples -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Exemples</h2>
 
-	<h2>Exemples</h2>
-	<p class="file">mission/monScript.sqf</p>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[spec][[/spec][br]' +
-				'[tab][var]_ordinateur[/var], [com]\/\/ l\'objet sur lequel ajouter l\'action[/com][br]' +
-				'[tab][str]"Pirater ordinateur"[/str], [com]\/\/ titre de l\'action[/com][br]' +
-				'[tab][str]"autoDestruction.sqf"[/str], [com]\/\/ un script qui sera exécuté côté client et serveur[/com][br]' +
-				'[tab][str]"piratage"[/str], [com]\/\/ un label, pour différencier les actions lorsqu\'il y en a plusieurs sur le même objet[/com][br]' +
-				'[tab][bool]false[/bool], [com]\/\/ faut-il supprimer l\'objet lorsque l\'action est déclenchée[/com][br]' +
-				'[tab][bool]true[/bool] [com]\/\/ faut-il supprimer l\'action lorsqu\'elle est déclenchée (global)[/com][br]' +
-				'[spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
-			));
-		</script>
-	</p>
-	<p class="file">mission/monScript.sqf</p>
-	<p class="code sqf">
-		<script type="text/javascript">
-			document.write(bbcodeParser.bbcodeToHtml(
-				'[key]if[/key] [spec]([/spec][gvar]X_server[/gvar][spec])[/spec] [key]then[/key] [spec]{[/spec][br]' +
-				'[tab][var]_lumiere[/var] = [cmd]createVehicle[/cmd] [spec][[/spec][str]"Land_LampShabby_F"[/str], [spec][[/spec][num]1503[/num], [num]2456[/num], [num]0[/num][spec]][/spec], [spec][][/spec], [num]0[/num], [str]"CAN_COLLIDE"[/str][spec]][/spec];[br]' +
-				'[br]' +
-				'[tab][spec][[/spec][br]' +
-				'[tab][tab][var]_lumiere[/var],[br]' +
-				'[tab][tab][str]"Couper lumière"[/str],[br]' +
-				'[tab][tab][str]"couperLumiere.sqf"[/str],[br]' +
-				'[tab][tab][str]"lumiere"[/str],[br]' +
-				'[tab][tab][bool]false[/bool],[br]' +
-				'[tab][tab][bool]true[/bool][br]' +
-				'[tab][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];[br]' +
-				'[spec]}[/spec];'
-			));
-		</script>
-	</p>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[spec][[/spec][br]' +
+					'[tab][var]_ordinateur[/var], [com]\/\/ l\'objet sur lequel ajouter l\'action[/com][br]' +
+					'[tab][str]"Pirater ordinateur"[/str], [com]\/\/ titre de l\'action[/com][br]' +
+					'[tab][str]"autoDestruction.sqf"[/str], [com]\/\/ un script qui sera exécuté côté client et serveur[/com][br]' +
+					'[tab][str]"piratage"[/str], [com]\/\/ un label, pour différencier les actions lorsqu\'il y en a plusieurs sur le même objet[/com][br]' +
+					'[tab][bool]false[/bool], [com]\/\/ faut-il supprimer l\'objet lorsque l\'action est déclenchée[/com][br]' +
+					'[tab][bool]true[/bool] [com]\/\/ faut-il supprimer l\'action lorsqu\'elle est déclenchée (global)[/com][br]' +
+					'[spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[key]if[/key] [specw]([/specw][gvar]X_server[/gvar][specw])[/specw] [key]then[/key] [spec]{[/spec][br]' +
+					'[tab][var]_lumiere[/var] = [cmd]createVehicle[/cmd] [spec][[/spec][str]"Land_LampShabby_F"[/str], [spec][[/spec][num]1503[/num], [num]2456[/num], [num]0[/num][spec]][/spec], [spec][][/spec], [num]0[/num], [str]"CAN_COLLIDE"[/str][spec]][/spec];[br]' +
+					'[br]' +
+					'[tab][spec][[/spec][br]' +
+					'[tab][tab][var]_lumiere[/var],[br]' +
+					'[tab][tab][str]"Couper lumière"[/str],[br]' +
+					'[tab][tab][str]"couperLumiere.sqf"[/str],[br]' +
+					'[tab][tab][str]"lumiere"[/str],[br]' +
+					'[tab][tab][bool]false[/bool],[br]' +
+					'[tab][tab][bool]true[/bool][br]' +
+					'[tab][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];[br]' +
+					'[spec]}[/spec];'
+				));
+			</script>
+		</p>
+	</div>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/couperLumiere.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+				    '[var]_caller[/var] = [con]_this[/con] [cmd]select[/cmd] [num]0[/num];[br]' +
+					'[var]_object[/var] = [con]_this[/con] [cmd]select[/cmd] [num]1[/num];[br]' +
+					'[br]' +
+					'[key]if[/key] [specw]([/specw][gvar]X_server[/gvar][specw])[/specw] [key]then[/key] [spec]{[/spec][br]' +
+					'[tab][com]\/\/ ...[/com][br]' +
+					'[spec]}[/spec];[br]' +
+					'[br]' +
+					'[key]if[/key] [specw]([/specw][gvar]X_client[/gvar][specw])[/specw] [key]then[/key] [spec]{[/spec][br]' +
+					'[tab][com]\/\/ ...[/com][br]' +
+					'[spec]}[/spec];[br]'
+				));
+			</script>
+		</p>
+	</div>
 </body>
 
 </html>
