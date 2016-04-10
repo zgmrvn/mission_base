@@ -27,7 +27,7 @@ _positionsCount = count _positions;
 // tant que le nombre d'unités créées est inférieur au nombre demandé
 // et tant qu'il-y-a moins d'unités que le nombre de positions disponibles
 for [{_i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do {
-	_position		= _positions select _i;
+	_position	= _positions select _i;
 	_building	= _position select 0;
 	_pos 		= _position select 1;
 	_dir		= _position select 2;
@@ -47,4 +47,5 @@ for [{_i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do
 	_wp setWaypointCombatMode "RED";
 	_wp setWaypointCompletionRadius 3;
 	_unit setUnitPos "UP";
+	_unit doWatch ([_building modelToWorld _pos, 50, (getDir _building) + _dir] call BIS_fnc_relPos);
 };
