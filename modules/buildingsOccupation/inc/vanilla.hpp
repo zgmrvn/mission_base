@@ -171,7 +171,7 @@ class Land_Castle_01_tower_F {
 	};
 };
 
-// tour de câteau en ruine
+// tour de château en ruine
 //https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Castle_01_tower_ruins_F.jpg
 class Land_Castle_01_tower_ruins_F {
 	positions[] = {
@@ -227,3 +227,37 @@ class Land_Kiosk_blueking_F {
 class Land_Kiosk_gyros_F: Land_Kiosk_blueking_F {};
 class Land_Kiosk_papers_F: Land_Kiosk_blueking_F {};
 class Land_Kiosk_redburger_F: Land_Kiosk_blueking_F {};
+
+// petit bunker métalique de recherche
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Research_house_V1_F.jpg
+class Land_Research_house_V1_F {
+	positions[] = {
+		{{-0.0869141,2.52539,0.0302734},180}
+	};
+};
+
+// grand bunker métalique de recherche
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_Research_HQ_F.jpg
+class Land_Research_HQ_F {
+	positions[] = {
+		// rdc
+		{{-3.92773,0.739258,-3.23074},270},
+		{{4.93457,4.4126,-3.25995},225},
+		{{7.29541,-1.64502,-3.22174},90},
+		// étage
+		{{-3.0415,-4.03027,-0.741394},225},
+		{{-3.49512,3.51563,-0.741394},315},
+		{{6.44434,0.852051,-0.741394},90}
+	};
+};
+
+// bureaux militaires
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_MilOffices_V1_F.jpg
+class Land_MilOffices_V1_F {
+	positions[] = {
+		{{4.69678,1.22314,-2.86673},270},
+		{{6.65771,1.00488,-2.86673},90},
+		{{-11.7222,-1.19434,-2.86673},38},
+		{{5.37012,-0.520508,-5.55475},50}
+	};
+};
