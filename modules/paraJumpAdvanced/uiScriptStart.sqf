@@ -121,13 +121,19 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 			_elevation		= _coordinates select 2;
 			_coordinates	= [_coordinates, 500, _bearing + 180] call bis_fnc_relPos;
 			_coordinates set [2, _elevation];
+			_playerPosition	= (getPosASL player) vectorAdd [0, 0, 100];
 
-			[[_coordinates, _bearing], "modules\paraJumpAdvanced\scriptServer.sqf"] remoteExec ["execVM", 2];
+			[[_playerPosition, _coordinates, _bearing], "modules\paraJumpAdvanced\scriptServer.sqf"] remoteExec ["execVM", 2];
 
 			// on attend que le C130 soit créé
+			waitUntil {(count (nearestObjects [ASLToAGL _playerPosition, ["C130J_static_EP1"], 25])) > 0};
+
+			// puis on attend qu'il ait été téléporté à sa positon définitive
 			waitUntil {(count (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25])) > 0};
 
-			_c130j = (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25]) select 0;
+			sleep 1;
+
+			_c130j = (nearestObjects [_coordinates, ["C130J_static_EP1"], 25]) select 0;
 
 			// on attend que le C130J soit sur le bon azimut
 			// ça prend un peu de temps à passer sur le réseau

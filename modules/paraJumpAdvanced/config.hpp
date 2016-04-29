@@ -19,11 +19,15 @@ class ParaJumpAdvanced {
 	// {titre du saut, coordonnées et altitude, azimut}
 	class Drops {
 		class West {
-			data[] = {"Est", {6526.6, 7499.4, 2500}, 279};
+			data[] = {"Ouest", {6526.6, 7499.4, 2500}, 279};
 		};
 
 		class EnemyBase {
 			data[] = {"Base ennemie", {7526.6, 7499.4, 4000}, 136};
+		};
+
+		class FarFarAway {
+			data[] = {"Loin...", {1065.37, 858.502, 2000}, 45};
 		};
 	};
 };
