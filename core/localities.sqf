@@ -32,6 +32,3 @@ if (isServer) then {
 		X_init = true;
 	};
 };
-
-waitUntil {X_init};
-waitUntil {time > 0};

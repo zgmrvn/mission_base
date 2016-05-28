@@ -1,3 +1,8 @@
+// il faut attendre que le joueur existe et que la mission ait démarré
+// sinon l'heure est réglée à 0 h 00
+waitUntil {X_init};
+waitUntil {time > 0};
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "StartTime" >> "enabled")) == 1) then {
 	_time = "StartTime" call BIS_fnc_getParamValue;
