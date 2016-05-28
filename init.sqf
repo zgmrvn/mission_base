@@ -18,7 +18,7 @@ if (X_server) then {
 	***** script de développement et de débogage *****
 	***** À SUPPRIMER                            *****
 	*************************************************/
-	[] execVM "mission\dev.sqf";
+	// [] execVM "mission\dev.sqf";
 	/*************************************************
 	*************************************************/
 
