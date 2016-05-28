@@ -1,6 +1,6 @@
 class PlayIntro {
 	title = "Jouer l'intro";
-	values[] = {1, 0};
-	texts[] = {"Oui", "Non"};
-	default = 1;
+	values[] = {0, 1};
+	texts[] = {"Non", "Oui"};
+	default = 0;
 };
