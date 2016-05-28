@@ -14,6 +14,9 @@ class CfgFunctions {
 // pour ajouter des actions
 #include "modules\actionsFlags\config.hpp"
 
+// module de briefing
+#include "modules\briefing\config.hpp"
+
 // module de téléportation vers un joueur
 #include "modules\teleportToLeader\config.hpp"
 #include "modules\teleportToLeader\ui.hpp"
@@ -30,7 +33,7 @@ class CfgFunctions {
 #include "modules\spectatorCamera\config.hpp"
 #include "modules\spectatorCamera\ui.hpp"
 
-// module d'occupation des bâtiments
+// module d'occupation des bâtiments par l'IA
 #include "modules\buildingsOccupation\config.hpp"
 
 // module de choix de l'heure de départ

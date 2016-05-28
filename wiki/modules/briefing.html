@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CORP - buildingsOccupation</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">buildingsOccupation</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Ce module permet de peupler la liste "briefing" sur carte avant le lancement de mission.
+	</p>
+
+	<!-- configuration -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Configuration</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">modules/briefing/config.hpp</p>
+		<p class="Code-inner Code-inner--config">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[ckey]class[/ckey] Briefing {[br]' +
+					'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
+					'[tab]enabled = [num]1[/num];[br]' +
+					'[br]' +
+					'[tab][com]\/\/ liste des "diaries" dans l\'onglet briefing[/com][br]' +
+					'[tab][ckey]class[/ckey] Diaries {[br]' +
+					'[tab][tab][ckey]class[/ckey] Antenna {[br]' +
+					'[tab][tab][tab]title	= [str]"Détruire l\'antenne"[/str];[br]' +
+					'[tab][tab][tab]content	= [str]"Détruire l\'antenne pour empêcher les renforts de se coordonner."[/str];[br]' +
+					'[tab][tab]};[br]' +
+					'[br]' +
+					'[tab][tab][ckey]class[/ckey] Weapons {[br]' +
+					'[tab][tab][tab]title	= [str]"Détruire les armes"[/str];[br]' +
+					'[tab][tab][tab]content	= [str]"Détruisez le stock d\'armes repéré aux coordonnées 014/034."[/str];[br]' +
+					'[tab][tab]};[br]' +
+					'[tab]};[br]' +
+					'};'
+				));
+			</script>
+		</p>
+	</div>
+</body>
+
+</html>
