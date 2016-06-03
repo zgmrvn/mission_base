@@ -23,7 +23,16 @@
 		<p class="Code-inner Code-inner--sqf">
 			<script type="text/javascript">
 				document.write(bbcodeParser.bbcodeToHtml(
-					'[spec][[/spec][com]objet:object[/com], [com]texte:string[/com], [com]script:string[/com], [com]label:string[/com], [com]suppObjet:bool[/com], [com]suppAction:bool[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
+					'[spec][[/spec][br]' +
+					'[tab][com]objet:object[/com],[br]' +
+					'[tab][com]texte:string[/com],[br]' +
+					'[tab][com]scriptClient:string[/com],[br]' +
+					'[tab][com]scriptServer:string[/com],[br]' +
+					'[tab][com]label:string[/com],[br]' +
+					'[tab][com]distance:int[/com],[br]' +
+					'[tab][com]suppObjet:bool[/com],[br]' +
+					'[tab][com]suppAction:bool[/com][br]' +
+					'[spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
 				));
 			</script>
 		</p>
@@ -33,8 +42,10 @@
 	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
 		<li class="DefaultText--li">objet - l'objet sur lequel ajouter l'action</li>
 		<li class="DefaultText--li">texte - le texte de l'action qui apparaîtra dans le menu</li>
-		<li class="DefaultText--li">script - chemin vers le script à éxecuter (global). passer objNull si pas de script. Vous aurez accès au tableau <span class="Code-inline">_this</span> qui contient 2 données : le joueur qui a déclenché l'action et l'objet sur lequel est attachée l'action, dans le cas ou il n'a pas été demander de le supprimer.</li>
+		<li class="DefaultText--li">scriptClient - chemin vers le script à éxecuter côté client. passer objNull si pas de script. Vous aurez accès au tableau <span class="Code-inline">_this</span> qui contient 2 données : le joueur qui a déclenché l'action et l'objet sur lequel est attachée l'action, dans le cas ou il n'a pas été demandé de le supprimer.</li>
+		<li class="DefaultText--li">scriptServer - chemin vers le script à éxecuter côté serveur. passer objNull si pas de script. Vous aurez accès au tableau <span class="Code-inline">_this</span> qui contient 2 données : le joueur qui a déclenché l'action et l'objet sur lequel est attachée l'action, dans le cas ou il n'a pas été demandé de le supprimer.</li>
 		<li class="DefaultText--li">label - référence de l'action, exemple : "action1", "ordinateur", "prendreTelephone". utilisé par la fonction pour éviter d'ajouter 2 fois la même action à un utilisateur (JIP)</li>
+		<li class="DefaultText--li">distance  - distance à laquelle l'action est accessible</li>
 		<li class="DefaultText--li">suppObjet  - faut-il supprimer l'objet</li>
 		<li class="DefaultText--li">suppAction - faut-il supprimer l'action</li>
 	</ul>
@@ -50,8 +61,10 @@
 					'[spec][[/spec][br]' +
 					'[tab][var]_ordinateur[/var], [com]\/\/ l\'objet sur lequel ajouter l\'action[/com][br]' +
 					'[tab][str]"Pirater ordinateur"[/str], [com]\/\/ titre de l\'action[/com][br]' +
-					'[tab][str]"autoDestruction.sqf"[/str], [com]\/\/ un script qui sera exécuté côté client et serveur[/com][br]' +
+					'[tab][str]"message.sqf"[/str], [com]\/\/ un script qui sera exécuté côté client[/com][br]' +
+					'[tab][str]"autoDestruction.sqf"[/str], [com]\/\/ un script qui sera exécuté côté serveur[/com][br]' +
 					'[tab][str]"piratage"[/str], [com]\/\/ un label, pour différencier les actions lorsqu\'il y en a plusieurs sur le même objet[/com][br]' +
+					'[tab][num]5[/num], [com]\/\/ distance de l\'action[/com][br]' +
 					'[tab][bool]false[/bool], [com]\/\/ faut-il supprimer l\'objet lorsque l\'action est déclenchée[/com][br]' +
 					'[tab][bool]true[/bool] [com]\/\/ faut-il supprimer l\'action lorsqu\'elle est déclenchée (global)[/com][br]' +
 					'[spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];'
@@ -71,8 +84,10 @@
 					'[tab][spec][[/spec][br]' +
 					'[tab][tab][var]_lumiere[/var],[br]' +
 					'[tab][tab][str]"Couper lumière"[/str],[br]' +
+					'[tab][tab][cmd]objNull[/cmd],[br]' +
 					'[tab][tab][str]"couperLumiere.sqf"[/str],[br]' +
 					'[tab][tab][str]"lumiere"[/str],[br]' +
+					'[tab][tab][num]3[/num][br]' +
 					'[tab][tab][bool]false[/bool],[br]' +
 					'[tab][tab][bool]true[/bool][br]' +
 					'[tab][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_addActionGlobal[/fnc];[br]' +
@@ -90,13 +105,7 @@
 				    '[var]_caller[/var] = [con]_this[/con] [cmd]select[/cmd] [num]0[/num];[br]' +
 					'[var]_object[/var] = [con]_this[/con] [cmd]select[/cmd] [num]1[/num];[br]' +
 					'[br]' +
-					'[key]if[/key] [specw]([/specw][gvar]X_server[/gvar][specw])[/specw] [key]then[/key] [spec]{[/spec][br]' +
-					'[tab][com]\/\/ ...[/com][br]' +
-					'[spec]}[/spec];[br]' +
-					'[br]' +
-					'[key]if[/key] [specw]([/specw][gvar]X_client[/gvar][specw])[/specw] [key]then[/key] [spec]{[/spec][br]' +
-					'[tab][com]\/\/ ...[/com][br]' +
-					'[spec]}[/spec];[br]'
+					'[com]\/\/ ...[/com][br]'
 				));
 			</script>
 		</p>

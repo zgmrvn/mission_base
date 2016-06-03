@@ -9,8 +9,10 @@
 		[
 			_ammoBox,							// object
 			"<t color='#FF0000'>My action</t>",	// action title
-			"addActionScript.sqf",				// script to execute, this script will run server and client side
+			"addActionScriptClient.sqf",		// script to execute client side
+			"addActionScriptServer.sqf",		// script to execute server side
 			"actionLabel",						// action label, to differenciate actions when you want to add more than one action on the same object
+			6,									// distance the action displays
 			false,								// remove object
 			true								// remove action, doesn't matters if object removed
 		] call CRP_fnc_addActionGlobal;
@@ -40,15 +42,17 @@
 params [
 	"_object",
 	"_title",
-	"_script",
+	"_scriptClient",
+	"_scriptServer",
 	"_reference",
+	"_distance",
 	"_removeObject",
 	"_removeAction"
 ];
 
 // if i'm the server, tell the players to run this function so it adds the action
 if (isDedicated) then {
-	[_object, _title, _script, _reference, _removeObject, _removeAction] remoteExec ["CRP_fnc_addActionGlobal", -2, true];
+	[_object, _title, _scriptCLient, _scriptServer, _reference, _distance, _removeObject, _removeAction] remoteExec ["CRP_fnc_addActionGlobal", -2, true];
 };
 
 // otherwise, i'm the player, add action
@@ -69,19 +73,25 @@ if (!isDedicated) then {
 			_params			= _this select 3;
 			_object			= _params select 0;
 			_title			= _params select 1;
-			_script			= _params select 2;
-			_reference		= _params select 3;
-			_removeObject	= _params select 4;
-			_removeAction	= _params select 5;
+			_scriptClient	= _params select 2;
+			_scriptServer	= _params select 3;
+			_reference		= _params select 4;
+			_distance		= _params select 5;
+			_removeObject	= _params select 6;
+			_removeAction	= _params select 7;
+
+			_client = if (isServer) then {0} else {-2};
+			_server = 2;
 
 			// should we remove the object
 			if (_removeObject) then {
-				[[_object], {deleteVehicle (_this select 0)}] remoteExec ["BIS_fnc_spawn", 2];
+				[[_object], {deleteVehicle (_this select 0)}] remoteExec ["BIS_fnc_spawn", _server];
 			} else {
 				// if not, should we remove the action
 				if (_removeAction) then {
 					// we don't want the server to execute this command if it's a dedicated game
-					_server = if (isServer) then {0} else {-2};
+					// only in editor
+					_client = if (isServer) then {0} else {-2};
 
 					// remove action for everyone
 					[
@@ -90,27 +100,40 @@ if (!isDedicated) then {
 							(_this select 0) removeAction ([((_this select 0) getVariable ACTIONS_ARRAY), _this select 1] call BIS_fnc_getFromPairs);
 							[((_this select 0) getVariable ACTIONS_ARRAY), _this select 1] call BIS_fnc_removeFromPairs;
 						}
-					] remoteExec ["BIS_fnc_spawn", _server, true];
+					] remoteExec ["BIS_fnc_spawn", _client, true];
 				};
 			};
 
-			// if a script has been given, run it
-			if ((typeName _script) == "STRING") then {
-				// if object has not been removed, pass it to the script
-				_data = if (_removeObject) then {[_this select 1]} else {[_this select 1, _object]};
+			// if object has not been removed, pass it to the scripts
+			_data = if (_removeObject) then {[_this select 1]} else {[_this select 1, _object]};
 
-				// run script for everyone
-				[_data, _script] remoteExec ["BIS_fnc_execVM", 0];
+			// if a client script has been given, run it
+			if ((typeName _scriptClient) == "STRING") then {
+				// run script for clients only
+				[_data, _scriptClient] remoteExec ["BIS_fnc_execVM", _client];
+			};
+
+			// if a server script has been given, run it
+			if ((typeName _scriptServer) == "STRING") then {
+				// run script for server only
+				[_data, _scriptServer] remoteExec ["BIS_fnc_execVM", _server];
 			};
 		},
 		[
 			_object,
 			_title,
-			_script,
+			_scriptClient,
+			_scriptServer,
 			_reference,
+			_distance,
 			_removeObject,
 			_removeAction
-		]
+		],
+		1.5,
+		true,
+		true,
+		"",
+		format ["(player distance _target) < %1", _this select 5]
 	];
 
 	[_object getVariable ACTIONS_ARRAY, _reference, _id] call BIS_fnc_addToPairs;

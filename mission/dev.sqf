@@ -27,8 +27,10 @@
 	[
 		_computer,
 		"Action",
-		objNull,
+		"mission\testScriptClient.sqf",
+		"mission\testScriptServer.sqf",
 		format ["test%1", _forEachIndex],
+		2,
 		false,
 		true
 	] call CRP_fnc_addActionGlobal;
