@@ -1,11 +1,12 @@
 params ["_area", "_unitsClasses"];
-private ["_center", "_radius", "_unitsCount", "_positions", "_buildings", "_i"];
+private ["_center", "_radius", "_unitsCount", "_positions", "_buildings", "_return", "_i"];
 
 _center		= _area select 0;
 _radius		= _area select 1;
 _unitsCount	= _area select 2;
 _positions	= [];
 _buildings	= nearestObjects [_center, ["Building"], _radius];
+_return		= if (count _this > 2) then {true} else {false};
 
 // récupération de toutes les positons de bâtiments de la zone renseignée
 {
@@ -48,4 +49,8 @@ for [{_i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do
 	_wp setWaypointCompletionRadius 3;
 	_unit setUnitPos "UP";
 	_unit doWatch ([_building modelToWorld _pos, 50, (getDir _building) + _dir] call BIS_fnc_relPos);
+
+	if (_return) then {
+		(_this select 2) pushBack _unit;
+	};
 };
