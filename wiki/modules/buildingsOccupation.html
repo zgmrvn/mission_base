@@ -27,6 +27,10 @@
 					'[tab][com]\/\/ activer ou désactiver le module[/com][br]' +
 					'[tab]enabled = [num]1[/num];[br]' +
 					'[br]' +
+					'[tab][com]\/\/ si activé, la variable globale "CPR_var_buildingsOccupation_units" sera créée[/com][br]' +
+					'[tab][com]\/\/ elle contiendra la liste des unitées créées par le module[/com][br]' +
+					'[tab]return = [num]0[/num];[br]' +
+					'[br]' +
 					'[tab][com]\/\/ informations sur les zones d\'occupation[/com][br]' +
 					'[tab][com]\/\/ centre de la zone, rayon, nombre d\'unités[/com][br]' +
 					'[tab]occupations[] = {[br]' +
@@ -75,6 +79,26 @@
 					'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec]; [com]\/\/ classnames des unités à utiliser pour peupler la zone[/com][br]' +
 					'[br]' +
 					'[var]_handle[/var] = [spec][[/spec][var]_area[/var], [var]_units[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_buildingsOccupation_area[/fnc];[br]' +
+					'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]'
+				));
+			</script>
+		</p>
+	</div>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Il est possible de récupérer les unités créées en passant une une variable supplémentaire à la fonction.
+	</p>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[var]_area[/var] = [spec][[[/spec][num]7460.1[/num], [num]7509.3[/num], [num]0[/num][spec]][/spec], [num]25[/num], [num]2[/num][spec]][/spec]; [com]\/\/ centre de la zone, rayon, nombre d\'unités[/com][br]' +
+					'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec]; [com]\/\/ classnames des unités à utiliser pour peupler la zone[/com][br]' +
+					'[br]' +
+					'[var]_myVar[/var] = [spec][][/spec]; [com]\/\/ cette variable sera chargée par la fonction[/com][br]' +
+					'[var]_handle[/var] = [spec][[/spec][var]_area[/var], [var]_units[/var], [var]_myVar[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_buildingsOccupation_area[/fnc];[br]' +
 					'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]'
 				));
 			</script>
