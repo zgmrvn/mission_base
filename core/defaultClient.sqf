@@ -4,7 +4,7 @@
 
 // module de briefing
 // script de création des "diaries"
-#include "..\modules\briefing\initScriptClient.sqf"
+#include "..\modules\missionBriefing\initScriptClient.sqf"
 
 // module de téléportation sur le chef d'équipe
 // script de création des actions de téléportation sur les drapeaux créés par le module "ActionsFlags"
@@ -21,3 +21,7 @@
 // module de caméra sepctateur
 // script de création des actions de caméra spectateur sur les drapeaux créés par le module "ActionsFlags"
 #include "..\modules\spectatorCamera\initScriptClient.sqf"
+
+// module d'effet de particules
+// script d'initialisation des boucles de vérification de l'environnement autour du joueur
+#include "..\modules\particles\initScriptClient.sqf"

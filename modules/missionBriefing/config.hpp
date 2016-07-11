@@ -1,4 +1,4 @@
-class Briefing {
+class MissionBriefing {
 	// activer ou désactiver le module
 	enabled = 1;
 

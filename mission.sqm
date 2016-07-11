@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=67;
+		nextID=79;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7563.7334,26.409945,7463.6289};
-		dir[]={-0.83984226,-0.48254105,0.24911159};
-		up[]={-0.46270642,0.87581563,0.13724361};
-		aside[]={0.28438559,-5.9686136e-007,0.95880204};
+		pos[]={7566.624,62.859745,7428.0947};
+		dir[]={-0.79863548,-0.56238288,0.21483268};
+		up[]={-0.54314655,0.8268196,0.1461024};
+		aside[]={0.25977856,-1.8856954e-006,0.96576327};
 	};
 };
 binarizationWanted=0;
@@ -31,7 +31,7 @@ addons[]=
 	"A3_Structures_F_Households_Stone_Big",
 	"A3_Modules_F_StrategicMap",
 	"A3_Weapons_F_Ammoboxes",
-	"crp_cgs"
+	"CRP_CGS"
 };
 class AddonsMetaData
 {
@@ -76,7 +76,7 @@ class AddonsMetaData
 		class Item5
 		{
 			className="CRP_CGS";
-			name="crp_cgs";
+			name="CRP_CGS";
 			author="[CORP] Lynx";
 		};
 	};
@@ -727,67 +727,6 @@ class Mission
 			};
 			id=65;
 			type="CORP_Module_GearSystem";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="CORP_Module_GearSystem_Units";
-					expression="_this setVariable ['Units',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="CORP_Module_GearSystem_AddActionName";
-					expression="_this setVariable ['AddActionName',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="CORP Gear";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="CORP_Module_GearSystem_AddActionColor";
-					expression="_this setVariable ['AddActionColor',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="#ff1111";
-						};
-					};
-				};
-				nAttributes=3;
-			};
 		};
 	};
 	class Connections
