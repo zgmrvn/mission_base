@@ -18,7 +18,37 @@ if ((getNumber (missionConfigFile >> "SpectatorCamera" >> "enabled")) == 1) then
 				if (_x in _flags) then {
 					(_x call CRP_fnc_actionsFlags_getFlag) addAction [
 						"Caméra Spectateur",
-						{createDialog "SpectatorCameraDialog"},
+						{
+							// création de la caméra spéctateur
+							["Initialize", [
+								player,	// spectator
+								[],		// WhitelistedSides
+								true,	// allowAi
+								true,	// allowFreeCamera
+								true,	// allow3PPCamera
+								true,	// showFocusInfo
+								true,	// showCameraButtons
+								true,	// showControlsHelper
+								true,	// showHeader
+								true 	// showLists
+							]] spawn BIS_fnc_EGSpectator;
+
+							// on attend que le display existe
+							waitUntil {!isNull (findDisplay 60492)};
+
+							// puis on ajoute la posibilité de fermer la caméra en appuyant sur la touche échappe
+							// par défaut il n'y a aucun moyen de fermer la caméra une fois ouverte
+							_eh = (findDisplay 60492) displayAddEventHandler ["KeyDown", {
+								_override = false;
+
+								if ((_this select 1) == 1) then {
+									["Terminate"] spawn BIS_fnc_EGSpectator;
+									_override = true;
+								};
+
+								_override
+							}];
+						},
 						nil,
 						1.5,
 						true,
