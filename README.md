@@ -1,68 +1,12 @@
-# Framework de mission #
-Ce framework vise à offrir des solutions de scripts afin de corriger certains problèmes récurrents.
+# Framework de mission
+Ce framework/squelette de mission vise à offrir des solutions de script afin de corriger certains problèmes récurrents et d'offrir aux éditeur des fonctionnalités faciles d'utilisation.
 
-## fonctions ##
+La documentation de la mission et ses fonctionnalités se trouve dans le dossier `wiki`
 
-### addActionGlobal ###
-Cette fonction permet d'ajouter une action dans le menu d'action pour tous les clients. Elle peut être utilisée depuis le serveur, sur un objet qui vient d'être créé et permet d'éviter les problèmes de JIP. Un tableau contenant le joueur ayant déclenché l'action est passé au script. S'il n'a pas été supprimé, ce tableau contiendra en plus l'objet sur lequel a été ajouté l'action.
-```
-#!sqf
-[
-	_ammoBox,							// l'objet sur lequel ajouter l'action
-	"<t color='#FF0000'>My action</t>",	// titre de l'action
-	"addActionScript.sqf",				// un script qui sera exécuté côté client et serveur
-	"actionLabel",						// un label, pour différencier les actions lorsqu'il y en a plusieurs sur le même objet
-	false,								// faut-il supprimer l’objet lorsque l'action est déclenchée
-	true								// faut-il supprimer l'action lorsqu'elle est déclenchée (global)
-] call CRP_fnc_addActionGlobal;
-```
-
-## Modules ##
-
-Ce framework est découpé sous forme de modules, facilement configurables. La majorité des modules ont un fichier de configuration ``` config.hpp ``` depuis lequel ils peuvent être désactivés.
-
-### Gestion de l'intro ###
-Afin de faciliter la gestion de l'intro, il est recommandé d'utiliser le fichier "mission\intro\intro.sqf". Ce script fait parti d'une solution de gestion de l'intro qui permet de choisir depuis les paramètres de mission si l'intro doit être joué. Cette solution permet également d'éviter de rejouer l'intro dans le cas d'une reconnexion à la mission. Vous pouvez désactiver l'intro depuis le fichier de configuration du module ``` modules/intro/config.hpp ```.
-
-### Module de création de drapeaux ###
-permet de créer simplement des drapeaux qui pourront être utilisés par les différents modules et scripts. Configurez simplement les noms et positions des drapeaux depuis le fichier de configuration ``` modules/actionsFlags/config.hpp ``` et ils seront automatiquement créés.
-
-pour récupérer un drapeau dans l'un de vos scripts vous pouvez utiliser la fonction ``` CRP_fnc_actionsFlags_getFlag ``` qui prend en paramètre le nom d'un des drapeaux, exemple :
-```
-#!sqf
-_drapeauBase = "base" call CRP_fnc_actionsFlags_getFlag;
-_drapeauRespawn = "respawn" call CRP_fnc_actionsFlags_getFlag;
-```
-
-### Module de téléportation vers un joueur ###
-Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter les actions depuis le fichier de configuration ``` modules/teleportToLeader/config.hpp ```. Ce module a une dépendance au module de création de drapeaux.
-
-### Module de caméra spectateur ###
-Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter les actions depuis le fichier de configuration ``` modules/SpectatorCamera/config.hpp ```. Ce module a une dépendance au module de création de drapeaux.
-
-### Module de saut de groupe ###
-Saut de groupe façon GID Academy. Configurez simplement les noms des drapeaux sur lesquels vous souhaitez ajouter les actions depuis le fichier de configuration ``` modules/paraJumpClassic/config.hpp ```. Ce module a une dépendance au module de création de drapeaux.
-
-### Module de saut de groupe avec C130J ###
-Saut de groupe depuis C130. Configurez les sauts depuis le fichier de configuration ``` modules/paraJumpAdvanced/config.hpp ```. Ce module a une dépendance au module de création de drapeaux et une dépendance au mod CUP.
-
-### Module d'occupation des bâtiments ###
-Ce module permet de peupler les bâtiments d'une zone avec un nombre d'IA donné. Configurez les zones et le type d'unités depuis le fichier de configuration ``` modules/buildingsOccupation/config.hpp ```.
-
-Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez peupler une zone dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction ``` CRP_fnc_buildingsOccupation_area ```.
-```
-#!sqf
-_area = [[7460.1, 7509.3, 0], 25, 2]; // centre de la zone, rayon, nombre d'unités
-_units = ["O_G_Soldier_TL_F", "O_G_Soldier_exp_F"]; // classnames des unités à utiliser pour peupler la zone
-
-_handle = [_area, _units] spawn CRP_fnc_buildingsOccupation_area;
-waitUntil {scriptDone _handle};
-```
-
-### Module de choix de l'heure de départ ###
-Permet de choisir l'heure de départ de la mission depuis les paramètres de mission. Par défaut, la mission débutera à l'heure configurée depuis l'éditeur. Activez/désactivez le module depuis le fichier de configuration ``` modules/startTime/config.hpp ```.
-
-## autres fonctionnalités ##
-
-### Dégroupage auto ###
-Le framework embarque déjà la fonctionnalité de dégroupage au démarrage de la mission, ce qui vous permet de grouper vos unités depuis l'éditeur sans risquer d'avoir des communications et autres ordres automatiques.
+##comment utiliser le framework :
+1. télécharger le framework
+2. le placer dans le répertoire des missions
+3. renommer l'extension du dossier qui correspond au nom de la map pour basuler la mission sur la carte qui vous intéresse
+4. ouvrir la mission dans l'éditeur
+5. supprimer les objets par défaut qui ne vous intéressent pas
+6. supprimer les scripts de démo et de développement
