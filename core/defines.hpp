@@ -92,24 +92,6 @@
 #define MB_BUTTON_CANCEL  2
 #define MB_BUTTON_USER    4
 
-// Fonts
-#define GUI_FONT_NORMAL	PuristaMedium
-#define GUI_FONT_BOLD	PuristaSemibold
-#define GUI_FONT_THIN	PuristaLight
-#define GUI_FONT_MONO	EtelkaMonospacePro
-#define GUI_FONT_NARROW	EtelkaNarrowMediumPro
-#define GUI_FONT_CODE	LucidaConsoleB
-#define GUI_FONT_SYSTEM	TahomaB
-#define GUI_FONT_ROBOTO	RobotoCondensed
-
-// Grids
-#define GUI_GRID_CENTER_WAbs	((safezoneW / safezoneH) min 1.2)
-#define GUI_GRID_CENTER_HAbs	(GUI_GRID_CENTER_WAbs / 1.2)
-#define GUI_GRID_CENTER_W		(GUI_GRID_CENTER_WAbs / 40)
-#define GUI_GRID_CENTER_H		(GUI_GRID_CENTER_HAbs / 25)
-#define GUI_GRID_CENTER_X		(safezoneX + (safezoneW - GUI_GRID_CENTER_WAbs)/2)
-#define GUI_GRID_CENTER_Y		(safezoneY + (safezoneH - GUI_GRID_CENTER_HAbs)/2)
-
 
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
@@ -150,7 +132,7 @@ class RscText
 		0,
 		0.5
 	};
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	linespacing = 1;
 	tooltipColorText[] =
@@ -192,7 +174,7 @@ class RscStructuredText
 	};
 	class Attributes
 	{
-		font = "PuristaMedium";
+		font = "RobotoCondensed";
 		color = "#ffffff";
 		colorLink = "#D09B43";
 		align = "left";
@@ -302,7 +284,7 @@ class RscEdit
 	text = "";
 	size = 0.2;
 	style = "0x00 + 0x40";
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	shadow = 2;
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	canModify = 1;
@@ -483,7 +465,7 @@ class RscCombo
 		};
 	};
 	style = "0x10 + 0x200";
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 0;
 	x = 0;
@@ -682,7 +664,7 @@ class RscListBox
 	w = 0.3;
 	h = 0.3;
 	style = 16;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 0;
 	colorShadow[] =
@@ -782,13 +764,14 @@ class RscButton
 		0.09,
 		1
 	};
+	idc = -1;
 	style = 2;
 	x = 0;
 	y = 0;
 	w = 0.095589;
 	h = 0.039216;
 	shadow = 2;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	offsetX = 0;
 	offsetY = 0;
@@ -903,7 +886,7 @@ class RscShortcutButton
 	};
 	class Attributes
 	{
-		font = "PuristaMedium";
+		font = "RobotoCondensed";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
@@ -944,7 +927,7 @@ class RscShortcutButton
 		0.25
 	};
 	sizeExSecondary = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	fontSecondary = "PuristaMedium";
+	fontSecondary = "RobotoCondensed";
 	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
@@ -954,14 +937,14 @@ class RscShortcutButton
 	periodFocus = 1.2;
 	periodOver = 0.8;
 	period = 0.4;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	text = "";
 	action = "";
 	class AttributesImage
 	{
-		font = "PuristaMedium";
+		font = "RobotoCondensed";
 		color = "#E5E5E5";
 		align = "left";
 	};
@@ -1015,21 +998,21 @@ class RscShortcutButtonMain
 	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\down_ca.paa";
 	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\normal_ca.paa";
 	period = 0.5;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	text = "";
 	action = "";
 	class Attributes
 	{
-		font = "PuristaMedium";
+		font = "RobotoCondensed";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "false";
 	};
 	class AttributesImage
 	{
-		font = "PuristaMedium";
+		font = "RobotoCondensed";
 		color = "#E5E5E5";
 		align = "false";
 	};
@@ -1054,7 +1037,7 @@ class RscFrame
 		1,
 		1
 	};
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = 0.02;
 	text = "";
 	x = 0;
@@ -1102,7 +1085,7 @@ class IGUIBack
 		0,
 		0
 	};
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = 0;
 	shadow = 0;
 	x = 0.1;
@@ -1339,7 +1322,7 @@ class RscTextCheckBox
 		0,
 		0.65
 	};
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 	rows = 1;
 	columns = 1;
