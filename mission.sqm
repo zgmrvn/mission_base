@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=79;
+		nextID=82;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7566.624,62.859745,7428.0947};
-		dir[]={-0.79863548,-0.56238288,0.21483268};
-		up[]={-0.54314655,0.8268196,0.1461024};
-		aside[]={0.25977856,-1.8856954e-006,0.96576327};
+		pos[]={7547.4814,28.892887,7428.0718};
+		dir[]={-0.44976047,-0.53769517,0.71333277};
+		up[]={-0.28682083,0.84308094,0.45489842};
+		aside[]={0.84596944,-1.5194528e-006,0.53340191};
 	};
 };
 binarizationWanted=0;
@@ -27,6 +27,7 @@ addons[]=
 {
 	"A3_Ui_F",
 	"A3_Characters_F",
+	"A3_Characters_F_Exp_Civil",
 	"A3_Structures_F_Households_House_Big01",
 	"A3_Structures_F_Households_Stone_Big",
 	"A3_Modules_F_StrategicMap",
@@ -37,7 +38,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -54,26 +55,33 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="A3_Structures_F_Households";
-			name="Arma 3 Alpha - Houses";
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item3
+		{
+			className="A3_Structures_F_Households";
+			name="Arma 3 - Houses";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item4
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item4
+		class Item5
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item5
+		class Item6
 		{
 			className="CRP_CGS";
 			name="CRP_CGS";

@@ -29,6 +29,10 @@ class CfgFunctions {
 #include "modules\paraJumpAdvanced\config.hpp"
 #include "modules\paraJumpAdvanced\ui.hpp"
 
+// module de projection en bâteaux
+#include "modules\boatProjection\config.hpp"
+#include "modules\boatProjection\ui.hpp"
+
 // module de caméra spectateur
 #include "modules\spectatorCamera\config.hpp"
 
