@@ -1,12 +1,16 @@
-params ["_area", "_unitsClasses"];
-private ["_center", "_radius", "_unitsCount", "_positions", "_buildings", "_return", "_i"];
+params ["_center", "_radius", "_unitsCount", "_side", "_units"];
+private ["_positions", "_buildings", "_return", "_i"];
 
-_center		= _area select 0;
-_radius		= _area select 1;
-_unitsCount	= _area select 2;
 _positions	= [];
 _buildings	= nearestObjects [_center, ["Building"], _radius];
-_return		= if (count _this > 2) then {true} else {false};
+_return		= if (count _this > 5) then {true} else {false};
+
+_side = switch (_side) do {
+	case 0: {west};
+	case 1: {east};
+	case 2: {independent};
+	case 3: {civilian};
+};
 
 // récupération de toutes les positons de bâtiments de la zone renseignée
 {
@@ -33,10 +37,10 @@ for [{_i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do
 	_pos 		= _position select 1;
 	_dir		= _position select 2;
 
-	_group = createGroup east;
+	_group = createGroup _side;
 	_wp = _group addWaypoint [_pos, 0];
 	deleteWaypoint [_group, (count (waypoints _group)) - 1];
-	_unit = _group createUnit [_unitsClasses call BIS_fnc_selectRandom, _building modelToWorld _pos, [], 0, "CAN_COLLIDE"];
+	_unit = _group createUnit [_units call BIS_fnc_selectRandom, _building modelToWorld _pos, [], 0, "CAN_COLLIDE"];
 	_unit setPos (_building modelToWorld _pos);
 	_unit setDir ((getDir _building) + _dir);
 	_group setCombatMode "RED";

@@ -7,18 +7,34 @@ class BuildingsOccupation {
 	return = 0;
 
 	// informations sur les zones d'occupation
-	// centre de la zone, rayon, nombre d'unités
-	occupations[] = {
-		{{7460.1, 7509.3, 0}, 25, 2}, // maison Ouest
-		{{7585.2, 7509.5, 0}, 25, 2} // maison Est
-	};
+	class Occupations {
+		class WestHouse {
+			center[]	= {7460.1, 7509.3, 0};
+			radius		= 25;
+			unitsCount	= 2;
+			side		= 2;
 
-	// unités à utiliser pour peupler les zones d'occupation
-	units[] = {
-		"O_G_Soldier_TL_F",
-		"O_G_Soldier_SL_F",
-		"O_G_Soldier_exp_F",
-		"O_G_Soldier_F"
+			units[] = {
+				"O_G_Soldier_TL_F",
+				"O_G_Soldier_SL_F",
+				"O_G_Soldier_exp_F",
+				"O_G_Soldier_F"
+			};
+		};
+
+		class EastHouse {
+			center[]	= {7585.2, 7509.5, 0};
+			radius		= 25;
+			unitsCount	= 2;
+			side		= 1;
+
+			units[] = {
+				"O_G_Soldier_TL_F",
+				"O_G_Soldier_SL_F",
+				"O_G_Soldier_exp_F",
+				"O_G_Soldier_F"
+			};
+		};
 	};
 
 	// bâtiments et positions d'occupation
