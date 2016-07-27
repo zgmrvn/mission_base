@@ -39,6 +39,9 @@ class CfgFunctions {
 // module d'occupation des bâtiments par l'IA
 #include "modules\buildingsOccupation\config.hpp"
 
+// module de patrouilles aléatoires
+#include "modules\randomPatrols\config.hpp"
+
 // module de choix de l'heure de départ
 #include "modules\startTime\config.hpp"
 

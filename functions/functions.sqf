@@ -8,3 +8,6 @@ if (X_editor) then  {
 	CRP_fnc_buildingsOccupation_getRelPos = compile preprocessFileLineNumbers "modules\buildingsOccupation\fnc\fn_buildingsOccupation_getRelPos.sqf";
 	CRP_fnc_buildingsOccupation_getBuildingInfos = compile preprocessFileLineNumbers "modules\buildingsOccupation\fnc\fn_buildingsOccupation_getBuildingInfos.sqf";
 };
+
+// module de patrouilles aléatoires
+CRP_fnc_randomPatrols_patrols = compile preprocessFileLineNumbers "modules\randomPatrols\fnc\fn_randomPatrols_patrols.sqf";
