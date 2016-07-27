@@ -3,7 +3,7 @@ class BuildingsOccupation {
 	enabled = 1;
 
 	// si activé, la variable globale "CPR_var_buildingsOccupation_units" sera créée
-	// elle contiendra la liste des unitées créées par le module
+	// elle contiendra la liste des unités créées par le module
 	return = 0;
 
 	// informations sur les zones d'occupation
