@@ -1,6 +1,6 @@
 // si le module est activé
 if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "enabled")) == 1) then {
-
+	// spawn parce que code bloquant
 	[] spawn {
 		// boucle sur les zones
 		if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "return")) == 1) then {
