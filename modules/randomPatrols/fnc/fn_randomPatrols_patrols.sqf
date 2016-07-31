@@ -37,7 +37,7 @@ _side = switch (_side) do {
 
 // on créé le groupe
 _group = [
-	_waypointsPositions select 0,
+	_waypointsPositions call BIS_fnc_selectRandom,
 	_side,
 	_path
 ] call BIS_fnc_spawnGroup;
