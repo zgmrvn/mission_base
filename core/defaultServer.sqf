@@ -13,5 +13,4 @@ CRP_var_intro_alreadyConnected = [];
 #include "..\modules\randomPatrols\initScriptServer.sqf"
 
 // module de choix de l'heure de départ
-// devrait être en dernier
 #include "..\modules\startTime\initScript.sqf"
