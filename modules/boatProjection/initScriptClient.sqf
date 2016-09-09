@@ -17,7 +17,7 @@ if ((getNumber (missionConfigFile >> "BoatProjection" >> "enabled")) == 1) then 
 			{
 				if (_x in _flags) then {
 					(_x call CRP_fnc_actionsFlags_getFlag) addAction [
-						"insertion en bateau",
+						"Insertion en bateau",
 						{CRP_var_boatProjection_flag = (_this select 0); createDialog "BoatProjectionDialog";},
 						nil,
 						1.5,
