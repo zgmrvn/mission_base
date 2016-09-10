@@ -96,58 +96,7 @@ CRP_var_boatProjection_marker		= "";
 	_projection ctrlAddEventHandler ["MouseButtonDown", {
 		if (CRP_var_boatProjection_marker != "") then {
 			// on demande au serveur de créer les bateaux et de faire embarquer les joueurs
-			[[CRP_var_boatProjection_coordinates, CRP_var_boatProjection_players, lbCurSel BOAT_PROJECTION_BOATLIST_IDC], {
-				_coordinates	= _this select 0;
-				_players		= _this select 1;
-				_boatData		= (getArray (missionConfigFile >> "BoatProjection" >> "boats")) select (_this select 2);
-				_boatClassname	= _boatData select 0;
-				_boatPlaces		= _boatData select 1;
-				_center			= getArray (missionConfigFile >> "BoatProjection" >> "center");
-				_dir			= [_coordinates, _center] call BIS_fnc_dirTo;
-
-				_boat = objNull;
-
-				for [{_i = 0; _c = count _players;}, {_i < _c}, {_i = _i + 1}] do {
-					_mod = _i mod _boatPlaces;
-
-					if (_mod == 0) then {
-						_boat = createVehicle [_boatClassname, [_coordinates, (_i / 5) * 10, _dir + 135] call BIS_fnc_relPos, [], 0, "CAN_COLLIDE"];
-						_boat setDir _dir;
-					};
-
-					// modification de la couleur du bateau dans le cas d'un RHIB
-					if (_boatClassname == "C_Boat_Transport_02_F") then {
-						[_boat, ["Black", 1], true] call BIS_fnc_initVehicle;
-					};
-
-					switch (_mod) do {
-
-						case 0: {
-							[_boat, {
-								cutText ["", "BLACK OUT", 2];
-								2 fadeSound 0;
-								sleep 2;
-								player moveInDriver _this;
-								sleep 0.5;
-								cutText ["", "BLACK IN", 2];
-								2 fadeSound 1;
-							}] remoteExec ["BIS_fnc_spawn", _players select _i];
-						};
-
-						default {
-							[[_boat, _mod], {
-								cutText ["", "BLACK OUT", 2];
-								2 fadeSound 0;
-								sleep 2;
-								player moveInCargo [_this select 0, _this select 1];
-								sleep 0.5;
-								cutText ["", "BLACK IN", 2];
-								2 fadeSound 1;
-							}] remoteExec ["BIS_fnc_spawn", _players select _i];
-						};
-					};
-				};
-			}] remoteExec ["BIS_fnc_spawn", X_remote_server];
+			[[CRP_var_boatProjection_coordinates, CRP_var_boatProjection_players, lbCurSel BOAT_PROJECTION_BOATLIST_IDC], "modules\boatProjection\content\scriptServer.sqf"] remoteExec ["execVM", X_remote_server];
 
 			closeDialog BOAT_PROJECTION_DIALOG_IDD;
 		};
