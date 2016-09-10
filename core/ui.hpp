@@ -14,7 +14,7 @@ class BaseTitle: RscText {
 	text = "Titre";
 	SizeEx = TEXT_RATIO * 3;
 	shadow = 0;
-	font = GUI_FONT_THIN;
+	font = "PuristaLight";
 };
 
 class BaseBackgroundBox: RscText {
@@ -47,7 +47,7 @@ class BaseEdit: RscEdit {
 	idc = -1;
 	type = CT_EDIT;
 
-	font = GUI_FONT_ROBOTO;
+	font = "RobotoCondensed";
 	colorBackground[] = {0.1, 0.1, 0.1, 1};
 };
 
@@ -56,12 +56,12 @@ class BaseText: RscText {
 	type = CT_STATIC;
 	style = ST_LEFT;
 
-	font = GUI_FONT_ROBOTO;
+	font = "RobotoCondensed";
 };
 
 class BaseListBox: RscListBox {
 	idc = -1;
-	font = GUI_FONT_ROBOTO;
+	font = "RobotoCondensed";
 	rowHeight = safeZoneH * 0.02;
 	canDrag = 0;
 };
