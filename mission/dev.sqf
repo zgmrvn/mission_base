@@ -1,21 +1,3 @@
-/*******************************************
-***** spawn d'IA pour le développement *****
-***** de la caméra spectateur          *****
-*******************************************/
-[] spawn {
-	while {true} do {
-		_group = createGroup east;
-		_unit = _group createUnit ["O_Soldier_TL_F", [[7522, 7514, 0], 50, random 360] call BIS_fnc_relPos, [], 0, "FORM"];
-		_unit setBehaviour "CARELESS";
-		_group addWaypoint [[_unit, 75, random 360] call BIS_fnc_relPos, 0];
-
-		sleep (10 + (random 10));
-
-		_unit setDamage 1;
-	};
-};
-/*****************************************/
-
 /******************************************
 ***** création d'objets pour le débug *****
 ***** de la fonction addActionGlobal  *****
