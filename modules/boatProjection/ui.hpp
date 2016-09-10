@@ -26,12 +26,23 @@ class BoatProjectionDialog {
 			colorBackground[] = {0.1, 0.1, 0.1, 1};
 		};
 
-		class Map: BaseMap {
-			idc = BOAT_PROJECTION_MAP_IDC;
+		class BoatList: BaseListBox {
+			idc = BOAT_PROJECTION_BOATLIST_IDC;
 
 			x = safeZoneX + safeZoneW * 0.305;
 			y = safeZoneY + safeZoneH * 0.21;
-			w = safeZoneW * 0.495;
+			w = safeZoneW * 0.1;
+			h = safeZoneH * 0.52;
+
+			colorBackground[] = {0.1, 0.1, 0.1, 1};
+		};
+
+		class Map: BaseMap {
+			idc = BOAT_PROJECTION_MAP_IDC;
+
+			x = safeZoneX + safeZoneW * 0.41;
+			y = safeZoneY + safeZoneH * 0.21;
+			w = safeZoneW * 0.39;
 			h = safeZoneH * 0.52;
 
 			tooltip = "Double-cliquez pour définir le point de projection";

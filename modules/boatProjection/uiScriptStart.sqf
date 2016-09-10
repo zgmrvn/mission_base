@@ -3,7 +3,7 @@
 // déclaration des variables du module
 // CRP_var_boatProjection_flag, déclarée dans le code de l'action afin de récupérer l'objet drapeau et ainsi pouvoir récupérer les joueurs à proximité
 CRP_var_boatProjection_players		= [];
-CRP_var_boatProjection_coordinates = [];
+CRP_var_boatProjection_coordinates	= [];
 CRP_var_boatProjection_marker		= "";
 
 [] spawn {
@@ -12,6 +12,7 @@ CRP_var_boatProjection_marker		= "";
 	disableSerialization;
 
 	_dialog		= findDisplay BOAT_PROJECTION_DIALOG_IDD;
+	_boatList	= _dialog displayCtrl BOAT_PROJECTION_BOATLIST_IDC;
 	_map 		= _dialog displayCtrl BOAT_PROJECTION_MAP_IDC;
 	_close 		= _dialog displayCtrl BOAT_PROJECTION_CLOSE_IDC;
 	_projection	= _dialog displayCtrl BOAT_PROJECTION_PROJECTION_IDC;
@@ -48,6 +49,13 @@ CRP_var_boatProjection_marker		= "";
 			sleep 0.5;
 		};
 	};
+
+	// alimentation de la liste de bateaux disponibles
+	{
+		lbAdd [BOAT_PROJECTION_BOATLIST_IDC, getText (configFile >> "CfgVehicles" >> (_x select 0) >> "displayName")];
+	} forEach (getArray (missionConfigFile >> "BoatProjection" >> "boats"));
+
+	_boatList lbSetCurSel 0;
 
 	// gestion du positionnement du marqueur de saut
 	_map ctrlAddEventHandler ["mouseButtonDblClick", {
@@ -88,20 +96,28 @@ CRP_var_boatProjection_marker		= "";
 	_projection ctrlAddEventHandler ["MouseButtonDown", {
 		if (CRP_var_boatProjection_marker != "") then {
 			// on demande au serveur de créer les bateaux et de faire embarquer les joueurs
-			[[CRP_var_boatProjection_coordinates, CRP_var_boatProjection_players], {
+			[[CRP_var_boatProjection_coordinates, CRP_var_boatProjection_players, lbCurSel BOAT_PROJECTION_BOATLIST_IDC], {
 				_coordinates	= _this select 0;
 				_players		= _this select 1;
+				_boatData		= (getArray (missionConfigFile >> "BoatProjection" >> "boats")) select (_this select 2);
+				_boatClassname	= _boatData select 0;
+				_boatPlaces		= _boatData select 1;
 				_center			= getArray (missionConfigFile >> "BoatProjection" >> "center");
 				_dir			= [_coordinates, _center] call BIS_fnc_dirTo;
 
 				_boat = objNull;
 
 				for [{_i = 0; _c = count _players;}, {_i < _c}, {_i = _i + 1}] do {
-					_mod = _i mod 5;
+					_mod = _i mod _boatPlaces;
 
 					if (_mod == 0) then {
-						_boat = createVehicle ["B_G_Boat_Transport_01_F", [_coordinates, (_i / 5) * 10, _dir + 135] call BIS_fnc_relPos, [], 0, "CAN_COLLIDE"];
+						_boat = createVehicle [_boatClassname, [_coordinates, (_i / 5) * 10, _dir + 135] call BIS_fnc_relPos, [], 0, "CAN_COLLIDE"];
 						_boat setDir _dir;
+					};
+
+					// modification de la couleur du bateau dans le cas d'un RHIB
+					if (_boatClassname == "C_Boat_Transport_02_F") then {
+						[_boat, ["Black", 1], true] call BIS_fnc_initVehicle;
 					};
 
 					switch (_mod) do {

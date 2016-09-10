@@ -13,4 +13,10 @@ class BoatProjection {
 
 	// centre aproximatif des objectifs, utilisé pour l'orientation des bateaux
 	center[] = {0, 0, 0};
+
+	// liste des bâteaux disponibles et places disponibles
+	boats[] = {
+		{"B_G_Boat_Transport_01_F", 5},
+		{"C_Boat_Transport_02_F", 8}
+	};
 };
