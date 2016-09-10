@@ -20,7 +20,7 @@
 
 // module de projection en bâteaux
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\boatProjection\initScriptClient.sqf"
+#include "..\modules\boatProjection\content\initScriptClient.sqf"
 
 // module de caméra sepctateur
 // script de création des actions de caméra spectateur sur les drapeaux créés par le module "ActionsFlags"

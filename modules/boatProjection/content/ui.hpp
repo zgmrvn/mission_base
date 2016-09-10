@@ -3,8 +3,8 @@
 class BoatProjectionDialog {
 	idd = BOAT_PROJECTION_DIALOG_IDD;
 
-	onLoad		= "['onLoad', _this, 'BoatProjectionDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\boatProjection\uiScriptStart.sqf';";
-	onUnload	= "['onUnload', _this, 'BoatProjectionDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\boatProjection\uiScriptStop.sqf';";
+	onLoad		= "['onLoad', _this, 'BoatProjectionDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\boatProjection\content\uiScriptStart.sqf';";
+	onUnload	= "['onUnload', _this, 'BoatProjectionDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\boatProjection\content\uiScriptStop.sqf';";
 
 	class ControlsBackground {
 		class Title: BaseTitle {
