@@ -37,7 +37,7 @@ class CfgFunctions {
 #include "modules\spectatorCamera\config.hpp"
 
 // module d'occupation des bâtiments par l'IA
-#include "modules\buildingsOccupation\config.hpp"
+#include "modules\buildingsOccupation\content\wrapper.hpp"
 
 // module de patrouilles aléatoires
 #include "modules\randomPatrols\config.hpp"

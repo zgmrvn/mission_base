@@ -7,7 +7,7 @@ CRP_var_intro_alreadyConnected = [];
 #include "..\modules\actionsFlags\initScriptServer.sqf"
 
 // module d'occupation des bâtiments
-#include "..\modules\buildingsOccupation\initScriptServer.sqf"
+#include "..\modules\buildingsOccupation\content\initScriptServer.sqf"
 
 // module de patrouilles aléatoires
 #include "..\modules\randomPatrols\initScriptServer.sqf"
