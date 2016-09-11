@@ -7,6 +7,7 @@ CRP_fnc_buildingsOccupation_area = compile preprocessFileLineNumbers "modules\bu
 if (X_editor) then  {
 	CRP_fnc_buildingsOccupation_getRelPos = compile preprocessFileLineNumbers "modules\buildingsOccupation\content\fnc\fn_buildingsOccupation_getRelPos.sqf";
 	CRP_fnc_buildingsOccupation_getBuildingInfos = compile preprocessFileLineNumbers "modules\buildingsOccupation\content\fnc\fn_buildingsOccupation_getBuildingInfos.sqf";
+	CRP_fnc_buildingsOccupation_markMissingBuildings = compile preprocessFileLineNumbers "modules\buildingsOccupation\content\fnc\fn_buildingsOccupation_markMissingBuildings.sqf";
 };
 
 // module de patrouilles aléatoires
