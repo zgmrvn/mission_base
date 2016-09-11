@@ -3,7 +3,7 @@
 class TeleportToLeaderDialog {
 	idd = TELEPORT_DIALOG_IDD;
 
-	onLoad = "['onLoad', _this, 'TeleportToLeaderDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\teleportToLeader\uiScriptStart.sqf';";
+	onLoad = "['onLoad', _this, 'TeleportToLeaderDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\teleportToLeader\content\uiScriptStart.sqf';";
 
 	class controlsBackground {
 		class Title: BaseTitle {

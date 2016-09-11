@@ -8,7 +8,7 @@
 
 // module de téléportation sur le chef d'équipe
 // script de création des actions de téléportation sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\teleportToLeader\initScriptClient.sqf"
+#include "..\modules\teleportToLeader\content\initScriptClient.sqf"
 
 // module de saut en parachute classique
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"

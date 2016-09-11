@@ -18,8 +18,8 @@ class CfgFunctions {
 #include "modules\missionBriefing\content\wrapper.hpp"
 
 // module de téléportation vers un joueur
-#include "modules\teleportToLeader\config.hpp"
-#include "modules\teleportToLeader\ui.hpp"
+#include "modules\teleportToLeader\content\wrapper.hpp"
+#include "modules\teleportToLeader\content\ui.hpp"
 
 // module de saut en parachute classique
 #include "modules\paraJumpClassic\content\wrapper.hpp"
