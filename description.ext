@@ -22,8 +22,8 @@ class CfgFunctions {
 #include "modules\teleportToLeader\ui.hpp"
 
 // module de saut en parachute classique
-#include "modules\paraJumpClassic\config.hpp"
-#include "modules\paraJumpClassic\ui.hpp"
+#include "modules\paraJumpClassic\content\wrapper.hpp"
+#include "modules\paraJumpClassic\content\ui.hpp"
 
 // module de saut en parachute avancé
 #include "modules\paraJumpAdvanced\content\wrapper.hpp"

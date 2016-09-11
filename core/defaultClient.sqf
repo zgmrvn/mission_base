@@ -12,7 +12,7 @@
 
 // module de saut en parachute classique
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\paraJumpClassic\initScriptClient.sqf"
+#include "..\modules\paraJumpClassic\content\initScriptClient.sqf"
 
 // module de saut en parachute avancé
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
