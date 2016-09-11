@@ -10,7 +10,7 @@ CRP_var_intro_alreadyConnected = [];
 #include "..\modules\buildingsOccupation\content\initScriptServer.sqf"
 
 // module de patrouilles aléatoires
-#include "..\modules\randomPatrols\initScriptServer.sqf"
+#include "..\modules\randomPatrols\content\initScriptServer.sqf"
 
 // module de choix de l'heure de départ
 #include "..\modules\startTime\initScript.sqf"

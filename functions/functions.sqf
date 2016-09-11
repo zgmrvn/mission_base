@@ -11,4 +11,4 @@ if (X_editor) then  {
 };
 
 // module de patrouilles aléatoires
-CRP_fnc_randomPatrols_patrols = compile preprocessFileLineNumbers "modules\randomPatrols\fnc\fn_randomPatrols_patrols.sqf";
+CRP_fnc_randomPatrols_patrols = compile preprocessFileLineNumbers "modules\randomPatrols\content\fnc\fn_randomPatrols_patrols.sqf";
