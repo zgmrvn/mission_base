@@ -1,5 +1,5 @@
 // module de drapeaux
-CRP_fnc_actionsFlags_getFlag = compile preprocessFileLineNumbers "modules\actionsFlags\fnc\fn_actionsFlags_getFlag.sqf";
+CRP_fnc_actionsFlags_getFlag = compile preprocessFileLineNumbers "modules\actionsFlags\content\fnc\fn_actionsFlags_getFlag.sqf";
 
 // module d'occupation des bâtiments par l'ia
 CRP_fnc_buildingsOccupation_area = compile preprocessFileLineNumbers "modules\buildingsOccupation\content\fnc\fn_buildingsOccupation_area.sqf";

@@ -12,7 +12,7 @@ class CfgFunctions {
 // module de création de drapeaux
 // utilisable par les modules et scripts mission
 // pour ajouter des actions
-#include "modules\actionsFlags\config.hpp"
+#include "modules\actionsFlags\content\wrapper.hpp"
 
 // module de briefing
 #include "modules\missionBriefing\config.hpp"
