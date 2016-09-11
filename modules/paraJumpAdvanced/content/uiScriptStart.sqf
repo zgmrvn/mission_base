@@ -123,7 +123,7 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 			_coordinates set [2, _elevation];
 			_playerPosition	= (getPosASL player) vectorAdd [0, 0, 100];
 
-			[[_playerPosition, _coordinates, _bearing], "modules\paraJumpAdvanced\scriptServer.sqf"] remoteExec ["execVM", X_remote_server];
+			[[_playerPosition, _coordinates, _bearing], "modules\paraJumpAdvanced\content\scriptServer.sqf"] remoteExec ["execVM", X_remote_server];
 
 			// on attend que le C130 ait été téléporté à sa positon définitive
 			waitUntil {(count (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25])) > 0};
@@ -137,7 +137,7 @@ CRP_var_paraJumpAdvanced_selectedDrop		= "";
 			sleep 1;
 
 			{
-				[[_c130j, 4 * _forEachIndex, _coordinates, _bearing], "modules\paraJumpAdvanced\scriptClient.sqf"] remoteExec ["execVM", _x];
+				[[_c130j, 4 * _forEachIndex, _coordinates, _bearing], "modules\paraJumpAdvanced\content\scriptClient.sqf"] remoteExec ["execVM", _x];
 			} forEach _divers;
 		};
 

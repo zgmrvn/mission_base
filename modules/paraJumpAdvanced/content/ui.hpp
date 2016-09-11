@@ -3,8 +3,8 @@
 class ParaJumpAdvancedDialog {
 	idd = PARAJUMP_ADVANCED_DIALOG_IDD;
 
-	onLoad		= "['onLoad', _this, 'ParaJumpAdvancedDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpAdvanced\uiScriptStart.sqf';";
-	onUnload	= "['onUnload', _this, 'ParaJumpAdvancedDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpAdvanced\uiScriptStop.sqf';";
+	onLoad		= "['onLoad', _this, 'ParaJumpAdvancedDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpAdvanced\content\uiScriptStart.sqf';";
+	onUnload	= "['onUnload', _this, 'ParaJumpAdvancedDialog', 'GUI'] call (uinamespace getvariable 'BIS_fnc_initDisplay'); [] execVM 'modules\paraJumpAdvanced\content\uiScriptStop.sqf';";
 
 	class ControlsBackground {
 		class Title: BaseTitle {

@@ -26,8 +26,8 @@ class CfgFunctions {
 #include "modules\paraJumpClassic\ui.hpp"
 
 // module de saut en parachute avancé
-#include "modules\paraJumpAdvanced\config.hpp"
-#include "modules\paraJumpAdvanced\ui.hpp"
+#include "modules\paraJumpAdvanced\content\wrapper.hpp"
+#include "modules\paraJumpAdvanced\content\ui.hpp"
 
 // module de projection en bâteaux
 #include "modules\boatProjection\content\wrapper.hpp"
@@ -59,5 +59,5 @@ class Params {
 };
 
 class CfgSounds {
-	#include "modules\paraJumpAdvanced\sounds.hpp"
+	#include "modules\paraJumpAdvanced\content\sounds.hpp"
 };

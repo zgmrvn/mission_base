@@ -16,7 +16,7 @@
 
 // module de saut en parachute avancé
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\paraJumpAdvanced\initScriptClient.sqf"
+#include "..\modules\paraJumpAdvanced\content\initScriptClient.sqf"
 
 // module de projection en bâteaux
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
