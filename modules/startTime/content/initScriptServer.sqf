@@ -1,6 +1,6 @@
 // spawn pour éviter le bloquage
 [] spawn {
-	// il faut attendre que le joueur existe et que la mission ait démarrée
+	// il faut attendre que le serveur soit prêt et que la mission ait démarrée
 	// sinon l'heure est réglée à 0 h 00
 	waitUntil {X_init};
 	waitUntil {time > 0};

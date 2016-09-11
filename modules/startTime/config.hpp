@@ -1,4 +1,2 @@
-class StartTime {
-	// activer ou désactiver le module
-	enabled = 1;
-};
+// activer ou désactiver le module
+enabled = 1;
