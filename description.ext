@@ -15,7 +15,7 @@ class CfgFunctions {
 #include "modules\actionsFlags\content\wrapper.hpp"
 
 // module de briefing
-#include "modules\missionBriefing\config.hpp"
+#include "modules\missionBriefing\content\wrapper.hpp"
 
 // module de téléportation vers un joueur
 #include "modules\teleportToLeader\config.hpp"

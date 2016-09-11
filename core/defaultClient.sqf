@@ -4,7 +4,7 @@
 
 // module de briefing
 // script de création des "diaries"
-#include "..\modules\missionBriefing\initScriptClient.sqf"
+#include "..\modules\missionBriefing\content\initScriptClient.sqf"
 
 // module de téléportation sur le chef d'équipe
 // script de création des actions de téléportation sur les drapeaux créés par le module "ActionsFlags"
