@@ -24,7 +24,7 @@
 
 // module de caméra sepctateur
 // script de création des actions de caméra spectateur sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\spectatorCamera\initScriptClient.sqf"
+#include "..\modules\spectatorCamera\content\initScriptClient.sqf"
 
 // module d'effet de particules
 // script d'initialisation des boucles de vérification de l'environnement autour du joueur

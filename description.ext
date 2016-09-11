@@ -34,7 +34,7 @@ class CfgFunctions {
 #include "modules\boatProjection\content\ui.hpp"
 
 // module de caméra spectateur
-#include "modules\spectatorCamera\config.hpp"
+#include "modules\spectatorCamera\content\wrapper.hpp"
 
 // module d'occupation des bâtiments par l'IA
 #include "modules\buildingsOccupation\content\wrapper.hpp"
