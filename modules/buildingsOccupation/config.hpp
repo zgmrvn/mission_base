@@ -6,12 +6,13 @@ enabled = 1;
 return = 0;
 
 // informations sur les zones d'occupation
+// sides possibles : West, East, Indep, Civ
 class Occupations {
 	class WestHouse {
 		center[]	= {7460.1, 7509.3, 0};
 		radius		= 25;
 		unitsCount	= 2;
-		side		= 2;
+		side		= "Indep";
 
 		units[] = {
 			"I_Soldier_unarmed_F",
@@ -24,7 +25,7 @@ class Occupations {
 		center[]	= {7585.2, 7509.5, 0};
 		radius		= 25;
 		unitsCount	= 2;
-		side		= 1;
+		side		= "East";
 
 		units[] = {
 			"O_G_Soldier_TL_F",

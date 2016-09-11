@@ -6,10 +6,10 @@ _buildings	= nearestObjects [_center, ["Building"], _radius];
 _return		= if (count _this > 5) then {true} else {false};
 
 _side = switch (_side) do {
-	case 0: {west};
-	case 1: {east};
-	case 2: {independent};
-	case 3: {civilian};
+	case "West": {west};
+	case "East": {east};
+	case "Indep": {independent};
+	case "Civ": {civilian};
 };
 
 // récupération de toutes les positons de bâtiments de la zone renseignée

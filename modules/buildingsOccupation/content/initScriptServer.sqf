@@ -10,7 +10,7 @@ if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "enabled")) == 1) 
 				_center		= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "center");
 				_radius		= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "radius");
 				_unitsCount	= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "unitsCount");
-				_side		= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "side");
+				_side		= getText (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "side");
 				_units		= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "units");
 
 				_handle = [_center, _radius, _unitsCount, _side, _units, CPR_var_buildingsOccupation_units] spawn CRP_fnc_buildingsOccupation_area;
@@ -21,7 +21,7 @@ if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "enabled")) == 1) 
 				_center		= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "center");
 				_radius		= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "radius");
 				_unitsCount	= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "unitsCount");
-				_side		= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "side");
+				_side		= getText (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "side");
 				_units		= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "units");
 
 				_handle = [_center, _radius, _unitsCount, _side, _units] spawn CRP_fnc_buildingsOccupation_area;
