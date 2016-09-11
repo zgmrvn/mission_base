@@ -14,10 +14,9 @@ class Occupations {
 		side		= 2;
 
 		units[] = {
-			"O_G_Soldier_TL_F",
-			"O_G_Soldier_SL_F",
-			"O_G_Soldier_exp_F",
-			"O_G_Soldier_F"
+			"I_Soldier_unarmed_F",
+			"I_Soldier_AR_F",
+			"I_Soldier_GL_F",
 		};
 	};
 
