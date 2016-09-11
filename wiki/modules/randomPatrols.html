@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CORP - randomPatrols</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">randomPatrols</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Ce module permet de générer des patrouilles aléatoire d'IA dans une zone donnée. Configurez les zones et le type de groupes depuis le fichier de configuration <span class="Code-inline">modules/randomPatrols/config.hpp</span>.
+	</p>
+
+	<!-- configuration -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Configuration</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">modules/randomPatrols/config.hpp</p>
+		<p class="Code-inner Code-inner--config">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ activer ou désactiver le module[/com][br]' +
+					'enabled = [num]1[/num];[br]' +
+					'[br]' +
+					'[com]\/\/ si activé, la variable globale "CPR_var_randomPatrols_patrols" sera créée[/com][br]' +
+					'[com]\/\/ elle contiendra la liste des patrouilles (groupes) créés par le module[/com][br]' +
+					'return = [num]0[/num];[br]' +
+					'[br]' +
+					'[com]\/\/ informations sur les zones de patrouilles[/com][br]' +
+					'[com]\/\/ sides possibles : West, East, Indep[/com][br]' +
+					'[com]\/\/ les classnames des groupes se trouvent dans CfgGroups[/com][br]' +
+					'[ckey]class[/ckey] Patrols {[br]' +
+					'[tab][ckey]class[/ckey] North {[br]' +
+					'[tab][tab]center[] = {[num]6000[/num], [num]7000[/num], [num]0[/num]};[br]' +
+					'[tab][tab]radius = [num]65[/num];[br]' +
+					'[tab][tab]side = [str]"East"[/str];[br]' +
+					'[br]' +
+					'[tab][tab]groups[] = {[br]' +
+					'[tab][tab][tab][str]"OI_reconTeam"[/str][br]' +
+					'[tab][tab]};[br]' +
+					'[tab]};[br]' +
+					'[br]' +
+					'[tab][ckey]class[/ckey] EastHouse {[br]' +
+					'[tab][tab]center[] = {[num]7721.21[/num], [num]7513.03[/num], [num]0[/num]};[br]' +
+					'[tab][tab]radius = [num]75[/num];[br]' +
+					'[tab][tab]side = [str]"Indep"[/str];[br]' +
+					'[br]' +
+					'[tab][tab]groups[] = {[br]' +
+					'[tab][tab][tab][str]"BanditCombatGroup"[/str],[br]' +
+					'[tab][tab][tab][str]"ParaShockTeam"[/str][br]' +
+					'[tab][tab]};[br]' +
+					'[tab]};[br]' +
+					'};'
+				));
+			</script>
+		</p>
+	</div>
+
+	<!-- fonctions -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Fonctions</h2>
+
+	<h3 class="DefaultInner w-12 DefaultText DefaultText-subTitle">Peupler une zone dynamiquement</h3>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez générer des patrouilles dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction <span class="Code-inline">CRP_fnc_randomPatrols_patrols</span>.
+	</p>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[var]_center[/var] = [spec][[/spec][num]7460[/num], [num]7509[/num], [num]0[/num][spec]][/spec];[br]' +
+					'[var]_radius[/var] = [num]150[/num];[br]' +
+					'[var]_side[/var] = [str]"Indep"[/str];[br]' +
+					'[var]_group[/var] = [str]"BanditCombatGroup"[/str];[br]' +
+					'[br]' +
+					'[spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_side[/var], [var]_group[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_randomPatrols_patrols[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Il est possible de récupérer les groupes créés en passant une une variable supplémentaire à la fonction. Il est également conseillé de bloquer le code si cette variable doit être utilisée par la suite.
+	</p>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[var]_myVar[/var] = [spec][][/spec]; [com]\/\/ cette variable sera alimentée avec les groupes créés[/com][br]' +
+					'[var]_handle[/var] = [spec][[[/spec][num]7460[/num], [num]7509[/num], [num]0[/num][spec]][/spec], [num]150[/num], [str]"Indep"[/str], [str]"BanditCombatGroup"[/str], [var]_myVar[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_randomPatrols_patrols[/fnc];[br]' +
+					'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]' +
+					'[br]' +
+					'[com]\/\/ reste de votre code qui utlise la variable...[/com]'
+				));
+			</script>
+		</p>
+	</div>
+
+</body>
+
+</html>
