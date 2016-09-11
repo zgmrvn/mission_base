@@ -7,7 +7,7 @@ class CfgFunctions {
 #include "core\ui.hpp"
 
 // module de de gestion de l'intro
-#include "modules\intro\config.hpp"
+#include "modules\intro\content\wrapper.hpp"
 
 // module de création de drapeaux
 // utilisable par les modules et scripts mission
@@ -52,7 +52,7 @@ class CfgFunctions {
 // disponibles depuis le lobby
 class Params {
 	// paramètres du module d'intro
-	#include "modules\intro\params.hpp"
+	#include "modules\intro\content\params.hpp"
 
 	// paramètres du module de choix de l'heure de départ
 	#include "modules\startTime\params.hpp"
