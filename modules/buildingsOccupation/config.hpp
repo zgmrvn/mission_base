@@ -16,7 +16,7 @@ class Occupations {
 		units[] = {
 			"I_Soldier_unarmed_F",
 			"I_Soldier_AR_F",
-			"I_Soldier_GL_F",
+			"I_Soldier_GL_F"
 		};
 	};
 
