@@ -28,4 +28,4 @@
 
 // module d'effet de particules
 // script d'initialisation des boucles de vérification de l'environnement autour du joueur
-#include "..\modules\particles\initScriptClient.sqf"
+#include "..\modules\particles\content\initScriptClient.sqf"

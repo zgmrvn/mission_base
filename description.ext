@@ -46,7 +46,7 @@ class CfgFunctions {
 #include "modules\startTime\config.hpp"
 
 // module d'effet de particules
-#include "modules\particles\config.hpp"
+#include "modules\particles\content\wrapper.hpp"
 
 // paramètres de missions
 // disponibles depuis le lobby

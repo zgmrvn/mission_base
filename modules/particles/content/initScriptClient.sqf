@@ -29,7 +29,7 @@ if ((getNumber (missionConfigFile >> "Particles" >> "enabled")) == 1) then {
 
 							if ((_x select 1) > _threshold) exitWith {
 								_place = _x select 0;
-								[[_place select 0, _place select 1, 0], _duration] execVM (format ["modules\particles\effects\%1.sqf", _script]);
+								[[_place select 0, _place select 1, 0], _duration] execVM (format ["modules\particles\content\effects\%1.sqf", _script]);
 							};
 						} forEach _places;
 					};
