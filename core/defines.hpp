@@ -1,3 +1,12 @@
+// Fonts
+#define GUI_FONT_NORMAL			PuristaMedium
+#define GUI_FONT_BOLD			PuristaSemibold
+#define GUI_FONT_THIN			PuristaLight
+#define GUI_FONT_MONO			EtelkaMonospacePro
+#define GUI_FONT_NARROW			EtelkaNarrowMediumPro
+#define GUI_FONT_CODE			LucidaConsoleB
+#define GUI_FONT_SYSTEM			RobotoCondensed
+
 ///////////////////////////////////////////////////////////////////////////
 /// Styles
 ///////////////////////////////////////////////////////////////////////////

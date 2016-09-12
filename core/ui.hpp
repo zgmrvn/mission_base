@@ -14,7 +14,7 @@ class BaseTitle: RscText {
 	text = "Titre";
 	SizeEx = TEXT_RATIO * 3;
 	shadow = 0;
-	font = "PuristaLight";
+	font = GUI_FONT_THIN;
 };
 
 class BaseBackgroundBox: RscText {
@@ -47,7 +47,7 @@ class BaseEdit: RscEdit {
 	idc = -1;
 	type = CT_EDIT;
 
-	font = "RobotoCondensed";
+	font = GUI_FONT_SYSTEM;
 	colorBackground[] = {0.1, 0.1, 0.1, 1};
 };
 
@@ -56,12 +56,12 @@ class BaseText: RscText {
 	type = CT_STATIC;
 	style = ST_LEFT;
 
-	font = "RobotoCondensed";
+	font = GUI_FONT_SYSTEM;
 };
 
 class BaseListBox: RscListBox {
 	idc = -1;
-	font = "RobotoCondensed";
+	font = GUI_FONT_SYSTEM;
 	rowHeight = safeZoneH * 0.02;
 	canDrag = 0;
 };
@@ -124,7 +124,7 @@ class BaseMap {
 	blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
 
 	sizeEx = TEXT_RATIO; // Text size
-	font = GUI_FONT_NORMAL; // Font from CfgFontFamilies
+	font = "RobotoCondensed"; // Font from CfgFontFamilies
 	colorText[] = {0,0,0,1}; // Text color
 
 	tooltip = "";
