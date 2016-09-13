@@ -1125,3 +1125,15 @@ class Land_Factory_Main_F {
 		{{-4.87842,-7.22656,3.70953},246}
 	};
 };
+
+// https://community.bistudio.com/wiki/File:Arma3_CfgVehicles_Land_dp_smallFactory_F.jpg
+class Land_dp_smallFactory_F {
+	positions[] = {
+		{{9.12354,-8.12012,-1.86843},180},
+		{{9.96533,5.58789,-1.86843},0},
+		{{7.28564,5.55615,-1.86843},0},
+		{{-1.32324,5.61035,-1.86843},0},
+		{{10,-5.5498,1.21193},135},
+		{{10.1343,3.01904,1.21193},45}
+	};
+};
