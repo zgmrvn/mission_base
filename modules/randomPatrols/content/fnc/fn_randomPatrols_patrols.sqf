@@ -1,20 +1,8 @@
-params ["_center", "_radius", "_side", "_groupName"];
-private ["_rotation", "_return", "_expression", "_path", "_waypointsPositions", "_waypointsCount", "_part", "_angle", "_i", "_group", "_formations"];
+params ["_center", "_radius", "_side", "_configPath"];
+private ["_rotation", "_return", "_waypointsPositions", "_waypointsCount", "_part", "_angle", "_i", "_group", "_formations"];
 
 _rotation = if ((random 1) > 0.5) then {1} else {-1};
 _return	= if (count _this > 4) then {true} else {false};
-
-// on retrouve le chemin config du groupe passé
-_expression = format ["configName(_x) == '%1'", _groupName];
-_path = "";
-
-{
-	_res = _expression configClasses (configFile >> "CfgGroups" >> _side >> _x >> "Infantry");
-
-	if ((count _res) > 0) exitWith {
-		_path = _res select 0;
-	};
-} forEach ((configFile >> "CfgGroups" >> _side) call BIS_fnc_getCfgSubClasses);
 
 // on calcule le nombre de waypoints et leurs positions
 _waypointsPositions = [_center];
@@ -39,7 +27,7 @@ _side = switch (_side) do {
 _group = [
 	_waypointsPositions call BIS_fnc_selectRandom,
 	_side,
-	_path
+	_configPath
 ] call BIS_fnc_spawnGroup;
 
 // on attribue les points de passage

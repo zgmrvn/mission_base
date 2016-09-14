@@ -15,7 +15,8 @@ class Patrols {
 		side		= "East";
 
 		groups[] = {
-			"OI_reconTeam"
+			{"East", "rhs_faction_vdv", "rhs_group_rus_vdv_infantry", "rhs_group_rus_vdv_infantry_chq"}, // groupe RHS
+			{"West", "Guerilla", "Infantry", "IRG_InfSquad_Weapons"} // groupe FIA BLUFOR avec un side OPFOR
 		};
 	};
 
@@ -25,8 +26,7 @@ class Patrols {
 		side		= "Indep";
 
 		groups[] = {
-			"BanditCombatGroup",
-			"ParaShockTeam"
+			{"Indep", "IND_C_F", "Infantry", "BanditCombatGroup"}
 		};
 	};
 };

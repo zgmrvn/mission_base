@@ -12,7 +12,14 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 				_groups		= getArray (missionConfigFile >> "RandomPatrols" >> "Patrols" >> _x >> "groups");
 
 				{
-					_handle = [_center, _radius, _side, _x, CPR_var_randomPatrols_patrols] spawn CRP_fnc_randomPatrols_patrols;
+					_group	= _x;
+					_path	= configFile >> "CfgGroups";
+
+					{
+						_path = _path >> _x;
+					} forEach _group;
+
+					_handle = [_center, _radius, _side, _path, CPR_var_randomPatrols_patrols] spawn CRP_fnc_randomPatrols_patrols;
 					waitUntil {scriptDone _handle};
 				} forEach _groups;
 			} forEach ((missionConfigFile >> "RandomPatrols" >> "Patrols") call BIS_fnc_getCfgSubClasses);
@@ -24,7 +31,14 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 				_groups		= getArray (missionConfigFile >> "RandomPatrols" >> "Patrols" >> _x >> "groups");
 
 				{
-					_handle = [_center, _radius, _side, _x] spawn CRP_fnc_randomPatrols_patrols;
+					_group	= _x;
+					_path	= configFile >> "CfgGroups";
+
+					{
+						_path = _path >> _x;
+					} forEach _group;
+
+					_handle = [_center, _radius, _side, _path] spawn CRP_fnc_randomPatrols_patrols;
 					waitUntil {scriptDone _handle};
 				} forEach _groups;
 			} forEach ((missionConfigFile >> "RandomPatrols" >> "Patrols") call BIS_fnc_getCfgSubClasses);
