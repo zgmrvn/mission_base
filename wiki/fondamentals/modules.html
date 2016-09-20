@@ -35,12 +35,12 @@
 		</p>
 	</div>
 
-	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Nommage des fichiers</h2>
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Organisation et nommage</h2>
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Si vous souhaitez créer votre module, merci d'observer quelques règles de nommage afin de conserver l'homogénéité et la logique. Ces règles devraient pouvoir être respectées dans la majorité des cas.
+		Si vous souhaitez créer votre module, merci d'observer quelques règles afin de conserver l'homogénéité et la logique. Ces règles devraient pouvoir être respectées dans la majorité des cas.
 	</p>
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Un module est composé au minimum d'un fichier <span class="Code-inline">config.hpp</span> et d'un dossier <span class="Code-inline">content</span>. Tout ce qui n'est pas sensé être visible pour l'utilisateur final (scripts, fonctions, medias...) devrait aller dans le dossier <span class="Code-inline">content</span>. Dans la grande majorité des cas, votre module prendra cette forme <span class="Code-inline">config.hpp</span> + <span class="Code-inline">content</span>. Le seul qui pour le moment ne respecte pas cette règle est le module d'intro qui contient un script qui doit être édité par l'éditeur, donc à la racine du module.
+		Un module est composé au minimum d'un fichier <span class="Code-inline">config.hpp</span> et d'un dossier <span class="Code-inline">content</span>. Tout ce qui n'est pas sensé être visible pour l'utilisateur final (scripts, fonctions, médias...) devrait aller dans le dossier <span class="Code-inline">content</span>. Dans la grande majorité des cas, votre module prendra cette forme <span class="Code-inline">config.hpp</span> + <span class="Code-inline">content</span>. Le seul qui pour le moment ne respecte pas cette règle est le module d'intro qui contient un script qui doit être édité par l'éditeur, donc à la racine du module.
 	</p>
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
 		Les scripts déclenchés automatiquement, au démarrage de la mission se nomment <span class="Code-inline">initScript.sqf</span>. Si un script est spécifique au serveur ou au client on le sufixe : <span class="Code-inline">initScriptClient.sqf</span>, <span class="Code-inline">initScriptServer.sqf</span>. Les scripts d'initialisation sont inclus dans <span class="Code-inline">core/defaultClient.sqf</span> et <span class="Code-inline">core/defaultServer.sqf</span>.
