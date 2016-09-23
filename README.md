@@ -1,7 +1,7 @@
 # Framework de mission
 Ce framework/squelette de mission vise à offrir des solutions de script afin de corriger certains problèmes récurrents et donne accès à des fonctionnalités faciles d'utilisation. Ce framework devrait être utilisé comme point de départ pour votre mission, ce qui évite les manipulations pour l'intégrer par la suite.
 
-La documentation de la mission et ses fonctionnalités se trouvent dans le dossier `wiki` qui se présente sous la forme de pages web. Avec chrome, pour ouvrir la documentation faite `Ctrl + O` puis ouvrez le fichier `index.html` qui se trouve dans le dossier `wiki`.
+La documentation de la mission et ses fonctionnalités se trouvent dans le dossier `wiki` qui se présente sous la forme de pages web. Avec chrome, pour ouvrir la documentation faites `Ctrl + O` puis ouvrez le fichier `index.html` qui se trouve dans le dossier `wiki`.
 
 ##comment utiliser le framework :
 1. télécharger l'archive du framework depuis la page du dépôt
