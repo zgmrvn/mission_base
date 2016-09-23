@@ -22,6 +22,10 @@
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
 #include "..\modules\boatProjection\content\initScriptClient.sqf"
 
+// module de taxi en bateaux
+// script de création des actions sur les drapeaux créés par le module "ActionsFlags"
+#include "..\modules\taxiBoat\content\initScriptClient.sqf"
+
 // module de caméra sepctateur
 // script de création des actions de caméra spectateur sur les drapeaux créés par le module "ActionsFlags"
 #include "..\modules\spectatorCamera\content\initScriptClient.sqf"
