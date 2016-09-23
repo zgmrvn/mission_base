@@ -74,7 +74,7 @@ CRP_var_boatProjection_marker		= "";
 			_pos = [_center, _i,  (45 * _i) mod 360] call BIS_fnc_relPos;
 
 			if (((ATLToASL _pos) select 2) > 0) exitWith {
-				_farEnoughtCost = false
+				_farEnoughtCost = false;
 			};
 		};
 
