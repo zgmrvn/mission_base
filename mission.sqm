@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=93;
+		nextID=415;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7530.2778,76.778206,7391.0972};
-		dir[]={-0.011101813,-0.64646208,0.76288074};
-		up[]={-0.0094077541,0.76294225,0.64639705};
-		aside[]={0.99990374,1.1205157e-007,0.014552081};
+		pos[]={7517.6953,48.350376,7380.6396};
+		dir[]={0.12504019,-0.5272513,0.84060085};
+		up[]={0.077599354,0.84953219,0.52164257};
+		aside[]={0.98915225,-1.0261138e-006,-0.14713088};
 	};
 };
 binarizationWanted=0;
@@ -99,11 +99,9 @@ class ScenarioData
 		minPlayers=1;
 		maxPlayers=16;
 	};
-	wreckManagerMode="AddAll";
 	wreckLimit=20;
 	wreckRemovalMinTime=120.00001;
 	wreckRemovalMaxTime=180;
-	corpseManagerMode="AddAll";
 	corpseLimit=30;
 	corpseRemovalMinTime=120.00001;
 	corpseRemovalMaxTime=180;
@@ -219,7 +217,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=8;
+		items=7;
 		class Item0
 		{
 			dataType="Marker";
@@ -296,15 +294,6 @@ class Mission
 		};
 		class Item2
 		{
-			dataType="Group";
-			side="West";
-			class Attributes
-			{
-			};
-			id=12;
-		};
-		class Item3
-		{
 			dataType="Object";
 			class PositionInfo
 			{
@@ -319,7 +308,7 @@ class Mission
 			id=51;
 			type="Land_i_House_Big_01_V1_F";
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Object";
 			class PositionInfo
@@ -335,7 +324,7 @@ class Mission
 			id=53;
 			type="Land_i_Stone_HouseBig_V3_F";
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -425,7 +414,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Object";
 			class PositionInfo
@@ -441,7 +430,7 @@ class Mission
 			id=64;
 			type="B_supplyCrate_F";
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
