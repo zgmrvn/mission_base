@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CORP - nearestPlayers</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">nearestPlayers</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Cette fonction permet de récupérer les joueurs d'un ou de plusieurs sides dans une zone donnée. La fonction exclue les joueurs morts et inconscients. Avec le paramètre débug, il est possible de récupérer les IA.
+	</p>
+
+	<!-- syntaxe -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Syntaxe</h2>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[spec][[/spec][com]centre:array[/com], [com]rayon:int[/com], [com]sides:array de side[/com], [com]débug:bool[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_nearestPlayers[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+
+	<!-- paramètres -->
+	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
+		<li class="DefaultText--li">centre - centre de la zone, tableau de coordonnées</li>
+		<li class="DefaultText--li">rayon - rayon dans lequel chercher les unités</li>
+		<li class="DefaultText--li">sides - sides dans lesquels rechercher les unités</li>
+		<li class="DefaultText--li">débug - si <span class="Code-inline">true</span>, la fonction retourne également les IA vivantes et conscientes</li>
+	</ul>
+
+	<!-- exemples -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Exemples</h2>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ récupération des joueurs BLUFOR dans un rayon de 150 mètres autour de la positon[/com][br]' +
+					'[var]_players[/var] = [spec][[[/spec][num]14530[/num], [num]21530[/num], [num]0[/num][spec]][/spec], [num]150[/num], [spec][[/spec][cmd]west[/cmd][spec]]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_nearestPlayers[/fnc];[br]' +
+					'[br]' +
+					'[com]\/\/ récupération des joueurs et des IA OPFOR et INDEPENDANT dans un rayon de 100 mètres autour de la positon[/com][br]' +
+					'[var]_players[/var] = [spec][[[/spec][num]14530[/num], [num]21530[/num], [num]0[/num][spec]][/spec], [num]100[/num], [spec][[/spec][cmd]east[/cmd], [cmd]independant[/cmd][spec]][/spec], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_nearestPlayers[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+</body>
+
+</html>

@@ -12,4 +12,8 @@ class CRP {
 		class setTaskStateGlobal {};
 		class taskProceed {};
 	};
+
+	class Objects {
+		class nearestPlayers {};
+	};
 };
