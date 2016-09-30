@@ -2,13 +2,9 @@ _driver		= _this select 0;
 _boat		= vehicle _driver;
 _coast		= _this select 1;
 _return		= _this select 2;
+_group		= group _driver;
 
-// on supprime tous les points de passage
-while {(count (waypoints (group _driver))) > 0} do {
-	deleteWaypoint ((waypoints (group _driver)) select 0);
-};
-
-// oon attend que le bateau soit vide
+// on attend que le bateau soit vide
 waitUntil {count (crew _boat) == 1};
 
 sleep (4 + (random 4));
@@ -35,8 +31,13 @@ while {_i < 1} do {
 	sleep 0.33;
 };
 
+// on supprime tous les points de passage
+while {(count (waypoints _group)) > 0} do {
+	deleteWaypoint ((waypoints _group) select 0);
+};
+
 // point de retour du bateau
-_wp = (group _driver) addWaypoint [_return, 0];
+_wp = _group addWaypoint [_return, 0];
 _wp setWaypointCompletionRadius 50;
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
