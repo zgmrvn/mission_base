@@ -1,4 +1,4 @@
-private _center	= param [0, [0, 0, 0], [[]], 3];
+private _center	= param [0, [0, 0, 0], [objNull, []], 3];
 private _radius	= param [1, 100, [0]];
 private _side	= param [2, [west, east, independent, civilian], [[]], [1, 2, 3, 4]];
 private _debug	= param [3, false, [true]];
