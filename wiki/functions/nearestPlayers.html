@@ -23,7 +23,7 @@
 		<p class="Code-inner Code-inner--sqf">
 			<script type="text/javascript">
 				document.write(bbcodeParser.bbcodeToHtml(
-					'[spec][[/spec][com]centre:array[/com], [com]rayon:int[/com], [com]sides:array de side[/com], [com]débug:bool[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_nearestPlayers[/fnc];'
+					'[spec][[/spec][com]centre:array[/com], [com]rayon:int ([/com], [com]sides:array de side[/com], [com]débug:bool)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_nearestPlayers[/fnc];'
 				));
 			</script>
 		</p>
@@ -31,10 +31,10 @@
 
 	<!-- paramètres -->
 	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
-		<li class="DefaultText--li">centre - centre de la zone, tableau de coordonnées</li>
+		<li class="DefaultText--li">centre - centre de la zone, <a href="https://community.bistudio.com/wiki/Object">Objet</a> ou tableau de coordonnées en <a href="https://community.bistudio.com/wiki/Position#PositionAGL">PositionAGL<a> ou <a href="https://community.bistudio.com/wiki/Position#Introduction">Position2D</a></li>
 		<li class="DefaultText--li">rayon - rayon dans lequel chercher les unités</li>
-		<li class="DefaultText--li">sides - sides dans lesquels rechercher les unités</li>
-		<li class="DefaultText--li">débug - si <span class="Code-inline">true</span>, la fonction retourne également les IA vivantes et conscientes</li>
+		<li class="DefaultText--li">sides - (facultatif) sides dans lesquels rechercher les unités, si non-spécifié ou vide, recherche pour tous les sides</li>
+		<li class="DefaultText--li">débug - (facultatif) si <span class="Code-inline">true</span>, la fonction retourne également les IA vivantes et conscientes</li>
 	</ul>
 
 	<!-- exemples -->
