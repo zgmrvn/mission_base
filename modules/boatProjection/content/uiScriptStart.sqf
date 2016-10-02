@@ -25,17 +25,8 @@ CRP_var_boatProjection_marker		= "";
 		_list	= _dialog displayCtrl BOAT_PROJECTION_LIST_IDC;
 
 		while {!isNull (findDisplay BOAT_PROJECTION_DIALOG_IDD)} do {
-			// récupération des unités à proximité
-			CRP_var_boatProjection_players = nearestObjects [CRP_var_boatProjection_flag, ["Man"], 25];
-
-			// suppression des IA
-			{
-				if (!isPlayer _x) then {
-					CRP_var_boatProjection_players set [_forEachIndex, objNull];
-				};
-			} forEach CRP_var_boatProjection_players;
-
-			CRP_var_boatProjection_players = CRP_var_boatProjection_players - [objNull];
+			// récupération des joueurs à proximité
+			CRP_var_boatProjection_players = [CRP_var_boatProjection_flag, 25] call CRP_fnc_nearestPlayers;
 
 			// on vide la liste
 			lbClear _list;
