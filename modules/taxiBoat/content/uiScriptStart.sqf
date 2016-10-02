@@ -27,17 +27,8 @@ CRP_var_taxiBoat_boatMarker			= "";
 		_list	= _dialog displayCtrl TAXI_BOAT_LIST_IDC;
 
 		while {!isNull (findDisplay TAXI_BOAT_DIALOG_IDD)} do {
-			// récupération des unités à proximité
-			CRP_var_taxiBoat_players = nearestObjects [CRP_var_taxiBoat_flag, ["Man"], 25];
-
-			// suppression des IA
-			{
-				if (!isPlayer _x) then {
-					CRP_var_taxiBoat_players set [_forEachIndex, objNull];
-				};
-			} forEach CRP_var_taxiBoat_players;
-
-			CRP_var_taxiBoat_players = CRP_var_taxiBoat_players - [objNull];
+			// récupération des joueurs à proximité
+			CRP_var_taxiBoat_players = [CRP_var_taxiBoat_flag, 25] call CRP_fnc_nearestPlayers;
 
 			// on vide la liste
 			lbClear _list;
