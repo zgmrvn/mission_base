@@ -2,6 +2,7 @@ X_server	= false;
 X_client	= false;
 X_editor	= false;
 X_init		= false;
+X_JIP		= false;
 
 // cible pour les commandes type remoteExec
 X_remote_server = 2;
@@ -23,6 +24,8 @@ if (isServer) then {
 	X_client = true;
 
 	if (isNull player) then {
+		X_JIP = true;
+
 		[] spawn {
 			waitUntil {!(isNull player)};
 
