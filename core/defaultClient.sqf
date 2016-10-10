@@ -6,6 +6,10 @@
 // script de création des "diaries"
 #include "..\modules\missionBriefing\content\initScriptClient.sqf"
 
+// module d'intro
+// script de vérification des conditions d'intro et d'exécution de l'intro
+#include "..\modules\intro\content\scriptClient.sqf"
+
 // module de téléportation sur le chef d'équipe
 // script de création des actions de téléportation sur les drapeaux créés par le module "ActionsFlags"
 #include "..\modules\teleportToLeader\content\initScriptClient.sqf"
