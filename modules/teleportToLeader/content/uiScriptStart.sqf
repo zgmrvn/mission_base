@@ -29,9 +29,7 @@
 				if ((name _x) == _player) exitWith {
 					closeDialog TELEPORT_DIALOG_IDD;
 
-					_pos = [_x, 2, getDir _x] call BIS_fnc_relPos;
-					_pos set [2, (getPosASL _x) select 2];
-					player setPosASL _pos;
+					player setPosATL (_x getRelPos [2, 0]);
 					player setDir ([player, _x] call BIS_fnc_dirTo);
 				}
 			} forEach allPlayers;
