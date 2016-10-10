@@ -29,9 +29,19 @@
 				if ((name _x) == _player) exitWith {
 					closeDialog TELEPORT_DIALOG_IDD;
 
-					player setPosATL (_x getRelPos [2, 0]);
-					player setDir ([player, _x] call BIS_fnc_dirTo);
-				}
+					_x spawn {
+						cutText ["", "BLACK OUT", 1];
+						1 fadeSound 0;
+						sleep 1;
+
+						player setPosATL (_this getRelPos [2, 0]);
+						player setDir ([player, _this] call BIS_fnc_dirTo);
+						sleep 0.1;
+
+						cutText ["", "BLACK IN", 1];
+						1 fadeSound 1;
+					};
+				};
 			} forEach allPlayers;
 		};
 	}];
