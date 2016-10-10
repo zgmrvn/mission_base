@@ -6,7 +6,7 @@ X_JIP		= false;
 
 // cible pour les commandes type remoteExec
 X_remote_server = 2;
-X_remote_client = if (isDedicated) then {-2} else {0};
+X_remote_client = [0, -2] select isDedicated;
 
 if (isServer) then {
 	X_server = true;
