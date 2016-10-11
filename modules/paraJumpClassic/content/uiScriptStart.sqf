@@ -62,7 +62,7 @@ CRP_var_paraJumpClassic_elevation	= "5000";
 
 		// on boucle sur la chaîne du champs convertie en tableau
 		// tant que l'on a pas trouvé de caractère interdit
-		for [{_i = 0; _c = count _elevation;}, {_i < _c && _iterate}, {_i = _i + 1}] do {
+		for [{_i = 0; _c = count _elevation;}, {_i < _c && {_iterate}}, {_i = _i + 1}] do {
 			// si le caractère ajouté n'est pas un chiffre
 			if !((_elevation select _i) in _filter) then {
 				// on affecte la dernière valeur d'altiture connue
