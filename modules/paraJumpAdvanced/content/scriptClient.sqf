@@ -16,9 +16,6 @@ sleep 0.5;
 detach player;
 deleteVehicle _helper;
 
-// détection du C130J
-//_c130j = (nearestObjects [ASLToAGL _coordinates, ["C130J_static_EP1"], 25]) select 0; // problème de type de position ?
-
 _c130j spawn {
 	while {(player distance _this) < 1000} do {
 		_this say3D ["C130Engine", 400];
