@@ -45,7 +45,7 @@ CRP_var_paraJumpClassic_elevation	= "5000";
 	// gestion du changement d'altitude du saut
 	// en utilisant la molette de la souris
 	_altitude ctrlAddEventHandler ["MouseZChanged", {
-		_mouseWheel	= if ((_this select 1) > 0) then {1} else {-1};
+		_mouseWheel	= [-1, 1] select ((_this select 1) > 0);
 		_definition	= parseNumber (ctrlText PARAJUMP_CLASSIC_ALTITUDE_IDC);
 		_definition	= _definition + _mouseWheel * 100;
 
