@@ -9,9 +9,16 @@ _helper = "Sign_Sphere10cm_F" createVehicleLocal [0, 0, 0];
 _helper setPosASL (_coordinates vectorAdd [0, 0, 1]);
 _helper setDir (_bearing + 180);
 _helper hideObject true;
+
+cutText ["", "BLACK OUT", 1];
+1 fadeSound 0;
+sleep 1;
+
 player attachTo [_helper, [0, 0, 0]];
 
 sleep 0.5;
+cutText ["", "BLACK IN", 1];
+1 fadeSound 1;
 
 detach player;
 deleteVehicle _helper;
