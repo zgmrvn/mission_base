@@ -5,7 +5,8 @@ _bearing		= _this select 3;
 
 sleep _delay;
 
-_helper = "Sign_Sphere10cm_F" createVehicleLocal (getPos player);
+_helper = "Sign_Sphere10cm_F" createVehicleLocal [0, 0, 0];
+_helper setPos (getPos player);
 _helper setPosASL (_coordinates vectorAdd [0, 0, 1]);
 _helper setDir (_bearing + 180);
 _helper hideObject true;
