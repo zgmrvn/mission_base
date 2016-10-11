@@ -107,7 +107,7 @@ CRP_var_paraJumpClassic_elevation	= "5000";
 			CRP_var_paraJumpClassic_coordinates set [2, parseNumber (ctrlText PARAJUMP_CLASSIC_ALTITUDE_IDC)];
 
 			{
-				[[2 * _forEachIndex, CRP_var_paraJumpClassic_coordinates], {sleep (_this select 0); player setPosASL (_this select 1);}] remoteExec ["BIS_fnc_spawn", _x];
+				[[2 * _forEachIndex, CRP_var_paraJumpClassic_coordinates], "modules\paraJumpClassic\content\scriptClient.sqf"] remoteExec ["execVM", _x];
 			} forEach CRP_var_paraJumpClassic_skyDivers;
 
 			closeDialog PARAJUMP_CLASSIC_DIALOG_IDD;
