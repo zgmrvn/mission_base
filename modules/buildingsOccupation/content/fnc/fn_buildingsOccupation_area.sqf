@@ -1,9 +1,8 @@
 params ["_center", "_radius", "_unitsCount", "_side", "_units"];
-private ["_positions", "_buildings", "_return", "_i"];
 
-_positions	= [];
-_buildings	= nearestObjects [_center, ["Building"], _radius];
-_return		= if (count _this > 5) then {true} else {false};
+private _positions	= [];
+private _buildings	= nearestObjects [_center, ["Building"], _radius];
+private _return		= if (count _this > 5) then {true} else {false};
 
 _side = switch (_side) do {
 	case "West": {west};
@@ -31,7 +30,7 @@ _positionsCount = count _positions;
 // on place les unités dans les bâtiments
 // tant que le nombre d'unités créées est inférieur au nombre demandé
 // et tant qu'il-y-a moins d'unités que le nombre de positions disponibles
-for [{_i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do {
+for [{private _i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do {
 	_position	= _positions select _i;
 	_building	= _position select 0;
 	_pos 		= _position select 1;
