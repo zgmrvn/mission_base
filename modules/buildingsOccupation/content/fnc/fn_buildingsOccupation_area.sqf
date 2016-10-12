@@ -30,7 +30,7 @@ _positionsCount = count _positions;
 // on place les unités dans les bâtiments
 // tant que le nombre d'unités créées est inférieur au nombre demandé
 // et tant qu'il-y-a moins d'unités que le nombre de positions disponibles
-for [{private _i = 0}, {(_i < _unitsCount) && (_i < _positionsCount)}, {_i = _i + 1}] do {
+for [{private _i = 0}, {(_i < _unitsCount) && {_i < _positionsCount}}, {_i = _i + 1}] do {
 	_position	= _positions select _i;
 	_building	= _position select 0;
 	_pos 		= _position select 1;
