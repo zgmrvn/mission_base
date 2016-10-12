@@ -1,8 +1,12 @@
-params ["_center", "_radius", "_unitsCount", "_side", "_units"];
+private _center		= param [0, [0, 0, 0], [objNull, []], 3];
+private _radius		= param [1, 100, [0]];
+private _unitsCount	= param [2, 5, [0]];
+private _side		= param [3, "east", [""]];
+private _units		= param [4, [], [[]]];
 
 private _positions	= [];
 private _buildings	= nearestObjects [_center, ["Building"], _radius];
-private _return		= if (count _this > 5) then {true} else {false};
+private _return		= !isnil {_this select 5};
 
 _side = switch (_side) do {
 	case "West": {west};
