@@ -51,7 +51,4 @@ _group setSpeedMode "LIMITED";
 	_wp setWaypointType _type;
 } forEach _waypointsPositions;
 
-// si option activée, on retoune les groupes dans un tableau global
-if (count _this > 4) then {
-	(_this select 4) pushBack _group;
-};
+_group

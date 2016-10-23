@@ -43,7 +43,8 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 
 				// création de la patrouille
 				if (_return) then {
-					[_center, _radius, _side, _path, CPR_var_randomPatrols_patrols] call CRP_fnc_randomPatrols_patrols;
+					_patrol = [_center, _radius, _side, _path] call CRP_fnc_randomPatrols_patrols;
+					CPR_var_randomPatrols_patrols pushBack _patrol;
 				} else {
 					[_center, _radius, _side, _path] call CRP_fnc_randomPatrols_patrols;
 				};
