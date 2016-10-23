@@ -29,14 +29,6 @@
 			CREATED - first version
 */
 
-/*
-	remplacer la référence par une random string, s'assurer que ça ne pose pas de problème pour la vérification avant ajout dans le cas d'une exécution coté client et serveur à la fois
-	remplacer les remoteExec de BIS_fnc_spawn par un bloc dans la fonction et un paramètre facultatif afin réduire la charge réseau
-	rendre le paramère suppression action facultatif
-	ajouter un paramètre de distance pour l'action
-	séparer script serveur, script client
-*/
-
 #define ACTIONS_ARRAY "CRP_var_actionsArray"
 
 params [
@@ -80,18 +72,15 @@ if (!isDedicated) then {
 			_removeObject	= _params select 6;
 			_removeAction	= _params select 7;
 
-			_client = if (isServer) then {0} else {-2};
+			_client = [-2, 0] select isServer;
 			_server = 2;
 
 			// should we remove the object
 			if (_removeObject) then {
-				[[_object], {deleteVehicle (_this select 0)}] remoteExec ["BIS_fnc_spawn", _server];
+				[_object, {deleteVehicle _this}] remoteExec ["spawn", _server];
 			} else {
 				// if not, should we remove the action
 				if (_removeAction) then {
-					// we don't want the server to execute this command if it's a dedicated game
-					// only in editor
-					_client = if (isServer) then {0} else {-2};
 
 					// remove action for everyone
 					[
@@ -100,7 +89,7 @@ if (!isDedicated) then {
 							(_this select 0) removeAction ([((_this select 0) getVariable ACTIONS_ARRAY), _this select 1] call BIS_fnc_getFromPairs);
 							[((_this select 0) getVariable ACTIONS_ARRAY), _this select 1] call BIS_fnc_removeFromPairs;
 						}
-					] remoteExec ["BIS_fnc_spawn", _client, true];
+					] remoteExec ["spawn", _client, true];
 				};
 			};
 
@@ -110,13 +99,13 @@ if (!isDedicated) then {
 			// if a client script has been given, run it
 			if ((typeName _scriptClient) == "STRING") then {
 				// run script for clients only
-				[_data, _scriptClient] remoteExec ["BIS_fnc_execVM", _client];
+				[_data, _scriptClient] remoteExec ["execVM", _client];
 			};
 
 			// if a server script has been given, run it
 			if ((typeName _scriptServer) == "STRING") then {
 				// run script for server only
-				[_data, _scriptServer] remoteExec ["BIS_fnc_execVM", _server];
+				[_data, _scriptServer] remoteExec ["execVM", _server];
 			};
 		},
 		[
