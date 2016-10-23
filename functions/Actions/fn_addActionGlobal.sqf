@@ -2,31 +2,27 @@
 	NAME :			addActionGlobal
 	VERSION :		1.0
 	AUTHOR :		zgmrvn
-	DESCRIPTION :	adds a global addAction, handles JIP issues
+	DESCRIPTION :	ajoute une action globale, compatible JIP
 
 	EXAMPLE :
-		// server side
+		// serveur
 		[
-			_ammoBox,							// object
-			"<t color='#FF0000'>My action</t>",	// action title
-			"addActionScriptClient.sqf",		// script to execute client side
-			"addActionScriptServer.sqf",		// script to execute server side
-			"actionLabel",						// action label, to differenciate actions when you want to add more than one action on the same object
-			6,									// distance the action displays
-			false,								// remove object
-			true								// remove action, doesn't matters if object removed
+			_ammoBox,							// objet
+			"<t color='#FF0000'>My action</t>",	// texte de l'action
+			"addActionScriptClient.sqf",		// script à exécuter chez les clients
+			"addActionScriptServer.sqf",		// script à exécuter côté serveur
+			"actionLabel",						// label de l'action, permêt de différencier les actions quand il y en a plusieurs sur un même objet
+			6,									// distance d'affichage de l'action
+			false,								// supprimer l'objet
+			true								// supprimer l'action, pas d'importance si l'objet est supprimé
 		] call CRP_fnc_addActionGlobal;
 
-		// in the case of a JIP where the object could have been removed
- 		// you have to check the object before to pass it to the function
+ 		// dans le cas d'un JIP où l'objet pourrait avoir été supprimé
+ 		// il vaut vérifier que l'object existe toujours avant de le passer à la fonction
 
  		if (!isNil {objectVariable}) then {
 			[...] call CRP_fnc_addActionGlobal;
 		};
-
-	REVISIONS :
-		1.0 - 2015/11/03 - zgmrvn
-			CREATED - first version
 */
 
 #define ACTIONS_ARRAY "CRP_var_actionsArray"
