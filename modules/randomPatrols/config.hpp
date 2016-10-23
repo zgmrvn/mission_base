@@ -1,9 +1,19 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // activer ou désactiver le module
 enabled = 1;
 
 // si activé, la variable globale "CPR_var_randomPatrols_patrols" sera créée
 // elle contiendra la liste des patrouilles (groupes) créés par le module
+// la variable "CPR_var_randomPatrols_ready" vaut vrai une fois que le module a terminé de créer les patrouilles
 return = 0;
+
+// délais en secondes entre la création de deux patrouilles
+// permet de réduire la charge serveur momentanée
+pause = 5;
 
 // informations sur les zones de patrouilles
 // sides possibles : West, East, Indep
