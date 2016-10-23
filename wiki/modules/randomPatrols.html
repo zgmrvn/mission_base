@@ -28,7 +28,12 @@
 					'[br]' +
 					'[com]\/\/ si activé, la variable globale "CPR_var_randomPatrols_patrols" sera créée[/com][br]' +
 					'[com]\/\/ elle contiendra la liste des patrouilles (groupes) créés par le module[/com][br]' +
+					'[com]\/\/ la variable "CPR_var_randomPatrols_ready" vaut vrai une fois que le module a terminé de créer les patrouilles[/com][br]' +
 					'return = [num]0[/num];[br]' +
+					'[br]' +
+					'[com]\/\/ délais en secondes entre la création de deux patrouilles[/com][br]' +
+					'[com]\/\/ permet de réduire la charge serveur momentanée[/com][br]' +
+					'pause = [num]5[/num];[br]' +
 					'[br]' +
 					'[com]\/\/ informations sur les zones de patrouilles[/com][br]' +
 					'[com]\/\/ sides possibles : West, East, Indep[/com][br]' +
@@ -40,7 +45,8 @@
 					'[tab][tab]side = [str]"East"[/str];[br]' +
 					'[br]' +
 					'[tab][tab]groups[] = {[br]' +
-					'[tab][tab][tab][str]"OI_reconTeam"[/str][br]' +
+					'[tab][tab][tab]{[str]"East"[/str], [str]"rhs_faction_vdv"[/str], [str]"rhs_group_rus_vdv_infantry"[/str], [str]"rhs_group_rus_vdv_infantry_chq"[/str]}, [com]\/\/ groupe RHS[/com][br]' +
+					'[tab][tab][tab]{[str]"West"[/str], [str]"Guerilla"[/str], [str]"Infantry"[/str], [str]"IRG_InfSquad_Weapons"[/str]}, [com]\/\/ groupe FIA BLUFOR avec un side OPFOR[/com][br]' +
 					'[tab][tab]};[br]' +
 					'[tab]};[br]' +
 					'[br]' +
@@ -50,8 +56,7 @@
 					'[tab][tab]side = [str]"Indep"[/str];[br]' +
 					'[br]' +
 					'[tab][tab]groups[] = {[br]' +
-					'[tab][tab][tab][str]"BanditCombatGroup"[/str],[br]' +
-					'[tab][tab][tab][str]"ParaShockTeam"[/str][br]' +
+					'[tab][tab][tab]{[str]"Indep"[/str], [str]"IND_C_F"[/str], [str]"Infantry"[/str], [str]"BanditCombatGroup"[/str]}[br]' +
 					'[tab][tab]};[br]' +
 					'[tab]};[br]' +
 					'};'
@@ -76,29 +81,11 @@
 				document.write(bbcodeParser.bbcodeToHtml(
 					'[var]_center[/var] = [spec][[/spec][num]7460[/num], [num]7509[/num], [num]0[/num][spec]][/spec];[br]' +
 					'[var]_radius[/var] = [num]150[/num];[br]' +
-					'[var]_side[/var] = [str]"Indep"[/str];[br]' +
-					'[var]_group[/var] = [str]"BanditCombatGroup"[/str];[br]' +
-					'[br]' +
-					'[spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_side[/var], [var]_group[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_randomPatrols_patrols[/fnc];'
-				));
-			</script>
-		</p>
-	</div>
+					'[var]_side[/var] = [cmd]independent[/cmd];[br]' +
+					'[var]_group[/var] = [cmd]configFile[/cmd] >> [str]"CfgGroups"[/str] >> [str]"West"[/str] >> [str]"Guerilla"[/str] >> [str]"Infantry"[/str] >> [str]"IRG_InfSquad_Weapons"[/str];[br]' +
 
-	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Il est possible de récupérer les groupes créés en passant une une variable supplémentaire à la fonction. Il est également conseillé de bloquer le code si cette variable doit être utilisée par la suite.
-	</p>
-
-	<div class="DefaultInner w-12 Code">
-		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
-		<p class="Code-inner Code-inner--sqf">
-			<script type="text/javascript">
-				document.write(bbcodeParser.bbcodeToHtml(
-					'[var]_myVar[/var] = [spec][][/spec]; [com]\/\/ cette variable sera alimentée avec les groupes créés[/com][br]' +
-					'[var]_handle[/var] = [spec][[[/spec][num]7460[/num], [num]7509[/num], [num]0[/num][spec]][/spec], [num]150[/num], [str]"Indep"[/str], [str]"BanditCombatGroup"[/str], [var]_myVar[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_randomPatrols_patrols[/fnc];[br]' +
-					'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]' +
 					'[br]' +
-					'[com]\/\/ reste de votre code qui utlise la variable...[/com]'
+					'[var]_patrol[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_side[/var], [var]_group[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_randomPatrols_patrols[/fnc];'
 				));
 			</script>
 		</p>
