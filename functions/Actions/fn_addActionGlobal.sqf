@@ -90,7 +90,7 @@ if (!isDedicated) then {
 			};
 
 			// si l'objet n'a pas été supprimé, on le passe au script
-			_data = if (_removeObject) then {[_this select 1]} else {[_this select 1, _object]};
+			_data = [[_this select 1, _object], [_this select 1]] select _removeObject;
 
 			// si un script client a été renseigné, on l'exécute
 			if ((typeName _scriptClient) == "STRING") then {
