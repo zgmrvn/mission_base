@@ -57,7 +57,7 @@ while {_currentPlayer < _playerCount} do {
 
 	// embarquement des joueurs
 	while {_places > 0} do {
-		[[_boat, _places], "modules\taxiBoat\content\scriptClient.sqf"] remoteExec ["execVM", _players select _i];
+		[[_boat, _places], "modules\taxiBoat\content\scriptClient.sqf"] remoteExec ["execVM", _players select _currentPlayer];
 
 		_places = _places - 1;
 		_currentPlayer = _currentPlayer + 1;
