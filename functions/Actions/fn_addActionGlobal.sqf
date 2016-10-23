@@ -38,26 +38,26 @@ params [
 	"_removeAction"
 ];
 
-// if i'm the server, tell the players to run this function so it adds the action
+// si je suis le serveur, on demande aux joueurs d'exécuter la fonction pour ajouter l'action
 if (isDedicated) then {
 	[_object, _title, _scriptCLient, _scriptServer, _reference, _distance, _removeObject, _removeAction] remoteExec ["CRP_fnc_addActionGlobal", -2, true];
 };
 
-// otherwise, i'm the player, add action
+// sinon, je suis un joueur, ajouter l'action
 if (!isDedicated) then {
-	// check if this object already has an actions array
+	// verifier si l'objet a déjà un tableau d'actions
 	if (isNil {_object getVariable ACTIONS_ARRAY}) then {
 		_object setVariable [ACTIONS_ARRAY, []];
 	};
 
-	// check if an action with this name already exists
+	// vérifier qu'une action avec ce label n'éxiste pas déjà
 	if (!isNil {[_object getVariable ACTIONS_ARRAY, _reference] call BIS_fnc_getFromPairs}) exitWith {};
 
-	// add action
+	// addAction
 	_id = _object addAction [
 		_title,
 		{
-			// retrieve addAction params which are addActionGlobal params
+			// récupération des paramètres passés à l'action qui sont les paramètres passés à la fonction elle-même
 			_params			= _this select 3;
 			_object			= _params select 0;
 			_title			= _params select 1;
@@ -71,14 +71,14 @@ if (!isDedicated) then {
 			_client = [-2, 0] select isServer;
 			_server = 2;
 
-			// should we remove the object
+			// faut-il supprimer l'objet ?
 			if (_removeObject) then {
 				[_object, {deleteVehicle _this}] remoteExec ["spawn", _server];
 			} else {
-				// if not, should we remove the action
+				// si non, faut-il supprimer l'action ?
 				if (_removeAction) then {
 
-					// remove action for everyone
+					// supprimer l'action pour tous les joueurs
 					[
 						[_object, _reference],
 						{
@@ -89,18 +89,18 @@ if (!isDedicated) then {
 				};
 			};
 
-			// if object has not been removed, pass it to the scripts
+			// si l'objet n'a pas été supprimé, on le passe au script
 			_data = if (_removeObject) then {[_this select 1]} else {[_this select 1, _object]};
 
-			// if a client script has been given, run it
+			// si un script client a été renseigné, on l'exécute
 			if ((typeName _scriptClient) == "STRING") then {
-				// run script for clients only
+				// exécution du script pour les clients seulement
 				[_data, _scriptClient] remoteExec ["execVM", _client];
 			};
 
-			// if a server script has been given, run it
+			// si un script serveur a été renseigné, on l'exécute
 			if ((typeName _scriptServer) == "STRING") then {
-				// run script for server only
+				// exécution du script pour le serveur seulement
 				[_data, _scriptServer] remoteExec ["execVM", _server];
 			};
 		},
