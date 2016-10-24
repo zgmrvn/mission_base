@@ -1,3 +1,20 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+
+	NOM :			nearestPlayers
+	AUTEUR :		zgmrvn
+	DESCRIPTION :	récupère les joueur vivants/conscients (ACE3) dans une zone donnée
+
+	EXAMPLE :
+		[
+			[2345, 12564, 0],					// centre
+			250,								// rayon
+			[west, independent],				// tableau de sides à rechercher
+			true								// (optionnel) récupérer les IA en plus des joueurs ?. Défaut : false;
+		] call CRP_fnc_nearestPlayers;
+*/
+
 private _center	= param [0, [0, 0, 0], [objNull, []], 3];
 private _radius	= param [1, 100, [0]];
 private _side	= param [2, [west, east, independent, civilian], [[]], [1, 2, 3, 4]];
