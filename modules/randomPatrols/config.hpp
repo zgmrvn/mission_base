@@ -6,8 +6,8 @@
 // activer ou désactiver le module
 enabled = 1;
 
-// si activé, la variable globale "CPR_var_randomPatrols_patrols" sera créée
-// elle contiendra la liste des patrouilles (groupes) créés par le module
+// si activé, la variable globale "CPR_var_randomPatrols_patrolAreas" sera créée
+// c'est un tableau associatif des zones de patrouille créées par le module
 // la variable "CPR_var_randomPatrols_ready" vaut vrai une fois que le module a terminé de créer les patrouilles
 return = 0;
 

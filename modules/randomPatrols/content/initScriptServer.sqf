@@ -11,11 +11,13 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 		_pause	= getNumber (missionConfigFile >> "RandomPatrols" >> "pause");
 
 		if (_return) then {
-			CPR_var_randomPatrols_patrols	= [];
-			CPR_var_randomPatrols_ready		= false;
+			CPR_var_randomPatrols_patrolAreas	= [];
+			CPR_var_randomPatrols_ready			= false;
 		};
 
 		{
+			_patrolArea = _x; // zone de patrouille courante
+
 			_center		= getArray (missionConfigFile >> "RandomPatrols" >> "Patrols" >> _x >> "center");
 			_radius		= getNumber (missionConfigFile >> "RandomPatrols" >> "Patrols" >> _x >> "radius");
 			_side		= getText (missionConfigFile >> "RandomPatrols" >> "Patrols" >> _x >> "side");
@@ -29,26 +31,33 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 				default {east};
 			};
 
+			// reçoit les groupes d'une zone de patrouille dans le cas où return est demandé
+			_patrols = [];
+
 			{
-				// pause entre chaque groupe
+				// pause entre chaque patrouille
 				sleep _pause;
 
 				_group = _x;
 
-				// concaténation des différentes parties qui composent le chemin de la config
+				// concaténation des différentes parties qui composent le chemin de la config du groupe
 				_path = configFile >> "CfgGroups";
 				{
 					_path = _path >> _x;
 				} forEach _group;
 
 				// création de la patrouille
+				_patrol = [_center, _radius, _side, _path] call CRP_fnc_randomPatrols_patrols;
+
 				if (_return) then {
-					_patrol = [_center, _radius, _side, _path] call CRP_fnc_randomPatrols_patrols;
-					CPR_var_randomPatrols_patrols pushBack _patrol;
-				} else {
-					[_center, _radius, _side, _path] call CRP_fnc_randomPatrols_patrols;
+					_patrols pushBack _patrol;
 				};
 			} forEach _groups;
+
+			// on stock les groupes d'une zone dans un tableau associatif
+			if (_return) then {
+				[CPR_var_randomPatrols_patrolAreas, _patrolArea, _patrols] call BIS_fnc_setToPairs;
+			};
 		} forEach ((missionConfigFile >> "RandomPatrols" >> "Patrols") call BIS_fnc_getCfgSubClasses);
 
 		// fin
