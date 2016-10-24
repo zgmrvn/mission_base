@@ -71,7 +71,7 @@
 	<h3 class="DefaultInner w-12 DefaultText DefaultText-subTitle">Peupler une zone dynamiquement</h3>
 
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez générer des patrouilles dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction <span class="Code-inline">CRP_fnc_randomPatrols_patrols</span>.
+		Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez générer des patrouilles dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction <span class="Code-inline">CRP_fnc_randomPatrols_patrol</span>.
 	</p>
 
 	<div class="DefaultInner w-12 Code">
@@ -84,7 +84,7 @@
 					'[var]_side[/var] = [cmd]independent[/cmd];[br]' +
 					'[var]_group[/var] = [cmd]configFile[/cmd] >> [str]"CfgGroups"[/str] >> [str]"West"[/str] >> [str]"Guerilla"[/str] >> [str]"Infantry"[/str] >> [str]"IRG_InfSquad_Weapons"[/str];[br]' +
 					'[br]' +
-					'[var]_patrol[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_side[/var], [var]_group[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_randomPatrols_patrols[/fnc];'
+					'[var]_patrol[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_side[/var], [var]_group[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_randomPatrols_patrol[/fnc];'
 				));
 			</script>
 		</p>
