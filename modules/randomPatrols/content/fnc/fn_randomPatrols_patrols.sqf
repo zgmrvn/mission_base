@@ -5,7 +5,7 @@
 
 private _center		= param [0, [0, 0, 0], [objNull, []], 3];
 private _radius		= param [1, 100, [0]];
-private _side		= param [2, west, [sideUnknown]];
+private _side		= param [2, east, [sideUnknown]];
 private _configPath	= param [3]; // config
 
 private _rotation = [-1, 1] select ((random 1) > 0.5); // horaire, anti-horaire

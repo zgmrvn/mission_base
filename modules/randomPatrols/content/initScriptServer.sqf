@@ -24,9 +24,9 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 			// on détermine le side
 			_side = toUpper _side;
 			_side = switch (_side) do {
-				case "EAST": {east};
+				case "WEST": {west};
 				case "INDEP": {independent};
-				default {west};
+				default {east};
 			};
 
 			{
