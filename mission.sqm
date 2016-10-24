@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7517.6953,48.350376,7380.6396};
-		dir[]={0.12504019,-0.5272513,0.84060085};
-		up[]={0.077599354,0.84953219,0.52164257};
-		aside[]={0.98915225,-1.0261138e-006,-0.14713088};
+		pos[]={7524.2739,49.538151,7398.2988};
+		dir[]={0.00050657406,-0.53987688,0.84188527};
+		up[]={0.00032962536,0.84156227,0.54000354};
+		aside[]={1.0000322,-1.3302173e-006,-0.0005979354};
 	};
 };
 binarizationWanted=0;
@@ -88,6 +88,7 @@ class ScenarioData
 	overviewText="Texte de l'écran de choix de mission";
 	onLoadMission="Texte de l'écran de chargement";
 	loadScreen="data\images\loadScreen.paa";
+	debriefing=0;
 	showGPS=0;
 	saving=0;
 	respawnDialog=0;
@@ -113,25 +114,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnButton";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"SCALAR"
-						};
-					};
-					value=1;
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnTemplates";
 			expression="true";
 			class Value
@@ -148,7 +130,64 @@ class CustomAttributes
 				};
 			};
 		};
+		class Attribute1
+		{
+			property="ReviveRequiredTrait";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
+				};
+			};
+		};
 		class Attribute2
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
+				};
+			};
+		};
+		class Attribute3
+		{
+			property="ReviveRequiredItemsFakConsumed";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"BOOL"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		class Attribute4
 		{
 			property="SharedObjectives";
 			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
@@ -167,7 +206,140 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=3;
+		class Attribute5
+		{
+			property="ReviveMedicSpeedMultiplier";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=2;
+				};
+			};
+		};
+		class Attribute6
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		class Attribute7
+		{
+			property="ReviveForceRespawnDelay";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=3;
+				};
+			};
+		};
+		class Attribute8
+		{
+			property="ReviveBleedOutDelay";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=120;
+				};
+			};
+		};
+		class Attribute9
+		{
+			property="ReviveDelay";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=6;
+				};
+			};
+		};
+		class Attribute10
+		{
+			property="ReviveUnconsciousStateMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
+				};
+			};
+		};
+		class Attribute11
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
+				};
+			};
+		};
+		nAttributes=12;
 	};
 	class Category1
 	{
@@ -435,7 +607,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={7514.084,5,7436.2788};
+				position[]={7513.9888,5,7436.0063};
 			};
 			id=65;
 			type="CORP_Module_GearSystem";
