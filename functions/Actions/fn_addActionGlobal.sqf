@@ -1,7 +1,9 @@
 /*
-	NAME :			addActionGlobal
-	VERSION :		1.0
-	AUTHOR :		zgmrvn
+	framework de mission du CORP
+	http://www.corp-arma.fr
+
+	NOM :			addActionGlobal
+	AUTEUR :		zgmrvn
 	DESCRIPTION :	ajoute une action globale, compatible JIP
 
 	EXAMPLE :
