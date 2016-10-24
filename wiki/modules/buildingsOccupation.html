@@ -27,7 +27,8 @@
 					'enabled = [num]1[/num];[br]' +
 					'[br]' +
 					'[com]\/\/ si activé, la variable globale "CPR_var_buildingsOccupation_units" sera créée[/com][br]' +
-					'[com]\/\/ elle contiendra la liste des unitées créées par le module[/com][br]' +
+					'[com]\/\/ c\'est un tableau associatif des unités créées regroupées par zones d\'occupation[/com][br]' +
+					'[com]\/\/ la variable "CPR_var_buildingsOccupation_ready" vaut vrai une fois que le module a terminé de créer les unités[/com][br]' +
 					'return = [num]0[/num];[br]' +
 					'[br]' +
 					'[com]\/\/ informations sur les zones d\'occupation[/com][br]' +
@@ -70,7 +71,7 @@
 	<h3 class="DefaultInner w-12 DefaultText DefaultText-subTitle">Peupler une zone dynamiquement</h3>
 
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez peupler une zone dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction <span class="Code-inline">CRP_fnc_buildingsOccupation_area</span>.
+		Les zones configurées sont peuplées au démarrage de la mission, si vous souhaitez peupler une zone dynamiquement, à l'exécution d'un déclencheur par exemple, vous pouvez utiliser la fonction <span class="Code-inline">CRP_fnc_buildingsOccupation_occupation</span>.
 	</p>
 
 	<div class="DefaultInner w-12 Code">
@@ -78,18 +79,20 @@
 		<p class="Code-inner Code-inner--sqf">
 			<script type="text/javascript">
 				document.write(bbcodeParser.bbcodeToHtml(
-					'[var]_area[/var] = [spec][[[/spec][num]7460.1[/num], [num]7509.3[/num], [num]0[/num][spec]][/spec], [num]25[/num], [num]2[/num][spec]][/spec]; [com]\/\/ centre de la zone, rayon, nombre d\'unités[/com][br]' +
-					'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec]; [com]\/\/ classnames des unités à utiliser pour peupler la zone[/com][br]' +
+					'[var]_center[/var] = [spec][[/spec][num]7460.1[/num], [num]7509.3[/num], [num]0[/num][spec]][/spec];[br]' +
+					'[var]_radius[/var] = [num]25[/num];[br]' +
+					'[var]_unitCount[/var] = [num]2[/num];[br]' +
+					'[var]_side[/var] = [cmd]west[/cmd];[br]' +
+					'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec];[br]' +
 					'[br]' +
-					'[var]_handle[/var] = [spec][[/spec][var]_area[/var], [var]_units[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_buildingsOccupation_area[/fnc];[br]' +
-					'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]'
+					'[var]_occupation[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_unitCount[/var], [var]_side[/var], [var]_units[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_buildingsOccupation_occupation[/fnc];[br]'
 				));
 			</script>
 		</p>
 	</div>
 
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Il est possible de récupérer les unités créées en passant une une variable supplémentaire à la fonction.
+		La variable <span class="Code-inline">CRP_var_buildingsOccupation_occupation</span> est un tableau associatif des zones d'occupation.
 	</p>
 
 	<div class="DefaultInner w-12 Code">
@@ -97,12 +100,8 @@
 		<p class="Code-inner Code-inner--sqf">
 			<script type="text/javascript">
 				document.write(bbcodeParser.bbcodeToHtml(
-					'[var]_area[/var] = [spec][[[/spec][num]7460.1[/num], [num]7509.3[/num], [num]0[/num][spec]][/spec], [num]25[/num], [num]2[/num][spec]][/spec]; [com]\/\/ centre de la zone, rayon, nombre d\'unités[/com][br]' +
-					'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec]; [com]\/\/ classnames des unités à utiliser pour peupler la zone[/com][br]' +
-					'[br]' +
-					'[var]_myVar[/var] = [spec][][/spec]; [com]\/\/ cette variable sera chargée par la fonction[/com][br]' +
-					'[var]_handle[/var] = [spec][[/spec][var]_area[/var], [var]_units[/var], [var]_myVar[/var][spec]][/spec] [cmd]spawn[/cmd] [fnc]CRP_fnc_buildingsOccupation_area[/fnc];[br]' +
-					'[key]waitUntil[/key] [spec]{[/spec][cmd]scriptDone[/cmd] [var]_handle[/var][spec]}[/spec];[br]'
+					'[com]\/\/ [R Alpha 1-1:1,R Alpha 1-2:1][/com][br]' +
+					'[var]_westHouseOccupation[/var] = [spec][[/spec][gvar]CRP_var_buildingsOccupation_occupation[/gvar], [str]"WestHouse"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]BIS_fnc_getFromPairs[/fnc];'
 				));
 			</script>
 		</p>
@@ -111,7 +110,7 @@
 	<h3 class="DefaultInner w-12 DefaultText DefaultText-subTitle">Ajouter un nouveau bâtiment</h3>
 
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Documentation non complète. Si vous observez que des bâtiments ne sont jamais peuplés, cela peut vouloir dire qu'il ne sont pas dans la librairie du module buildingsOccupation. Il faudra donc les ajouter manuellement en utlisant les fonctions <span class="Code-inline">CRP_fnc_buildingsOccupation_getBuildingInfos</span> et <span class="Code-inline">CRP_fnc_buildingsOccupation_getRelPos</span>. <span class="important">Attention, ces fonctions sont disponibles uniquement dans l'éditeur</span>.
+		Documentation non complète. Si vous observez que des bâtiments ne sont jamais peuplés, cela peut vouloir dire qu'ils ne sont pas dans la librairie du module buildingsOccupation. Il faudra donc les ajouter manuellement en utlisant les fonctions <span class="Code-inline">CRP_fnc_buildingsOccupation_getBuildingInfos</span> et <span class="Code-inline">CRP_fnc_buildingsOccupation_getRelPos</span>. <span class="important">Attention, ces fonctions sont disponibles uniquement dans l'éditeur</span>.
 	</p>
 </body>
 

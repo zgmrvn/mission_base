@@ -1,19 +1,17 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 private _center		= param [0, [0, 0, 0], [objNull, []], 3];
 private _radius		= param [1, 100, [0]];
 private _unitsCount	= param [2, 5, [0]];
-private _side		= param [3, "east", [""]];
+private _side		= param [3, east, [sideUnknown]];
 private _units		= param [4, [], [[]]];
 
-private _positions	= [];
+private _positions	= []; // toutes les positions trouvées dans la zone
 private _buildings	= nearestObjects [_center, ["Building"], _radius];
-private _return		= !isnil {_this select 5};
-
-_side = switch (_side) do {
-	case "West": {west};
-	case "East": {east};
-	case "Indep": {independent};
-	case "Civ": {civilian};
-};
+private _return		= [];
 
 // récupération de toutes les positons de bâtiments de la zone renseignée
 {
@@ -56,7 +54,7 @@ for [{private _i = 0}, {(_i < _unitsCount) && {_i < _positionsCount}}, {_i = _i 
 	_wp setWaypointCompletionRadius 3;
 	_unit setUnitPos "UP";
 
-	if (_return) then {
-		(_this select 2) pushBack _unit;
-	};
+	_return pushBack _unit;
 };
+
+_return
