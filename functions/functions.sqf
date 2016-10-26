@@ -12,3 +12,6 @@ if (X_editor) then  {
 
 // module de patrouilles aléatoires
 CRP_fnc_randomPatrols_patrol = compile preprocessFileLineNumbers "modules\randomPatrols\content\fnc\fn_randomPatrols_patrol.sqf";
+
+// module de chasse
+CRP_fnc_hunters_triggerHunters = compile preprocessFileLineNumbers "modules\hunters\content\fnc\fn_hunters_triggerHunters.sqf";

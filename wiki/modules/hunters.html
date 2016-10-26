@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CORP - hunter</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">hunter</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Ce module permet de gérer des groupes de chasse (qui traquent les joueurs). Configurez les zones et le type de groupes depuis le fichier de configuration <span class="Code-inline">modules/hunters/config.hpp</span>. et déclenchez une chasse depuis un déclencheur par exemple avec la fonction <span class="Code-inline">CRP_fnc_hunters_triggerHunters</span>.
+	</p>
+
+	<!-- configuration -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Configuration</h2>
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">modules/hunters/config.hpp</p>
+		<p class="Code-inner Code-inner--config">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ liste des groupes de chasse[/com][br]' +
+					'[ckey]class[/ckey] Hunters {[br]' +
+					'[tab][com]\/\/ start : point de départ du groupe de chasse, position de spawn aproximative initiale[/com][br]' +
+					'[tab][com]\/\/ hunterSide : East, West, Indep[/com][br]' +
+					'[tab][com]\/\/ condition : expression sous forme de chaîne de caractère, quand l\'expression vaut faux, la chasse s\'arrête[/com][br]' +
+					'[tab][ckey]class[/ckey] Group1 {[br]' +
+					'[tab][tab]start[] = {[num]7658[/num], [num]7547[/num], [num]0[/num]};[br]' +
+					'[tab][tab]hunterSide = [str]"East"[/str];[br]' +
+					'[tab][tab]condition = [str]"Z_var_group1"[/str];[br]' +
+					'[br]' +
+					'[tab][tab]groups[] = {[br]' +
+					'[tab][tab][tab]{[str]"East"[/str], [str]"rhs_faction_vdv"[/str], [str]"rhs_group_rus_vdv_infantry"[/str], [str]"rhs_group_rus_vdv_infantry_chq"[/str]},[br]' +
+					'[tab][tab][tab]{[str]"West"[/str], [str]"Guerilla"[/str], [str]"Infantry"[/str], [str]"IRG_InfSquad_Weapons"[/str]}[br]' +
+					'[tab][tab]};[br]' +
+					'[tab]};[br]' +
+					'[br]' +
+					'[tab][ckey]class[/ckey] Group2 {[br]' +
+					'[tab][tab]start[] = {[num]125[/num], [num]12[/num], [num]0[/num]};[br]' +
+					'[tab][tab]hunterSide = [str]"East"[/str];[br]' +
+					'[tab][tab]condition = [str]"uneVariable >= uneAutreVariable"[/str];[br]' +
+					'[br]' +
+					'[tab][tab]groups[] = {[br]' +
+					'[tab][tab][tab]{[str]"West"[/str], [str]"Guerilla"[/str], [str]"Infantry"[/str], [str]"IRG_InfSquad_Weapons"[/str]}[br]' +
+					'[tab][tab]};[br]' +
+					'[br]' +
+					'[tab][tab][com]\/\/ (facultatif), pause entre chaque boucle du script de chasse[/com][br]' +
+					'[tab][tab][com]\/\/ par défaut vaut 30 (hérité de la classe Base)[/com][br]' +
+					'[tab][tab]pause = [num]60[/num];[br]' +
+					'[tab]};[br]' +
+					'};'
+				));
+			</script>
+		</p>
+	</div>
+
+	<!-- fonctions -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Fonctions</h2>
+
+	<h3 class="DefaultInner w-12 DefaultText DefaultText-subTitle">Déclencher une chasse</h3>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Depuis un déclencheur ou depuis un script, utilisez la fonction <span class="Code-inline">CRP_fnc_hunters_triggerHunters</span>.
+	</p>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]\/\/ déclenche la chasse du Group1 configuré dans la config[/com][br]' +
+					'[str]"Group1"[/str] [cmd]spawn[/cmd] [fnc]CRP_fnc_hunters_triggerHunters[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+
+</body>
+
+</html>

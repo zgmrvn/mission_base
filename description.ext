@@ -49,6 +49,9 @@ class CfgFunctions {
 // module de choix de l'heure de départ
 #include "modules\startTime\content\wrapper.hpp"
 
+// module de chasse
+#include "modules\hunters\content\wrapper.hpp"
+
 // module d'effet de particules
 #include "modules\particles\content\wrapper.hpp"
 
