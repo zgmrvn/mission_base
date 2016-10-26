@@ -1,0 +1,57 @@
+<!--
+	framework de mission du CORP
+	http://www.corp-arma.fr
+-->
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CORP - realShuffle</title>
+	<link rel="stylesheet" href="../styles.css">
+	<script type="text/javascript" src="../bbcodeParser.js"></script>
+</head>
+
+<body>
+	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">realShuffle</h1>
+
+	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
+		Cette fonction mélange un tableau. La fonction <span class="Code-inline">BIS_fnc_arrayShuffle</span> a tendance à retourner la même suite.
+	</p>
+
+	<!-- syntaxe -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Syntaxe</h2>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[com]array[/com] [cmd]call[/cmd] [fnc]CRP_fnc_realShuffle[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+
+	<!-- paramètres -->
+	<ul class="DefaultInner w-12 DefaultText DefaultText--ul">
+		<li class="DefaultText--li">array - tableau d'éléments que vous voulez mélanger</li>
+	</ul>
+
+	<!-- exemples -->
+	<h2 class="DefaultInner w-12 DefaultText DefaultText-title">Exemples</h2>
+
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[var]_shuffled[/var] = [spec][[/spec][num]0[/num], [num]1[/num], [num]2[/num], [num]3[/num][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_realShuffle[/fnc]; [com]\/\/ [2, 1, 3, 0][/com]'
+				));
+			</script>
+		</p>
+	</div>
+</body>
+
+</html>
