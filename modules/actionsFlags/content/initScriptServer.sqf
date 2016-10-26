@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "ActionsFlags" >> "enabled")) == 1) then {
 	CRP_var_actionsFlags_flags = [];

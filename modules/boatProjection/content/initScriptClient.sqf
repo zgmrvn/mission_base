@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "BoatProjection" >> "enabled")) == 1) then {
 	// si le module de drapeaux est activé

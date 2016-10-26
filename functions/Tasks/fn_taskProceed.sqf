@@ -1,6 +1,10 @@
 /*
-	cette fonction ne devrait jamais être utilisée directement
-	utilisez CRP_fnc_createTaskGlobal et CRP_fnc_setTaskStateGlobal
+	framework de mission du CORP
+	http://www.corp-arma.fr
+
+	NOM :			taskProceed
+	AUTEUR :		zgmrvn
+	DESCRIPTION :	logique derrière CRP_fnc_createTaskGlobal et CRP_fnc_setTaskStateGlobal, cette fonction ne devrait jamais être utilisée directement
 */
 
 params [

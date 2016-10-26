@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 private ["_building", "_pos", "_dir"];
 _building = (nearestObjects [player, ["Building"], 50]) select 0;
 _pos = _building worldToModel (ASLToAGL (getPosASL player));

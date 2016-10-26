@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // spawn pour éviter le bloquage
 [] spawn {
 	// il faut attendre que le serveur soit prêt et que la mission ait démarrée

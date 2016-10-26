@@ -1,8 +1,16 @@
 /*
-	["test", "Succeeded", true, "vous avez réussi"] call CRP_fnc_setTaskStateGlobal;
-	["test", "Failed", true, "mauvais..."] call CRP_fnc_setTaskStateGlobal;
-	["test", "Failed", true] call CRP_fnc_setTaskStateGlobal;
-	["test", "Succeeded"] call CRP_fnc_setTaskStateGlobal;
+	framework de mission du CORP
+	http://www.corp-arma.fr
+
+	NOM :			setTaskStateGlobal
+	AUTEUR :		zgmrvn
+	DESCRIPTION :	change l'état d'une tâche de façon globale, compatible JIP
+
+	EXAMPLES :
+		["test", "Succeeded", true, "vous avez réussi"] call CRP_fnc_setTaskStateGlobal;
+		["test", "Failed", true, "mauvais..."] call CRP_fnc_setTaskStateGlobal;
+		["test", "Failed", true] call CRP_fnc_setTaskStateGlobal;
+		["test", "Succeeded"] call CRP_fnc_setTaskStateGlobal;
 */
 
 params [

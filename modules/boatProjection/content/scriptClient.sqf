@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 _boat	= _this select 0;
 _mod	= _this select 1;
 

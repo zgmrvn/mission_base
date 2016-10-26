@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // dégroupage des joueurs pour éviter
 // les ordres et communications automatiques
 [player] joinSilent grpNull;

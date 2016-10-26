@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 _driver		= _this select 0;
 _boat		= vehicle _driver;
 _coast		= _this select 1;

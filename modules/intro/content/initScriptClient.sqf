@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "Intro" >> "enabled")) == 1) then {
 	_enabledInEditor = (getNumber (missionConfigFile >> "Intro" >> "enabledInEditor")) == 1;

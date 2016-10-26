@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 _c130j			= _this select 0;
 _delay			= _this select 1;
 _coordinates	= _this select 2;

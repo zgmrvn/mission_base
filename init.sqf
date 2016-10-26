@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // définitions des localités
 // et attente de l'initialisation
 #include "core\localities.sqf"

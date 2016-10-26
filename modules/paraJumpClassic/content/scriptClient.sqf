@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 sleep (_this select 0);
 
 cutText ["", "BLACK OUT", 1];

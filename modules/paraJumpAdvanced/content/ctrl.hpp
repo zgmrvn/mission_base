@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 #define PARAJUMP_ADVANCED_DIALOG_IDD 423431
 
 #define PARAJUMP_ADVANCED_DIVERLIST_IDC 10

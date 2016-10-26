@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "MissionBriefing" >> "enabled")) == 1) then {
 	_diaries = (missionConfigFile >> "MissionBriefing" >> "Diaries") call BIS_fnc_getCfgSubClasses;

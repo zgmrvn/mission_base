@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 if (CRP_var_taxiBoat_coastMarker != "") then {
 	deleteMarkerLocal CRP_var_taxiBoat_coastMarker;
 	deleteMarkerLocal CRP_var_taxiBoat_boatMarker;

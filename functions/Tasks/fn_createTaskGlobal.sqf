@@ -1,5 +1,13 @@
 /*
-	["test", "titre tâche", "description tâche", true] call CRP_fnc_createTaskGlobal;
+	framework de mission du CORP
+	http://www.corp-arma.fr
+
+	NOM :			createTaskGlobal
+	AUTEUR :		zgmrvn
+	DESCRIPTION :	créé une tâche de façon globale, compatible JIP
+
+	EXAMPLE :
+		["test", "titre tâche", "description tâche", true] call CRP_fnc_createTaskGlobal;
 */
 
 params [

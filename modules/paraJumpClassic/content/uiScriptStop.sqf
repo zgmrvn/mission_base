@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 if (CRP_var_paraJumpClassic_marker != "") then {
 	deleteMarkerLocal CRP_var_paraJumpClassic_marker;
 };

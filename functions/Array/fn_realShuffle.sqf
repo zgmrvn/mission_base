@@ -1,3 +1,15 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+
+	NOM :			realShuffle
+	AUTEUR :		zgmrvn
+	DESCRIPTION :	effectue un shuffle sur le tableau, la fonction de BIS a tendance à retourner la même suite
+
+	EXAMPLE :
+		[0, 1, 2, 4, 5] call CRP_fnc_realShuffle; // [5, 2, 1, 4, 3]
+*/
+
 private _array = _this;
 private _shuffled = [];
 private _count = (count _array) - 1;

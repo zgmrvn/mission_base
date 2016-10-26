@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "Particles" >> "enabled")) == 1) then {
 	// on boucle sur tous les effets

@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 X_server	= false;
 X_client	= false;
 X_editor	= false;

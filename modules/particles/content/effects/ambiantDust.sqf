@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 _position	= _this select 0;
 _duration	= _this select 1;
 

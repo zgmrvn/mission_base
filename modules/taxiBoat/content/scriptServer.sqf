@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 _boatCoordinates	= _this select 0;
 _coastCoordinates	= _this select 1;
 _players			= _this select 2;

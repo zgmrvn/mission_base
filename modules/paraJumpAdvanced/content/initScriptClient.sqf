@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 // si le module est activé
 if ((getNumber (missionConfigFile >> "ParaJumpAdvanced" >> "enabled")) == 1) then {
 	// si le mod qui contient le C130J (CUP) est chargé

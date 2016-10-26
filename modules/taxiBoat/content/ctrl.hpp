@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 #define TAXI_BOAT_DIALOG_IDD 344458
 
 #define TAXI_BOAT_LIST_IDC 10

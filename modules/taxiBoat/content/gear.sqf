@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 removeAllWeapons _this;
 removeAllItems _this;
 removeAllAssignedItems _this;

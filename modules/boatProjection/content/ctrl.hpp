@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 #define BOAT_PROJECTION_DIALOG_IDD 423762
 
 #define BOAT_PROJECTION_LIST_IDC 10

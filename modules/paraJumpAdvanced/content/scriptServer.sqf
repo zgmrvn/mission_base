@@ -1,3 +1,8 @@
+/*
+	framework de mission du CORP
+	http://www.corp-arma.fr
+*/
+
 _playerPosition	= _this select 0;
 _coordinates	= _this select 1;
 _bearing		= _this select 2;
