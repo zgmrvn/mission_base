@@ -68,6 +68,10 @@ class Params {
 
 	// paramètres du module de choix de l'heure de départ
 	#include "modules\startTime\content\params.hpp"
+
+	// paramètres du module de multiplication de l'ia
+	// utilisé par les autres modules de création d'IA
+	#include "modules\aiMultiplier\content\params.hpp"
 };
 
 class CfgSounds {
