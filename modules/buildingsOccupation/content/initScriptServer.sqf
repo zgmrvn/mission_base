@@ -35,6 +35,15 @@ if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "enabled")) == 1) 
 				default {east};
 			};
 
+			// si le module aiMultiplier est activé et que l'on est en multijoueur
+			if (isMultiplayer && {(getNumber (missionConfigFile >> "aiMultiplier" >> "enabled")) == 1}) then {
+				_multiplier = "aiMultiplier" call BIS_fnc_getParamValue;
+
+				if (_multiplier != 1) then {
+					_unitCount = round (_unitCount * _multiplier);
+				};
+			};
+
 			// création des unités
 			_occupation = [_center, _radius, _unitCount, _side, _units] call CRP_fnc_buildingsOccupation_occupation;
 
