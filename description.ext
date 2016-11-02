@@ -60,6 +60,9 @@ class CfgFunctions {
 // module d'effet de particules
 #include "modules\particles\content\wrapper.hpp"
 
+// module multiplicateur d'ia
+#include "modules\aiMultiplier\content\wrapper.hpp"
+
 // paramètres de missions
 // disponibles depuis le lobby
 class Params {
