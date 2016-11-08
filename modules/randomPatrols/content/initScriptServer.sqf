@@ -31,6 +31,36 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 				default {east};
 			};
 
+			// si le module aiMultiplier est activé et que l'on est en multijoueur
+			if (isMultiplayer && {(getNumber (missionConfigFile >> "aiMultiplier" >> "enabled")) == 1}) then {
+				_multiplier = "aiMultiplier" call BIS_fnc_getParamValue;
+
+				if (_multiplier != 1) then {
+					_groupCountBefore	= count _groups;
+					_groupCountAfter	= round (_groupCountBefore * _multiplier);
+
+					// s'il faut réduire le nombre de groupes créés
+					if (_multiplier < 1) then {
+						if ((_groupCountAfter > 0) && {(_groupCountBefore - _groupCountAfter) > 0}) then {
+							for "_i" from _groupCountBefore to (_groupCountAfter + 1) step -1 do {
+								_groups deleteAt ((count _groups) - 1);
+							};
+						};
+					};
+
+					// s'il faut augmenter le nombre de groupes créés
+					if (_multiplier > 1) then {
+						_groupsTemp = _groups;
+
+						if ((_groupCountAfter - _groupCountBefore) > 0) then {
+							for "_i" from _groupCountBefore to (_groupCountAfter - 1) do {
+								_groups pushBack (_groupsTemp call BIS_fnc_selectRandom);
+							};
+						};
+					};
+				};
+			};
+
 			// reçoit les groupes d'une zone de patrouille dans le cas où return est demandé
 			_patrols = [];
 
