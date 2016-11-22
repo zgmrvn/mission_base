@@ -12,8 +12,8 @@ sleep _delay;
 
 // préparation de l'objet auquel le joueur sera attaché (téléporté)
 _helper = "Sign_Sphere10cm_F" createVehicleLocal [0, 0, 0];
-_helper setPosASL (_coordinates vectorAdd [0, 0, 1]);
-_helper setDir (_bearing + 180);
+_helper setPosASL (_coordinates vectorAdd [0, 0, 0]);
+_helper setDir _bearing;
 _helper hideObject true;
 
 // fondu de sortie
@@ -22,7 +22,7 @@ cutText ["", "BLACK OUT", 1];
 sleep 1;
 
 // téléportation
-player attachTo [_helper, [0, 0, 0]];
+player attachTo [_helper, [0, -8, 1.2]];
 
 // fondu d'entrée
 sleep 0.5;
