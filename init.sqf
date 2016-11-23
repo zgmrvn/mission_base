@@ -10,22 +10,16 @@
 // déclaration post-init des fonctions
 #include "functions\functions.sqf"
 
-// écrivez ce que vous voulez
+// inclusion de l'initialisation client et serveur
+#include "init\clientServer.sqf"
 
 if (X_server) then {
 	// paramètres et actions par défaut du serveur
 	// utilisé par les modules
 	#include "core\defaultServer.sqf"
 
-	/*************************************************
-	***** script de développement et de débogage *****
-	***** À SUPPRIMER                            *****
-	*************************************************/
-	// [] execVM "mission\dev.sqf";
-	/*************************************************
-	*************************************************/
-
-	// écrivez ce que vous voulez
+	// inclusion de l'initialisation serveur
+	#include "init\server.sqf"
 };
 
 if (X_client) then {
@@ -33,5 +27,6 @@ if (X_client) then {
 	// utilisé par les modules
 	#include "core\defaultClient.sqf"
 
-	// écrivez ce que vous voulez
+	// inclusion de l'initialisation client
+	#include "init\client.sqf"
 };
