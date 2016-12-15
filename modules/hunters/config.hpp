@@ -3,6 +3,9 @@
 	http://www.corp-arma.fr
 */
 
+// pas de propriété "enabled" parce qu'il n'y a pas de démarrage automatique
+// il faut utiliser la fonction CRP_fnc_hunters_triggerHunters pour déclencher une chasse
+
 // liste des groupes de chasse
 class Hunters {
 	// start : point de départ du groupe de chasse, position de spawn aproximative initiale
