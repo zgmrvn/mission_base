@@ -54,7 +54,7 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 
 						if ((_groupCountAfter - _groupCountBefore) > 0) then {
 							for "_i" from _groupCountBefore to (_groupCountAfter - 1) do {
-								_groups pushBack (_groupsTemp call BIS_fnc_selectRandom);
+								_groups pushBack (selectRandom _groupsTemp);
 							};
 						};
 					};
