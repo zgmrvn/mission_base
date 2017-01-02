@@ -41,7 +41,7 @@ for [{private _i = 0}, {(_i < _unitsCount) && {_i < _positionsCount}}, {_i = _i 
 	_group = createGroup _side;
 	_wp = _group addWaypoint [_pos, 0];
 	deleteWaypoint [_group, (count (waypoints _group)) - 1];
-	_unit = _group createUnit [_units call BIS_fnc_selectRandom, _building modelToWorld _pos, [], 0, "CAN_COLLIDE"];
+	_unit = _group createUnit [selectRandom _units, _building modelToWorld _pos, [], 0, "CAN_COLLIDE"];
 	_unit setPos (_building modelToWorld _pos);
 	_group setFormDir ((getDir _building) + _dir);
 	_group setCombatMode "RED";
