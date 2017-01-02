@@ -53,6 +53,7 @@ if (!isDedicated) then {
 	};
 
 	// vérifier qu'une action avec ce label n'éxiste pas déjà
+	// si c'est le cas, on sort de la fonction
 	if (!isNil {[_object getVariable ACTIONS_ARRAY, _reference] call BIS_fnc_getFromPairs}) exitWith {};
 
 	// addAction
@@ -91,7 +92,8 @@ if (!isDedicated) then {
 				};
 			};
 
-			// si l'objet n'a pas été supprimé, on le passe au script
+			// on prépare le tableau de données qui sera passé aux scripts client et serveur
+			// si l'objet n'a pas été supprimé, on l'ajoute au tableau de données
 			_data = [[_this select 1, _object], [_this select 1]] select _removeObject;
 
 			// si un script client a été renseigné, on l'exécute
