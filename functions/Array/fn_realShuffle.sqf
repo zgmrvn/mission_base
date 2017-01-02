@@ -12,7 +12,7 @@
 
 private _array = _this;
 private _shuffled = [];
-private _count = (count _array) - 1;
+private _count = count _array;
 
 for "_i" from 0 to _count do {
 	_item = floor (random _count);
