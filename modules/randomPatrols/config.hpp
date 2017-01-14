@@ -36,7 +36,8 @@ class Patrols {
 		side		= "Indep";
 
 		groups[] = {
-			{"Indep", "IND_C_F", "Infantry", "BanditCombatGroup"}
+			// groupe personnalisé composé de classnames d'unités
+			{"I_soldier_F", "I_C_Soldier_Bandit_5_F", "I_C_Soldier_Bandit_1_F", "I_Soldier_AR_F"}
 		};
 	};
 };

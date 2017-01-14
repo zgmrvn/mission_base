@@ -3,10 +3,12 @@
 	http://www.corp-arma.fr
 */
 
-private _center		= param [0, [0, 0, 0], [objNull, []], 3];
-private _radius		= param [1, 100, [0]];
-private _side		= param [2, east, [sideUnknown]];
-private _configPath	= param [3]; // config
+private _center								= param [0, [0, 0, 0], [objNull, []], 3];
+private _radius								= param [1, 100, [0]];
+private _side								= param [2, east, [sideUnknown]];
+private _groupConfigPathOrClassnamesArray	= param [3]; // config du groupe ou tableau de classenames d'unités
+
+// on détermine si c'est un groupe custom
 
 // on détermine le sens de rotation : horaire, anti-horaire
 private _rotation = [-1, 1] select ((random 1) > 0.5);
@@ -29,7 +31,7 @@ for [{private _i = _waypointsCount}, {_i > 0}, {_i = _i - 1}] do {
 private _group = [
 	_waypointsPositions call BIS_fnc_selectRandom,
 	_side,
-	_configPath
+	_groupConfigPathOrClassnamesArray
 ] call BIS_fnc_spawnGroup;
 
 // on attribue les points de passage
