@@ -8,7 +8,8 @@ private _radius		= param [1, 100, [0]];
 private _side		= param [2, east, [sideUnknown]];
 private _configPath	= param [3]; // config
 
-private _rotation = [-1, 1] select ((random 1) > 0.5); // horaire, anti-horaire
+// on détermine le sens de rotation : horaire, anti-horaire
+private _rotation = [-1, 1] select ((random 1) > 0.5);
 
 // tous les groupes passent par le centre de la zone
 private _waypointsPositions = [_center];
@@ -18,6 +19,7 @@ private _waypointsCount = round (_radius / 12);
 private _part = 360 / _waypointsCount;
 private _angle = random 360;
 
+// on détermine la position des points de passage
 for [{private _i = _waypointsCount}, {_i > 0}, {_i = _i - 1}] do {
 	_pos = [_center, (_radius / 2) + (random _radius / 2), _angle + (_part * _i * _rotation)] call BIS_fnc_relPos,
 	_waypointsPositions pushBack _pos;
