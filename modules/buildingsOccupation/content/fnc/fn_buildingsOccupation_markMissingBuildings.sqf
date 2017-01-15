@@ -5,7 +5,7 @@
 
 private ["_buildings", "_color", "_bbr", "_p1", "_p2", "_maxWidth", "_maxLength", "_marker"];
 
-_buildings = nearestObjects [player, ["Building"], 250];
+_buildings = nearestObjects [player, ["Building"], 500];
 
 {
 	_color = if (isClass (missionConfigFile >> "BuildingsOccupation" >> "Buildings" >> typeOf _x)) then {"ColorGreen"} else {"ColorRed"};
