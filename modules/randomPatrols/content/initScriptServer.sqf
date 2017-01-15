@@ -71,7 +71,7 @@ if ((getNumber (missionConfigFile >> "RandomPatrols" >> "enabled")) == 1) then {
 				_group = _x;
 
 				// on détermine si la donnée est une config de groupe ou un tableau de classenames d'unités
-				_customGroup = [true, false] select ((_group select 0) in ["West", "East", "Indep"]);
+				_customGroup = !((_group select 0) in ["West", "East", "Indep"]);
 
 				// si on est dans le cas d'une config de groupe et pas un groupe custom
 				// concaténation des différentes parties qui composent le chemin de la config
