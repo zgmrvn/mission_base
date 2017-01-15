@@ -16,5 +16,11 @@ class BuildingsOccupation {
 
 		// bâtiments Tchernarus
 		#include "inc\european.hpp"
+
+		// bâtiments Takistan
+		#include "inc\middleEastern.hpp"
+
+		// bâtiments Sahrani
+		#include "inc\sahrani.hpp"
 	};
 };
