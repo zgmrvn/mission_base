@@ -26,11 +26,12 @@ class Hunters {
 
 	class Group2: Base {
 		start[]	= {125, 12, 0};
-		hunterSide	= "East";
+		hunterSide	= "Indep";
 		condition	= "uneVariable >= uneAutreVariable";
 
 		hunterGroups[] = {
-			{"West", "Guerilla", "Infantry", "IRG_InfSquad_Weapons"}
+			// groupe personnalisé composé de classnames d'unités
+			{"I_soldier_F", "I_C_Soldier_Bandit_5_F", "I_C_Soldier_Bandit_1_F", "I_Soldier_AR_F"}
 		};
 
 		// (facultatif), pause entre chaque boucle du script de chasse

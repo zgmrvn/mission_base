@@ -68,17 +68,31 @@ while {call compile _condition} do {
 		// selection d'un des types de groupes autorisés
 		_group = _hunterGroups call BIS_fnc_selectRandom;
 
-		// concaténation des différentes parties qui composent le chemin de la config du groupe
-		_path = configFile >> "CfgGroups";
-		{
-			_path = _path >> _x;
-		} forEach _group;
+		// on détermine si la donnée est une config de groupe ou un tableau de classenames d'unités
+		_customGroup = [true, false] select ((_group select 0) in ["West", "East", "Indep"]);
+
+		// si on est dans le cas d'une config de groupe et pas un groupe custom
+		// concaténation des différentes parties qui composent le chemin de la config
+		// sinon, le tableau _group sera directement passé à la fonction de création du groupe
+		if (!_customGroup) then {
+			_path = configFile >> "CfgGroups";
+			{
+				_path = _path >> _x;
+			} forEach _group;
+
+			_group = _path;
+		};
+
+		// dans le cas d'un groupe custom, mélange du tableau des classnames
+		if (_customGroup) then {
+			_group = _group call CRP_fnc_realShuffle;
+		};
 
 		// création du groupe
 		_hunters = [
 			_lastPos findEmptyPosition [150, 300],
 			_side,
-			_path
+			_group
 		] call BIS_fnc_spawnGroup;
 
 		deleteWaypoint [_hunters, 0];
