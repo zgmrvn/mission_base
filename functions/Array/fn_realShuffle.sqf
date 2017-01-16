@@ -10,13 +10,12 @@
 		[0, 1, 2, 4, 5] call CRP_fnc_realShuffle; // [5, 2, 1, 4, 3]
 */
 
-private _array = _this;
 private _shuffled = [];
-private _count = count _array;
+private _count = count _this;
 
 for "_i" from 0 to _count do {
 	_item = floor (random _count);
-	_shuffled pushBack (_array deleteAt _item);
+	_shuffled pushBack (_this select _item);
 	_count = _count - 1;
 };
 
