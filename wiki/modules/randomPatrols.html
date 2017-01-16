@@ -100,6 +100,22 @@
 		</p>
 	</div>
 
+	<div class="DefaultInner w-12 Code">
+		<p class="Code-inner Code-inner--file">mission/monScript.sqf</p>
+		<p class="Code-inner Code-inner--sqf">
+			<script type="text/javascript">
+				document.write(bbcodeParser.bbcodeToHtml(
+					'[var]_center[/var] = [spec][[/spec][num]7460[/num], [num]7509[/num], [num]0[/num][spec]][/spec];[br]' +
+					'[var]_radius[/var] = [num]150[/num];[br]' +
+					'[var]_side[/var] = [cmd]independent[/cmd];[br]' +
+					'[var]_group[/var] = [spec][[/spec][str]"I_soldier_F"[/str], [str]"I_C_Soldier_Bandit_5_F"[/str], [str]"I_C_Soldier_Bandit_1_F"[/str], [str]"I_Soldier_AR_F"[/str][spec]][/spec];[br]' +
+					'[br]' +
+					'[var]_patrol[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_side[/var], [var]_group[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_randomPatrols_patrol[/fnc];'
+				));
+			</script>
+		</p>
+	</div>
+
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
 		La variable <span class="Code-inline">CPR_var_randomPatrols_patrolAreas</span> est un tableau associatif des zones de patrouille.
 	</p>
