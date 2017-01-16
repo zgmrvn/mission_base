@@ -27,7 +27,7 @@ for [{private _i = _waypointsCount}, {_i > 0}, {_i = _i - 1}] do {
 
 // on créé le groupe
 private _group = [
-	_waypointsPositions call BIS_fnc_selectRandom,
+	selectRandom _waypointsPositions,
 	_side,
 	_groupConfigPathOrClassnamesArray
 ] call BIS_fnc_spawnGroup;
@@ -37,7 +37,7 @@ deleteWaypoint [_group, 0];
 
 private _formations = ["STAG COLUMN","VEE","ECH LEFT","ECH RIGHT","COLUMN","LINE"];
 
-_group setFormation (_formations call BIS_fnc_selectRandom);
+_group setFormation (selectRandom _formations);
 _group setCombatMode "SAFE";
 _group setBehaviour "RED";
 _group setSpeedMode "LIMITED";
@@ -47,7 +47,7 @@ _group setSpeedMode "LIMITED";
 
 	_wp = _group addWaypoint [_waypointsPositions select _forEachIndex, 0];
 	_wp setWaypointCompletionRadius 4;
-	_wp setWaypointFormation (_formations call BIS_fnc_selectRandom);
+	_wp setWaypointFormation (selectRandom _formations);
 	_wp setWaypointBehaviour "SAFE";
 	_wp setWaypointCombatMode "RED";
 	_wp setWaypointType _type;
