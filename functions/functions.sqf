@@ -15,8 +15,11 @@ if (X_editor) then  {
 	CRP_fnc_buildingsOccupation_markMissingBuildings = compile preprocessFileLineNumbers "modules\buildingsOccupation\content\fnc\fn_buildingsOccupation_markMissingBuildings.sqf";
 };
 
-// module de patrouilles aléatoires
+// module de patrouilles aléatoires en cercle autour du point spécifié
 CRP_fnc_randomPatrols_patrol = compile preprocessFileLineNumbers "modules\randomPatrols\content\fnc\fn_randomPatrols_patrol.sqf";
+
+// module patrouilles aléatoires dans une large zone
+CRP_fnc_areaPatrols_patrol = compile preprocessFileLineNumbers "modules\areaPatrols\content\fnc\fn_areaPatrols_patrol.sqf";
 
 // module de chasse
 CRP_fnc_hunters_triggerHunters = compile preprocessFileLineNumbers "modules\hunters\content\fnc\fn_hunters_triggerHunters.sqf";
