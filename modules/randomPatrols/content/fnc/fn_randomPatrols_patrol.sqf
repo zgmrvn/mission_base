@@ -3,7 +3,7 @@
 	http://www.corp-arma.fr
 */
 
-private _center								= param [0, [0, 0, 0], [objNull, []], 3];
+private _center								= param [0, [0, 0, 0], [[]], 3];
 private _radius								= param [1, 100, [0]];
 private _side								= param [2, east, [sideUnknown]];
 private _groupConfigPathOrClassnamesArray	= param [3]; // config du groupe ou tableau de classenames d'unités
