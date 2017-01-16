@@ -8,8 +8,6 @@ private _radius								= param [1, 100, [0]];
 private _side								= param [2, east, [sideUnknown]];
 private _groupConfigPathOrClassnamesArray	= param [3]; // config du groupe ou tableau de classenames d'unités
 
-// on détermine si c'est un groupe custom
-
 // on détermine le sens de rotation : horaire, anti-horaire
 private _rotation = [-1, 1] select ((random 1) > 0.5);
 
