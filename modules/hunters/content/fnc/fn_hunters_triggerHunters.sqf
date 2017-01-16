@@ -51,22 +51,19 @@ while {call compile _condition} do {
 
 	// on actualise la position de la chasse pour les futures groupes créés
 	if (count ([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) > 0) then {
-		//_lastPos = (units (([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) select 0)) call BIS_fnc_selectRandom;
-		_units = units (([CRP_var_hunters_hunters, "Group1"] call BIS_fnc_getFromPairs) select 0);
+		_units = units (([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) select 0);
 
 		{
 			if (alive _x) exitWith {
 				_lastPos = ASLToATL getPosASL _x;
 			}
 		} forEach _units;
-
-		systemChat str _lastPos;
 	};
 
 	// si moins de 2 unités dans la chasse on créé un nouveau groupe
 	if (_count <= 2) then {
 		// selection d'un des types de groupes autorisés
-		_group = _hunterGroups call BIS_fnc_selectRandom;
+		_group = selectRandom _hunterGroups;
 
 		// on détermine si la donnée est une config de groupe ou un tableau de classenames d'unités
 		_customGroup = !((_group select 0) in ["West", "East", "Indep"]);
@@ -90,7 +87,7 @@ while {call compile _condition} do {
 
 		// création du groupe
 		_hunters = [
-			_lastPos findEmptyPosition [150, 300],
+			_lastPos,
 			_side,
 			_group
 		] call BIS_fnc_spawnGroup;
