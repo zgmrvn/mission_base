@@ -4,6 +4,13 @@
 */
 
 class CRP {
+	class Framework {
+		class localities {
+			file	= "core\fn_localities.sqf";
+			preInit	= 1;
+		};
+	};
+
 	class Actions {
 		class addActionGlobal {};
 	};

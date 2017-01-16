@@ -3,10 +3,6 @@
 	http://www.corp-arma.fr
 */
 
-// définitions des localités
-// et attente de l'initialisation
-#include "core\localities.sqf"
-
 // déclaration post-init des fonctions
 #include "functions\functions.sqf"
 
