@@ -5,7 +5,7 @@
 
 class Hunters {
 	class Base {
-		center[]		= {0, 0, 0};
+		start[]			= {0, 0, 0};
 		hunterSide		= "Indep";
 		condition		= "false";
 		hunterGroups[]	= {{"Indep", "IND_C_F", "Infantry", "BanditCombatGroup"}};
