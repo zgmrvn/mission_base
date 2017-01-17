@@ -184,6 +184,7 @@ bbcodeParser.addBBCode('[num]{TEXT}[/num]', '<span style="color: #ff80f4; font-w
 // config
 bbcodeParser.addBBCode('[ckey]{TEXT}[/ckey]', '<span style="color: #ff0000;">{TEXT}</span>');
 bbcodeParser.addBBCode('[cinc]{TEXT}[/cinc]', '<span style="color: #f92672;">{TEXT}</span>');
+bbcodeParser.addBBCode('[hin]{TEXT}[/hin]', '<span style="color: #9999ff; font-weight: bold;">{TEXT}</span>');
 
 // commons
 bbcodeParser.addBBCode('[com]{TEXT}[/com]', '<span style="color: #8c8c8c; font-weight: normal;">{TEXT}</span>');
