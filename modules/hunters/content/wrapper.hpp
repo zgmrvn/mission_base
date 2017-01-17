@@ -8,6 +8,7 @@ class Hunters {
 		start[]			= {0, 0, 0};
 		hunterSide		= "Indep";
 		condition		= "false";
+		spawnDistance	= 250;
 		hunterGroups[]	= {{"Indep", "IND_C_F", "Infantry", "BanditCombatGroup"}};
 		pause			= 30;
 	};

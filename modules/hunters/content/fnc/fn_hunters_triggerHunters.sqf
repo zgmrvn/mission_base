@@ -10,6 +10,7 @@ private _lastPos		= getArray (missionConfigFile >> "Hunters" >> "Hunters" >> _th
 private _side			= getText (missionConfigFile >> "Hunters" >> "Hunters" >> _this >> "hunterSide");
 private _condition		= getText (missionConfigFile >> "Hunters" >> "Hunters" >> _this >> "condition");
 private _hunterGroups	= getArray (missionConfigFile >> "Hunters" >> "Hunters" >> _this >> "hunterGroups");
+private _spawnDistance	= getNumber (missionConfigFile >> "Hunters" >> "Hunters" >> _this >> "spawnDistance");
 private _pause			= getNumber (missionConfigFile >> "Hunters" >> "Hunters" >> _this >> "pause");
 
 // si la variable qui contient les groupes de chasse n'éxiste pas, on la crée
@@ -85,9 +86,23 @@ while {call compile _condition} do {
 			_group = _group call CRP_fnc_realShuffle;
 		};
 
+		// récupération des joueurs sur zone
+		_players = [_lastPos, 1000, [west, east, independent]] call CRP_fnc_nearestPlayers;
+
+		systemChat str _lastPos;
+
+		// préparation de la position de spawn du futur groupe
+		_pos = _lastPos;
+
+		if (count _players > 0) then {
+			_player = selectRandom _players;
+			_lastPos = getPosATL _player;
+			_pos = _player getRelPos [_spawnDistance, random 360];
+		};
+
 		// création du groupe
 		_hunters = [
-			_lastPos,
+			_pos,
 			_side,
 			_group
 		] call BIS_fnc_spawnGroup;

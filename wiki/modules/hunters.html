@@ -18,6 +18,7 @@
 	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">hunter</h1>
 	<ul class="DefaultInner w-3">
 		<li class="Dependencie Dependencie--function"><a href="../functions/realShuffle.html">realShuffle</a></li>
+		<li class="Dependencie Dependencie--function"><a href="../functions/nearestPlayers.html">nearestPlayers</a></li>
 	</ul>
 
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
@@ -36,10 +37,12 @@
 					'[tab][com]\/\/ start : point de départ du groupe de chasse, position de spawn aproximative initiale[/com][br]' +
 					'[tab][com]\/\/ hunterSide : East, West, Indep[/com][br]' +
 					'[tab][com]\/\/ condition : expression sous forme de chaîne de caractère, quand l\'expression vaut faux, la chasse s\'arrête[/com][br]' +
-					'[tab][ckey]class[/ckey] Group1 {[br]' +
+					'[tab][com]\/\/ spawnDistance : distance de spawn entre les joueurs et le groupe de chasse[/com][br]' +
+					'[tab][ckey]class[/ckey] Group1[hin]: Base[/hin] {[br]' +
 					'[tab][tab]start[] = {[num]7658[/num], [num]7547[/num], [num]0[/num]};[br]' +
 					'[tab][tab]hunterSide = [str]"East"[/str];[br]' +
 					'[tab][tab]condition = [str]"Z_var_group1"[/str];[br]' +
+					'[tab][tab]spawnDistance = [num]50[/num];[br]' +
 					'[br]' +
 					'[tab][tab]groups[] = {[br]' +
 					'[tab][tab][tab]{[str]"East"[/str], [str]"rhs_faction_vdv"[/str], [str]"rhs_group_rus_vdv_infantry"[/str], [str]"rhs_group_rus_vdv_infantry_chq"[/str]},[br]' +
@@ -47,10 +50,11 @@
 					'[tab][tab]};[br]' +
 					'[tab]};[br]' +
 					'[br]' +
-					'[tab][ckey]class[/ckey] Group2 {[br]' +
+					'[tab][ckey]class[/ckey] Group2[hin]: Base[/hin] {[br]' +
 					'[tab][tab]start[] = {[num]125[/num], [num]12[/num], [num]0[/num]};[br]' +
 					'[tab][tab]hunterSide = [str]"East"[/str];[br]' +
 					'[tab][tab]condition = [str]"uneVariable >= uneAutreVariable"[/str];[br]' +
+					'[tab][tab]spawnDistance = [num]250[/num];[br]' +
 					'[br]' +
 					'[tab][tab]groups[] = {[br]' +
 					'[tab][tab][tab][com]\/\/ groupe personnalisé composé de classnames d\'unités[/com][br]' +
