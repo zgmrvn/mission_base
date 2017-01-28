@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=415;
+		nextID=664;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7524.2739,49.538151,7398.2988};
-		dir[]={0.00050657406,-0.53987688,0.84188527};
-		up[]={0.00032962536,0.84156227,0.54000354};
-		aside[]={1.0000322,-1.3302173e-006,-0.0005979354};
+		pos[]={7516.3882,42.226665,7413.8115};
+		dir[]={0.082218386,-0.76645607,0.63719743};
+		up[]={0.098099649,0.64217174,0.76025629};
+		aside[]={0.99182141,-1.1814118e-006,-0.12797865};
 	};
 };
 binarizationWanted=0;
@@ -100,10 +100,12 @@ class ScenarioData
 		minPlayers=1;
 		maxPlayers=16;
 	};
-	wreckLimit=20;
+	wreckManagerMode=1;
+	wreckLimit=10;
 	wreckRemovalMinTime=120.00001;
 	wreckRemovalMaxTime=180;
-	corpseLimit=30;
+	corpseManagerMode=1;
+	corpseLimit=10;
 	corpseRemovalMinTime=120.00001;
 	corpseRemovalMaxTime=180;
 };
@@ -389,7 +391,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=7;
+		items=8;
 		class Item0
 		{
 			dataType="Marker";
@@ -446,7 +448,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7526.0327,5.0014391,7446.6426};
+						position[]={7526.0332,5.0014391,7446.6426};
 					};
 					side="West";
 					flags=4;
@@ -457,6 +459,29 @@ class Mission
 					};
 					id=11;
 					type="B_Soldier_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.05;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 			};
 			class Attributes
@@ -611,6 +636,19 @@ class Mission
 			};
 			id=65;
 			type="CORP_Module_GearSystem";
+		};
+		class Item7
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7517.166,5.0003471,7453.0166};
+			};
+			name="hc1";
+			isPlayable=1;
+			id=663;
+			type="HeadlessClient_F";
+			atlOffset=0.00034713745;
 		};
 	};
 	class Connections
