@@ -88,11 +88,11 @@ table {
     }
     .DefaultText--ul {
         line-height: 140%;
-        list-style-type: none;
-        margin-bottom: 15px;
+        list-style-type: disc;
     }
     .DefaultText--li {
         margin-bottom: 15px;
+        margin-left: 16px;
     }
     .DefaultText-topTitle {
         font-weight: normal;
