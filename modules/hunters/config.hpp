@@ -10,7 +10,10 @@
 class Hunters {
 	// start : point de départ du groupe de chasse, position de spawn aproximative initiale
 	// hunterSide : East, West, Indep
-	// condition : expression sous forme de chaîne de caractère, quand l'expression vaut faux, la chasse s'arrête
+	// condition :
+	//     expression sous forme de chaîne de caractère
+	//     vous devez déclarer cette variable dans l'init ou dans un script
+	//     quand l'expression vaut faux, la chasse s'arrête
 	// spawnDistance : distance de spawn entre les joueurs et le groupe de chasse
 	class Group1: Base {
 		start[]			= {7658, 7547, 0};
