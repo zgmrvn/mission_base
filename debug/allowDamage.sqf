@@ -13,7 +13,7 @@ player addAction [
 		[] spawn {
 			// tant que les dégâts sont désactivés
 			while {!CRP_var_debug_allowDamage} do {
-				// attente tant que
+				// on attend que
 				// caméra spectateur affichée || dégâts réactivés
 				waitUntil { !isNull (findDisplay 60492) || CRP_var_debug_allowDamage };
 
