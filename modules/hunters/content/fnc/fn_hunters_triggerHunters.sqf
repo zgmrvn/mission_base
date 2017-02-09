@@ -112,7 +112,17 @@ while {call compile _condition} do {
 		// on ajoute le nouveau groupe au tableau global
 		([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) pushBack _hunters;
 
-		// on révèle les joueurs au groupe
+		_hunters setSpeedMode "FULL";
+		_hunters setCombatMode "RED";
+		_hunters setBehaviour "AWARE";
+
+		// ajout d'un point de passage sur les joueurs
+		// sans ça, l'ia ne bouge pas si elle est trop loins des joueurs
+		_wp = _hunters addWaypoint [getPos (selectRandom _players), 0];
+		_wp setWaypointType "SAD";
+		_wp setWaypointCompletionRadius 20;
+
+		// en plus, on révèle les joueurs au groupe
 		{
 			_hunters reveal _x;
 		} forEach allPlayers;
