@@ -128,6 +128,17 @@ while {call compile _condition} do {
 		} forEach allPlayers;
 	};
 
+	// à chaque itération on re-révèle les joueurs aux chasseurs
+	_hunters = [CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs;
+
+	{
+		_player = _x;
+
+		{
+			_x reveal _player;
+		} forEach _hunters;
+	} forEach allPlayers;
+
 	// pause entre chaque vérification de l'état des groupes
 	sleep _pause;
 };
