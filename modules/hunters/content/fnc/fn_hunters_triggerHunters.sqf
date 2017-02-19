@@ -89,8 +89,6 @@ while {call compile _condition} do {
 		// récupération des joueurs sur zone
 		_players = [_lastPos, 1000, [west, east, independent]] call CRP_fnc_nearestPlayers;
 
-		systemChat str _lastPos;
-
 		// préparation de la position de spawn du futur groupe
 		_pos = _lastPos;
 
