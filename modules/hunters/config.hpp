@@ -16,10 +16,10 @@ class Hunters {
 	//     quand l'expression vaut faux, la chasse s'arrête
 	// spawnDistance : distance de spawn entre les joueurs et le groupe de chasse
 	class Group1: Base {
-		start[]			= {7658, 7547, 0};
+		start[]			= {7526, 7479, 0};
 		hunterSide		= "East";
 		condition		= "Z_var_group1";
-		spawnDistance	= 50;
+		spawnDistance	= 350;
 
 		// config des groupes possibles pour la chasse
 		// les classnames des groupes se trouvent dans CfgGroups
