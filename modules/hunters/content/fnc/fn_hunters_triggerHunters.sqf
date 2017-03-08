@@ -93,9 +93,9 @@ while {call compile _condition} do {
 		_futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
 
 		if (count _players > 0) then {
-			_player = selectRandom _players;
-			_lastPos = getPosATL _player;
-			_futurPos = _player getRelPos [_spawnDistance, random 360];
+			_player		= selectRandom _players;
+			_lastPos	= getPosATL _player;
+			_futurPos	= _player getRelPos [_spawnDistance, random 360];
 		};
 
 		// création du groupe
