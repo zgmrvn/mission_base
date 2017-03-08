@@ -3,7 +3,7 @@
 CRP_var_debug_allowDamage = true;
 
 player addAction [
-	"Désactiver dégâts",
+	"<t color='#ffae00'>[DEV] Désactiver les dégâts</t>",
 	{
 		player allowDamage false;
 		CRP_var_debug_allowDamage = false;
@@ -38,7 +38,7 @@ player addAction [
 ];
 
 player addAction [
-	"Activer dégâts",
+	"<t color='#ffae00'>[DEV] Activer les dégâts</t>",
 	{
 		player allowDamage true;
 		CRP_var_debug_allowDamage = true;
