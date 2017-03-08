@@ -90,17 +90,17 @@ while {call compile _condition} do {
 		_players = [_lastPos, 1000, [west, east, independent]] call CRP_fnc_nearestPlayers;
 
 		// préparation de la position de spawn du futur groupe
-		_pos = _lastPos;
+		_futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
 
 		if (count _players > 0) then {
 			_player = selectRandom _players;
 			_lastPos = getPosATL _player;
-			_pos = _player getRelPos [_spawnDistance, random 360];
+			_futurPos = _player getRelPos [_spawnDistance, random 360];
 		};
 
 		// création du groupe
 		_hunters = [
-			_pos,
+			_futurPos,
 			_side,
 			_group
 		] call BIS_fnc_spawnGroup;
