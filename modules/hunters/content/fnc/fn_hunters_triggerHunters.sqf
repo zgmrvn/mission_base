@@ -86,16 +86,50 @@ while {call compile _condition} do {
 			_group = _group call CRP_fnc_realShuffle;
 		};
 
+		systemChat str _lastPos;
+
 		// récupération des joueurs sur zone
 		_players = [_lastPos, 1000, [west, east, independent]] call CRP_fnc_nearestPlayers;
+		systemChat str (count _players);
+
+		// calcul du barycentre des joueurs récupérés
+		_barycenter = [0, 0, 0];
+
+		{
+			_barycenter = _barycenter vectorAdd (getPosASL _x);
+		} forEach _players;
+
+		_barycenter = _barycenter vectorMultiply (1 / (count _players));
 
 		// préparation de la position de spawn du futur groupe
 		_futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
 
-		if (count _players > 0) then {
-			_player		= selectRandom _players;
-			_lastPos	= getPosATL _player;
-			_futurPos	= _player getRelPos [_spawnDistance, random 360];
+		//if (count _players > 0) then {
+
+		// on recherche une position qui remplit le critère de distance de spawn minimum par rapport aux joueurs
+		// pour trouver cette position, on autorise 16 itérations aucours desquelles
+		// on incrémente la distance de recherche toutes les 3 itérations si aucune position n'a été trouvée
+		// la boucle est quitté prématurément quand une position est trouvée
+		_i = 1;
+		_m = 1.5;
+
+		while {_i <= 16} do {
+			// on cherche une position éloignée du barycentre _m* la distance de spawn souhaitée
+			_tempPos = [_barycenter, _spawnDistance * _m, random 360] call BIS_fnc_relPos;
+			_players = [_tempPos, _spawnDistance, [west, east, independent]] call CRP_fnc_nearestPlayers;
+
+			// si dans un rayon de 1* la distance de spawn shouaitée, aucun joueur n'a été trouvé
+			// on quitte la boucle et on définit la position de spawn du prochain groupe de chasse
+			if (count _players == 0) exitWith {
+				_futurPos = _tempPos;
+			};
+
+			// sinon, toutes les 3 itération infrutueuses, on ajoute 0.5* la distance de spawn à la distance de recherche
+			if ((_i mod 3) == 0) then {
+				_m = _m + 0.5;
+			};
+
+			_i = _i + 1;
 		};
 
 		// création du groupe
@@ -115,8 +149,8 @@ while {call compile _condition} do {
 		_hunters setBehaviour "AWARE";
 
 		// ajout d'un point de passage sur les joueurs
-		// sans ça, l'ia ne bouge pas si elle est trop loins des joueurs
-		_wp = _hunters addWaypoint [getPos (selectRandom _players), 0];
+		// sans ça, l'ia ne bouge pas si elle spawn trop loins des joueurs
+		_wp = _hunters addWaypoint [_barycenter, 0];
 		_wp setWaypointType "SAD";
 		_wp setWaypointCompletionRadius 20;
 
