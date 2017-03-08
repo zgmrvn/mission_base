@@ -37,10 +37,10 @@ while {call compile _condition} do {
 	// mise à jour du tableau des groupes qui composent une chasse
 	// on supprime les groupes dont tous les membres sont morts
 	// et on compte également le nombre d'IA vivantes dans la chasse
-	_count = 0;
+	private _count = 0;
 
 	for [{private _i = (count ([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs)) - 1}, {_i >= 0}, {_i = _i - 1}] do {
-		_alive = {alive _x} count units (([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) select _i);
+		private _alive = {alive _x} count units (([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) select _i);
 
 		// si tous les membres du groupe morts, on retire le groupe du tableau
 		if (_alive == 0) then {
@@ -52,7 +52,7 @@ while {call compile _condition} do {
 
 	// on actualise la position de la chasse pour les futures groupes créés
 	if (count ([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) > 0) then {
-		_units = units (([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) select 0);
+		private _units = units (([CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs) select 0);
 
 		{
 			if (alive _x) exitWith {
@@ -64,16 +64,16 @@ while {call compile _condition} do {
 	// si moins de 2 unités dans la chasse on créé un nouveau groupe
 	if (_count <= 2) then {
 		// selection d'un des types de groupes autorisés
-		_group = selectRandom _hunterGroups;
+		private _group = selectRandom _hunterGroups;
 
 		// on détermine si la donnée est une config de groupe ou un tableau de classenames d'unités
-		_customGroup = !((_group select 0) in ["West", "East", "Indep"]);
+		private _customGroup = !((_group select 0) in ["West", "East", "Indep"]);
 
 		// si on est dans le cas d'une config de groupe et pas un groupe custom
 		// concaténation des différentes parties qui composent le chemin de la config
 		// sinon, le tableau _group sera directement passé à la fonction de création du groupe
 		if (!_customGroup) then {
-			_path = configFile >> "CfgGroups";
+			private _path = configFile >> "CfgGroups";
 			{
 				_path = _path >> _x;
 			} forEach _group;
@@ -93,7 +93,7 @@ while {call compile _condition} do {
 		systemChat str (count _players);
 
 		// calcul du barycentre des joueurs récupérés
-		_barycenter = [0, 0, 0];
+		private _barycenter = [0, 0, 0];
 
 		{
 			_barycenter = _barycenter vectorAdd (getPosASL _x);
@@ -105,18 +105,18 @@ while {call compile _condition} do {
 		// todo : si à l'issue du processus de recherche qui suit, aucune position valide n'a été trouvé pour _futurPos
 		// todo : la position de l'itération précédente sera utilisé (_lastPos) et il se peut qu'entre temps, des joueurs aient atteint cette position
 		// todo : même si ce cas est peu probable, prévoir une alternative ou tout simplement augmenter le nombre max d'itérations de la boucle while qui suit
-		_futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
+		private _futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
 
 		// on recherche une position qui remplit le critère de distance de spawn minimum par rapport aux joueurs
 		// pour trouver cette position, on autorise 16 itérations aucours desquelles
 		// on incrémente la distance de recherche toutes les 3 itérations si aucune position n'a été trouvée
 		// la boucle est quitté prématurément quand une position est trouvée
-		_i = 1;
-		_m = 1.5;
+		private _i = 1;
+		private _m = 1.5;
 
 		while {_i <= 16} do {
 			// on cherche une position éloignée du barycentre _m* la distance de spawn souhaitée
-			_tempPos = [_barycenter, _spawnDistance * _m, random 360] call BIS_fnc_relPos;
+			private _tempPos = [_barycenter, _spawnDistance * _m, random 360] call BIS_fnc_relPos;
 			_players = [_tempPos, _spawnDistance, [west, east, independent]] call CRP_fnc_nearestPlayers;
 
 			// si dans un rayon de 1* la distance de spawn shouaitée, aucun joueur n'a été trouvé
@@ -134,7 +134,7 @@ while {call compile _condition} do {
 		};
 
 		// création du groupe
-		_hunters = [
+		private _hunters = [
 			_futurPos,
 			_side,
 			_group
@@ -151,7 +151,7 @@ while {call compile _condition} do {
 
 		// ajout d'un point de passage sur les joueurs
 		// sans ça, l'ia ne bouge pas si elle spawn trop loins des joueurs
-		_wp = _hunters addWaypoint [_barycenter, 0];
+		private _wp = _hunters addWaypoint [_barycenter, 0];
 		_wp setWaypointType "SAD";
 		_wp setWaypointCompletionRadius 20;
 
@@ -162,10 +162,10 @@ while {call compile _condition} do {
 	};
 
 	// à chaque itération on re-révèle les joueurs aux chasseurs
-	_hunters = [CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs;
+	private _hunters = [CRP_var_hunters_hunters, _this] call BIS_fnc_getFromPairs;
 
 	{
-		_player = _x;
+		private _player = _x;
 
 		{
 			_x reveal _player;
