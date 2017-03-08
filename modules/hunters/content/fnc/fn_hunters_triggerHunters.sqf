@@ -104,8 +104,6 @@ while {call compile _condition} do {
 		// préparation de la position de spawn du futur groupe
 		_futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
 
-		//if (count _players > 0) then {
-
 		// on recherche une position qui remplit le critère de distance de spawn minimum par rapport aux joueurs
 		// pour trouver cette position, on autorise 16 itérations aucours desquelles
 		// on incrémente la distance de recherche toutes les 3 itérations si aucune position n'a été trouvée
