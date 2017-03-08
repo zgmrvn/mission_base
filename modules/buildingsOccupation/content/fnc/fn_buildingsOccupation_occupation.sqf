@@ -3,11 +3,12 @@
 	http://www.corp-arma.fr
 */
 
-private _center		= param [0, [0, 0, 0], [objNull, []], 3];
-private _radius		= param [1, 100, [0]];
-private _unitsCount	= param [2, 5, [0]];
-private _side		= param [3, east, [sideUnknown]];
-private _units		= param [4, [], [[]]];
+private _center			= param [0, [0, 0, 0], [objNull, []], 3];
+private _radius			= param [1, 100, [0]];
+private _unitsCount		= param [2, 5, [0]];
+private _side			= param [3, east, [sideUnknown]];
+private _units			= param [4, [], [[]]];
+private _keepPosition	= param [5, 0.5, [0]];
 
 private _positions	= []; // toutes les positions trouvées dans la zone
 private _buildings	= nearestObjects [_center, ["Building"], _radius];
@@ -53,6 +54,14 @@ for [{private _i = 0}, {(_i < _unitsCount) && {_i < _positionsCount}}, {_i = _i 
 	_wp setWaypointCombatMode "RED";
 	_wp setWaypointCompletionRadius 3;
 	_unit setUnitPos "UP";
+
+	// si un poucentage d'unités fixes demandé
+	// on désactive la capacité de l'ia à chercher un chemin
+	if (_keepPosition != 0) then {
+		if ((random 1) < _keepPosition) then {
+			_unit disableAI "PATH";
+		};
+	};
 
 	_return pushBack _unit;
 };

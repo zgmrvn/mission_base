@@ -4,6 +4,18 @@
 */
 
 class BuildingsOccupation {
+	class Base {
+		center[]		= {0, 0, 0};
+		radius			= 100;
+		unitCount		= 5;
+		side			= "East";
+		keepPosition	= 0;
+
+		units[] = {
+			"O_G_Soldier_F"
+		};
+	};
+
 	#include "..\config.hpp"
 
 	// bâtiments et positions d'occupation

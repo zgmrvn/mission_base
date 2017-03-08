@@ -20,11 +20,12 @@ if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "enabled")) == 1) 
 			// pause entre chaque zone d'occupation
 			sleep _pause;
 
-			_center		= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "center");
-			_radius		= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "radius");
-			_unitCount	= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "unitCount");
-			_side		= getText (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "side");
-			_units		= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "units");
+			_center			= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "center");
+			_radius			= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "radius");
+			_unitCount		= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "unitCount");
+			_side			= getText (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "side");
+			_units			= getArray (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "units");
+			_keepPosition	= getNumber (missionConfigFile >> "BuildingsOccupation" >> "Occupations" >> _x >> "keepPosition");
 
 			// on détermine le side
 			_side = toUpper _side;
@@ -45,7 +46,7 @@ if ((getNumber (missionConfigFile >> "BuildingsOccupation" >> "enabled")) == 1) 
 			};
 
 			// création des unités
-			_occupation = [_center, _radius, _unitCount, _side, _units] call CRP_fnc_buildingsOccupation_occupation;
+			_occupation = [_center, _radius, _unitCount, _side, _units, _keepPosition] call CRP_fnc_buildingsOccupation_occupation;
 
 			if (_return) then {
 				[CPR_var_buildingsOccupation_occupation, _x, _occupation] call BIS_fnc_setToPairs;

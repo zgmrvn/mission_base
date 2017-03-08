@@ -16,14 +16,15 @@ return = 0;
 pause = 4;
 
 // informations sur les zones d'occupation
-// sides possibles : West, East, Indep, Civ
 class Occupations {
-	class WestHouse {
-		center[]	= {7460.1, 7509.3, 0};
-		radius		= 25;
-		unitCount	= 2;
-		side		= "Indep";
+	class WestHouse: Base {
+		center[]		= {7460.1, 7509.3, 0}; // centre de la zone d'occupation
+		radius			= 25; // rayon de la zone
+		unitCount		= 2; // nombre d'unités dans la zone
+		side			= "Indep"; // sides possibles : West, East, Indep, Civ
+		keepPosition	= 0.5; // pourcentage d'ia qui ne quittera pas son poste, facultatif, par défaut 0
 
+		// classnames des unités à utiliser pour occuper la zone
 		units[] = {
 			"I_Soldier_unarmed_F",
 			"I_Soldier_AR_F",
@@ -31,11 +32,11 @@ class Occupations {
 		};
 	};
 
-	class EastHouse {
-		center[]	= {7585.2, 7509.5, 0};
-		radius		= 25;
-		unitCount	= 2;
-		side		= "East";
+	class EastHouse: Base {
+		center[]		= {7585.2, 7509.5, 0};
+		radius			= 25;
+		unitCount		= 2;
+		side			= "East";
 
 		units[] = {
 			"O_G_Soldier_TL_F",
