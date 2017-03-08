@@ -102,6 +102,9 @@ while {call compile _condition} do {
 		_barycenter = _barycenter vectorMultiply (1 / (count _players));
 
 		// préparation de la position de spawn du futur groupe
+		// todo : si à l'issue du processus de recherche qui suit, aucune position valide n'a été trouvé pour _futurPos
+		// todo : la position de l'itération précédente sera utilisé (_lastPos) et il se peut qu'entre temps, des joueurs aient atteint cette position
+		// todo : même si ce cas est peu probable, prévoir une alternative ou tout simplement augmenter le nombre max d'itérations de la boucle while qui suit
 		_futurPos = _lastPos; // par défaut, la future position vaut l'ancienne
 
 		// on recherche une position qui remplit le critère de distance de spawn minimum par rapport aux joueurs
