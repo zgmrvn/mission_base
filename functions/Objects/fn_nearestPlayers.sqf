@@ -39,7 +39,7 @@ private _units = nearestObjects [_center, _base, _radius];
 
 // suppression des ia
 if (!_debug) then {
-	for [{_i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
+	for [{private _i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
 		if (!isPlayer (_units select _i)) then {
 			_units deleteAt _i;
 		};
@@ -47,7 +47,7 @@ if (!_debug) then {
 };
 
 // suppression de ce qui est mort
-for [{_i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
+for [{private _i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
 	if (!alive (_units select _i)) then {
 		_units deleteAt _i;
 	};
@@ -56,7 +56,7 @@ for [{_i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
 // compatibilité ACE
 // suppression des unités inconscientes
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then {
-	for [{_i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
+	for [{private _i = count _units}, {_i >= 0}, {_i = _i - 1}] do {
 		if ((_units select _i) getVariable "ace_isunconscious") then {
 			_units deleteAt _i;
 		};
