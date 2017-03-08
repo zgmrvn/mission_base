@@ -86,11 +86,8 @@ while {call compile _condition} do {
 			_group = _group call CRP_fnc_realShuffle;
 		};
 
-		systemChat str _lastPos;
-
 		// récupération des joueurs sur zone
 		_players = [_lastPos, 1000, [west, east, independent]] call CRP_fnc_nearestPlayers;
-		systemChat str (count _players);
 
 		// calcul du barycentre des joueurs récupérés
 		private _barycenter = [0, 0, 0];
