@@ -119,6 +119,7 @@ while {call compile _condition} do {
 			// si dans un rayon de 1* la distance de spawn shouaitée, aucun joueur n'a été trouvé
 			// on quitte la boucle et on définit la position de spawn du prochain groupe de chasse
 			if (count _players == 0) exitWith {
+				_tempPos set [2, 0]; // pour être sûr que le groupe spawn au niveau du sol
 				_futurPos = _tempPos;
 			};
 
