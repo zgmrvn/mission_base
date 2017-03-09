@@ -4,7 +4,7 @@
 */
 
 // activer ou désactiver le module
-enabled = 1;
+enabled = 0;
 
 // effet de feuilles qui tombent dans les forêts
 
