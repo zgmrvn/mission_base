@@ -19,9 +19,6 @@ if (isServer) then {
 
 	if (!isDedicated) then {
 		X_client = true;
-	};
-
-	if (isServer && !isDedicated) then {
 		X_editor = true;
 	};
 
