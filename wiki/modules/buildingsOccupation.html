@@ -40,14 +40,19 @@
 					'[com]\/\/ la variable "CPR_var_buildingsOccupation_ready" vaut vrai une fois que le module a terminé de créer les unités[/com][br]' +
 					'return = [num]0[/num];[br]' +
 					'[br]' +
+					'[com]\/\/ délais en secondes entre la création de deux unités[/com][br]' +
+					'[com]\/\/ permet de réduire la charge serveur momentanée[/com][br]' +
+					'pause = [num]4[/num];[br]' +
+					'[br]' +
 					'[com]\/\/ informations sur les zones d\'occupation[/com][br]' +
 					'[com]\/\/ sides possibles : West, East, Indep, Civ[/com][br]' +
-					'[ckey]class[/ckey] Occupations {[br]' +
+					'[ckey]class[/ckey] Occupations[hin]: Base[/hin] {[br]' +
 					'[tab][ckey]class[/ckey] WestHouse {[br]' +
 					'[tab][tab]center[] = {[num]7460.1[/num], [num]7509.3[/num], [num]0[/num]};[br]' +
 					'[tab][tab]radius = [num]25[/num];[br]' +
 					'[tab][tab]unitsCount = [num]2[/num];[br]' +
 					'[tab][tab]side = [str]"Indep"[/str];[br]' +
+					'[tab][tab]keepPosition = [num]0.5[/num]; [com]\/\/ pourcentage d\'ia qui ne quittera pas son poste, facultatif, par défaut 0[/com][br]' +
 					'[br]' +
 					'[tab][tab]units[] = {[br]' +
 					'[tab][tab][tab][str]"I_Soldier_unarmed_F"[/str],[br]' +
@@ -56,7 +61,7 @@
 					'[tab][tab]};[br]' +
 					'[tab]};[br]' +
 					'[br]' +
-					'[tab][ckey]class[/ckey] EastHouse {[br]' +
+					'[tab][ckey]class[/ckey] EastHouse[hin]: Base[/hin] {[br]' +
 					'[tab][tab]center[] = {[num]7585.2[/num], [num]7509.5[/num], [num]0[/num]};[br]' +
 					'[tab][tab]radius = [num]25[/num];[br]' +
 					'[tab][tab]unitsCount = [num]2[/num];[br]' +
@@ -93,8 +98,9 @@
 					'[var]_unitCount[/var] = [num]2[/num];[br]' +
 					'[var]_side[/var] = [cmd]west[/cmd];[br]' +
 					'[var]_units[/var] = [spec][[/spec][str]"O_G_Soldier_TL_F"[/str], [str]"O_G_Soldier_exp_F"[/str][spec]][/spec];[br]' +
+					'[var]_keepPosition[/var] = [num]0.5[/num];[br]' +
 					'[br]' +
-					'[var]_occupation[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_unitCount[/var], [var]_side[/var], [var]_units[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_buildingsOccupation_occupation[/fnc];[br]'
+					'[var]_occupation[/var] = [spec][[/spec][var]_center[/var], [var]_radius[/var], [var]_unitCount[/var], [var]_side[/var], [var]_units[/var], [var]_keepPosition[/var][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_buildingsOccupation_occupation[/fnc];[br]'
 				));
 			</script>
 		</p>
