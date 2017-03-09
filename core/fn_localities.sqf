@@ -5,6 +5,7 @@
 
 X_server	= false;
 X_client	= false;
+X_headless	= false;
 X_editor	= false;
 X_init		= false;
 X_JIP		= false;
@@ -27,6 +28,10 @@ if (isServer) then {
 	X_init = true;
 } else {
 	X_client = true;
+
+	if (!hasInterface) then {
+		X_headless = true;
+	};
 
 	if (isNull player) then {
 		X_JIP = true;
