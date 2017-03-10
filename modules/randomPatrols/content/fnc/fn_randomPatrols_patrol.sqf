@@ -21,7 +21,7 @@ private _angle = random 360;
 
 // on détermine la position des points de passage
 for [{private _i = _waypointsCount}, {_i > 0}, {_i = _i - 1}] do {
-	_pos = [_center, (_radius / 2) + (random _radius / 2), _angle + (_part * _i * _rotation)] call BIS_fnc_relPos,
+	private _pos = [_center, (_radius / 2) + (random _radius / 2), _angle + (_part * _i * _rotation)] call BIS_fnc_relPos,
 	_waypointsPositions pushBack _pos;
 };
 
@@ -43,9 +43,9 @@ _group setBehaviour "RED";
 _group setSpeedMode "LIMITED";
 
 {
-	_type = ["MOVE", "CYCLE"] select (_forEachIndex == ((count _waypointsPositions) - 1));
+	private _type = ["MOVE", "CYCLE"] select (_forEachIndex == ((count _waypointsPositions) - 1));
 
-	_wp = _group addWaypoint [_waypointsPositions select _forEachIndex, 0];
+	private _wp = _group addWaypoint [_waypointsPositions select _forEachIndex, 0];
 	_wp setWaypointCompletionRadius 4;
 	_wp setWaypointFormation (selectRandom _formations);
 	_wp setWaypointBehaviour "SAFE";
