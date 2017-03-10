@@ -94,7 +94,7 @@ if ((getNumber (missionConfigFile >> "AreaPatrols" >> "enabled")) == 1) then {
 
 				// dans le cas d'un groupe custom, mélange du tableau des classnames
 				if (_customGroup) then {
-					_group = _group call CRP_fnc_realShuffle;
+					_group = _group call BIS_fnc_arrayShuffle;
 				};
 
 				// création de la patrouille

@@ -27,7 +27,7 @@ private _return		= [];
 	};
 } forEach _buildings;
 
-_positions = _positions call CRP_fnc_realShuffle;
+_positions = _positions call BIS_fnc_arrayShuffle;
 private _positionsCount = count _positions;
 
 // on place les unités dans les bâtiments

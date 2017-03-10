@@ -15,10 +15,6 @@ class CRP {
 		class addActionGlobal {};
 	};
 
-	class Array {
-		class realShuffle {};
-	};
-
 	class Tasks {
 		class createTaskGlobal {};
 		class setTaskStateGlobal {};
