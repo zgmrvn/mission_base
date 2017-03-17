@@ -4,7 +4,7 @@
 */
 
 // activer ou désactiver le module
-enabled = 1;
+enabled = 0;
 
 // si activé, la variable globale "CPR_var_areaPatrols_patrolAreas" sera créée
 // c'est un tableau associatif des zones de patrouille créées par le module
