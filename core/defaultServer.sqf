@@ -13,8 +13,5 @@
 // module de patrouilles aléatoires en cercle autour du point spécifié
 #include "..\modules\randomPatrols\content\initScriptServer.sqf"
 
-// module patrouilles aléatoires dans une large zone
-#include "..\modules\areaPatrols\content\initScriptServer.sqf"
-
 // module de choix de l'heure de départ
 #include "..\modules\startTime\content\initScriptServer.sqf"
