@@ -34,9 +34,6 @@ class CfgFunctions {
 #include "modules\taxiBoat\content\wrapper.hpp"
 #include "modules\taxiBoat\content\ui.hpp"
 
-// module d'occupation des bâtiments par l'IA
-#include "modules\buildingsOccupation\content\wrapper.hpp"
-
 // module de patrouilles aléatoires en cercle autour du point spécifié
 #include "modules\randomPatrols\content\wrapper.hpp"
 
