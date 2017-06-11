@@ -22,10 +22,6 @@ class CfgFunctions {
 // module de briefing
 #include "modules\missionBriefing\content\wrapper.hpp"
 
-// module de saut en parachute classique
-#include "modules\paraJumpClassic\content\wrapper.hpp"
-#include "modules\paraJumpClassic\content\ui.hpp"
-
 // module de saut en parachute avancé
 #include "modules\paraJumpAdvanced\content\wrapper.hpp"
 #include "modules\paraJumpAdvanced\content\ui.hpp"
@@ -37,9 +33,6 @@ class CfgFunctions {
 // module de taxi en bateaux
 #include "modules\taxiBoat\content\wrapper.hpp"
 #include "modules\taxiBoat\content\ui.hpp"
-
-// module de caméra spectateur
-#include "modules\spectatorCamera\content\wrapper.hpp"
 
 // module d'occupation des bâtiments par l'IA
 #include "modules\buildingsOccupation\content\wrapper.hpp"
