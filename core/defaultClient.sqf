@@ -15,10 +15,6 @@
 // script de vérification des conditions d'intro et d'exécution de l'intro
 #include "..\modules\intro\content\initScriptClient.sqf"
 
-// module de téléportation sur le chef d'équipe
-// script de création des actions de téléportation sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\teleportToLeader\content\initScriptClient.sqf"
-
 // module de saut en parachute classique
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
 #include "..\modules\paraJumpClassic\content\initScriptClient.sqf"
