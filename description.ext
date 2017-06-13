@@ -22,10 +22,6 @@ class CfgFunctions {
 // module de briefing
 #include "modules\missionBriefing\content\wrapper.hpp"
 
-// module de saut en parachute avancé
-#include "modules\paraJumpAdvanced\content\wrapper.hpp"
-#include "modules\paraJumpAdvanced\content\ui.hpp"
-
 // module de projection en bâteaux
 #include "modules\boatProjection\content\wrapper.hpp"
 #include "modules\boatProjection\content\ui.hpp"
@@ -58,8 +54,4 @@ class Params {
 	// paramètres du module de multiplication de l'ia
 	// utilisé par les autres modules de création d'IA
 	#include "modules\aiMultiplier\content\params.hpp"
-};
-
-class CfgSounds {
-	#include "modules\paraJumpAdvanced\content\sounds.hpp"
 };

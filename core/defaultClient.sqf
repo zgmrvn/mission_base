@@ -15,10 +15,6 @@
 // script de vérification des conditions d'intro et d'exécution de l'intro
 #include "..\modules\intro\content\initScriptClient.sqf"
 
-// module de saut en parachute avancé
-// script de création des actions sur les drapeaux créés par le module "ActionsFlags"
-#include "..\modules\paraJumpAdvanced\content\initScriptClient.sqf"
-
 // module de projection en bâteaux
 // script de création des actions sur les drapeaux créés par le module "ActionsFlags"
 #include "..\modules\boatProjection\content\initScriptClient.sqf"
