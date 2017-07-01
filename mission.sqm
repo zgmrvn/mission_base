@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7534.5562,89.10051,7375.9678};
-		dir[]={-0.097082101,-0.65058583,0.75336641};
-		up[]={-0.083168529,0.75930315,0.64541036};
-		aside[]={0.99183148,-2.0051084e-006,0.12781052};
+		pos[]={7485.7651,36.756378,7398.7568};
+		dir[]={0.51883721,-0.42010087,0.74469656};
+		up[]={0.24028589,0.9073754,0.34488359};
+		aside[]={0.82052553,-2.2155e-006,-0.57166886};
 	};
 };
 binarizationWanted=0;
@@ -337,6 +337,25 @@ class CustomAttributes
 		name="Scenario";
 		class Attribute0
 		{
+			property="EnableTargetDebug";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		class Attribute1
+		{
 			property="EnableDebugConsole";
 			expression="true";
 			class Value
@@ -354,7 +373,7 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=1;
+		nAttributes=2;
 	};
 };
 class Mission
