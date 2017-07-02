@@ -30,9 +30,6 @@ class CfgFunctions {
 #include "modules\taxiBoat\content\wrapper.hpp"
 #include "modules\taxiBoat\content\ui.hpp"
 
-// module de patrouilles aléatoires en cercle autour du point spécifié
-#include "modules\randomPatrols\content\wrapper.hpp"
-
 // module de choix de l'heure de départ
 #include "modules\startTime\content\wrapper.hpp"
 

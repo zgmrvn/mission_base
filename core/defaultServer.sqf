@@ -7,8 +7,5 @@
 // par les différents scripts et modules pour l'ajout d'actions
 #include "..\modules\actionsFlags\content\initScriptServer.sqf"
 
-// module de patrouilles aléatoires en cercle autour du point spécifié
-#include "..\modules\randomPatrols\content\initScriptServer.sqf"
-
 // module de choix de l'heure de départ
 #include "..\modules\startTime\content\initScriptServer.sqf"
