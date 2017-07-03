@@ -7,10 +7,6 @@ class CfgFunctions {
 	#include "functions\cfgFunctions.hpp"
 };
 
-// paramètres et classes de base des dialogs
-#include "core\defines.hpp"
-#include "core\ui.hpp"
-
 // module de de gestion de l'intro
 #include "modules\intro\content\wrapper.hpp"
 
