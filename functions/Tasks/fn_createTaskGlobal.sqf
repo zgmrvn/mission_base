@@ -7,7 +7,7 @@
 	DESCRIPTION :	créé une tâche de façon globale, compatible JIP
 
 	EXAMPLE :
-		["test", "titre tâche", "description tâche", true] call CRP_fnc_createTaskGlobal;
+		["test", "titre tâche", "description tâche", true] call CORP_fnc_createTaskGlobal;
 */
 
 params [
