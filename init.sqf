@@ -3,9 +3,6 @@
 	http://www.corp-arma.fr
 */
 
-// déclaration post-init des fonctions
-#include "functions\functions.sqf"
-
 // inclusion de l'initialisation client et serveur
 #include "init\clientServer.sqf"
 
