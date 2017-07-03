@@ -14,7 +14,3 @@
 // module d'intro
 // script de vérification des conditions d'intro et d'exécution de l'intro
 #include "..\modules\intro\content\initScriptClient.sqf"
-
-// module d'effet de particules
-// script d'initialisation des boucles de vérification de l'environnement autour du joueur
-#include "..\modules\particles\content\initScriptClient.sqf"
