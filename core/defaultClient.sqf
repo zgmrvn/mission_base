@@ -3,10 +3,6 @@
 	http://www.corp-arma.fr
 */
 
-// dégroupage des joueurs pour éviter
-// les ordres et communications automatiques
-[player] joinSilent grpNull;
-
 // module de briefing
 // script de création des "diaries"
 #include "..\modules\missionBriefing\content\initScriptClient.sqf"
