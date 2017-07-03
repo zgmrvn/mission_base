@@ -16,10 +16,8 @@
 
 		// si une heure a été selectionnée
 		if (_time >= 0) then {
-			_time spawn {
-				_date = date;
-				setDate [_date select 0, _date select 1, _date select 2, _this, 0];
-			};
+			_date = date;
+			setDate [_date select 0, _date select 1, _date select 2, _time, 0];
 		};
 	};
 };
