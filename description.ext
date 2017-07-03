@@ -22,10 +22,6 @@ class CfgFunctions {
 // module de briefing
 #include "modules\missionBriefing\content\wrapper.hpp"
 
-// module de projection en bâteaux
-#include "modules\boatProjection\content\wrapper.hpp"
-#include "modules\boatProjection\content\ui.hpp"
-
 // module de taxi en bateaux
 #include "modules\taxiBoat\content\wrapper.hpp"
 #include "modules\taxiBoat\content\ui.hpp"
