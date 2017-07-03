@@ -397,7 +397,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=13;
+		items=12;
 		class Item0
 		{
 			dataType="Marker";
@@ -407,16 +407,6 @@ class Mission
 			id=0;
 		};
 		class Item1
-		{
-			dataType="Group";
-			side="West";
-			class Attributes
-			{
-			};
-			id=1;
-			atlOffset=-5;
-		};
-		class Item2
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -506,7 +496,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Object";
 			class PositionInfo
@@ -522,7 +512,7 @@ class Mission
 			id=64;
 			type="B_supplyCrate_F";
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -532,7 +522,7 @@ class Mission
 			id=65;
 			type="CORP_Module_GearSystem";
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -544,7 +534,7 @@ class Mission
 			id=663;
 			type="HeadlessClient_F";
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -556,7 +546,7 @@ class Mission
 			id=736;
 			type="HeadlessClient_F";
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -568,7 +558,7 @@ class Mission
 			id=737;
 			type="HeadlessClient_F";
 		};
-		class Item8
+		class Item7
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -658,7 +648,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item9
+		class Item8
 		{
 			dataType="Group";
 			side="West";
@@ -1287,7 +1277,7 @@ class Mission
 			};
 			id=751;
 		};
-		class Item10
+		class Item9
 		{
 			dataType="Group";
 			side="West";
@@ -1916,7 +1906,7 @@ class Mission
 			};
 			id=759;
 		};
-		class Item11
+		class Item10
 		{
 			dataType="Group";
 			side="West";
@@ -1945,7 +1935,7 @@ class Mission
 			};
 			id=768;
 		};
-		class Item12
+		class Item11
 		{
 			dataType="Logic";
 			class PositionInfo
