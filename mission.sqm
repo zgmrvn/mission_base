@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7521.0562,45.668171,7396.1392};
-		dir[]={-0.0089967754,-0.57368261,0.81918252};
-		up[]={-0.006300333,0.81895095,0.57383996};
-		aside[]={0.99996912,-2.1819515e-006,0.010983341};
+		pos[]={7521.0752,33.504547,7399.5088};
+		dir[]={0.0036893534,-0.56206501,0.82723862};
+		up[]={0.0025095111,0.82696748,0.56225586};
+		aside[]={1.0000187,-2.1680389e-006,-0.0044588493};
 	};
 };
 binarizationWanted=0;
@@ -27,8 +27,6 @@ addons[]=
 {
 	"A3_Ui_F",
 	"A3_Characters_F",
-	"A3_Structures_F_Households_House_Big01",
-	"A3_Structures_F_Households_Stone_Big",
 	"A3_Modules_F_StrategicMap",
 	"A3_Weapons_F_Ammoboxes",
 	"crp_cgs",
@@ -38,7 +36,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=7;
+		items=6;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -55,32 +53,25 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="A3_Structures_F_Households";
-			name="Arma 3 - Houses";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item3
-		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="crp_cgs";
 			name="crp_cgs";
 			author="CORP Modding Studio";
 		};
-		class Item6
+		class Item5
 		{
 			className="acex_headless";
 			name="ACEX - Headless";
@@ -399,7 +390,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=11;
+		items=9;
 		class Item0
 		{
 			dataType="Marker";
@@ -499,38 +490,6 @@ class Mission
 		};
 		class Item2
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={7460.375,8.0663748,7509.3887};
-				angles[]={0,3.9705961,0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=51;
-			type="Land_i_House_Big_01_V1_F";
-		};
-		class Item3
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={7583.9644,6.842514,7511.1523};
-				angles[]={0,1.6397597,0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=53;
-			type="Land_i_Stone_HouseBig_V3_F";
-		};
-		class Item4
-		{
 			dataType="Logic";
 			class PositionInfo
 			{
@@ -619,7 +578,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item5
+		class Item3
 		{
 			dataType="Object";
 			class PositionInfo
@@ -635,7 +594,7 @@ class Mission
 			id=64;
 			type="B_supplyCrate_F";
 		};
-		class Item6
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -645,7 +604,7 @@ class Mission
 			id=65;
 			type="CORP_Module_GearSystem";
 		};
-		class Item7
+		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -657,7 +616,7 @@ class Mission
 			id=663;
 			type="HeadlessClient_F";
 		};
-		class Item8
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -669,7 +628,7 @@ class Mission
 			id=736;
 			type="HeadlessClient_F";
 		};
-		class Item9
+		class Item7
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -681,7 +640,7 @@ class Mission
 			id=737;
 			type="HeadlessClient_F";
 		};
-		class Item10
+		class Item8
 		{
 			dataType="Logic";
 			class PositionInfo
