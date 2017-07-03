@@ -3,7 +3,7 @@
 	http://www.corp-arma.fr
 */
 
-class CRP {
+class CORP {
 	class Framework {
 		class localities {
 			file	= "core\fn_localities.sqf";
