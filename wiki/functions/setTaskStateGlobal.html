@@ -18,7 +18,7 @@
 	<h1 class="DefaultInner w-12 DefaultText DefaultText-topTitle">setTaskStateGlobal</h1>
 
 	<p class="DefaultInner w-8 DefaultText DefaultText--justify">
-		Cette fonction permet de changer l'état des tâches créées avec la fonction <span class="Code-inline">CRP_fnc_createTaskGlobal</span>, peu importe qu'elle soit exécutée côté serveur ou côté client. Le JIP est pris en charge.
+		Cette fonction permet de changer l'état des tâches créées avec la fonction <span class="Code-inline">CORP_fnc_createTaskGlobal</span>, peu importe qu'elle soit exécutée côté serveur ou côté client. Le JIP est pris en charge.
 	</p>
 
 	<!-- syntaxe -->
@@ -27,7 +27,7 @@
 		<p class="Code-inner Code-inner--sqf">
 			<script type="text/javascript">
 				document.write(bbcodeParser.bbcodeToHtml(
-					'[spec][[/spec][com]label:string[/com], [com]état:string ([/com], [com]notification:bool[/com], [com]message:string)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];'
+					'[spec][[/spec][com]label:string[/com], [com]état:string ([/com], [com]notification:bool[/com], [com]message:string)[/com][spec]][/spec] [cmd]call[/cmd] [fnc]CORP_fnc_setTaskStateGlobal[/fnc];'
 				));
 			</script>
 		</p>
@@ -49,17 +49,17 @@
 			<script type="text/javascript">
 				document.write(bbcodeParser.bbcodeToHtml(
 					'[com]\/\/ change l\'état de la tâche avec message personnalisée[/com][br]' +
-					'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str], [bool]true[/bool], [str]"vous avez échoué"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
+					'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str], [bool]true[/bool], [str]"vous avez échoué"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CORP_fnc_setTaskStateGlobal[/fnc];[br]' +
 					'[br]' +
 					'[com]\/\/ change l\'état de la tâche avec message par défaut (titre de la tâche)[/com][br]' +
-					'[spec][[/spec][str]"test"[/str], [str]"Succeeded"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
+					'[spec][[/spec][str]"test"[/str], [str]"Succeeded"[/str], [bool]true[/bool][spec]][/spec] [cmd]call[/cmd] [fnc]CORP_fnc_setTaskStateGlobal[/fnc];[br]' +
 					'[br]' +
 					'[com]\/\/ change l\'état de la tâche sans notification[/com][br]' +
-					'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];[br]' +
+					'[spec][[/spec][str]"test"[/str], [str]"Failed"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CORP_fnc_setTaskStateGlobal[/fnc];[br]' +
 					'[br]' +
 					'[com]\/\/ créer une tâche sans notifier les joueurs puis changer l\'état et notifier les joueurs[/com][br]' +
-					'[spec][[/spec][str]"otages"[/str], [str]"Libérer les otages"[/str], [str]""[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_createTaskGlobal[/fnc];[br]' +
-					'[spec][[/spec][str]"otages"[/str], [str]"Succeeded"[/str], [bool]true[/bool], [str]"Vous passiez par là et avez libéré des otages"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CRP_fnc_setTaskStateGlobal[/fnc];'
+					'[spec][[/spec][str]"otages"[/str], [str]"Libérer les otages"[/str], [str]""[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CORP_fnc_createTaskGlobal[/fnc];[br]' +
+					'[spec][[/spec][str]"otages"[/str], [str]"Succeeded"[/str], [bool]true[/bool], [str]"Vous passiez par là et avez libéré des otages"[/str][spec]][/spec] [cmd]call[/cmd] [fnc]CORP_fnc_setTaskStateGlobal[/fnc];'
 				));
 			</script>
 		</p>
