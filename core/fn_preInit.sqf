@@ -20,7 +20,7 @@ if (isServer) then {
 
 	if (!isDedicated) then {
 		X_client = true;
-		X_editor = true;
+		X_editor = !is3DENMultiplayer;
 	};
 
 	X_init = true;
