@@ -22,10 +22,10 @@ params [
 
 // si je suis le serveur, je demande aux joueur d'exécuter cette fonction, même pour les JIP
 if (isDedicated) then {
-	["SET", [_ref, _state, _notif, _text]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+	["SET", [_ref, _state, _notif, _text]] remoteExec ["CORP_fnc_taskProceed", X_remote_client, true];
 };
 
 // sinon, si je suis un joueur
 if (!isDedicated) then {
-	["SET", [_ref, _state, _notif, _text]] remoteExec ["CRP_fnc_taskProceed", X_remote_server];
+	["SET", [_ref, _state, _notif, _text]] remoteExec ["CORP_fnc_taskProceed", X_remote_server];
 };

@@ -4,7 +4,7 @@
 
 	NOM :			taskProceed
 	AUTEUR :		zgmrvn
-	DESCRIPTION :	logique derrière CRP_fnc_createTaskGlobal et CRP_fnc_setTaskStateGlobal, cette fonction ne devrait jamais être utilisée directement
+	DESCRIPTION :	logique derrière CORP_fnc_createTaskGlobal et CORP_fnc_setTaskStateGlobal, cette fonction ne devrait jamais être utilisée directement
 */
 
 params [
@@ -25,32 +25,32 @@ switch (_mode) do
 		// si je suis le serveur, on demande aux joueurs d'exécuter cette fonction, même pour les JIP
 		if (isDedicated) then {
 			// si le tableau des tâches n'existe pas, on le créé
-			if (isNil {CRP_var_tasks}) then {
-				CRP_var_tasks = [];
+			if (isNil {CORP_var_tasks}) then {
+				CORP_var_tasks = [];
 			};
 
 			// si la tâche n'exite pas déjà
-			if !(_ref in CRP_var_tasks) then {
+			if !(_ref in CORP_var_tasks) then {
 				// on brodcast
-				["ADD", [_ref, _title, _desc, _notif]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+				["ADD", [_ref, _title, _desc, _notif]] remoteExec ["CORP_fnc_taskProceed", X_remote_client, true];
 
 				// puis on enregistre la référence de la tâche créée
-				CRP_var_tasks pushBack _ref;
+				CORP_var_tasks pushBack _ref;
 			};
 		};
 
 		// si je suis un joueur
 		if (!isDedicated) then {
 			// si le tableau des tâches n'existe pas, on le créé
-			if (isNil {CRP_var_tasks}) then {
-				CRP_var_tasks = [];
+			if (isNil {CORP_var_tasks}) then {
+				CORP_var_tasks = [];
 			};
 
 			// si la tâche n'éxiste pas déjà
-			if (isNil {[CRP_var_tasks, _ref] call BIS_fnc_getFromPairs}) then {
+			if (isNil {[CORP_var_tasks, _ref] call BIS_fnc_getFromPairs}) then {
 				// je créé la tâche et la sauvegarde dans le tableau des tâches
 				_task = player createSimpleTask [_ref];
-				[CRP_var_tasks, _ref, [_task, _title]] call BIS_fnc_setToPairs;
+				[CORP_var_tasks, _ref, [_task, _title]] call BIS_fnc_setToPairs;
 
 				// on décrit la tâche
 				_task setSimpleTaskDescription [_desc, _title, ""];
@@ -74,9 +74,9 @@ switch (_mode) do
 		// si je suis le serveur, je demande aux joueurs d'exécuter cette fonction, même pour les JIP
 		if (isDedicated) then {
 			// si cette tâche existe
-			if (_ref in CRP_var_tasks) then {
+			if (_ref in CORP_var_tasks) then {
 				// on brodcast
-				["SET", [_ref, _state, _notif, _text]] remoteExec ["CRP_fnc_taskProceed", X_remote_client, true];
+				["SET", [_ref, _state, _notif, _text]] remoteExec ["CORP_fnc_taskProceed", X_remote_client, true];
 			};
 		};
 
@@ -89,10 +89,10 @@ switch (_mode) do
 				_text	= _this select 3;
 
 				// on s'assure que la tâche a été créée
-				waitUntil {!isNil {[CRP_var_tasks, _ref] call BIS_fnc_getFromPairs}};
+				waitUntil {!isNil {[CORP_var_tasks, _ref] call BIS_fnc_getFromPairs}};
 
 				// récupération de la tâche
-				_task = [CRP_var_tasks, _ref] call BIS_fnc_getFromPairs;
+				_task = [CORP_var_tasks, _ref] call BIS_fnc_getFromPairs;
 
 				// modifie l'état de la tâche
 				(_task select 0) setTaskState _state;
