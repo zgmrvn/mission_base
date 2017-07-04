@@ -3,6 +3,9 @@
 	http://www.corp-arma.fr
 */
 
+// localités post init
+#include "core\fn_postInit.sqf"
+
 // inclusion de l'initialisation client et serveur
 #include "init\clientServer.sqf"
 

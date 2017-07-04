@@ -5,8 +5,8 @@
 
 class CORP {
 	class Framework {
-		class localities {
-			file	= "core\fn_localities.sqf";
+		class PreInit {
+			file	= "core\fn_preInit.sqf";
 			preInit	= 1;
 		};
 	};
