@@ -10,7 +10,7 @@ if (!isDedicated) then {
 		[] spawn {
 			waitUntil {!(isNull player)};
 
-			X_init = true
+			X_init = true;
 		};
 	} else {
 		X_init = true;
